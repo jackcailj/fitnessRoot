@@ -1,0 +1,10 @@
+!***> '''CLASSPATH'''
+
+
+!path ddFramework/bin
+!path ddreader/bin
+!path db_meta/bin
+!path ddreader/lib/*.jar
+!path ddFramework/lib/*.jar
+
+*!
