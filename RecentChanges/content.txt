@@ -1,6 +1,10 @@
-|FrontPage.InterfaceTestPage.TestScript.LoginSuite||18:23:52 星期二, 六月 16, 2015|
+|FrontPage.InterfaceTestPage.TestingConfig||16:45:25 星期三, 六月 17, 2015|
+|FrontPage.InterfaceTestPage.AndroidCommparam||16:44:28 星期三, 六月 17, 2015|
+|FrontPage.InterfaceTestPage.TestScript.GetUser||15:54:42 星期三, 六月 17, 2015|
+|FrontPage.InterfaceTestPage.TestScript.LoginSuite||15:40:56 星期三, 六月 17, 2015|
+|FrontPage.InterfaceTestPage.TestScript.GetCaptcha||15:37:38 星期三, 六月 17, 2015|
+|FrontPage.InterfaceTestPage.TestScript.DdLogin||15:10:27 星期三, 六月 17, 2015|
 |FrontPage.InterfaceTestPage.ClassPath||18:19:44 星期二, 六月 16, 2015|
-|FrontPage.InterfaceTestPage.TestingConfig||16:43:42 星期二, 六月 16, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface|test|18:46:51 星期一, 六月 15, 2015|
 |FrontPage|guohaiying|01:17:19 星期六, 六月 13, 2015|
 |FrontPage.PageHeader|test|01:07:50 星期六, 六月 13, 2015|
@@ -19,7 +23,6 @@
 |FrontPage.InterfaceTestPage.SuiteSetUp|test|23:43:34 星期五, 六月 12, 2015|
 |FrontPage.InterfaceTestPage.IpadCommparam|test|23:42:52 星期五, 六月 12, 2015|
 |FrontPage.InterfaceTestPage.IphoneCommparam|test|23:42:37 星期五, 六月 12, 2015|
-|FrontPage.InterfaceTestPage.AndroidCommparam|test|23:42:19 星期五, 六月 12, 2015|
 |FrontPage.InterfaceTestPage.OnlineConfig|test|23:41:48 星期五, 六月 12, 2015|
 |FrontPage.InterfaceTestPage.StagingConfig|test|23:40:51 星期五, 六月 12, 2015|
 |FrontPage.TestingConfig|test|23:09:07 星期五, 六月 12, 2015|

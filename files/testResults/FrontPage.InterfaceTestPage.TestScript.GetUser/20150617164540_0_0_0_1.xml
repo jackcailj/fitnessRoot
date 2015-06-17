@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20150114</FitNesseVersion>
+  <rootPath>FrontPage.InterfaceTestPage.TestScript.GetUser</rootPath>
+    <result>
+    <counts>
+      <right>1</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>2</exceptions>
+    </counts>
+    <runTimeInMillis>741</runTimeInMillis>
+    <content>&lt;center&gt;&lt;span class="meta"&gt;Last modified by test on 六月 13, 2015 at 01:07:50 上午&lt;/span&gt;&lt;/center&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;一、接口wiki地址：&lt;/h3&gt;
+接口描述及接口返回code见&lt;a href="http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359571"&gt;http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359571&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;二、接口描述：&lt;/h3&gt;
+1、获取用户基本信息，包括：头像、昵称、性别、金银铃铛数（安卓端和ios端）、等级，绑定手机号、个人简介&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;三、涉及数据库&lt;/h3&gt;
+   需要咨询代鹏验证码存放数据库&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;四、测试用例:&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.dangdang.readerV5.personal_center&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="9"&gt;&lt;span class="pass"&gt;ddt:Get User&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;#用例名称&lt;/td&gt;
+		&lt;td&gt;userName&lt;/td&gt;
+		&lt;td&gt;passWord&lt;/td&gt;
+		&lt;td&gt;loginType&lt;/td&gt;
+		&lt;td&gt;selfType&lt;/td&gt;
+		&lt;td&gt;token&lt;/td&gt;
+		&lt;td&gt;pubId&lt;/td&gt;
+		&lt;td&gt;status code ?&lt;/td&gt;
+		&lt;td&gt;data verfiy?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="exception closed"&gt;
+		&lt;td class="error"&gt;获取自己的信息，正常流程&lt;/td&gt;
+		&lt;td class="error"&gt;"cailj_ddtest@126.com"&lt;/td&gt;
+		&lt;td class="error"&gt;ddtest&lt;/td&gt;
+		&lt;td class="error"&gt;email&lt;/td&gt;
+		&lt;td class="error"&gt;0&lt;/td&gt;
+		&lt;td class="error"&gt;&lt;/td&gt;
+		&lt;td class="error"&gt;&lt;/td&gt;
+		&lt;td class="error"&gt;0&lt;/td&gt;
+		&lt;td class="error"&gt;&lt;span class="pass"&gt;通过&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td colspan="9"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NullPointerException
+	at com.dangdang.autotest.common.FixtureBase.get(FixtureBase.java:177) [file:/E:/work/github/ddreader/bin/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) [rt.jar:1.8.0_45]
+	at fitnesse.slim.fixtureInteraction.DefaultInteraction.methodInvoke(DefaultInteraction.java:16) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.callMethod(MethodExecutor.java:43) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.invokeMethod(MethodExecutor.java:30) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:52) [fitnesse-standalone.jar]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:20) [fitnesse-standalone.jar]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:123) [fitnesse-standalone.jar]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:101) [fitnesse-standalone.jar]
+	at fitnesse.slim.instructions.CallInstruction.executeInternal(CallInstruction.java:35) [fitnesse-standalone.jar]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:30) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:83) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:107) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:94) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:69) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:55) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:41) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.handle(SlimService.java:168) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:176) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.accept(SlimService.java:138) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:66) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.main(SlimService.java:52) [fitnesse-standalone.jar]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td colspan="9"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.NullPointerException
+	at com.dangdang.common.functional.login.LoginManager.getLogin(LoginManager.java:35) [file:/E:/work/github/ddreader/bin/]
+	at com.dangdang.common.functional.login.LoginManager.getLogin(LoginManager.java:51) [file:/E:/work/github/ddreader/bin/]
+	at com.dangdang.reader.functional.param.parse.LoginParamParse.parse(LoginParamParse.java:33) [file:/E:/work/github/ddreader/bin/]
+	at com.dangdang.reader.functional.param.parse.ParseParamUtil.parseLogin(ParseParamUtil.java:40) [file:/E:/work/github/ddreader/bin/]
+	at com.dangdang.readerV5.personal_center.GetUser.parseParam(GetUser.java:17) [file:/E:/work/github/ddreader/bin/]
+	at com.dangdang.ddframework.core.FunctionalBase.doWork(FunctionalBase.java:145) [file:/E:/work/github/ddframework/bin/]
+	at com.dangdang.ddframework.core.InterfaceBase.doWork(InterfaceBase.java:34) [file:/E:/work/github/ddframework/bin/]
+	at com.dangdang.autotest.common.FixtureBase.doWork(FixtureBase.java:121) [file:/E:/work/github/ddreader/bin/]
+	at com.dangdang.ddframework.core.FunctionalBase.doWorkAndVerify(FunctionalBase.java:192) [file:/E:/work/github/ddframework/bin/]
+	at com.dangdang.autotest.common.FixtureBase.execute(FixtureBase.java:188) [file:/E:/work/github/ddreader/bin/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) [rt.jar:1.8.0_45]
+	at fitnesse.slim.fixtureInteraction.DefaultInteraction.methodInvoke(DefaultInteraction.java:16) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.callMethod(MethodExecutor.java:43) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.invokeMethod(MethodExecutor.java:30) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:52) [fitnesse-standalone.jar]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:20) [fitnesse-standalone.jar]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:123) [fitnesse-standalone.jar]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:101) [fitnesse-standalone.jar]
+	at fitnesse.slim.instructions.CallInstruction.executeInternal(CallInstruction.java:35) [fitnesse-standalone.jar]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:30) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:83) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:107) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:94) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:69) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:55) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:41) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.handle(SlimService.java:168) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:176) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.accept(SlimService.java:138) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:66) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.main(SlimService.java:52) [fitnesse-standalone.jar]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>GetUser</relativePageName>
+            <instructions>
+            <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='com.dangdang.readerV5.personal_center'}</instruction>
+        <slimResult>pass(com.dangdang.readerV5.personal_center)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_0</instructionId>
+                    <col>0</col>
+                              <row>1</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.dangdang.readerV5.personal_center</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_0', instruction='make', instanceName='dynamicDecisionTable_1', className='GetUser', args=[]}</instruction>
+        <slimResult>pass(ddt:Get User)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>dynamicDecisionTable_1_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>ddt:Get User</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_4', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[userName, "cailj_ddtest@126.com"]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_4</instructionId>
+                    <col>1</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_5', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[passWord, ddtest]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_5</instructionId>
+                    <col>2</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_6', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[loginType, email]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_6</instructionId>
+                    <col>3</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_7', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[selfType, 0]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_7</instructionId>
+                    <col>4</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_8', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[token, ]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_8</instructionId>
+                    <col>5</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_9', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[pubId, ]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_9</instructionId>
+                    <col>6</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_10', instruction='call', instanceName='dynamicDecisionTable_1', methodName='execute', args=[]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <status>error</status>
+                    <instructionId>dynamicDecisionTable_1_10</instructionId>
+                              <type>SilentReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_11', instruction='call', instanceName='dynamicDecisionTable_1', methodName='get', args=[status code ]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <status>error</status>
+                    <instructionId>dynamicDecisionTable_1_11</instructionId>
+                              <type>ReturnedValueExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_12', instruction='call', instanceName='dynamicDecisionTable_1', methodName='get', args=[data verfiy]}</instruction>
+        <slimResult>pass(通过)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>dynamicDecisionTable_1_12</instructionId>
+                    <col>8</col>
+                              <row>2</row>
+                    <type>ReturnedValueExpectation</type>
+                                        <evaluationMessage>通过</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+          </instructions>
+      </result>
+      <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>741</totalRunTimeInMillis>
+  
+</testResults>
+

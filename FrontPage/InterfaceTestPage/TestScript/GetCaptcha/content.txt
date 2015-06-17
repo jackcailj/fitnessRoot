@@ -1,0 +1,21 @@
+!define TEST_SYSTEM {slim}
+
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359556
+
+!3 二、接口描述：
+1、连续登录失败5次，出现输入验证码
+
+2、验证码为四个随机的汉字
+
+!3 三、涉及数据库
+   需要咨询代鹏验证码存放数据库
+
+!3 四、测试用例:
+|Import|
+|com.dangdang.readerV5.personal_center|
+
+
+| ddt:Get Captcha|
+|#用例名称| data verfiy? |
+| 获取验证码，正常流程 |通过|
