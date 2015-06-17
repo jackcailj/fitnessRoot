@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20150114</FitNesseVersion>
+  <rootPath>FrontPage.InterfaceTestPage.TestScript.LoginSuite</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>1</exceptions>
+    </counts>
+    <runTimeInMillis>3</runTimeInMillis>
+    <content>&lt;center&gt;&lt;span class="meta"&gt;Last modified by test on 六月 13, 2015 at 01:07:50 上午&lt;/span&gt;&lt;/center&gt;
+&lt;br/&gt;&lt;h3&gt;一、接口wiki地址：&lt;/h3&gt;
+接口描述及接口返回code见&lt;a href="http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359523"&gt;http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359523&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;二、接口描述：&lt;/h3&gt;
+1、登录失败5次后才出现验证码输入框&lt;br/&gt;&lt;br/&gt;2、登录失败的验证规则为：按设备号判断&lt;br/&gt;&lt;br/&gt;3、接口支持 当当读书;当读小说;翻片儿;天天;听书客户端&lt;br/&gt;&lt;br/&gt;4、支持两种登录方式：email、phone&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;三、测试用例:&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;com.dangdang.common.functional.login&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="10" class="error"&gt;ddt:Login V2&lt;hr/&gt; &lt;span class="fit_label"&gt;Could not find fixture: DdtLoginV2.&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;#用例名称&lt;/td&gt;
+		&lt;td&gt;userName&lt;/td&gt;
+		&lt;td&gt;passWord&lt;/td&gt;
+		&lt;td&gt;loginClient&lt;/td&gt;
+		&lt;td&gt;code&lt;/td&gt;
+		&lt;td&gt;loginType&lt;/td&gt;
+		&lt;td&gt;pdfkey&lt;/td&gt;
+		&lt;td&gt;key&lt;/td&gt;
+		&lt;td&gt;status code?&lt;/td&gt;
+		&lt;td&gt;data verfiy?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;登录，正常流程&lt;/td&gt;
+		&lt;td&gt;"cailj_ddtest@126.com"&lt;/td&gt;
+		&lt;td&gt;ddtest&lt;/td&gt;
+		&lt;td&gt;0&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;email&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;12312312321312&lt;/td&gt;
+		&lt;td&gt;0&lt;/td&gt;
+		&lt;td&gt;通过&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>LoginSuite</relativePageName>
+          </result>
+      <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>3</totalRunTimeInMillis>
+  
+</testResults>
+

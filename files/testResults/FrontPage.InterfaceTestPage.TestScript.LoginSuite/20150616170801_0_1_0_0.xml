@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20150114</FitNesseVersion>
+  <rootPath>FrontPage.InterfaceTestPage.TestScript.LoginSuite</rootPath>
+    <result>
+    <counts>
+      <right>1</right>
+      <wrong>1</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>747</runTimeInMillis>
+    <content>&lt;center&gt;&lt;span class="meta"&gt;Last modified by test on 六月 13, 2015 at 01:07:50 上午&lt;/span&gt;&lt;/center&gt;
+&lt;br/&gt;&lt;h3&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;&lt;/h3&gt;
+&lt;h3&gt;一、接口wiki地址：&lt;/h3&gt;
+接口描述及接口返回code见&lt;a href="http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359523"&gt;http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359523&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;二、接口描述：&lt;/h3&gt;
+1、登录失败5次后才出现验证码输入框&lt;br/&gt;&lt;br/&gt;2、登录失败的验证规则为：按设备号判断&lt;br/&gt;&lt;br/&gt;3、接口支持 当当读书;当读小说;翻片儿;天天;听书客户端&lt;br/&gt;&lt;br/&gt;4、支持两种登录方式：email、phone&lt;br/&gt;&lt;br/&gt;三、测试用例:&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.dangdang.common.functional.login&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="10"&gt;&lt;span class="pass"&gt;ddt:Login V2&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;#用例名称&lt;/td&gt;
+		&lt;td&gt;action&lt;/td&gt;
+		&lt;td&gt;userName&lt;/td&gt;
+		&lt;td&gt;passWord&lt;/td&gt;
+		&lt;td&gt;loginClient&lt;/td&gt;
+		&lt;td&gt;code&lt;/td&gt;
+		&lt;td&gt;loginType&lt;/td&gt;
+		&lt;td&gt;pdfkey&lt;/td&gt;
+		&lt;td&gt;status code?&lt;/td&gt;
+		&lt;td&gt;result?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;登录，正常流程&lt;/td&gt;
+		&lt;td&gt;ddLogin&lt;/td&gt;
+		&lt;td&gt;&lt;a href="mailto:cailj_ddtest@126.com"&gt;cailj_ddtest@126.com&lt;/a&gt;&lt;/td&gt;
+		&lt;td&gt;ddtest&lt;/td&gt;
+		&lt;td&gt;0&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;email&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;[10002] &lt;span class="fail"&gt;expected [0]&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;成功&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>LoginSuite</relativePageName>
+            <instructions>
+            <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='com.dangdang.common.functional.login'}</instruction>
+        <slimResult>pass(com.dangdang.common.functional.login)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_0</instructionId>
+                    <col>0</col>
+                              <row>1</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.dangdang.common.functional.login</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_0', instruction='make', instanceName='dynamicDecisionTable_1', className='LoginV2', args=[]}</instruction>
+        <slimResult>pass(ddt:Login V2)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>dynamicDecisionTable_1_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>ddt:Login V2</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_4', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[action, ddLogin]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_4</instructionId>
+                    <col>1</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_5', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[userName, &lt;a href="mailto:cailj_ddtest@126.com"&gt;cailj_ddtest@126.com&lt;/a&gt;]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_5</instructionId>
+                    <col>2</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_6', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[passWord, ddtest]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_6</instructionId>
+                    <col>3</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_7', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[loginClient, 0]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_7</instructionId>
+                    <col>4</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_8', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[code, ]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_8</instructionId>
+                    <col>5</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_9', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[loginType, email]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_9</instructionId>
+                    <col>6</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_10', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[pdfkey, ]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_10</instructionId>
+                    <col>7</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_12', instruction='call', instanceName='dynamicDecisionTable_1', methodName='get', args=[status code]}</instruction>
+        <slimResult>fail(a=10002;e=0)</slimResult>
+                <expectation>
+                    <status>fail</status>
+                    <instructionId>dynamicDecisionTable_1_12</instructionId>
+                    <col>8</col>
+                              <row>2</row>
+                    <type>ReturnedValueExpectation</type>
+                    <actual>10002</actual>
+                              <expected>0</expected>
+                            </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_13', instruction='call', instanceName='dynamicDecisionTable_1', methodName='get', args=[result]}</instruction>
+        <slimResult>pass(成功)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>dynamicDecisionTable_1_13</instructionId>
+                    <col>9</col>
+                              <row>2</row>
+                    <type>ReturnedValueExpectation</type>
+                                        <evaluationMessage>成功</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+          </instructions>
+      </result>
+      <finalCounts>
+    <right>0</right>
+    <wrong>1</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>747</totalRunTimeInMillis>
+  
+</testResults>
+

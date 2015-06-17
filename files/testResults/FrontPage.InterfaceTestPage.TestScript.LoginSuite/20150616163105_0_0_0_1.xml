@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20150114</FitNesseVersion>
+  <rootPath>FrontPage.InterfaceTestPage.TestScript.LoginSuite</rootPath>
+    <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>1</exceptions>
+    </counts>
+    <runTimeInMillis>14039</runTimeInMillis>
+    <content>&lt;center&gt;&lt;span class="meta"&gt;Last modified by test on 六月 13, 2015 at 01:07:50 上午&lt;/span&gt;&lt;/center&gt;
+&lt;br/&gt;&lt;h3&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;&lt;/h3&gt;
+&lt;h3&gt;一、接口wiki地址：&lt;/h3&gt;
+接口描述及接口返回code见&lt;a href="http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359523"&gt;http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359523&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;h3&gt;二、接口描述：&lt;/h3&gt;
+1、登录失败5次后才出现验证码输入框&lt;br/&gt;&lt;br/&gt;2、登录失败的验证规则为：按设备号判断 3、接口支持 当当读书;当读小说;翻片儿;天天;听书客户端 4、支持两种登录方式：email、phone&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;com.dangdang.common.functional.login&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h3&gt;三、测试用例:&lt;/h3&gt;
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="8"&gt;&lt;span class="pass"&gt;ddt:Login V2&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;#用例名称&lt;/td&gt;
+		&lt;td&gt;passWord&lt;/td&gt;
+		&lt;td&gt;loginClient&lt;/td&gt;
+		&lt;td&gt;code&lt;/td&gt;
+		&lt;td&gt;loginType&lt;/td&gt;
+		&lt;td&gt;pdfkey&lt;/td&gt;
+		&lt;td&gt;期望？&lt;/td&gt;
+		&lt;td&gt;result？&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="exception closed"&gt;
+		&lt;td class="error"&gt;登录，正常流程&lt;/td&gt;
+		&lt;td class="error"&gt;ddtest&lt;/td&gt;
+		&lt;td class="error"&gt;0&lt;/td&gt;
+		&lt;td class="error"&gt;&lt;/td&gt;
+		&lt;td class="error"&gt;phone&lt;/td&gt;
+		&lt;td class="error"&gt;&lt;/td&gt;
+		&lt;td class="error"&gt;0&lt;/td&gt;
+		&lt;td class="error"&gt;成功&lt;/td&gt;
+	&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td colspan="8"&gt;&lt;pre&gt;__EXCEPTION__:java.lang.RuntimeException: HttpClient,error status code :500
+	at com.dangdang.ddframework.drivers.HttpDriver.doGet(HttpDriver.java:164) [file:/E:/work/github/ddframework/bin/]
+	at com.dangdang.ddframework.drivers.HttpDriver.doGet(HttpDriver.java:114) [file:/E:/work/github/ddframework/bin/]
+	at com.dangdang.ddframework.core.InterfaceBase.doWork(InterfaceBase.java:36) [file:/E:/work/github/ddframework/bin/]
+	at com.dangdang.ddframework.core.FunctionalBase.doWorkAndVerify(FunctionalBase.java:185) [file:/E:/work/github/ddframework/bin/]
+	at com.dangdang.autotest.common.FixtureBase.execute(FixtureBase.java:143) [file:/E:/work/github/ddreader/bin/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) [rt.jar:1.8.0_45]
+	at fitnesse.slim.fixtureInteraction.DefaultInteraction.methodInvoke(DefaultInteraction.java:16) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.callMethod(MethodExecutor.java:43) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.invokeMethod(MethodExecutor.java:30) [fitnesse-standalone.jar]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:52) [fitnesse-standalone.jar]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:20) [fitnesse-standalone.jar]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:123) [fitnesse-standalone.jar]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:101) [fitnesse-standalone.jar]
+	at fitnesse.slim.instructions.CallInstruction.executeInternal(CallInstruction.java:35) [fitnesse-standalone.jar]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:30) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:83) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:107) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.processTheInstructions(SlimServer.java:94) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:69) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:55) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:41) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.handle(SlimService.java:168) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:176) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.accept(SlimService.java:138) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:66) [fitnesse-standalone.jar]
+	at fitnesse.slim.SlimService.main(SlimService.java:52) [fitnesse-standalone.jar]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;</content>
+    <relativePageName>LoginSuite</relativePageName>
+            <instructions>
+            <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='com.dangdang.common.functional.login'}</instruction>
+        <slimResult>pass(com.dangdang.common.functional.login)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>import_0_0</instructionId>
+                    <col>0</col>
+                              <row>1</row>
+                    <type>ImportExpectation</type>
+                                        <evaluationMessage>com.dangdang.common.functional.login</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_0', instruction='make', instanceName='dynamicDecisionTable_1', className='LoginV2', args=[]}</instruction>
+        <slimResult>pass(ddt:Login V2)</slimResult>
+                <expectation>
+                    <status>pass</status>
+                    <instructionId>dynamicDecisionTable_1_0</instructionId>
+                    <col>0</col>
+                              <row>0</row>
+                    <type>ConstructionExpectation</type>
+                                        <evaluationMessage>ddt:Login V2</evaluationMessage>
+                  </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_4', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[passWord, ddtest]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_4</instructionId>
+                    <col>1</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_5', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[loginClient, 0]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_5</instructionId>
+                    <col>2</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_6', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[code, ]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_6</instructionId>
+                    <col>3</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_7', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[loginType, phone]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_7</instructionId>
+                    <col>4</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_8', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[pdfkey, ]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_8</instructionId>
+                    <col>5</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_9', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[期望？, 0]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_9</instructionId>
+                    <col>6</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_10', instruction='call', instanceName='dynamicDecisionTable_1', methodName='set', args=[result？, 成功]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <instructionId>dynamicDecisionTable_1_10</instructionId>
+                    <col>7</col>
+                              <row>2</row>
+                    <type>VoidReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+            <instructionResult>
+        <instruction>{id='dynamicDecisionTable_1_11', instruction='call', instanceName='dynamicDecisionTable_1', methodName='execute', args=[]}</instruction>
+        <slimResult></slimResult>
+                <expectation>
+                    <status>error</status>
+                    <instructionId>dynamicDecisionTable_1_11</instructionId>
+                              <type>SilentReturnExpectation</type>
+                                      </expectation>
+              </instructionResult>
+          </instructions>
+      </result>
+      <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>14039</totalRunTimeInMillis>
+  
+</testResults>
+
