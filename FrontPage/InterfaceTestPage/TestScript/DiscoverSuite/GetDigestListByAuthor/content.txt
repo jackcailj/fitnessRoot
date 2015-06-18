@@ -1,0 +1,52 @@
+!1 '''作者列表页接口'''
+
+!* 测试用例
+接口：action：getDigestListByAuthor （作者列表页））
+接口描述：按作者（例如金庸，郁达夫）获取文集列表http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934681
+相关数据库表：media_digest_author, media_digest
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||参数authorId|输入正确的id值，其他参数值正确|获得文集列表|
+|||参数authorId|输入id值为字母，其他参数值正确|未知错误|
+|||参数authorId|输入authorId值为空，其他参数值正确|参数非法|
+|||参数authorId|不传该参数，其他参数值正确|参数非法|
+|||参数pageSize|输入值为0，其他参数值正确|获得文集列表|
+|||参数pageSize|输入值为1，其他参数值正确|获得文集列表|
+|||参数pageSize|输入值为负数，其他参数值正确|未知错误|
+|||参数pageSize|输入值为空，其他参数值正确|参数非法|
+|||参数pageSize|不传此参数，其他参数值正确|参数非法|
+|||参数createTime|输入值为0，其他参数值正确|获得文集列表|
+|||参数createTime|不传此参数，其他参数值正确|参数非法|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.discovery|
+*!
+!*> 定义scenario 
+| scenario | getDigestListByAuthorTest|action||authorId||pageSize||createTime||EXPECTED||setParameters|
+| setParameters|!{action:@action,authorId:@authorId,pageSize:@pageSize,createTime:@createTime,EXPECTED:@EXPECTED}|
+|show|do request|
+|dataVerify|@EXPECTED|
+|check|get verify result |true|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get digest list by author|
+*!
+!* 测试数据
+|getDigestListByAuthorTest|
+|#参数|action|authorId|pageSize|createTime|EXPECTED|
+|#参数值合法|getDigestListByAuthor|FromDB|15|REMOVE|0|
+|#参数authorId值为字母|getDigestListByAuthor|aabb|15|REMOVE|10000|
+|#参数authorId值为空|getDigestListByAuthor||15|REMOVE|10002|
+|#不传参数authorId|getDigestListByAuthor|REMOVE|15|REMOVE|10002|
+|#参数pageSize值为0|getDigestListByAuthor|FromDB|0|REMOVE|0|
+|#参数pageSize值为1|getDigestListByAuthor|FromDB|1|REMOVE|0|
+|#参数pageSize值为负数|getDigestListByAuthor|FromDB|-1|REMOVE|10000|
+|#不传参数pageSize|getDigestListByAuthor|FromDB|REMOVE|REMOVE|0|
+|#参数createTime值为0|getDigestListByAuthor|FromDB|15|0|0|
+|#参数createTime值为当前时间|getDigestListByAuthor|FromDB|15|currentTime|0|
+!4 备注：
+!4 默认情况下不传createTime参数
+!4 参数值为REMOVE表示不传改参数
+*!
