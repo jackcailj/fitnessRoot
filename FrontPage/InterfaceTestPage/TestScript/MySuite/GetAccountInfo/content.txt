@@ -1,0 +1,30 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359765
+
+----
+!3 二、接口描述：
+获取账户金额，包括安卓和IOS的账户金额
+
+----
+!3 三、涉及数据库
+|Comment                                                            |
+|#数据库   |#涉及表                                                       |
+|account|master_account、attach_account、attach_account_activity_items|
+|digital|media_consumer_deposit                                     |
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:get account info                                                                                         |
+|#用例名称                |userName                |passWord|loginType|token|accountType|status code?|data verify?|
+|获取用户金铃铛，正常流程         |!-cailj_ddtest@126.com-!|ddtest  |email    |     |master     |0           |通过          |
+|获取用户银铃铛，正常流程         |!-cailj_ddtest@126.com-!|ddtest  |email    |     |attach     |0           |通过          |
+|未登录用户获取铃铛            |                        |        |         |     |master     |10002       |通过          |
+|token不正确             |                        |        |         |123  |master     |10003       |通过          |
+|获取用户铃铛 accountType不正确|!-cailj_ddtest@126.com-!|ddtest  |email    |     |test       |10002       |通过          |
+|获取用户铃铛 accountType不传 |!-cailj_ddtest@126.com-!|ddtest  |email    |     |           |10002       |通过          |
+
+!contents -R2 -g -p -f -h

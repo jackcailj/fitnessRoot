@@ -1,0 +1,32 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359966
+
+----
+!3 二、接口描述：
+注册时发送手机验证码
+
+应该限制发送频率或者发送接口进行加密，以免恶意发短信?
+
+发送的验证码为什么需要传给服务器端？应该是服务器端产生的?
+
+code的规则?
+
+----
+!3 三、涉及数据库
+需与代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:get account info                                                                                       |
+|#用例名称         |userName                |passWord|loginType|token|phoneNum   |code|status code?|data verify?|
+|发送验证码,正常流程    |!-cailj_ddtest@126.com-!|ddtest  |email    |     |15110267876|海阔天空|0           |通过          |
+|未登录用户，发送验证码   |                        |        |         |     |15110267876|海阔天空|0           |通过          |
+|token不正确，发送验证码|                        |        |         |123  |15110267876|海阔天空|0           |通过          |
+|发送验证码，手机号不正确  |                        |        |         |     |1511026787 |海阔天空|60034       |通过          |
+|发送验证码，手机号不传   |                        |        |         |     |           |海阔天空|10002       |通过          |
+
+!contents -R2 -g -p -f -h

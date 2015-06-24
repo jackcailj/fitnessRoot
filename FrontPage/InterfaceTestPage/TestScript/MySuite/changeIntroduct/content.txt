@@ -1,0 +1,47 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359719
+
+----
+!3 二、接口描述：
+1、修改当当用户简介
+
+2、修改第三方登陆用户简介
+
+'''3、昵称修改是否同步到所有客户端？'''
+
+4、昵称字数限制，30字以内
+
+----
+!3 三、涉及数据库
+需要和代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:change Introduct                                                                                                                                           |
+|#用例名称               |userName                |passWord|loginType|token|thirdId|loginClient|keyword  |content                         |status code?|data verfiy?|
+|修改当当用户简介,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。-_-     |0           |通过          |
+|修改当读小说用户简介,正常流程     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |1          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改翻片儿用户简介,正常流程      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |2          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改天天用户简介,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |3          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改听书用户简介,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |4          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改qq用户简介,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |6      |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改支付宝用户简介,正常流程      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |7      |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改新浪微博用户简介,正常流程     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |5      |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改微信用户简介,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |200    |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |0           |通过          |
+|修改简介，不传token        |                        |        |         |     |0      |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |10003       |通过          |
+|修改简介，token不正确       |                        |        |         |123  |0      |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |10003       |通过          |
+|修改简介，content不传      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |introduct|                                |10002       |通过          |
+|修改简介，简介内容大于30个字符，应失败|!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。悠然见南山。ab|60023       |通过          |
+|修改简介，简介为空           |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |introduct|                                |0           |通过          |
+|修改简介，thirdId不传      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |       |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |10002       |通过          |
+|修改简介，thirdId不正确     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |222    |0          |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |60023       |通过          |
+|修改简介 ，loginClient不传 |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |           |introduct|结庐在人境，而无车马喧。问君何能尔？心远地自偏。        |10002       |通过          |
+|修改简介 ，loginClient不正确|!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |123        |introduct|测试修改昵称                          |10002       |通过          |
+|修改当当用户简介,keyword不传  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |         |结庐在人境，而无车马喧。问君何能尔？心远地自偏。-_-     |10002       |通过          |
+|修改当当用户简介,keyword不正确 |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |12312    |结庐在人境，而无车马喧。问君何能尔？心远地自偏。-_-     |10002       |通过          |
+
+!contents -R2 -g -p -f -h

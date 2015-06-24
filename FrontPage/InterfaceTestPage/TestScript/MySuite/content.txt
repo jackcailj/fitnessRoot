@@ -1,2 +1,41 @@
-!1 Test suite X
+!3 我的模块
+*1、[[注册接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2]]
+
+*2、[[登录接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin]]
+
+--*3、[[获取验证码][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetCaptcha]]--
+
+*4、[[获取用户信息接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetUser]]
+
+*5、[[获取帖子列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.getPostList]]
+
+*6、[[获取个人笔记列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.getNoteList]]
+
+*7、[[修改昵称接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.changeNickName]]
+
+*8、[[修改简介接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.changeIntroduct]]
+
+*9、[[修改性别接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.ChangeGender]]
+
+*10、[[获取账户金额接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetAccountInfo]]
+
+*11、[[发送手机验证码][.FrontPage.InterfaceTestPage.TestScript.MySuite.SendSmsVcode]]
+
+*12、[[短信验证码验证][.FrontPage.InterfaceTestPage.TestScript.MySuite.CheckSmsVcode]]
+
+*13、[[退出登录接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.LoginOutV2]]
+
+*14、[[激活礼品卡接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.ActivateDdMoneyV2]]
+
+*15、[[激活礼券接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.BindCouponV3]]
+
+*16、[[获取礼品卡列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetDdMoneyList]]
+
+*17、[[获取可用礼券列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetValidCouponV2]]
+
+*18、[[第三方登录v2接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.ThridLoginV2]]
+
+*19、[[上传头像接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.UploadHeadPhoto]]
+
+----
 !contents -R2 -g -p -f -h

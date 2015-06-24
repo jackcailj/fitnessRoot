@@ -1,0 +1,28 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359966
+
+----
+!3 二、接口描述：
+验证手机验证码是否正确
+
+----
+!3 三、涉及数据库
+需与代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:get account info                                                                                           |
+|#用例名称         |userName                |passWord|loginType|token|phoneNum   |smsVcode|status code?|data verify?|
+|验证短信验证码,正常流程  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |15110267876|海阔天空    |0           |通过          |
+|验证短信验证码，验证码不正确|                        |        |         |     |15110267876|123     |10002       |通过          |
+|验证短信验证码，手机已经注册|                        |        |         |     |15110267876|海阔天空    |60046       |通过          |
+|未登录用户，验证短信验证码 |                        |        |         |     |15110267876|海阔天空    |0           |通过          |
+|token不正确，发送验证码|                        |        |         |123  |15110267876|海阔天空    |0           |通过          |
+|验证短信验证码，手机号不正确|                        |        |         |     |1511026787 |海阔天空    |60034       |通过          |
+|验证短信验证码，手机号不传 |                        |        |         |     |           |海阔天空    |10002       |通过          |
+
+!contents -R2 -g -p -f -h
