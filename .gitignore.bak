@@ -6,7 +6,7 @@ RecentChanges/*
 FitNesse/*
 files/testResults/*
 files/testProgress/*
-*.zip
+.zip
 .svn
 .DS_Store
 desktop.ini
