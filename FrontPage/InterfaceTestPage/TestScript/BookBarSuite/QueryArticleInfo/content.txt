@@ -1,0 +1,21 @@
+!1 '''帖子详情接口'''
+
+!* 测试用例
+接口：action=queryArticleInfo
+参数：
+mediaDigestId – 帖子ID（必填）
+接口描述：获取某个帖子的详情页信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359669
+相关数据库表：bookbar -> article   digital-> media_digest
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|获取帖子详情页|
+|||mediaDigestId参数值|mediaDigestId值为被屏蔽的帖子的id，其他参数值正确|帖子被屏蔽|
+|||mediaDigestId参数值|mediaDigestId值为被删除的帖子的id，其他参数值正确|帖子被删除|
+|||mediaDigestId参数值|参数值为字母bb ，其他参数值正确|未知错误|
+|||mediaDigestId参数值|参数值为空，其他参数值正确|参数非法|
+|||mediaDigestId参数值|不传mediaDigestId参数，其他参数值正确|参数非法|
+*!
+
+!4 备注：
+25026	获取帖子详情失败  ？
+         

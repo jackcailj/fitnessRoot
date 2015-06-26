@@ -1,0 +1,21 @@
+!1 '''书吧模块'''
+
+ *[[创建吧、修改吧简介、修改吧背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar]]
+ *[[获取吧默认背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarDefImg]]
+ *[[书吧搜索接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarList]]
+ *[[吧详情页接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarInfo]]
+ *[[加入吧、退出吧、申请吧主接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.BarMember]]
+ *[[吧成员列表接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarMember]]
+ *[[帖子列表接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryArticleList]]
+ *[[帖子详情接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryArticleInfo]]
+ *[[发帖、修改帖子接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.PublishArticle]]
+ *[[删帖接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.DelArticle]]
+ *[[书吧广场信息接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.Square]]
+ *[[查询标签详情接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryTagDetail]]
+ *[[广场更多吧接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.MoreBarList]]
+ *[[我的吧列表接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.MyBarList]]
+ *[[是否吧成员接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.IsBarMember]]
+ 
+
+
+# !contents -R2 -g -p -f -h

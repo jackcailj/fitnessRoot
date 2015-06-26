@@ -1,0 +1,18 @@
+!1 '''清除地理位置接口'''
+
+!* 测试用例
+接口：action=nearbyClearLocation
+参数：
+uToken  - 用户token   
+referType - 类型 （find， bookshelf）
+接口描述：清除用户的地理位置，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359613
+相关数据库表：？？？？
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|获取附近人的信息|
+|||uToken参数值|参数值为空，其他参数值正确|参数非法|
+|||referType参数值|参数值为空，其他参数值正确|参数非法|
+|||referType参数|不传该参数，其他参数值正确|参数非法|
+*!
+
+!4 备注: 

@@ -1,0 +1,40 @@
+!1 '''创建吧、修改吧简介、修改吧背景图片接口'''
+
+!* 测试用例
+接口：action：createBar （创建吧、修改吧简介、修改吧背景图片））
+参数：
+   token – 身份认证token（必填）
+   barId – 吧ID
+   barName – 吧名称
+   barDesc – 吧简介
+   barImgUrl – 背景图片路径
+   actionType – 操作类型(1-创建吧 2-修改吧简介 3-修改吧背景图片)（必填）
+接口描述：创建吧、修改吧简介、修改吧背景图片，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359655
+相关数据库表：bookbar  -> bar (创建吧：在bar表增加一条新纪录； 修改吧简介、背景图片：更新bar表里某条记录的信息)
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||创建吧|输入正确的参数值，正常的建吧流程|建吧成功|
+||已有吧或建新吧|修改吧简介|输入正确的参数值，正常的修改吧简介流程|吧简介修改成功|
+||已有吧或建新吧|修改吧背景图片|输入正确的参数值，正常的修改吧背景流程|图片修改成功|
+|||actionType参数值|输入值为4，其他参数值正确|未知错误|
+|||actionType参数值|输入值为1，其他参数值正确|未知错误|
+|||actionType参数值|输入值为空，其他参数值正确|参数非法|
+|||actionType参数|不传actionType参数，其他参数值正确|参数非法|
+||已有吧或建新吧|barImgUrl参数|图片尺寸不符合，actionType为3，其他参数值正确|修改吧背景图片失败|
+||已有吧或建新吧|barImgUrl参数|图片格式不符合，actionType为3，其他参数值正确|修改吧背景图片失败|
+|||barImgUrl参数值|输入值为空，其他参数值正确|参数非法|
+|||barImgUrl参数|不传barImgUrl参数，其他参数值正确|参数非法|
+||已有吧或建新吧|barDesc参数|输入简介多余50个字，actionType为2，其他参数值正确|吧简介修改失败|
+|||barDesc参数|输入值为空，其他参数值正确|参数非法|
+|||barDesc参数|不传barDesc参数，其他参数值正确|参数非法|
+|||barName参数值|输入重复的吧名称，其他参数值正确|吧创建失败|
+|||barName参数值|输入多余40个字符，其他参数值正确|参数非法|
+|||barName参数|不传barName参数，其他参数值正确|参数非法|
+|||barName参数值|输入值为空，其他参数值正确|参数非法|
+|||token参数值|输入值为空，其他参数值正确|参数非法|
+*!
+
+!4 备注： 是不是吧名称，图片大小，格式，吧简介字符多少没做限制？
+
+/media/api2.go?action=createBar&barName=bb&barDesc=%E5%90%A7%E6%B5%8B%E8%AF%95&barImgUrl=http://img61.ddimg.cn/upload_img/00421/pcsz/npxk960-300.jpg&actionType=1
+&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150623063438652866572764918351292&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=TS-P&channelType=all&token=7e5bc2d560182ecde9bc88b21b95454a

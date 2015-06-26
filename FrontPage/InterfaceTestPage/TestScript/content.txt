@@ -13,6 +13,9 @@
 !*> '''发现''' 
 !see .FrontPage.InterfaceTestPage.TestScript.DiscoverSuite
 *!
+!*> '''书吧''' 
+!see .FrontPage.InterfaceTestPage.TestScript.BookBarSuite
+*!
 !*> '''评论''' 
 !see .FrontPage.InterfaceTestPage.TestScript.ReviewSuite
 *!

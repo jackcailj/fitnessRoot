@@ -1,0 +1,40 @@
+!1 '''赞接口'''
+
+!* 测试用例
+接口：action=praiseComment
+参数：
+Token - 用户token(必填)
+targetId - 评论主体的ID
+commentType – 评论类型 (1.赞,2.踩)
+targetSource – 评论来源
+isAnonymous – 是否匿名 0 不是匿名 1. 是匿名
+
+接口描述：给评论主体点赞，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360089
+相关数据库表：base_comment -> comment， praise_info
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|点赞成功|
+|||对同一主体再次点赞|输入正确的参数值|该用户已经点过赞了40010|
+|||主体已被删除|targetId值为已删除主体的id ，其他参数值正确|该*已被删除|
+|||targetId参数值|参数值为字母bb ，其他参数值正确|未知错误|
+|||targetId参数值|参数值为空，其他参数值正确|参数非法|
+|||targetId参数值|不传targetId参数，其他参数值正确|参数非法|
+|||commentType参数值|参数值为2，其他参数值正确|踩成功|
+|||commentType参数值|参数值为0，其他参数值正确|参数非法|
+|||commentType参数值|参数值为负数，其他参数值正确|参数非法|
+|||commentType参数值|参数值为空，其他参数值正确|参数非法|
+|||commentType参数值|不传commentType参数，其他参数值正确|参数非法|
+|||targetSource参数值|参数值为2000，其他参数值正确|点赞成功|
+|||targetSource参数值|参数值为3000，其他参数值正确|点赞成功|
+|||targetSource参数值|参数值为4000，其他参数值正确|点赞成功|
+|||targetSource参数值|参数值为空，其他参数值正确|参数非法|
+|||targetSource参数|不传参数targetSource，其他参数值正确|参数非法|
+|||token参数|token值为空，其他参数值正确|参数非法|
+|||isAnonymous参数|参数值为1，其他参数值正确|点赞成功|
+|||isAnonymous参数|参数值为空，其他参数值正确|参数非法|
+|||isAnonymous参数|不传该参数，其他参数值正确|参数非法|
+*!
+
+!4 备注: 
+
+         

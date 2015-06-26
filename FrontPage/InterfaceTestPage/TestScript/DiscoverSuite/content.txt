@@ -4,9 +4,9 @@
  *[[标签列表页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestListBySign]]
  *[[心情列表页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestListByMood]]
  *[[作者列表页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestListByAuthor]]
- *[[精品首页][]]
- *[[精品详情页][]]
- *[[精品正文内容ForH5][]]
+# *[[精品首页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestHomePage]]
+ *[[精品详情页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestDetail]]
+ *[[精品正文内容ForH5][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestContentForH5]]
  *[[更新分享成功次数][]]
  *[[精品阅读收藏，包括（收藏，取消，收藏列表)][]]
  *[[新建文集，并加入文章到文集][]]
@@ -19,20 +19,20 @@
  *[[赞评论内容][]]
  *[[精品文章评论列表页][]]
  *[[添加精品文章到已有文集][]]
- *[[精品首页-V2][]]
+ *[[精品首页-V2][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestHomePageList]]
  *[[翻片儿意见反馈][]]
  *[[同一用户文集名重复校验][]]
  *[[一篇儿][]]
 *!
 !* '''其他'''
- *[[获取发现详情][]]
- *[[获取发现列表][]]
- *[[点赞接口][]]
- *[[发现频道首页][]]
- *[[附近的人列表][]]
- *[[清除地理位置][]]
- *[[上传书架][]]
- *[[下载书架][]]
+# *[[获取发现详情][]]
+# *[[获取发现列表][]]
+ *[[点赞接口][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.UpdateDigestTopCnt]]
+ *[[发现频道首页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDiscoveryHomePageInfo]]
+ *[[附近的人列表][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.NearbySearch]]
+ *[[清除地理位置][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.NearbyClearLocation]]
+# *[[上传书架][]]
+# *[[下载书架][]]
 *!
 
-!contents -R2 -g -p -f -h
+# !contents -R2 -g -p -f -h

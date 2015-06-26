@@ -1,0 +1,25 @@
+!1 '''吧成员列表接口'''
+
+!* 测试用例
+接口：action=queryBarMember
+参数：
+  barId – 吧ID
+  pageNo – 页码（必填）
+接口描述：获取该吧某页的成员列表，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359665
+相关数据库表：bookbar -> bar, bar_member， emst -> user_device(查找用户的nick_name)
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|获取某页吧成员列表|
+|||barId参数|不传barId参数，其他参数值正确|参数非法|
+|||barId参数值|输入barId值为空，其他参数值正确|参数非法|
+|||barId参数值|barId值为字母bb ，其他参数值正确|未知错误|
+|||pageNo参数|pageNo参数值为空，其他参数值正确|参数非法|
+|||pageNo参数|不传pageNo参数，其他参数值正确|参数非法|
+|||pageNo参数|pageNo参数值为负数，其他参数值正确|参数非法|
+|||pageNo参数|pageNo参数值为字母，其他参数值正确|参数非法|
+*!
+
+!4 备注：
+怎样获取吧成员列表失败？
+  /media/api2.go?action=queryBarMember&barId=8&pageNo=0 
+         

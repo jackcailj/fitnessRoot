@@ -1,0 +1,39 @@
+!1 '''精品首页接口'''
+
+!* 测试用例
+接口：action：getDigestHomePageList
+dayOrNight - 白天:day;黑夜:night
+type - 1 翻篇儿   2 抢先读
+act - 下拉:new;上拉:old
+sortPage - 每一页第一条或最后一条精品sortPage取决于act，上拉时不能为空
+pageSize - 每一页大小
+接口描述：获取精品首页信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4358320
+相关数据库表：media_digest
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值（type=1）|翻篇儿精品首页列表|
+|||正常流程|输入正确的参数值（type=2）|抢先读精品首页列表|
+|||参数dayOrNight|参数值为night，其他参数值正确|精品首页列表|
+|||参数dayOrNight|参数值为任意字符ehd，其他参数值正确|未知错误|
+|||参数dayOrNight|参数值为空，其他参数值正确|参数非法|
+|||参数dayOrNight|不传该参数，其他参数值正确|参数非法|
+|||参数type|参数值为3，其他参数值正确|未知错误|
+|||参数type|参数值为空，其他参数值正确|参数非法|
+|||参数type|不传该参数，其他参数值正确|参数非法|
+|||参数act|参数值为old，其他参数值正确|上拉获取精品列表|
+|||参数act|参数值为空，其他参数值正确|参数非法|
+|||参数act|不传该参数，其他参数值正确|参数非法|
+|||参数sortPage|参数值为0，act=new，其他参数值正确|精品首页列表|
+|||参数sortPage|参数值为0，act=old，其他参数值正确|精品首页列表大小为0|
+|||参数sortPage|参数值为当前系统时间，act=old，其他参数值正确|精品首页列表|
+|||参数sortPage|参数值为当前系统时间，act=new，其他参数值正确|精品首页列表大小为0|
+|||参数sortPage|参数值空，其他参数值正确|参数非法|
+|||参数sortPage|不传该参数，其他参数值正确|参数非法|
+|||参数pageSize|参数值为-1，其他参数值正确|参数非法|
+|||参数pageSize|参数值为0，其他参数值正确|精品首页列表大小为0|
+|||参数pageSize|输入值为空，其他参数值正确|精品首页列表大小默认为10？|
+|||参数pageSize|不传该参数，其他参数值正确|精品首页列表大小默认为10？|
+*!
+
+!4 备注：
+GET /media/api2.go?pageSize=10&action=getDigestHomePageList&dayOrNight=day&sortPage=2015061811081757223&type=1&act=old&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150623063438652866572764918351292&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=TS-P&channelType=all&token= HTTP/1.1

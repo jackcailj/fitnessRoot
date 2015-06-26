@@ -1,2 +1,10 @@
-!1 Test suite X
-!contents -R2 -g -p -f -h
+!1 '''书吧模块'''
+
+ *[[查看更多回复接口][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetCommentReplyList]]
+ *[[根据目标主体获取评论统计信息][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetTargetCommentCount]]
+ *[[获取评论列表信息][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetCommentList]]
+ *[[删除评论接口][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.DelComment]]
+ *[[新增评论接口][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.AddComment]]
+ *[[赞接口][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.PraiseComment]]
+ 
+# !contents -R2 -g -p -f -h

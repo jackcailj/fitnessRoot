@@ -1,0 +1,59 @@
+!1 '''新增评论接口'''
+
+!* 测试用例
+接口：action=addComment
+参数：
+ token – 用户token(必填）
+ targetId – （必填）
+ content – 评论内容 (必填)
+ replyId 回复对象Id 如果是评论传入0
+ commentParentId – 一级评论ID 如果是一级评论 传入0
+ targetSource – 评论来源 1000:书吧 2000：翻篇 3000：抢先读 4000：频道
+ deviceType – 设备类型
+ isAnonymous --是否匿名 0 不是匿名 1. 是匿名
+接口描述：新增评论，添加回复，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359870
+相关数据库表：base_comment -> comment， comment_target_count
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|reply值为0，输入正确的参数值|新增评论成功|
+|||正常流程|reply值为回复对象Id，输入正确的参数值|新增回复成功|
+||评论主体已被删除|targetId值为已被删除的主体的id ，其他参数值正确|该*已删除40011|
+|||targetId参数值|参数值为字母bb ，其他参数值正确|评论主体ID错误 40002|
+|||targetId参数值|参数值为空，其他参数值正确|参数非法|
+|||targetId参数值|不传targetId参数，其他参数值正确|参数非法|
+|||content参数值|参数值为特殊字符*&%$*(，其他参数值正确|新增评论成功|
+|||content参数值|参数值为中文，其他参数值正确|新增评论成功|
+|||content参数值|参数值为空，其他参数值正确|参数非法|
+|||content参数值|不传content参数，其他参数值正确|参数非法|
+|||replyId参数|参数值为负数，其他参数值正确|参数非法|
+|||replyId参数|参数值为字母，其他参数值正确|参数非法|
+|||replyId参数|参数值为空，其他参数值正确|参数非法|
+|||replyId参数|不传该参数，其他参数值正确|参数非法|
+|||targetSource参数值|参数值为2000，其他参数值正确|新增评论成功|
+|||targetSource参数值|参数值为3000，其他参数值正确|新增评论成功|
+|||targetSource参数值|参数值为4000，其他参数值正确|新增评论成功|
+|||targetSource参数值|参数值为5，其他参数值正确|评论来源错误40004|
+|||targetSource参数值|参数值为空，其他参数值正确|参数非法|
+|||targetSource参数|不传参数targetSource，其他参数值正确|参数非法|
+|||deviceType参数值|参数值为iphone，其他参数值正确|新增评论成功|
+|||deviceType参数值|参数值为ipad，其他参数值正确|新增评论成功|
+|||deviceType参数值|参数值为123，其他参数值正确|设备类型错误40005|
+|||deviceType参数值|参数值为空，其他参数值正确|参数非法|
+|||deviceType参数值|不传参数deviceType，其他参数值正确|参数非法|
+|||commentId参数|不传参数commentId，其他参数值正确|参数非法|
+|||commentId参数|参数值为空，其他参数值正确|参数非法|
+|||commentId参数|参数值为负数，其他参数值正确|参数非法|
+|||commentParentId 参数|参数值为负数，其他参数值正确|参数非法|
+|||commentParentId 参数|参数值为字母，其他参数值正确|参数非法|
+|||commentParentId 参数|参数值为空，其他参数值正确|参数非法|
+|||commentParentId 参数|不传该参数，其他参数值正确|参数非法|
+|||token参数|token值为空，其他参数值正确|参数非法|
+|||isAnonymous参数|参数值为1，其他参数值正确|新增评论成功|
+|||isAnonymous参数|参数值为空，其他参数值正确|参数非法？|
+|||isAnonymous参数|不传该参数，其他参数值正确|参数非法？|
+*!
+
+!4 备注:  
+这个接口可以添加一级评论，也可以添加回复
+
+         

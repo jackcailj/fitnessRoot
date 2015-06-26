@@ -1,0 +1,26 @@
+!1 '''获取评论统计信息接口'''
+
+!* 测试用例
+接口：action=getTargetCommentCount
+参数：
+ token  - 用户token(必填)
+ targetId  - 评论主体的ID
+ targetSource - 评论来源
+接口描述：根据目标主体获取评论统计信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359870
+相关数据库表：base_comment -> comment， comment_target_count
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+||添加评论/回复|正常流程|输入正确的参数值|获取评论统计信息|
+||添加评论/回复|targetId参数值|参数值为字母bb ，其他参数值正确|未知错误|
+||添加评论/回复|targetId参数值|参数值为空，其他参数值正确|参数非法|
+||添加评论/回复|targetId参数值|不传targetId参数，其他参数值正确|参数非法|
+||添加评论/回复|targetSource参数值|参数值为2000，其他参数值正确|获取评论统计信息|
+||添加评论/回复|targetSource参数值|参数值为3000，其他参数值正确|获取评论统计信息|
+||添加评论/回复|targetSource参数值|参数值为4000，其他参数值正确|获取评论统计信息|
+||添加评论/回复|targetSource参数值|参数值为空，其他参数值正确|参数非法|
+||添加评论/回复|targetSource参数|不传参数targetSource，其他参数值正确|参数非法|
+||添加评论/回复|token参数值|token值为空，其他参数值正确|参数非法|
+*!
+
+!4 备注:  评论统计信息中评论数=一级评论数+回复数  ？？
+         

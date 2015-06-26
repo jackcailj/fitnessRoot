@@ -1,0 +1,46 @@
+!1 '''发帖，修改帖子接口'''
+
+!* 测试用例
+接口：action=publishArticle
+参数：
+token – 身份认证token（必填）
+barId吧ID – （必填）
+mediaDigestId – 文章ID（修改帖子时必填）
+title – 主题（必填）
+content – 内容（必填）
+imgUrls – 图片url（多个url间用逗号分隔）
+actionType – 操作类型（1-发帖；2-修改帖子；）（必填）
+接口描述：在吧内发帖，修改帖子，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359671
+相关数据库表：bookbar -> article   digital-> media_digest
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||发帖正常流程|输入正确的参数值|发帖成功|
+|||修改帖子正常流程|输入正确的参数值|帖子修改成功|
+|||mediaDigestId参数值|mediaDigestId值为被屏蔽的帖子的id，其他参数值正确|帖子被屏蔽，不能被修改|
+|||mediaDigestId参数值|mediaDigestId值为被删除的帖子的id，其他参数值正确|帖子被删除，不能修改|
+|||mediaDigestId参数值|参数值为字母bb ，其他参数值正确|未知错误|
+|||mediaDigestId参数值|参数值为空，其他参数值正确|参数非法|
+|||mediaDigestId参数值|不传mediaDigestId参数，其他参数值正确|参数非法|
+|||barId参数值|barId值为字母aa，其他参数值正确|未知错误|
+|||barId参数值|输入值为空，其他参数值正确|参数非法|
+|||barId参数|不传barId参数，其他参数值正确|参数非法|
+|||title参数值|输入多余20个字时，其他参数值正确|未知错误|
+|||title参数值|输入值为空，其他参数值正确|参数非法|
+|||title参数|不传title参数，其他参数值正确|参数非法|
+|||content参数值|输入值为空，其他参数值正确|参数非法|
+|||content参数|不传content参数，其他参数值正确|参数非法|
+|||imgUrls参数值|输入非url格式的字符，其他参数值正确|未知错误|
+|||imgUrls参数值|输入值为空，其他参数值正确|参数非法|
+|||imgUrls参数|不传imgUrls参数，其他参数值正确|参数非法|
+|||actionType参数值|输入值为字母，其他参数值正确|未知错误|
+|||actionType参数值|输入值为空，其他参数值正确|参数非法|
+|||actionType参数|不传imgUrls参数，其他参数值正确|参数非法|
+|||actionType参数|actionType值为3，其他参数值正确|参数非法or未知错误|
+|||token参数|token值为空，其他参数值正确|参数非法|
+*!
+
+!4 备注：
+25020	发帖失败   ？
+25021	修改帖子失败 ？
+         
+POST /media/api2.go?action=publishArticle&barId=6&title=%E6%88%90%E9%95%BF%E5%AE%9A%E5%BE%8B&content=%E6%88%90%E9%95%BF%E5%B0%B1%E6%98%AF%E5%B0%86%E5%93%AD%E5%A3%B0%E8%B0%83%E6%88%90%E9%9D%99%E9%9F%B3%E7%9A%84%E8%BF%87%E7%A8%8B&actionType=1

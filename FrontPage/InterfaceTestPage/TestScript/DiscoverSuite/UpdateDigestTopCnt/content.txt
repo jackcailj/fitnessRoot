@@ -1,0 +1,19 @@
+!1 '''点赞接口'''
+
+!* 测试用例
+接口：action=updateDigestTopCnt
+参数：
+digestId - 精品id
+接口描述：给翻篇儿文章点赞，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359530
+相关数据库表：digital -> media_digest  top_cnt字段
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|点赞成功|
+|||再次点赞|输入正确的参数值|已经赞过了|
+|||digestId参数值|参数值为字母bb ，其他参数值正确|未知错误|
+|||digestId参数值|参数值为空，其他参数值正确|参数非法|
+|||digestId参数值|不传digestId参数，其他参数值正确|参数非法|
+*!
+
+!4 备注:     
+GET /media/api2.go?action=updateDigestTopCnt&digestId=910&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150623063438652866572764918351292&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=TS-P&channelType=all&token=

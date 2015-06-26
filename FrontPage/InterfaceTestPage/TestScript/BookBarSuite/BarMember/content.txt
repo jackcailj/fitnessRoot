@@ -1,0 +1,39 @@
+!1 '''加入吧、退出吧、申请吧主接口'''
+
+!* 测试用例
+接口：action=barMember 
+参数：
+  token – 身份认证token（必填）
+  barId – 吧ID（必填）
+  actionType – 操作类型（1-加入吧 2-退出吧 3-申请吧主）（必填）
+  applyReason – 申请理由（申请吧主时必填）
+接口描述：未加入吧的用户申请加入吧，已加入吧的用户退出吧，申请吧主并填写申请理由，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359663
+相关数据库表：bookbar -> bar, bar_member
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||加入吧正常流程|输入正确的参数值（其中actionType=1）|加入吧成功|
+|||退出吧正常流程|输入正确的参数值（其中actionType=2）|退出吧成功|
+|||申请吧主正常流程|输入正确的参数值（其中actionType=3）|申请吧主|
+|||actionType 参数值|输入actionType参数值为4，其他参数值正确|未知错误|
+|||actionType 参数值|输入值为空，其他参数值正确|参数非法|
+|||actionType 参数|不传actionType参数，其他参数值正确|参数非法|
+|||barId参数|不传barId参数，其他参数值正确|参数非法|
+|||barId参数值|输入barId值为空，其他参数值正确|参数非法|
+|||barId参数值|barId值为字母bb ，其他参数值正确|未知错误|
+|||token参数|token参数值为空 ，其他参数值正确|参数非法|
+|||applyReason 参数|applyReason参数值为空，其他参数值正确|参数非法|
+|||applyReason 参数|不传applyReason参数，其他参数值正确|参数非法|
+|||重复加入同一吧|用户已经加入某吧，再次申请加入该吧，参数值正确|加入失败吧|
+|||重复退出同一吧|用户已经退出某吧，再次申请退出该吧，其他参数值正确|退出吧失败|
+|||重复申请吧主|用户已经是该吧吧主，再次申请吧主，其他参数值正确|申请吧主失败|
+
+
+
+*!
+
+!4 备注：
+   加入吧，bar表member_num数量加1，bar_member表中member_status为1
+   退出吧，bar表member_num数量减1, bar_member表中member_status为1
+   申请吧主,bar_member表中member_status为2
+
+         
