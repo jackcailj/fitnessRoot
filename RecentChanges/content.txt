@@ -1,14 +1,15 @@
+|FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||16:23:11 星期五, 六月 26, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2||16:16:26 星期五, 六月 26, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.GetAccountInfo||15:31:30 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.ThridLoginV2||13:27:26 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.UploadHeadPhoto||16:30:19 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite||16:26:34 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||15:19:21 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetUser||15:17:46 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.getPostList||15:17:27 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.getNoteList||15:16:56 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.changeNickName||15:15:54 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.changeIntroduct||15:14:58 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.ChangeGender||15:14:03 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetAccountInfo||15:13:00 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.SendSmsVcode||15:12:42 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.CheckSmsVcode||15:12:30 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.LoginOutV2||15:12:18 星期三, 六月 24, 2015|
@@ -16,7 +17,6 @@
 |FrontPage.InterfaceTestPage.TestScript.MySuite.BindCouponV3||15:06:29 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetDdMoneyList||15:05:41 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetValidCouponV2||15:03:19 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2||11:00:55 星期二, 六月 23, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetCaptcha||15:18:17 星期四, 六月 18, 2015|
 |FrontPage.InterfaceTestPage.TestScript.LoginSuite||14:10:17 星期四, 六月 18, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.ddLogin||14:02:02 星期四, 六月 18, 2015|

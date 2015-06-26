@@ -27,10 +27,12 @@
 |登录，登录方式不正确           |!-cailj_ddtest@126.com-!|ddtest  |0          |    |test     |      |12312312321312|60005       |通过          |
 |登录，用户名为空             |                        |ddtest  |0          |    |email    |      |12312312321312|10002       |通过          |
 |登录，密码为空              |!-cailj_ddtest@126.com-!|        |0          |    |email    |      |12312312321312|10002       |通过          |
-|登录，loginType为空       |!-cailj_ddtest@126.com-!|ddtest  |0          |    |         |      |12312312321312|10002       |通过          |
+|登录，loginType为空       |!-cailj_ddtest@126.com-!|ddtest  |0          |    |         |      |12312312321312|0           |通过          |
+|登录，loginType不传       |!-cailj_ddtest@126.com-!|ddtest  |0          |    |#NotPass#|      |12312312321312|0           |通过          |
 |登录，key为空             |!-cailj_ddtest@126.com-!|ddtest  |0          |    |email    |      |              |10002       |通过          |
+|登录，key不传             |!-cailj_ddtest@126.com-!|ddtest  |0          |    |email    |      |#NotPass#     |10002       |通过          |
 |登录，密码不正确             |!-cailj_ddtest@126.com-!|ddtest1 |0          |    |email    |      |12312312321312|60004       |通过          |
-|登录，用户名不正确            |!-cailj_test@126.com-!  |ddtest  |0          |    |email    |      |12312312321312|60003       |通过          |
+|登录，用户名不正确            |!-cailj_te@126.com-!    |ddtest  |0          |    |email    |      |12312312321312|60003       |通过          |
 
 登录失败5次，需要输入验证码
 
