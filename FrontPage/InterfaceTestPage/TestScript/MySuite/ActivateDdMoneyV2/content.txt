@@ -1,0 +1,35 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359811
+
+----
+!3 二、接口描述：
+激活礼品卡
+
+礼品卡类型？
+
+哪些礼品卡可以激活？哪些类型不可以？
+
+----
+!3 三、涉及数据库
+需与代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:activate ddMoney V2                                                                                                 |
+|#用例名称            |userName                |passWord|loginType|token    |ddMoneyName|ddMoneyPwd|status code?|data verify?|
+|激活礼品卡，正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |0           |通过          |
+|激活礼品卡，token不传    |                        |        |         |#NotPass#|           |          |10003       |通过          |
+|激活礼品卡，token不正确   |                        |        |         |123      |           |          |10003       |通过          |
+|激活礼品卡，卡号不正确      |!-cailj_ddtest@126.com-!|ddtest  |email    |         |231232111  |123       |26001       |通过          |
+|激活礼品卡，卡号不传       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |#NotPass#  |213       |10002       |通过          |
+|激活礼品卡，密码不正确      |!-cailj_ddtest@126.com-!|ddtest  |email    |         |123213     |213       |26001       |通过          |
+|激活礼品卡，密码不传       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |123213     |#NotPass# |10002       |通过          |
+|激活礼品卡，非当当读书礼品卡激活 |!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |26001       |通过          |
+|激活礼品卡，失效的礼品卡激活   |!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |26001       |通过          |
+|激活礼品卡，激活过的礼品卡重新激活|!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |26001       |通过          |
+
+!contents -R2 -g -p -f -h

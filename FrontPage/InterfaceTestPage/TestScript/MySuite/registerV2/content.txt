@@ -1,0 +1,33 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359963
+
+----
+!3 二、接口描述：
+注册接口，目前只支持手机号注册
+
+密码为6-20位字母或数字
+
+目前验证码验证和注册接口是分开的，是否应该设置成一个接口？
+
+----
+!3 三、涉及数据库
+user_device
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt: register V2                                                               |
+|#用例名称        |userName         |passWord             |status code?|data verify?|
+|注册，正常流程      |#UnRegisterPhone#|ddtest1              |0           |通过          |
+|注册，密码小于6位    |13012121212      |123                  |60049       |通过          |
+|注册，密码大于20位   |13012121212      |123123123123123aaaaab|60049       |通过          |
+|注册，密码不设置     |13012121212      |                     |10002       |通过          |
+|注册，密码包括特殊字符  |13012121212      |abc*42^^&            |60050       |通过          |
+|注册，手机号格式不正确  |151102678        |ddtest               |60042       |通过          |
+|注册，userName不传|#NotPass#        |ddtest               |10002       |通过          |
+|注册，手机号已经注册   |15110267876      |ddtest               |60046       |通过          |
+
+!contents -R2 -g -p -f -h

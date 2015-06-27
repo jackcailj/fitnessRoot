@@ -1,0 +1,22 @@
+!define TEST_SYSTEM {slim}
+!4 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359699
+
+----
+!4 二、接口描述：
+1、支持第三方包括：QQ、支付宝、新浪微博、微信
+
+2、接口支持 当当读书;当读小说;翻片儿;天天听书客户端
+
+----
+!4 三、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:thrid login v2                                                                                                                                                                                                                            |
+|#用例名称             |loginClient|cust_third_id|order_source|third_id|key      |nickName   |custImg                                                                                                  |isUseCommonAppKey|status code?|data verfiy?|
+|登录，qq用户登录，正常流程    |0          |123456       |30000       |6       |123231231|测试昵称       |!-https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1923878453,1889088207&amp;amp;amp;amp;amp;amp;amp;fm=58-!|0                |0           |通过          |
+|登录，支付宝用户登录，正常流程   |0          |123456       |30000       |7       |131231231|测试昵称       |!-https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1923878453,1889088207&amp;amp;amp;amp;amp;amp;amp;fm=58-!|0                |0           |通过          |
+|登录，新浪微博用户登录，正常流程  |1          |123458       |30000       |5       |123231231|测试昵称       |!-https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1923878453,1889088207&amp;amp;amp;amp;amp;amp;amp;fm=58-!|0                |0           |通过          |
+|登录，微信用户登录，正常流程    |2          |123459       |30000       |200     |123231231|测试昵称       |!-https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1923878453,1889088207&amp;amp;amp;amp;amp;amp;amp;fm=58-!|1                |0           |通过          |
+|登录，微信用户登录，昵称中有特殊字符|0          |123457       |30000       |6       |123231231|-_-×我是小丑*@#|!-https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1923878453,1889088207&amp;amp;amp;amp;fm=58-!            |0                |0           |通过          |
