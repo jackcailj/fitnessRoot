@@ -16,7 +16,7 @@
 |columnCase10||接口能正确返回数据|【当读后台】设置排序值后，调用接口|按排序值由大到小返回|test|
 |columnCase11||接口能正确返回数据|【用户后台】创建频道，不添加书单，调用接口|书单为空的频道不返回|test|
 |columnCase12||接口能正确返回数据|【用户后台】修改某个频道的书单为空后，调用接口|书单为空的频道不返回|test|
-|columnCase13||参数columnType|columnType值为空|返回10002|test|
+|columnCase13||参数columnType|columnType值为空|返回10002，参数columnType不存在|test|
 |columnCase14||参数columnType|columnType值为无效值|返回10002|test|
 |columnCase15||参数start|start值为空|返回10002|test|
 |columnCase16||参数start|start值为无效值（*,字母，中文）|返回10002|test|
