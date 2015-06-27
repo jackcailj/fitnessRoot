@@ -2,6 +2,7 @@
 接口：action=channel
 接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
 相关表：channel
+ * shelf_status 0:下线，1：上线
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |channelCase01|频道下有文章|获取企业频道详情|调用channel接口|返回的booklistId,channelId,description,icon,ownder,----subNumber,title与数据库数据一致,hasArtical=1|test,staging,online|
