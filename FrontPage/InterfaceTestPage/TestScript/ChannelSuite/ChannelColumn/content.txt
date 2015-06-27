@@ -1,7 +1,14 @@
 !* 测试用例
 接口：action=column
 接口描述：通过栏目类型标识(column_code)获取该栏目下数据，参数isFull=1，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933440
-相关表：media_column,media_column_content
+相关表：
+ * media_column,
+ * media_column_content
+  * order_value 排序
+ * channel
+  * channel_id 与表media_column_content中的sale_id对应
+  * shelf_status  上下架状态(0:下架1:上架)  下线的频道接口不返回
+  * sub_number 订阅数
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |columnCase01||接口能正确返回数据|调用接口|返回的频道标题、描述、icon、订阅数与数据库数据一致|test，staging，online|
