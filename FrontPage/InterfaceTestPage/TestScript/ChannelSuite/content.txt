@@ -1,2 +1,22 @@
-!1 Test suite X
-!contents -R2 -g -p -f -h
+!1 '''频道'''
+!* '''初始化频道'''
+ *[[只适用测试环境][]]
+*!
+!* '''频道'''
+ *[[频道列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
+ *[[频道详情接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails]]
+ *[[频道订阅接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub]]
+*!
+!* '''书单'''
+ *[[书单基本信息接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookList]]
+ *[[书单书列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookListDetail]]
+*!
+!* '''文章'''
+ *[[文章列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelArticle]]
+ *[[文章详情页接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getDigestDetail]]
+*!
+
+
+
+
+!contents

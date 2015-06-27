@@ -1,0 +1,44 @@
+!* 测试用例
+接口：action=channelArticle
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359570
+ * json返回结果中：
+  * articlePackageListNum 当前返回的文集数量
+  * total  频道总的文集数量
+相关表：
+ * 表channel_articles
+  * is_publish 文集草稿or发布， 0：草稿 1：发布
+  * status 文集审核状态，0：未审核 1：审核 2：审核不通过
+  * one_orlosts 单图文：0 多图文：1
+
+ * 表channel_articles_digest
+  * digest_id 关联文章主键 
+  * articles_id 关联文集主键 
+  * index_num  文章在文集中的顺序0,1,2 
+  * is_publish  文章草稿or发布  0：草稿 1：发布
+  * status  文章审核状态，0：未审核 1：审核 2：审核不通过
+
+ * 表media_digest
+  * type  类型 1:翻篇儿; 2:抢先读; 3:频道; 4:贴子;
+  * title原始标题
+  * cart_title App展示标题  （同title）
+  * card_remark 卡片摘要
+  * pic1_path 图片地址
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|channelArticleCase01||获取文章列表|调用接口|验证返回的关键字段值是否与数据库一致|test,staging,online|
+|channelArticleCase02||文集排序|调用接口|按文件的创建时间倒序排序|test,staging,online|
+|channelArticleCase03||未发布的文集不返回|调用接口|未发布的文集不返回|test|
+|channelArticleCase04||未审核通过的文集不返回|调用接口|未审核通过的文集不返回|test|
+|channelArticleCase05||获取文章列表|【用户后台】修改文集的标题、封面、摘要后，调用接口|返回的标题、封面、摘要与修改值一致|test|
+|channelArticleCase06||文集列表数量|【用户后台】增加或删除文集，使得文集总数发生变化，----调用接口|返回的文集数量正确----（不包括审核不通过的）|test|
+|channelArticleCase07||频道下无文集|调用接口||test|
+|channelArticleCase08||返回参数articlePackageListNum|调用接口|articlePackageListNum值返回正确|test|
+|channelArticleCase09||参数clId|cId值为空||test|
+|channelArticleCase10||参数cId|chId值为无效值||test|
+|channelArticleCase11||参数time|time为空||test|
+|channelArticleCase12||参数time|time为无效值||test|
+|channelArticleCase13||参数channelType|channelType为空||test|
+|channelArticleCase14||参数channelType|channelType为无效值||test|
+|channelArticleCase15||参数token|token为空|返回正常|test|
+|channelArticleCase16||参数token|token为无效值||test|
+*!
