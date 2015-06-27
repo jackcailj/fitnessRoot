@@ -1,0 +1,21 @@
+!* 测试用例
+接口：action=getDigestDetail
+接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934792
+相关表： 
+ * 表media_digest
+  * type  类型 1:翻篇儿; 2:抢先读; 3:频道; 4:贴子;
+  * title原始标题
+  * cart_title App展示标题  （同title）
+  * card_remark 卡片摘要
+  * pic1_path 图片地址
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|getDigestDetailCase01||获取文章详情|调用接口|返回的关键字段与数据库数据一致|test,staging,online|
+|getDigestDetailCase02||获取文章详情|【用户后台】修改文章标题、摘要、图片地址，调用接口|返回的标题、摘要、图片为修改值|test|
+|getDigestDetailCase03||获取文章详情|【用户后台】修改文章正文，调用接口|返回修改后的正文|
+|getDigestDetailCase06||参数digestId|digestId值为空|获得文集列表|
+|getDigestDetailCase07||参数digestId|digestId值为无效值|获得文集列表|
+|getDigestDetailCase08||参数token|token值为空|未知错误|
+|getDigestDetailCase09||参数token|token值为无效值|参数非法|
+
+*!
