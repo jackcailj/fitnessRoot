@@ -19,10 +19,11 @@
 |columnCase13||参数columnType|columnType值为空|返回10002，参数columnType不存在|test|
 |columnCase14||参数columnType|columnType值为无效值|返回10002|test|
 |columnCase15||参数start|start值为空|返回10002|test|
-|columnCase16||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|columnCase17||参数end|end值为空|返回10002|test|
-|columnCase18||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|columnCase19||参数start和end|start值大于end值|返回10002|test|
-|columnCase20||参数isFull|isFull值为空|返回10002|test|
-|columnCase21||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
+|columnCase16||参数start|start值大于列表总数时|返回空数据|test|
+|columnCase17||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|columnCase18||参数end|end值为空|返回10002|test|
+|columnCase19||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|columnCase20||参数start和end|start值大于end值|返回10002|test|
+|columnCase21||参数isFull|isFull值为空|返回10002|test|
+|columnCase22||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
 *!
