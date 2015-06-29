@@ -1,0 +1,65 @@
+!1 '''精品阅读收藏，包括（收藏，取消，收藏列表）'''
+
+!* 测试用例
+接口：action：storeUpDigest 
+参数：
+op - 操作类别：收藏：save；收藏列表：get；取消：cancel
+token - 用户登录token
+digestIds - 单个收藏必传一个精品id；取消时必传一个或多个精品id，用逗号分隔
+pageIndex - 第几页
+pageSize - 分页每一页大小
+接口链接：http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934866
+相关数据库表：
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试类型|
+|||参数digestIds|输入正确的id值,op值为save，其他参数值正确|收藏成功||
+|||参数digestIds|输入非法的id值,op值为save，其他参数值正确|参数非法||
+|||参数token|输入token值为空,op值为save，其他参数值正确|未登录用户||
+||先收藏|参数op|输入op值为cancel，其他参数值正确|取消收藏||
+||保证有已收藏的文章|参数op|输入op值为get，其他参数值正确|收藏列表||
+||保证有已收藏的文章|参数op|输入op值为任意字符，其他参数值正确|参数非法||
+||保证有已收藏的文章|参数op|输入op值为空，其他参数值正确|参数非法||
+||保证有已收藏的文章|参数pageIndex|输入pageIndex值为1，其他参数值正确|收藏列表||
+||保证有已收藏的文章|参数pageIndex|输入pageIndex值为-1，其他参数值正确|参数非法||
+||保证有已收藏的文章|参数pageIndex|输入pageIndex值为空，其他参数值正确|参数非法||
+||保证有已收藏的文章|参数pageSize|输入pageSize值为1，其他参数值正确|收藏列表||
+||保证有已收藏的文章|参数pageSize|输入pageSize值为-1，其他参数值正确|参数非法||
+||保证有已收藏的文章|参数pageSize|输入pageSize值为空，其他参数值正确|默认收藏列表||
+
+*!
+|import|
+|com.dangdang.readerV5|
+
+!*> 定义scenario checkStore: 收藏、取消、获取收藏列表
+| scenario | checkStore|userName||passWord||loginType||deviceType||action||op||digestIds||token||pageIndex||pageSize||EXPECTED||setParameters||
+| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,deviceType:@deviceType,action:@action,op:@op,digestIds:@digestIds,token:@token,pageIndex:@pageIndex,pageSize:@pageSize,EXPECTED:@EXPECTED}|
+|show|get map|
+|show|do work|
+|dataVerify|@EXPECTED|
+|check|get verify result |true|
+#|show|get cust id|
+#|show|get result|
+*!
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script| storeup digest |
+
+!4 Invoking a scenario from a !-ScriptTable-!
+|checkStore|
+|userName|passWord|loginType|deviceType|action|op|digestIds|token|pageIndex|pageSize|EXPECTED|
+|!-z16@123.com-!|111111|email|Android|storeUpDigest|save|FromDB||||0|
+|!-z16@123.com-!|111111|email|Android|storeUpDigest|save|aabb||||20000|
+#||||Android|save|FromDB||||
+#|!-z16@123.com-!|111111|email|Android|cancel|FromDB||||
+#|!-z16@123.com-!|111111|email|Android|get|FromDB||1|10|
+#|!-z16@123.com-!|111111|email|Android|abc|FromDB||||
+#|!-z16@123.com-!|111111|email|Android||FromDB||||
+#|!-z16@123.com-!|111111|email|Android|get|FromDB||-1|10|
+#|!-z16@123.com-!|111111|email|Android|get|FromDB|||10|
+#|!-z16@123.com-!|111111|email|Android|get|FromDB||1|1|
+#|!-z16@123.com-!|111111|email|Android|get|FromDB||1|-1|
+#|!-z16@123.com-!|111111|email|Android|get|FromDB||1||
+
+#|ddt: store up digest|
+#|#|userName|passWord|loginType|deviceType|custID?|token?|
+#|#|!-z16@123.com-!|111111|email|Android|||
