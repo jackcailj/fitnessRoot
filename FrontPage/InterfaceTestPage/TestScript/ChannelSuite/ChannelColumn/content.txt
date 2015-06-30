@@ -34,3 +34,21 @@
 |columnCase21||参数isFull|isFull值为空|返回10002|test|
 |columnCase22||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
 *!
+
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.bookstore|
+
+!*> 定义scenario 
+|scenario|column|action||columnType||start||end||isFull||EXPECTED||setParameters|
+|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull,EXPECTED:@EXPECTED}|
+|ensure|do get|@EXPECTED|
+|ensure|verify|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|column|
+*!
+!* 测试数据
+|column|
+|#参数|action|columnType|start|end|isFull|EXPECTED|
+||column|all_interface_test|0|9|1|0|
