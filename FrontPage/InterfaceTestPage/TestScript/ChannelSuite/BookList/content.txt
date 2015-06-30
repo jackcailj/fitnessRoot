@@ -28,8 +28,9 @@
 |check|get verify result |true|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|get digest list by sign|
+|script|BookListDetail|
 *!
 !* 测试数据
-|getDigestListBySignTest|
-|#参数|action|signId|pageSize|createTime|EXPECTED|
+|BookListDetail|
+|#参数|bookListId|channelType|token|EXPECTED|
+||14|all||0|
