@@ -7,29 +7,27 @@
 |bookListCase01||获取书单基本信息|调用接口|返回的booklistId,channelId,description,imageUrl,----name与数据库数据一致，bookNumber为书单书列表总数|test,staging,online|
 |bookListCase02||后台修改基本信息，返回最新的数据|【用户后台】修改书单名称、背景、描述，调用接口|返回的name，imageUrl，description为修改的值|test|
 |bookListCase03||书单背景为空|【用户后台】不上传书单背景imageUrl，调用接口|返回的默认的imageUrl|test|
-|bookListCase04||书的数量，即bookNumber|【用户后台】改变书单书列表的总数量，调用接口|返回的bookNumber值正确|test|
-|bookListCase05||书的数量，即bookNumber|【用户后台】删除书单书列表中的所有书，调用接口|返回的bookNumber值为0|test|
-|bookListCase06||参数bookListId|bookListId值为空|10002|test|
-|bookListCase07||参数bookListId|bookListId值为无效值|10002|test|
-|bookListCase08||参数channelType|channelType为空|10002|test|
-|bookListCase09||参数channelType|channelType为无效值|10002|test|
-|bookListCase10||参数token|token为空|返回正常|test|
-|bookListCase11||参数token|token为无效值|10002|test|
+|bookListCase04||参数bookListId|bookListId值为空|10002|test|
+|bookListCase05||参数bookListId|bookListId值为无效值|10002|test|
+|bookListCase06||参数channelType|channelType为空|10002|test|
+|bookListCase07||参数channelType|channelType为无效值|10002|test|
+|bookListCase08||参数token|token为空|返回正常|test|
+|bookListCase09||参数token|token为无效值|10002|test|
 *!
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 
 !*> 定义scenario 
-|scenario|bookListDetail|action||bookListId||start||end||channelType||token||EXPECTED||setParameters|
-|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
+|scenario|bookList|action||bookListId||channelType||token||EXPECTED||setParameters|
+|setParameters|!{action:@action,bookListId:@bookListId,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
 |ensure|do get|@EXPECTED|
 |ensure|verify|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|book list detail|
+|script|book list|
 *!
 !* 测试数据
-|bookListDetail|
-|#参数|action|bookListId|start|end|channelType|token|EXPECTED|
-||bookListDetail|14|0|9|all||0|
+|bookList|
+|#参数|action|bookListId|channelType|token|EXPECTED|
+||bookListDetail|14|all||0|
