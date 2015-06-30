@@ -31,6 +31,6 @@
 |script|book list detail|
 *!
 !* 测试数据
-|book list detail|
+|bookListDetail|
 |#参数|bookListId|channelType|token|EXPECTED|
 |#|14|all||0|
