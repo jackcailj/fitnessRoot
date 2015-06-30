@@ -42,7 +42,7 @@
 !*> 定义scenario 
 |scenario|column|action||columnType||start||end||isFull||期望||setParameters|
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull,期望:@期望}|
-|ensure|do get|@EXPECTED|
+|ensure|do get|@期望|
 |ensure|verify|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
