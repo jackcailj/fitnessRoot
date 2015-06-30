@@ -16,7 +16,7 @@
 |bookListCase10||参数token|token为空|返回正常|test|
 |bookListCase11||参数token|token为无效值|10002|test|
 *!
-
+!define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 
