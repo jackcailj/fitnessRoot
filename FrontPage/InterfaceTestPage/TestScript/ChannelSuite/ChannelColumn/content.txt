@@ -50,5 +50,5 @@
 |script|Column|
 *!
 |column|
-|#参数|action|columnType|start|end|isFull|statusCode|pass|
+|#参数|action|columnType|start|end|isFull|statusCode|expected|
 ||column|all_interface_test|0|9|1|0||
