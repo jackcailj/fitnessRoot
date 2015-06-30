@@ -40,14 +40,14 @@
 |com.dangdang.readerV5.bookstore|
 
 !*> 定义scenario 
-|scenario|column|action||columnType||start||end||isFull||期望||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull,期望:@期望}|
-|ensure|do get|@期望|
-|check|verify|true|
+|scenario|column|action||columnType||start||end||isFull||statusCode||expected||setParameters||getResult|
+|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
+|ensure|do get|statusCode|
+|check|get result|@expected|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|Column|
 *!
 |column|
-|#参数|action|columnType|start|end|isFull|期望|
+|#参数|action|columnType|start|end|isFull|statusCode|pass|
 ||column|all_interface_test|0|9|1|0|
