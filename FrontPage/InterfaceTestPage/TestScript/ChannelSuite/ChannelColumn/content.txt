@@ -40,7 +40,7 @@
 |com.dangdang.readerV5.bookstore|
 
 !*> 定义scenario 
-|scenario|column|action||columnType||start||end||isFull||statusCode||expected|
+|scenario|column|action||columnType||start||end||isFull||statusCode||expected||get result|
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
 |ensure|do get|statusCode|
 |verify|@expected|
@@ -50,5 +50,5 @@
 |script|Column|
 *!
 |column|
-|#参数|action|columnType|start|end|isFull|statusCode|expected|
-||column|all_interface_test|0|9|1|0||
+|#参数|action|columnType|start|end|isFull|statusCode|expected|get result|
+||column|all_interface_test|0|9|1|0|||
