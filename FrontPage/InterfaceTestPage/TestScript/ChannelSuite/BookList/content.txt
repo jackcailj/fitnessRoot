@@ -16,14 +16,14 @@
 |bookListCase10||参数token|token为空|返回正常|test|
 |bookListCase11||参数token|token为无效值|10002|test|
 *!
+
 |Import|
 |com.dangdang.readerV5.channel|
 
 !*> 定义scenario 
 |scenario|bookListDetail|bookListId||channelType||token||EXPECTED||setParameters|
 |setParameters|!{bookListId:@bookListId,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
-|do get|@EXPECTED|
-|check|@EXPECTED|
+|check|do get||@EXPECTED|
 |dataVerify|@EXPECTED|
 |check|get verify result |true|
 
