@@ -46,9 +46,9 @@
 |ensure|verify|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|column|
+|script|Column|
 *!
 !* 测试数据
-|column|
+|Column|
 |#参数|action|columnType|start|end|isFull|EXPECTED|
 ||column|all_interface_test|0|9|1|0|
