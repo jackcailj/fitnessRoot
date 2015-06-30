@@ -22,7 +22,7 @@
 
 !*> 定义scenario 
 |scenario|bookListDetail|action||bookListId||channelType||token||EXPECTED||setParameters|
-|setParameters|!{action:@action,bookListId:@bookListId,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
+|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
 |check|do get||@EXPECTED|
 |dataVerify|@EXPECTED|
 |check|get verify result |true|
@@ -32,5 +32,5 @@
 *!
 !* 测试数据
 |bookListDetail|
-|#参数|action|bookListId|channelType|token|EXPECTED|
-|#|bookListDetail|14|all||0|
+|#参数|action|bookListId|start|end|channelType|token|EXPECTED|
+|#|bookListDetail|14|0|9|all||0|
