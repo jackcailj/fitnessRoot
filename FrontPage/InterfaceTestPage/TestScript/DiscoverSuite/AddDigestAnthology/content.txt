@@ -1,0 +1,27 @@
+!1 '''新建精品文集'''
+
+!* 测试用例
+接口：action：addDigestAnthology
+anthologyName -	精品文集名称
+token - 用户登录token
+digestIds - 选择待加入文集的精品ids，用英文逗号隔开
+anthologyPic - 用户上传文集背景图片的url地址
+接口描述：新建精品文集，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934954
+相关数据库表：digital -> media_digest  media_digest_anthology
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|新建精品文集|
+|||文集中加入多篇精品|参数digestIds值为多个id，其他参数值正确|新建文集中加入多篇文章|
+|||参数digestIds|参数值为字母ss ，其他参数值正确|未知错误|
+|||参数digestIds|参数值为空，其他参数值正确|参数非法|
+|||参数digestIds|不传该参数，其他参数值正确|参数非法|
+|||参数anthologyPic|参数值为任意字符，其他参数值正确|参数非法|
+|||参数anthologyPic|输入值为空，其他参数值正确|参数非法|
+|||参数anthologyPic|不传该参数，其他参数值正确|参数非法|
+|||参数anthologyName|参数值为任意字符特殊字符*&%￥，其他参数值正确|参数非法？|
+|||参数anthologyName|输入值为空，其他参数值正确|参数非法|
+|||参数anthologyName|不传该参数，其他参数值正确|参数非法|
+|||参数token|输入值为空，其他参数值正确|参数非法|
+*!
+
+!4 备注：

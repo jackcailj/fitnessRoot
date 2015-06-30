@@ -1,0 +1,27 @@
+!1 '''精品文章评论列表页'''
+
+!* 测试用例
+接口：action：getDigestBookReviewList
+参数：
+digestId - 精品id
+pageIndex - 第几页
+pageSize - 每一页大小
+token - 用户登录token
+接口描述：获取精品文章的评论信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4358273
+相关数据库表：digital -> media_digest  ecmst -> book_review?
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|获取评论内容||
+|||参数digestId|参数值为字母ss，其他参数值正确|未知错误|
+|||参数digestId|参数值为空，其他参数值正确|参数非法|
+|||参数digestId|不传该参数，其他参数值正确|参数非法|
+|||参数pageIndex|参数值为0，其他参数值正确|获取第一页评论内容|
+|||参数pageIndex|参数值为负数，其他参数值正确|参数非法|
+|||参数pageIndex|参数值为字母，其他参数值正确|参数非法|
+|||参数pageSize|参数值为0，其他参数值正确|获取评论内容大小为0|
+|||参数pageSize|参数值为负数，其他参数值正确|参数非法|
+|||参数pageSize|参数值为字母，其他参数值正确|参数非法|
+|||参数token|参数值为空，其他参数值正确|参数非法|
+*!
+
+!4 备注：

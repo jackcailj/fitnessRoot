@@ -1,0 +1,19 @@
+!1 '''赞评论内容'''
+
+!* 测试用例
+接口：action：addDigestBookReviewPriase
+参数：
+bookReviewId - 评论id
+token - 用户登录token
+接口描述：对评论内容点赞，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4358268
+相关数据库表：digital -> media_digest  ecmst -> book_review?
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|发表评论成功|
+|||参数bookReviewId|参数值为字母ss，其他参数值正确|未知错误|
+|||参数bookReviewId|参数值为空，其他参数值正确|参数非法|
+|||参数bookReviewId|不传该参数，其他参数值正确|参数非法|
+|||参数token|参数值为空，其他参数值正确|参数非法|
+*!
+
+!4 备注：
