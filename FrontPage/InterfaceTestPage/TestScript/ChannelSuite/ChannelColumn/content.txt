@@ -48,7 +48,6 @@
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|Column|
 *!
-!* 测试数据
-|Column|
+|column|
 |#参数|action|columnType|start|end|isFull|EXPECTED|
 ||column|all_interface_test|0|9|1|0|
