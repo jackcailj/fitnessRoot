@@ -32,4 +32,4 @@
 !* 测试数据
 |bookListDetail|
 |#参数|action|bookListId|start|end|channelType|token|EXPECTED|
-|#|bookListDetail|14|0|9|all||0|
+||bookListDetail|14|0|9|all||0|
