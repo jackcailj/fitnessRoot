@@ -28,9 +28,9 @@
 |check|get verify result |true|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|BookListDetail|
+|script|book list detail|
 *!
 !* 测试数据
-|BookListDetail|
+|book list detail|
 |#参数|bookListId|channelType|token|EXPECTED|
 ||14|all||0|
