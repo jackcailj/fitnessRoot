@@ -24,7 +24,7 @@
 |scenario|bookListDetail|action||bookListId||channelType||token||EXPECTED||setParameters|
 |setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
 |check|do get||@EXPECTED|
-|check|dataVerify1||
+|check|dataVerify1|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|book list detail|
