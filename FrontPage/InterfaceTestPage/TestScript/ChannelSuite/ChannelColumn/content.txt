@@ -50,4 +50,4 @@
 *!
 |column|
 |#参数|action|columnType|start|end|isFull|EXPECTED|
-||column|all_channel_test|0|9|1|0|
+||column|all_interface_test|0|9|1|0|
