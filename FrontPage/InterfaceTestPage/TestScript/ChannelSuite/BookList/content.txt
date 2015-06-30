@@ -33,4 +33,4 @@
 !* 测试数据
 |book list detail|
 |#参数|bookListId|channelType|token|EXPECTED|
-||14|all||0|
+|#|14|all||0|
