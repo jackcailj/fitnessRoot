@@ -43,7 +43,7 @@
 |scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
 |ensure|do get|@statusCode|
-|ensure|verify|
+|ensure|verify result|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|Column|
