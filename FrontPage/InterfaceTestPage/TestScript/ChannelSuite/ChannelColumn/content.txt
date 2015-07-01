@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：action=column
 接口描述：通过栏目类型标识(column_code)获取该栏目下数据，参数isFull=1，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933440
 相关表：
