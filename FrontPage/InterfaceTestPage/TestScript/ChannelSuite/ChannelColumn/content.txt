@@ -34,20 +34,20 @@
 |columnCase21||参数isFull|isFull值为空|返回10002|test|
 |columnCase22||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
 *!
-
+!* Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.bookstore|
-
+*!
 !*> 定义scenario 
 |scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
-
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|Column|
 *!
+!* 测试数据
 |column|
 |#用例编号|action|columnType|start|end|isFull|statusCode|
 |columnCase01|column|all_interface_test|0|9|1|0|
@@ -69,3 +69,4 @@
 |columnCase22|column|all_interface_test|0|9|#|10002|
 |columnCase22|column|all_interface_test|0|9|流量|10002|
 |columnCase22|column|all_interface_test|0|9|isFull|10002|
+*!
