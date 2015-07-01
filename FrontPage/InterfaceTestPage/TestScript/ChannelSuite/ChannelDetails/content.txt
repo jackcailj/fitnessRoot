@@ -1,6 +1,8 @@
 !*> 测试用例
 接口：action=channel
 接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
+ * json返回结果中：
+  * isSub 是否订阅 0：未订阅 1：已订阅
 相关表：channel
  * shelf_status 0:下线，1：上线
 |Comment|
