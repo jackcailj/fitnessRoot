@@ -44,7 +44,6 @@
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
-|check|get result|pass|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|Column|
