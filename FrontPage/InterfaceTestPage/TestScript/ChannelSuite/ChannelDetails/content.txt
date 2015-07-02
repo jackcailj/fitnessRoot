@@ -26,7 +26,7 @@
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|channel|action||cId||token||channelType||statusCode||setParameters|
+|scenario|channel|action||cId||channelType||statusCode||setParameters|
 |setParameters|!{action:@action,cId:@cId,token:@token,channelType:@channelType}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
@@ -35,6 +35,6 @@
 *!
 !* 测试数据
 |channel|
-|#用例编号|action|cId|token|channelType|statusCode|
-|channelCase01|channel|6|0|all|0|
+|#用例编号|action|cId|channelType|statusCode|
+|channelCase01|channel|6|all|0|
 *!
