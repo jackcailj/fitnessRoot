@@ -34,7 +34,7 @@
 |script|Channel|
 *!
 !* 测试数据
-|Channel|
+|channel|
 |#用例编号|action|cId|token|channelType|statusCode|
 |channelCase01|channel|6||all|0|
 *!
