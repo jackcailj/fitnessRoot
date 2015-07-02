@@ -23,7 +23,7 @@
 !* Import
 !define TEST_SYSTEM {slim}
 |Import|
-|com.dangdang.readerV5.bookstore|
+|com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
 |scenario|channel|action||cId||token||channelType||statusCode||setParameters|
