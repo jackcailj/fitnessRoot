@@ -51,7 +51,7 @@
 !* 测试数据
 |column|
 |#用例编号|action|columnType|start|end|isFull|statusCode|
-|columnCase01|column|all_interface_test|0|9|1|0|
+|columnCase01|column|all_channel_test|0|9|1|0|
 |columnCase13|column||0|9|1|10002|
 |columnCase14|column|*|0|9|1|10002|
 |columnCase14|column|哈哈|0|9|1|10002|
