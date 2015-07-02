@@ -26,14 +26,15 @@
 |com.dangdang.readerV5.bookstore|
 *!
 !*> 定义scenario 
-|scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
+|scenario|channel|action||cId||token||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,cId:@cId,token:@token,channelType:@channelType}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|Column|
+|script|Channel|
 *!
 !* 测试数据
-|column|
-|#用例编号|action|columnType|start|end|isFull|statusCode|
-|columnCase01|column|all_interface_test|0|9|1|0|
+|Channel|
+|#用例编号|action|cId|token|channelType|statusCode|
+|channelCase01|channel|6||all|0|
+*!
