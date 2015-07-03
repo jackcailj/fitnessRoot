@@ -29,3 +29,23 @@
 |#订阅|!-z16@123.com-!|111111|email||6|1|0|通过|
 
 *!
+
+
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+!*> 定义scenario 
+|scenario|Channelsub|action||cId||token||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,cId:@cId,token:@token,channelType:@channelType}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|Channel|
+*!
+!* 测试数据
+|Channelsub|
+|#用例编号|action|cId|token|channelType|statusCode|
+|channelCase01|channel|28||all|0|
+*!
