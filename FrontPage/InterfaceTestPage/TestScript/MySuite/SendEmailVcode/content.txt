@@ -1,0 +1,54 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360170
+
+----
+!3 二、接口描述：
+发送邮箱验证码功能
+
+一天内同一邮箱验证码发送不能大于5次
+
+发送类型为：(1, "安全中心身份验证"),(2, "结算页设置支付密码时发邮件"),(6, "忘记密码");
+
+验证码位数?
+
+每种验证邮件内容是否一致？
+
+----
+!3 三、涉及数据库
+需要和代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:send email vcode                                                                                                         |
+|#用例名称                  |email                     |verifyType|custId                               |status code?|data verfiy?|
+|发送邮箱验证码，安全中心身份验证流程     |!-cailj_ddtest6@126.com-! |1         |#GetCustIdByName#cailj_ddtest@126.com|0           |通过          |
+|发送邮箱验证码，结算页设置支付密码时发邮件流程|!-cailj_ddtest7@126.com-! |2         |#GetCustIdByName#cailj_ddtest@126.com|0           |通过          |
+|发送邮箱验证码，忘记密码流程         |!-cailj_ddtest8@126.com-! |6         |#GetCustIdByName#cailj_ddtest@126.com|0           |通过          |
+|发送邮箱验证码，邮箱格式不正确        |cailj_ddtest              |1         |0                                    |60052       |通过          |
+|发送邮箱验证码，email不传        |!-#NotPass#-!             |1         |0                                    |10002       |通过          |
+|发送邮箱验证码，email为空        |                          |1         |0                                    |10002       |通过          |
+|发送邮箱验证码，verifyType不正确  |!-cailj_ddtest20@126.com-!|34        |0                                    |60033       |通过          |
+|发送邮箱验证码，verifyType为非数字 |!-cailj_ddtest21@126.com-!|aa        |0                                    |10000       |通过          |
+|发送邮箱验证码，verifyType不传   |!-cailj_ddtest22@126.com-!|#NotPass# |0                                    |10002       |通过          |
+|发送邮箱验证码，verifyType为空   |!-cailj_ddtest23@126.com-!|          |0                                    |10002       |通过          |
+|发送邮箱验证码，custId不正确      |!-cailj_ddtest24@126.com-!|1         |123                                  |10002       |通过          |
+|发送邮箱验证码，custId为非数字     |!-cailj_ddtest25@126.com-!|1         |aa                                   |60054       |通过          |
+|发送邮箱验证码，custId不传       |!-cailj_ddtest26@126.com-!|1         |#NotPass#                            |10002       |通过          |
+|发送邮箱验证码，custId为空       |!-cailj_ddtest27@126.com-!|1         |                                     |10002       |通过          |
+
+同一个邮箱一天只能发送5次
+
+|ddt:send email vcode                                                           |
+|#用例名称            |email            |verifyType|custId|status code?|data verfiy?|
+|发送邮箱验证码，完成手机绑定流程 |!-cailj@126.com-!|1         |0     |0           |通过          |
+|发送邮箱验证码，修改手机号码流程 |!-cailj@126.com-!|1         |0     |0           |通过          |
+|发送邮箱验证码，新加手机绑定流程 |!-cailj@126.com-!|1         |0     |0           |通过          |
+|发送邮箱验证码，修改手机绑定流程 |!-cailj@126.com-!|1         |0     |0           |通过          |
+|发送邮箱验证码，新用户手机注册流程|!-cailj@126.com-!|1         |0     |0           |通过          |
+|发送邮箱验证码，忘记密码流程   |!-cailj@126.com-!|1         |0     |60053       |通过          |
+
+!contents -R2 -g -p -f -h

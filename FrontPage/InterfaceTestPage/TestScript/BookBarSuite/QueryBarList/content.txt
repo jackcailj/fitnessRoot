@@ -3,15 +3,40 @@
 !* 测试用例
 接口：action：queryBarList （书吧搜索接口））
 参数：
-  barName – 吧名称
+  * barName – 吧名称
 接口描述：搜索已存在的包含该吧名称的吧，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359659
 相关数据库表：bookbar -> bar    (输入的吧名称与数据表里的所有barName比较)
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|
-|||barName参数值|输入的吧名称是已有的吧|获得已有吧列表信息|
-|||barName参数值|输入全新的吧名称|已有吧列表信息为空|
-|||barName参数值|输入值为空|参数非法|
-|||barName参数|不传BarName参数|参数非法|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||barName参数值|输入的吧名称是已有的吧|获得已有吧列表信息|test,staging,online|
+|||barName参数值|输入全新的吧名称|已有吧列表信息为空|test,staging,online|
+|||barName参数值|输入值为空|参数非法|test,staging,online|
+|||barName参数|不传BarName参数|参数非法|test,staging,online|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |queryBarListTest|action||barName||期望||result||setParameters|
+| setParameters|!{action:@action,barName:@barName,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verify result |@result|
+|show|tear down|
 
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|query bar list|
+*!
+!* 测试数据
+|queryBarListTest|
+|#用例名称|action|barName|期望|result|
+|输入全新的吧名称|queryBarList|Random|0|pass|
+|输入的吧名称是已有的吧|queryBarList|FromDB|0|pass|
+|名称是已有的吧名的子串|queryBarList|FromDB-sub|0|pass|
+|barName参数值为空|queryBarList||10002|pass|
+|不传barName参数|queryBarList|REMOVE|10002|pass|
+*!
 !4 备注：
+bug：http://10.255.223.220/zentao/bug-view-14505.html
