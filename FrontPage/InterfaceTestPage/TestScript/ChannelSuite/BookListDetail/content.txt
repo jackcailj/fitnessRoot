@@ -25,20 +25,21 @@
 |bookListDetailCase17||参数token|token值为空||test|
 |bookListDetailCase18||参数token|token值为无效值||test|
 *!
+!* Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
-
+*!
 !*> 定义scenario 
-|scenario|bookListDetail|action||bookListId||start||end||channelType||token||EXPECTED||setParameters|
-|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
-|ensure|do get|@EXPECTED|
-|ensure|verify|
-
+|scenario|column|action||bookListId||start||end||channelType||token||statusCode||setParameters|
+|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|book list detail|
+|script|Column|
 *!
 !* 测试数据
-|bookListDetail|
-|#参数|action|bookListId|start|end|channelType|token|EXPECTED|
+|column|
+|#用例编号|action|bookListId|start|end|channelType|token|statusCode|
 ||bookListDetail|14|0|9|all||0|
+*!
