@@ -36,7 +36,7 @@
 |ensure|do get|@statusCode|
 |ensure|verify result|
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|BookListDetail|
+|script|book list detail|
 *!
 !* 测试数据
 |bookListDetail|
