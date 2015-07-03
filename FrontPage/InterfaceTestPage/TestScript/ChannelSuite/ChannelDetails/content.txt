@@ -36,5 +36,5 @@
 !* 测试数据
 |channel|
 |#用例编号|action|cId|token|channelType|statusCode|
-|channelCase01|channel|6||all|0|
+|channelCase01|channel|6|1|all|0|
 *!
