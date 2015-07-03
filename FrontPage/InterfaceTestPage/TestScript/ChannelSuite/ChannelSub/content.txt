@@ -34,5 +34,5 @@
 !* 测试数据
 |channelsub|
 |#用例编号|action|userName|passWord|loginType|token|cId|op|statusCode|
-|channelSubCase01|channelSub|!-z16@123.com-!|111111|email||29|1|0|
+|channelSubCase01|channelsub|!-z16@123.com-!|111111|email||29|1|0|
 *!
