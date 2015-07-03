@@ -25,10 +25,10 @@
 |ensure|verify|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|book list|
+|script|BookList|
 *!
 !* 测试数据
 |bookList|
 |#参数|action|bookListId|channelType|token|EXPECTED|
-||bookListDetail|14|all||0|
+||bookList|28|all||0|
 *!
