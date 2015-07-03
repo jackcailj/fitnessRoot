@@ -25,7 +25,7 @@
 |ensure|verify|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|BookList|
+|script|book list|
 *!
 !* 测试数据
 |bookList|
