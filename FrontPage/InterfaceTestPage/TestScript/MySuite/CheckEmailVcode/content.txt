@@ -1,0 +1,43 @@
+----
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360172
+
+----
+!3 二、接口描述：
+验证发送的邮箱验证码是否正确
+
+----
+!3 三、涉及数据库
+需要和代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:check email vcode  |                                     |                                                                                                                    |
+|#用例名称                  |email                                |verifyType                           |custId                               |emailVcode    |status code?|data verfiy?|
+|验证邮箱验证码，完成手机绑定流程       |!-cailj_ddtest1@126.com-!            |1                                    |#GetCustIdByName#cailj_ddtest@126.com|#GetEmailCode#|0           |通过          |
+|验证邮箱验证码，修改手机号码流程       |!-cailj_ddtest1@126.com-!            |2                                    |#GetCustIdByName#cailj_ddtest@126.com|#GetEmailCode#|0           |通过          |
+|验证邮箱验证码，新加手机绑定流程       |!-cailj_ddtest2@126.com-!            |3                                    |#GetCustIdByName#cailj_ddtest@126.com|#GetEmailCode#|0           |通过          |
+|验证邮箱验证码，修改手机绑定流程       |!-cailj_ddtest2@126.com-!            |4                                    |#GetCustIdByName#cailj_ddtest@126.com|#GetEmailCode#|0           |通过          |
+|验证邮箱验证码，新用户手机注册流程      |!-cailj_ddtest4@126.com-!            |5                                    |#GetCustIdByName#cailj_ddtest@126.com|#GetEmailCode#|0           |通过          |
+|验证邮箱验证码，忘记密码流程         |!-cailj_ddtest4@126.com-!            |6                                    |#GetCustIdByName#cailj_ddtest@126.com|#GetEmailCode#|0           |通过          |
+|验证邮箱验证码，安全中心绑定手机或验证身份流程|!-cailj_ddtest4@126.com-!            |11                                   |#GetCustIdByName#cailj_ddtest@126.com|#GetEmailCode#|0           |通过          |
+|验证邮箱验证码,验证码不正确         |!-cailj_ddtest4@126.com-!            |11                                   |#GetCustIdByName#cailj_ddtest@126.com|1234          |60057       |通过          |
+|验证邮箱验证码,验证码为空          |!-cailj_ddtest4@126.com-!            |11                                   |#GetCustIdByName#cailj_ddtest@126.com|              |60056       |通过          |
+|验证邮箱验证码,验证码不传          |!-cailj_ddtest4@126.com-!            |6                                    |#GetCustIdByName#cailj_ddtest@126.com|#NotPass#     |10002       |通过          |
+|验证邮箱验证码，邮箱格式不正确        |cailj_ddtest                         |1                                    |#GetCustIdByName#cailj_ddtest@126.com|              |60052       |通过          |
+|验证邮箱验证码，email不传        |!-#NotPass#-!                        |1                                    |#GetCustIdByName#cailj_ddtest@126.com|              |10002       |通过          |
+|验证邮箱验证码，email为空        |#GetCustIdByName#cailj_ddtest@126.com|                                     |10002                                |通过                                      |
+|验证邮箱验证码，verifyType不正确  |!-cailj_ddtest@126.com-!             |aa                                   |#GetCustIdByName#cailj_ddtest@126.com|              |60033       |通过          |
+|验证邮箱验证码，verifyType不传   |!-cailj_ddtest@126.com-!             |#NotPass#                            |#GetCustIdByName#cailj_ddtest@126.com|              |10002       |通过          |
+|验证邮箱验证码，verifyType为空   |!-cailj_ddtest@126.com-!             |#GetCustIdByName#cailj_ddtest@126.com|                                     |10002         |通过                       |
+|发送邮箱验证码，custId不正确      |!-cailj_ddtest@126.com-!             |1                                    |123                                  |              |10002       |通过          |
+|发送邮箱验证码，custId为非数字     |!-cailj_ddtest@126.com-!             |1                                    |aa                                   |              |60054       |通过          |
+|发送邮箱验证码，custId不传       |!-cailj_ddtest@126.com-!             |1                                    |#NotPass#                            |              |10002       |通过          |
+|验证邮箱验证码，custId为空       |!-cailj_ddtest@126.com-!             |1                                    |                                     |              |10002       |通过          |
+|                       |                                     |                                     |                                     |              |            |            |
+
+!contents -R2 -g -p -f -h

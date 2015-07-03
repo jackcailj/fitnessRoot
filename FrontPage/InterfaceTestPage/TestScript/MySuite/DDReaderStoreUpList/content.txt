@@ -1,0 +1,40 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360369
+
+----
+!3 二、接口描述：
+收藏列表
+
+可以返回收藏的类型：media"(图书), "discover"(当读发现), "digest"(翻片儿文章), "article"(发现、频道、抢先读中的文章), "post"(帖子)
+
+!3 三、涉及数据库
+需要和代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:dD reader storeUp list                                                                                                                                                      |
+|#用例名称                    |userName                |passWord|token    |selfType |type     |pubId                               |storeDateLong|pageSize |status code?|data verfiy?|
+|获取我的收藏的图书列表(包括纸书，电子书)    |!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                    |             |10       |0           |通过          |
+|获取我的收藏的文章列表（包括发现、频道、抢先读） |!-cailj_ddtest@126.com-!|ddtest  |         |0        |article  |                                    |             |10       |0           |通过          |
+|获取我的收藏的帖子列表              |!-cailj_ddtest@126.com-!|ddtest  |         |0        |post     |                                    |             |10       |0           |通过          |
+|获取别人收藏的图书列表              |                        |        |         |1        |media    |#GetPubIdByName#cailj_ddtest@126.com|             |10       |0           |通过          |
+|获取别人收藏的文章列表              |                        |        |         |1        |article  |#GetPubIdByName#cailj_ddtest@126.com|             |10       |0           |通过          |
+|获取别人收藏的帖子列表              |                        |        |         |1        |post     |#GetPubIdByName#cailj_ddtest@126.com|             |10       |0           |通过          |
+|获取我的收藏列表，type不正确         |!-cailj_ddtest@126.com-!|ddtest  |         |0        |123      |                                    |             |10       |28001       |通过          |
+|获取我的收藏列表，type不传          |!-cailj_ddtest@126.com-!|ddtest  |         |0        |#NotPass#|                                    |             |10       |10002       |通过          |
+|获取我的收藏列表，type为空          |!-cailj_ddtest@126.com-!|ddtest  |         |0        |         |                                    |             |10       |10002       |通过          |
+|获取我的收藏列表，token不正确        |                        |        |123      |0        |media    |                                    |             |10       |10003       |通过          |
+|获取我的收藏列表，token不传         |                        |        |#NotPass#|0        |media    |                                    |             |10       |10003       |通过          |
+|获取别人收藏列表，pubId不正确        |                        |        |         |1        |media    |123                                 |             |10       |60012       |通过          |
+|获取别人收藏列表，pubId不传         |                        |        |         |1        |media    |#NotPass#                           |             |10       |10002       |通过          |
+|获取我的收藏列表，pagesize为负数     |!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                    |             |-10      |10000       |通过          |
+|获取我的收藏列表，pagesize为非数字    |!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                    |             |as       |200         |通过          |
+|获取我的收藏列表，pagesize不传，默认为10|!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                    |             |#NotPass#|0           |通过          |
+|获取我的收藏列表，selfType不正确     |!-cailj_ddtest@126.com-!|ddtest  |         |3        |media    |                                    |             |10       |60011       |通过          |
+|获取我的收藏列表，selfType不传      |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|media    |                                    |             |10       |10002       |通过          |
+
+!contents -R2 -g -p -f -h

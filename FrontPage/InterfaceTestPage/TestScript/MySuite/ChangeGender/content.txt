@@ -19,7 +19,7 @@
 |Import                               |
 |com.dangdang.readerV5.personal_center|
 
-|ddt:change Introduct                                                                                                               |
+|ddt:change gender                                                                                                                  |
 |#用例名称               |userName                |passWord|loginType|token|thirdId|loginClient|keyword|gender|status code?|data verfiy?|
 |修改当当用户性别,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |new_sex|0     |0           |通过          |
 |修改当读小说用户性别,正常流程     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |1          |new_sex|1     |0           |通过          |
@@ -30,8 +30,8 @@
 |修改支付宝用户性别,正常流程      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |7      |0          |new_sex|0     |0           |通过          |
 |修改新浪微博用户性别,正常流程     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |5      |0          |new_sex|0     |0           |通过          |
 |修改微信用户性别,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |200    |0          |new_sex|0     |0           |通过          |
-|修改性别，不传token        |                        |        |         |     |0      |0          |new_sex|0     |10003       |通过          |
-|修改性别，token不正确       |                        |        |         |123  |0      |0          |new_sex|0     |10003       |通过          |
+|修改性别，不传token        |                        |        |         |     |0      |0          |new_sex|0     |10002       |通过          |
+|修改性别，token不正确       |                        |        |         |123  |0      |0          |new_sex|0     |10002       |通过          |
 |修改性别，gender不传       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |new_sex|      |10002       |通过          |
 |修改性别，gender不正确      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |new_sex|6     |10002       |通过          |
 |修改性别，thirdId不传      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |       |0          |new_sex|0     |10002       |通过          |

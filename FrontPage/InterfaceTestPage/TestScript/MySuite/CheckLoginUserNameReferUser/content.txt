@@ -1,0 +1,31 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360174
+
+----
+!3 二、接口描述：
+检查用户是否已经注册
+
+用户名分为邮箱和手机两种方式
+
+----
+!3 三、涉及数据库
+无
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:check login userName referUser                                   |
+|#用例名称             |userName                |status code?|data verfiy?|
+|检查用户是注册，已经注册的邮箱用户 |!-cailj_ddtest@126.com-!|0           |通过          |
+|检查用户是注册，已经注册的手机用户 |15110267876             |0           |通过          |
+|检查用户是注册，未注册邮箱用户   |!-dte@12.com-!          |60059       |通过          |
+|检查用户是注册，未注册手机用户   |13333558921             |60059       |通过          |
+|检查用户是注册，邮箱用户格式不正确 |!-cailj_ddtest-!        |60042       |通过          |
+|检查用户是注册，手机用户格式不正确 |!-15111111-!            |60042       |通过          |
+|检查用户是注册，userName不传|#NotPass#               |10002       |通过          |
+|检查用户是注册，userName为空|                        |10002       |通过          |
+
+!contents -R2 -g -p -f -h

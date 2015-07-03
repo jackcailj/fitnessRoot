@@ -4,32 +4,37 @@
 
 ----
 !3 二、接口描述：
-激活礼品卡
+礼品卡信息由 【卡号】、【密码】组成
 
-礼品卡类型？
+礼品卡有有效期，过期不能激活
 
-哪些礼品卡可以激活？哪些类型不可以？
+礼品卡有状态，已激活过的礼品卡不能再激活
 
 ----
 !3 三、涉及数据库
-需与代鹏确认
+|Comment                                                                  |
+|#数据库服务器                  |#数据库   |#表                                     |
+|10.255.254.185（sqlserver）|account|dangdang_money（money_id为卡号，password为密码）|
+
+未激活礼品卡查询：
+
+status=1 and cust_id is null
 
 ----
 !3 四、测试用例:
 |Import                               |
 |com.dangdang.readerV5.personal_center|
 
-|ddt:activate ddMoney V2                                                                                                 |
-|#用例名称            |userName                |passWord|loginType|token    |ddMoneyName|ddMoneyPwd|status code?|data verify?|
-|激活礼品卡，正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |0           |通过          |
-|激活礼品卡，token不传    |                        |        |         |#NotPass#|           |          |10003       |通过          |
-|激活礼品卡，token不正确   |                        |        |         |123      |           |          |10003       |通过          |
-|激活礼品卡，卡号不正确      |!-cailj_ddtest@126.com-!|ddtest  |email    |         |231232111  |123       |26001       |通过          |
-|激活礼品卡，卡号不传       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |#NotPass#  |213       |10002       |通过          |
-|激活礼品卡，密码不正确      |!-cailj_ddtest@126.com-!|ddtest  |email    |         |123213     |213       |26001       |通过          |
-|激活礼品卡，密码不传       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |123213     |#NotPass# |10002       |通过          |
-|激活礼品卡，非当当读书礼品卡激活 |!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |26001       |通过          |
-|激活礼品卡，失效的礼品卡激活   |!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |26001       |通过          |
-|激活礼品卡，激活过的礼品卡重新激活|!-cailj_ddtest@126.com-!|ddtest  |email    |         |           |          |26001       |通过          |
+|ddt:activate ddMoney V2                                                                                                            |
+|#用例名称            |userName                |passWord|loginType|token    |ddMoneyName           |ddMoneyPwd|status code?|data verify?|
+|激活礼品卡，正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |ddb6355339446z569875  |6269      |0           |通过          |
+|激活礼品卡，token不传    |                        |        |         |#NotPass#|ddb6355339446z569875  |6269      |10002       |通过          |
+|激活礼品卡，token不正确   |                        |        |         |123      |ddb6355339446z569875  |6269      |10003       |通过          |
+|激活礼品卡，卡号不正确      |!-cailj_ddtest@126.com-!|ddtest  |email    |         |231232111             |123       |26001       |通过          |
+|激活礼品卡，卡号不传       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |#NotPass#             |213       |10002       |通过          |
+|激活礼品卡，密码不正确      |!-cailj_ddtest@126.com-!|ddtest  |email    |         |123213                |213       |26001       |通过          |
+|激活礼品卡，密码不传       |!-cailj_ddtest@126.com-!|ddtest  |email    |         |123213                |#NotPass# |10002       |通过          |
+|激活礼品卡，失效的礼品卡激活   |!-cailj_ddtest@126.com-!|ddtest  |email    |         |ddb265y5z7y2yzy584275y|84275y    |26001       |通过          |
+|激活礼品卡，激活过的礼品卡重新激活|!-cailj_ddtest@126.com-!|ddtest  |email    |         |ddb6355339446z569875  |6269      |26001       |通过          |
 
 !contents -R2 -g -p -f -h
