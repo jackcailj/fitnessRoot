@@ -19,10 +19,10 @@
 |com.dangdang.readerV5.bookstore|
 
 !*> 定义scenario 
-|scenario|booklist|action||bookListId||channelType||token||EXPECTED||setParameters|
-|setParameters|!{action:@action,bookListId:@bookListId,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
-|ensure|do get|@EXPECTED|
-|ensure|verify|
+|scenario|booklist|action||bookListId||channelType||token||statusCode||setParameters|
+|setParameters|!{action:@action,bookListId:@bookListId,channelType:@channelType,token:@token}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|Booklist|
