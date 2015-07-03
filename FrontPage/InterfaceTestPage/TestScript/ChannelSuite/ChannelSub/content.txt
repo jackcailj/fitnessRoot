@@ -37,15 +37,15 @@
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|Channelsub|action||cId||token||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,cId:@cId,token:@token,channelType:@channelType}|
+|scenario|channelsub|action||userName||passWord||loginType||token||cId||op||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,op:@op}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|Channel|
+|script|Channelsub|
 *!
 !* 测试数据
-|Channelsub|
-|#用例编号|action|cId|token|channelType|statusCode|
-|channelCase01|channel|28||all|0|
+|channelsub|
+|#用例编号|action|userName|passWord|loginType|token|cId|op|statusCode|
+|channelSubCase01|channelsub||!-z16@123.com-!|111111|email||29|1|0|
 *!
