@@ -63,8 +63,10 @@
 |createBarTest|
 |#用例名称|userName|passWord|loginType|action|barId|barName|barDesc|barImgUrl|actionType|token|期望|result|
 |修改吧背景|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-301.jpg-!|3||0|pass|
-# |修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|图片尺寸不符合?|3||25012|pass|
-# |修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|图片格式不符合?|3||25012|pass|
+|修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-306.txt-!|3||25012|pass|
+|修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|图片格式不符合|3||25012|pass|
+
+
 !4 测试不合法数据
 |createBarTest|
 |#用例名称|userName|passWord|loginType|action|barId|barName|barDesc|barImgUrl|actionType|token|期望|result|
@@ -93,6 +95,7 @@ http://10.255.223.117/media/api2.go?deviceType=Android&barName=%E7%99%BD%E9%B9%B
 3.barImgUrl 为空或不传时，不报错，但barDesc为空或者不传时报错10002
 建吧时，bardesc肯定不能为空，但是barimgurl可以为空, 用户可以不选图片，后台默认给他选一张图片
 bug: http://10.255.223.220/zentao/bug-view-14533.html
+bug： http://10.255.223.220/zentao/bug-view-14560.html
 
 /media/api2.go?action=createBar&barName=bb&barDesc=%E5%90%A7%E6%B5%8B%E8%AF%95&barImgUrl=http://img61.ddimg.cn/upload_img/00421/pcsz/npxk960-300.jpg&actionType=1
 &returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150623063438652866572764918351292&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=TS-P&channelType=all&token=7e5bc2d560182ecde9bc88b21b95454a
