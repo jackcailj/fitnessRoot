@@ -16,7 +16,7 @@
 *!
 !define TEST_SYSTEM {slim}
 |Import|
-|com.dangdang.readerV5.channel|
+|com.dangdang.readerV5.bookstore|
 
 !*> 定义scenario 
 |scenario|booklist|action||bookListId||channelType||token||EXPECTED||setParameters|
