@@ -15,10 +15,8 @@
 |Import                               |
 |com.dangdang.readerV5.personal_center|
 
-|ddt:upload head photo                                                                                                                         |
-|#用例名称           |userName                |passWord|loginType|token    |fileName|fileStr|fileType|thirdId|loginClient|status code?|data verify?|
-|获取礼品卡列表，正常流程    |!-cailj_ddtest@126.com-!|ddtest  |email    |         |        |       |        |       |           |0           |通过          |
-|获取礼品卡列表，token不传 |                        |        |         |#NotPass#|        |       |        |       |           |10002       |通过          |
-|获取礼品卡列表，token不正确|                        |        |         |123      |        |       |        |       |           |10003       |通过          |
+|ddt:upload head photo                                                                                                              |
+|#用例名称    |userName                |passWord|loginType|token|fileName|fileStr|fileType|thirdId|loginClient|status code?|data verify?|
+|上传头像，正常流程|!-cailj_ddtest@126.com-!|ddtest  |email    |     |        |       |        |       |           |0           |通过          |
 
 !contents -R2 -g -p -f -h

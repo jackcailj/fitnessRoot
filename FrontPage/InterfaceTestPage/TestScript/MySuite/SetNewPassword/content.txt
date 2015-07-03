@@ -1,0 +1,35 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360178
+
+----
+!3 二、接口描述：
+设置新密码
+
+'''应有对用户身份的验证，目前没有'''
+
+!3 三、涉及数据库
+需要和代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:set new password                                                                                     |
+|#用例名称                         |userName                  |newPassword          |status code?|data verfiy?|
+|找回密码最后一步设置密码，邮箱方式             |!-cailj_ddtest10@126.com-!|ddtest1              |0           |通过          |
+|找回密码最后一步设置密码，手机号方式            |15110267876               |ddtest1              |0           |通过          |
+|找回密码最后一步设置密码，未注册邮箱用户          |!-dte@12.com-!            |ddtest1              |60059       |通过          |
+|找回密码最后一步设置密码，未注册手机用户          |13333558921               |ddtest1              |60059       |通过          |
+|找回密码最后一步设置密码，邮箱用户格式不正确        |!-cailj_ddtest-!          |ddtest1              |60042       |通过          |
+|找回密码最后一步设置密码，手机用户格式不正确        |!-15111111-!              |ddtest1              |60042       |通过          |
+|找回密码最后一步设置密码，userName不传       |#NotPass#                 |ddtest1              |10002       |通过          |
+|找回密码最后一步设置密码，userName为空       |                          |ddtest1              |10002       |通过          |
+|找回密码最后一步设置密码，newPassword为空    |!-cailj_ddtest@126.com-!  |                     |10002       |通过          |
+|找回密码最后一步设置密码，newPassword不传    |!-cailj_ddtest@126.com-!  |#NotPass#            |10002       |通过          |
+|找回密码最后一步设置密码，newPassword小于6位  |!-cailj_ddtest@126.com-!  |12345                |60049       |通过          |
+|找回密码最后一步设置密码，newPassword大于20位 |!-cailj_ddtest@126.com-!  |aaaaaaaaaa12345678901|60049       |通过          |
+|找回密码最后一步设置密码，newPassword包含特殊字符|!-cailj_ddtest@126.com-!  |adssdd%$#*&          |60050       |通过          |
+
+!contents -R2 -g -p -f -h

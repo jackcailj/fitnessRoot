@@ -32,12 +32,12 @@
 |修改支付宝用户昵称,正常流程      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |7      |0          |测试修改昵称               |0           |通过          |
 |修改新浪微博用户昵称,正常流程     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |5      |0          |测试修改昵称               |0           |通过          |
 |修改微信用户昵称,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |200    |0          |测试修改昵称               |0           |通过          |
-|修改昵称，不传token        |                        |        |         |     |0      |0          |测试修改昵称               |10003       |通过          |
+|修改昵称，不传token        |                        |        |         |     |0      |0          |测试修改昵称               |10002       |通过          |
 |修改昵称，token不正确       |                        |        |         |123  |0      |0          |测试修改昵称               |10003       |通过          |
 |修改昵称，nickname不传     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |                     |10002       |通过          |
-|修改昵称，昵称大于20个字符，应失败  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |测试修改昵称测试修改昵称测试修改昵称a12|60023       |通过          |
+|修改昵称，昵称大于20个字符，应失败  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |测试修改昵称测试修改昵称测试修改昵称a12|60020       |通过          |
 |修改昵称，昵称小于4个字符，应失败   |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |小于4                  |60023       |通过          |
-|修改昵称，昵称中存在特殊字符，应失败  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |$123*-_-             |60023       |通过          |
+|修改昵称，昵称中存在特殊字符，应失败  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |$123*-_-             |60021       |通过          |
 |修改昵称，thirdId不传      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |       |0          |测试修改昵称               |10002       |通过          |
 |修改昵称，thirdId不正确     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |222    |0          |测试修改昵称               |60023       |通过          |
 |修改昵称 ，loginClient不传 |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |           |测试修改昵称               |10002       |通过          |

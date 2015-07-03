@@ -1,0 +1,52 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360270
+
+----
+!3 二、接口描述：
+收藏接口
+
+可以收藏的类型：media"(图书), "discover"(当读发现), "digest"(翻片儿文章), "article"(发现、频道、抢先读中的文章), "post"(帖子)
+
+支持批量收藏
+
+!3 三、涉及数据库
+需要和代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:dD reader storeUp save                                                                                    |
+|#用例名称               |userName                |passWord|token    |type     |targetIds|status code?|data verfiy?|
+|收藏，收藏图书流程           |!-cailj_ddtest@126.com-!|ddtest  |         |media    |         |0           |通过          |
+|收藏，收藏发现流程           |!-cailj_ddtest@126.com-!|ddtest  |         |discover |         |0           |通过          |
+|收藏，收藏翻篇儿流程          |!-cailj_ddtest@126.com-!|ddtest  |         |digest   |         |0           |通过          |
+|收藏，收藏文章流程           |!-cailj_ddtest@126.com-!|ddtest  |         |article  |         |0           |通过          |
+|收藏，收藏帖子流程           |!-cailj_ddtest@126.com-!|ddtest  |         |post     |         |0           |通过          |
+|收藏，批量收藏图书           |!-cailj_ddtest@126.com-!|ddtest  |         |media    |         |0           |通过          |
+|收藏，批量收藏发现           |!-cailj_ddtest@126.com-!|ddtest  |         |discover |         |0           |通过          |
+|收藏，批量收藏翻篇儿          |!-cailj_ddtest@126.com-!|ddtest  |         |digest   |         |0           |通过          |
+|收藏，批量收藏文章           |!-cailj_ddtest@126.com-!|ddtest  |         |article  |         |0           |通过          |
+|收藏，批量收藏帖子           |!-cailj_ddtest@126.com-!|ddtest  |         |post     |         |0           |通过          |
+|收藏，token为空          |                        |        |         |media    |         |10003       |通过          |
+|收藏，token不传          |                        |        |#NotPass#|media    |         |10002       |通过          |
+|收藏，type为空           |!-cailj_ddtest@126.com-!|ddtest  |         |         |         |10002       |通过          |
+|收藏，type不传           |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|         |10002       |通过          |
+|收藏，type不正确          |!-cailj_ddtest@126.com-!|ddtest  |         |test     |         |28001       |通过          |
+|收藏，targetIds为空      |!-cailj_ddtest@126.com-!|ddtest  |         |media    |         |10002       |通过          |
+|收藏，targetIds不传      |!-cailj_ddtest@126.com-!|ddtest  |         |media    |#NotPass#|10002       |通过          |
+|收藏，图书targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest  |         |media    |123455   |28003       |通过          |
+|收藏，发现targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest  |         |discover |123455   |28004       |通过          |
+|收藏，翻篇儿targetIds不存在  |!-cailj_ddtest@126.com-!|ddtest  |         |digest   |123455   |28004       |通过          |
+|收藏，文章targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest  |         |article  |123455   |28004       |通过          |
+|收藏，帖子targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest  |         |post     |123455   |28005       |通过          |
+|收藏，重复收藏图书           |!-cailj_ddtest@126.com-!|ddtest  |         |media    |         |28007       |通过          |
+|收藏，重复收藏发现           |!-cailj_ddtest@126.com-!|ddtest  |         |discover |         |28007       |通过          |
+|收藏，重复收藏翻篇儿          |!-cailj_ddtest@126.com-!|ddtest  |         |digest   |         |28007       |通过          |
+|收藏，重复收藏文章           |!-cailj_ddtest@126.com-!|ddtest  |         |article  |         |28007       |通过          |
+|收藏，重复收藏帖子           |!-cailj_ddtest@126.com-!|ddtest  |         |post     |         |28007       |通过          |
+|收藏，type和targetIds不匹配|!-cailj_ddtest@126.com-!|ddtest  |         |media    |         |10002       |通过          |
+
+!contents -R2 -g -p -f -h

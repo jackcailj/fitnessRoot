@@ -1,0 +1,33 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360176
+
+----
+!3 二、接口描述：
+获取另外找回密码的方式
+
+其他联系方式如何设置的？
+
+----
+!3 三、涉及数据库
+需要和代鹏确认
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+
+
+|ddt:get find password contact info                                        |
+|#用例名称                  |userName                |status code?|data verfiy?|
+|获取另外找回密码联系方式，邮箱方式      |!-cailj_ddtest@126.com-!|0           |通过          |
+|获取另外找回密码联系方式，手机号方式     |15110267876             |0           |通过          |
+|获取另外找回密码联系方式，未注册邮箱用户   |!-dte@12.com-!          |60059       |通过          |
+|获取另外找回密码联系方式，未注册手机用户   |13333558921             |60059       |通过          |
+|获取另外找回密码联系方式，邮箱用户格式不正确 |!-cailj_ddtest-!        |60042       |通过          |
+|获取另外找回密码联系方式，手机用户格式不正确 |!-15111111-!            |60042       |通过          |
+|获取另外找回密码联系方式，userName不传|#NotPass#               |10002       |通过          |
+|获取另外找回密码联系方式，userName为空|                        |10002       |通过          |
+
+!contents -R2 -g -p -f -h

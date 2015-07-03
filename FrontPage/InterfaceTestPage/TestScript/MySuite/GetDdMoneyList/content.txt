@@ -14,7 +14,9 @@
 
 ----
 !3 三、涉及数据库
-需与代鹏确认
+|Comment                                                                  |
+|#数据库服务器                  |#数据库   |#表                                     |
+|10.255.254.185（sqlserver）|account|dangdang_money（money_id为卡号，password为密码）|
 
 ----
 !3 四、测试用例:
