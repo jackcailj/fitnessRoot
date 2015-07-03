@@ -41,5 +41,5 @@
 !* 测试数据
 |bookListDetail|
 |#用例编号|action|bookListId|start|end|channelType|token|statusCode|
-||bookListDetail|10|0|9|all||0|
+||bookListDetail|31|0|9|all||0|
 *!
