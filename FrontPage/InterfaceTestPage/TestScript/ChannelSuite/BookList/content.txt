@@ -19,16 +19,16 @@
 |com.dangdang.readerV5.channel|
 
 !*> 定义scenario 
-|scenario|bookList|action||bookListId||channelType||token||EXPECTED||setParameters|
+|scenario|booklist|action||bookListId||channelType||token||EXPECTED||setParameters|
 |setParameters|!{action:@action,bookListId:@bookListId,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
 |ensure|do get|@EXPECTED|
 |ensure|verify|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|book list|
+|script|Booklist|
 *!
 !* 测试数据
-|bookList|
+|booklist|
 |#参数|action|bookListId|channelType|token|EXPECTED|
 ||bookList|28|all||0|
 *!
