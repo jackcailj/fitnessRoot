@@ -29,6 +29,6 @@
 *!
 !* 测试数据
 |booklist|
-|#参数|action|bookListId|channelType|token|EXPECTED|
+|#参数|action|bookListId|channelType|token|statusCode|
 ||bookList|28|all||0|
 *!
