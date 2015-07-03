@@ -31,3 +31,4 @@
 |bookList|
 |#参数|action|bookListId|channelType|token|EXPECTED|
 ||bookListDetail|14|all||0|
+*!
