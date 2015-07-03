@@ -1,0 +1,23 @@
+!1 '''置顶、加精接口'''
+
+!* 测试用例
+接口：action=topAndWonderful
+参数：
+ * token – 身份认证token（必填）
+ * mediaDigestId – 帖子ID（必填）
+ * actionType – 操作类型(top-置顶； cancelTop-取消置顶；wonderful-加精； cancelWonderful-取消加精；)（必填）
+接口描述：将帖子置顶，加精，取消置顶，加精，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360251
+相关数据库表：bookbar -> article
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|输入正确的参数值|置顶成功|test|
+|||mediaDigestId 参数|不传该参数，其他参数值正确|参数非法|test|
+|||mediaDigestId 参数值|输入barId值为空，其他参数值正确|参数非法|test|
+|||mediaDigestId 参数值|barId值为字母bb ，其他参数值正确|未知错误|test|
+||已有置顶的帖子|actionType参数|参数值为cancelTop，其他参数值正确|取消置顶成功|test|
+|||actionType参数|参数值为wonderful，其他参数值正确|加精成功|test|
+||已有加精的帖子|actionType参数|参数值为cancelWonderful，其他参数值正确|取消加精成功|test|
+|||actionType参数|不传该参数，其他参数值正确|参数非法|test|
+|||actionType参数|参数值为空，其他参数值正确|参数非法|test|
+|||token参数|参数值为空，其他参数值正确|参数非法|test|
+*!

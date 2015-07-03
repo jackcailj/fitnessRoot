@@ -1,0 +1,25 @@
+!***> '''创建吧'''
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |createBarTest|userName||passWord||loginType||action||barId||barName||barDesc||barImgUrl||actionType||token||期望||result||setParameters|
+| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,action:@action,barId:@barId,barName:@barName,barDesc:@barDesc,barImgUrl:@barImgUrl,actionType:@actionType,token:@token,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verify result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|create bar|
+*!
+!* 测试数据
+!4 测试建吧
+|createBarTest|
+|#用例名称|userName|passWord|loginType|action|barId|barName|barDesc|barImgUrl|actionType|token|期望|result|
+|创建吧|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|建吧1|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-300.jpg-!|1||0|pass|
+|创建吧失败|!-whytest@dd.con-!|111111|email|createBar|REMOVE|FromDB|建吧1|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-300.jpg-!|1||25010|pass|
+*!
+*!
