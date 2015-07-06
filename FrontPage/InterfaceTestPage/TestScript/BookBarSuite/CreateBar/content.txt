@@ -45,7 +45,7 @@
 | setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,action:@action,barId:@barId,barName:@barName,barDesc:@barDesc,barImgUrl:@barImgUrl,actionType:@actionType,token:@token,期望:@期望}|
 |show|do request|
 |dataVerify|@期望|
-|check|verify result |@result|
+|check|verified result |@result|
 |show|tear down|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
