@@ -6,7 +6,7 @@
  *[[限免接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.FreeForLimited]]
 *!
 !* '''借阅'''
- *[[借阅接口][]]
+ *[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BorrowInterface]]
 *!
 !* '''专题'''
  *[[历史专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory]]
