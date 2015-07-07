@@ -1,6 +1,6 @@
 !1 '''书城'''
 !* '''初始化书城'''
- *[[只适用测试环境][]]
+ *[[只适用测试环境][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.InitBookStore]]
 *!
 !* '''限免'''
  *[[限免接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.FreeForLimited]]
