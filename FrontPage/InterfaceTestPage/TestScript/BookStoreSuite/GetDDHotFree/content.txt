@@ -1,6 +1,6 @@
 !*> 测试用例
 接口：action=getDDHotFree
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359414
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360274
 相关表：
  * media_special_topic
  * media_special_topic_category
