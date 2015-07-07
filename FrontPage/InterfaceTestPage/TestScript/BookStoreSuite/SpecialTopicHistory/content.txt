@@ -1,4 +1,52 @@
-!* '''测试用例'''
-接口定义：http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934393
+!*> 测试用例
+接口：action=specialtopichistory
+接口描述：通过栏目类型标识(column_code)获取该栏目下数据，参数isFull=1，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934393
 相关表：
+ * media_column
+ * media_column_content
+  * order_value 排序
+ * channel
+  * channel_id 与表media_column_content中的sale_id对应
+  * shelf_status  上下架状态(0:下架1:上架)  下线的频道接口不返回
+  * sub_number 订阅数
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|columnCase01||接口能正确返回数据|调用接口|返回的频道标题、描述、icon、订阅数与数据库数据一致|test，staging，online|
+|columnCase02||接口能正确返回数据|【用户后台】修改某频道的标题、描述、icon后，调用接口|返回的频道标题、描述、icon与修改的数据一致|test|
+|columnCase03||接口能正确返回数据|【审核后台】某频道为下线状态，调用接口|下线的频道不返回|test|
+|columnCase04||接口能正确返回数据|【当读后台】频道列表为空，调用接口|返回空数据|test|
+|columnCase05||接口能正确返回数据|【当读后台】添加频道，调用接口|新添加的频道返回|test|
+|columnCase06||接口能正确返回数据|【当读后台】删除频道，调用接口|删除的频道不返回|test|
+|columnCase07||接口能正确返回数据|【当读后台】设置有效期，调用接口|过有效期的频道不返回|test|
+|columnCase08||接口能正确返回数据|【当读后台】设置为强制无效，调用接口|强制无效的频道不返回|test|
+|columnCase09||接口能正确返回数据|【当读后台】设置为强制有效，调用接口|强制有效的频道排序优先|test|
+|columnCase10||接口能正确返回数据|【当读后台】设置排序值后，调用接口|按排序值由大到小返回|test|
+|columnCase11||接口能正确返回数据|【用户后台】创建频道，不添加书单，调用接口|书单为空的频道不返回|test|
+|columnCase12||接口能正确返回数据|【用户后台】修改某个频道的书单为空后，调用接口|书单为空的频道不返回|test|
+|columnCase13||参数columnType|columnType值为空|返回10002，参数columnType不存在|test|
+|columnCase14||参数columnType|columnType值为无效值|返回10002|test|
+|columnCase15||参数start|start值为空|返回10002|test|
+|columnCase16||参数start|start值大于列表总数时|返回空数据|test|
+|columnCase17||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|columnCase18||参数end|end值为空|返回10002|test|
+|columnCase19||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|columnCase20||参数start和end|start值大于end值|返回10002|test|
+|columnCase21||参数isFull|isFull值为空|返回10002|test|
+|columnCase22||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.bookstore|
+*!
+!*> 定义scenario 
+|scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
+|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|Column|
+*!
+!* 测试数据
+|column|
+|#用例编号|action|columnType|start|end|isFull|statusCode|
