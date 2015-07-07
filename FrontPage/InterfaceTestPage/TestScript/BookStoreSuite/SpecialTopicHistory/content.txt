@@ -6,13 +6,13 @@
  * media_special_topic_category
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|columnCase01||接口能正确返回数据|调用接口|返回的频道标题、描述、icon、订阅数与数据库数据一致|test，staging，online|
-|columnCase02||接口能正确返回数据|【用户后台】修改某频道的标题、描述、icon后，调用接口|返回的频道标题、描述、icon与修改的数据一致|test|
-|columnCase03||接口能正确返回数据|【审核后台】某频道为下线状态，调用接口|下线的频道不返回|test|
-|columnCase04||接口能正确返回数据|【当读后台】频道列表为空，调用接口|返回空数据|test|
-|columnCase05||接口能正确返回数据|【当读后台】添加频道，调用接口|新添加的频道返回|test|
-|columnCase06||接口能正确返回数据|【当读后台】删除频道，调用接口|删除的频道不返回|test|
-|columnCase07||接口能正确返回数据|【当读后台】设置有效期，调用接口|过有效期的频道不返回|test|
+|specialtopichistoryCase01||接口能正确返回数据|调用接口|返回的name、picPath、stId与数据库数据一致|test，staging，online|
+|specialtopichistoryCase02|DDDS_All下频道为空|接口返回列表为空|调用接口|返回的specialTopicList为空，count和total为0|test|
+|specialtopichistoryCase03||接口能正确返回数据|【审核后台】某频道为下线状态，调用接口|下线的频道不返回|test|
+|specialtopichistoryCase04||接口能正确返回数据|【当读后台】频道列表为空，调用接口|返回空数据|test|
+|specialtopichistoryCase05||接口能正确返回数据|【当读后台】添加频道，调用接口|新添加的频道返回|test|
+|specialtopichistoryCase06||接口能正确返回数据|【当读后台】删除频道，调用接口|删除的频道不返回|test|
+|specialtopichistoryCase07||接口能正确返回数据|【当读后台】设置有效期，调用接口|过有效期的频道不返回|test|
 |columnCase08||接口能正确返回数据|【当读后台】设置为强制无效，调用接口|强制无效的频道不返回|test|
 |columnCase09||接口能正确返回数据|【当读后台】设置为强制有效，调用接口|强制有效的频道排序优先|test|
 |columnCase10||接口能正确返回数据|【当读后台】设置排序值后，调用接口|按排序值由大到小返回|test|
