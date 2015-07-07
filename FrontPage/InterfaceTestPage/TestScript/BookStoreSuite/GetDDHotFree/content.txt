@@ -1,0 +1,41 @@
+!*> 测试用例
+接口：action=getDDHotFree
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359414
+相关表：
+ * media_special_topic
+ * media_special_topic_category
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|getDDHotFreeCase01||接口能正确返回数据|调用接口|返回的name、picPath、stId与数据库数据一致|test，staging，online|
+|getDDHotFreeCase02|DDDS_All下专题为空|接口返回列表为空|调用接口|返回的specialTopicList为空，count和total为0|test|
+|getDDHotFreeCase03||后台状态有效性验证|【当读后台】把某专题设置为无效，调用接口|设置为无效的专题不返回|test|
+|getDDHotFreeCase04||排序|【当读后台】对专题进行排序，调用接口|返回顺序按排序值倒序返回|test|
+|getDDHotFreeCase05||参数deviceType|deviceType值为空|返回10002在|test|
+|getDDHotFreeCase06||参数deviceType|deviceType值为无效值|返回10002|test|
+|getDDHotFreeCase07||参数start|start值为空|返回10002|test|
+|getDDHotFreeCase08||参数start|start值大于列表总数时|返回空数据|test|
+|getDDHotFreeCase09||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|getDDHotFreeCase10||参数end|end值为空|返回10002|test|
+|getDDHotFreeCase11||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|getDDHotFreeCase12||参数start和end|start值大于end值|返回10002|test|
+|specialtopichistoryCase13||参数channelType|channelType值为空|返回10002|test|
+|specialtopichistoryCase14||参数channelType|channelType为无效值(字符，字母，中文)|返回10002|test|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.bookstore|
+*!
+!*> 定义scenario 
+|scenario|specialTopicHistory|action||deviceType||start||end||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,deviceType:@deviceType,start:@start,end:@end,channelType:@channelType}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|special topic history|
+*!
+!* 测试数据
+|specialTopicHistory|
+|#用例编号|action|deviceType|start|end|channelType|statusCode|
+||specialtopichistory|DDDS_All|0|9|ALL|0|
+*!
