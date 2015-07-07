@@ -3,7 +3,7 @@
  *[[只适用测试环境][]]
 *!
 !* '''限免'''
- *[[限免接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetDDHotFree]]
+ *[[限免接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.FreeForLimited]]
 *!
 !* '''借阅'''
  *[[借阅接口][]]
