@@ -9,7 +9,8 @@
  *[[借阅接口][]]
 *!
 !* '''专题'''
- *[[专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory]]
+ *[[历史专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory]]
+ *[[专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopic]]
 *!
 !* '''栏目'''
  *[[频道栏目接口][]]
