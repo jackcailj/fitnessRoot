@@ -38,3 +38,4 @@
 |specialTopicHistory|
 |#用例编号|action|deviceType|start|end|channelType|statusCode|
 ||specialtopichistory|DDDS_All|0|9|ALL|0|
+*!
