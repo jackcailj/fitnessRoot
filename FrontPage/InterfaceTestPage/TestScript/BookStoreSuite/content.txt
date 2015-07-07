@@ -1,5 +1,5 @@
 !1 '''书城'''
-!* '''初始化书城'''
+!* '''初始化书城数据'''
  *[[只适用测试环境][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.InitBookStore]]
 *!
 !* '''限免'''
