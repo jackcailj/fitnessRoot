@@ -37,7 +37,7 @@
 !* columnCase02 栏目下书籍为空
 |script|Column|
 |note|后台创建一个新栏目|
-|$columnType|createColumn|书籍栏目|column_test|0|
+|$columnType=|createColumn|书籍栏目|column_test|0|
 |setParameters|!{action:column,columnType:np_nslj,start:0,end:9,isFull:1}|
 |ensure|do get|@statusCode|
 |ensure|verify result1|
