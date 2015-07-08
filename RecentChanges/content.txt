@@ -1,3 +1,4 @@
+
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtDetailList||17:20:31 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtList||16:06:52 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite||14:36:34 星期三, 七月 08, 2015|
@@ -29,6 +30,10 @@
 |FrontPage.InterfaceTestPage.TestScript.MySuite.changeNickName||17:32:04 星期一, 六月 29, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||16:56:59 星期一, 六月 29, 2015|
 
+|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar||18:43:22 星期五, 七月 03, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookBarSuite||15:16:28 星期五, 七月 03, 2015|
+
+
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestContentForH5||18:18:13 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite||17:46:17 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestHomePageList||17:16:05 星期五, 六月 26, 2015|
@@ -38,8 +43,6 @@
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryTagDetail||14:20:47 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.DelArticle||13:47:33 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarInfo||13:35:45 星期五, 六月 26, 2015|
-|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar||13:32:07 星期五, 六月 26, 2015|
-|FrontPage.InterfaceTestPage.TestScript.BookBarSuite||11:47:56 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite||11:47:40 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.NearbySearch||11:37:38 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.NearbyClearLocation||20:18:38 星期四, 六月 25, 2015|
@@ -64,12 +67,26 @@
 |FrontPage.InterfaceTestPage.TestScript||15:00:32 星期二, 六月 23, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestDetail||14:28:58 星期五, 六月 19, 2015|
 
+|FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||16:23:11 星期五, 六月 26, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2||16:16:26 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetAccountInfo||15:31:30 星期五, 六月 26, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.ThridLoginV2||13:27:26 星期四, 六月 25, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.UploadHeadPhoto||16:30:19 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite||16:26:34 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetUser||15:17:46 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.getPostList||15:17:27 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.getNoteList||15:16:56 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.changeNickName||15:15:54 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.changeIntroduct||15:14:58 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.ChangeGender||15:14:03 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.SendSmsVcode||15:12:42 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.CheckSmsVcode||15:12:30 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.LoginOutV2||15:12:18 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.ActivateDdMoneyV2||15:11:58 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.BindCouponV3||15:06:29 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.GetDdMoneyList||15:05:41 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetValidCouponV2||15:03:19 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.GetCaptcha||15:18:17 星期四, 六月 18, 2015|
 |FrontPage.InterfaceTestPage.TestScript.LoginSuite||14:10:17 星期四, 六月 18, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.ddLogin||14:02:02 星期四, 六月 18, 2015|
 |FrontPage.InterfaceTestPage.TestScript.getPostList||11:58:13 星期四, 六月 18, 2015|
@@ -77,6 +94,7 @@
 |FrontPage.InterfaceTestPage.TestScript.GetUser||17:51:54 星期三, 六月 17, 2015|
 
 |FrontPage.InterfaceTestPage.TestingConfig||16:45:25 星期三, 六月 17, 2015|
+|FrontPage.InterfaceTestPage.AndroidCommparam||16:44:28 星期三, 六月 17, 2015|
 |FrontPage.InterfaceTestPage.TestScript.GetCaptcha||15:37:38 星期三, 六月 17, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DdLogin||15:10:27 星期三, 六月 17, 2015|
 |FrontPage.InterfaceTestPage.ClassPath||18:19:44 星期二, 六月 16, 2015|
@@ -89,6 +107,7 @@
 |FrontPage.InterfaceTestPage.TestScript.ReaderSuite|test|24:15:47 星期六, 六月 13, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ImSuite|test|24:14:57 星期六, 六月 13, 2015|
 
+|FrontPage.InterfaceTestPage.TestScript.MySuite|test|24:13:34 星期六, 六月 13, 2015|
 
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite|test|24:12:00 星期六, 六月 13, 2015|
 
