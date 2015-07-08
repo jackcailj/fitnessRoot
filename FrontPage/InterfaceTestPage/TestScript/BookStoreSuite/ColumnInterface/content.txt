@@ -16,7 +16,7 @@
 |columnCase08||栏目下下架的书重新上架|调用接口|重新上架的书可返回|test|
 |columnCase09||删除栏目下数据|调用接口|能正常返回数据|test|
 |columnCase10||删除栏目|调用接口|返回10002|test|
-|columnCase11||参数columnType|columnType值为空|返回10002，参数columnType不存在|test|
+|columnCase11||参数columnType|columnType值为空|返回10002|test|
 |columnCase12||参数columnType|columnType值为无效值|返回10002|test|
 |columnCase13||参数start|start值为空|返回10002|test|
 |columnCase14||参数start|start值大于列表总数时|返回空数据|test|
