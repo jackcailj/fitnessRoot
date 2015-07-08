@@ -6,16 +6,16 @@
  * media_column_content
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|运行环境|
-|columnCase01||获取当当读书-书籍栏目下数据|调用接口|返回的数据与数据库数据一致|testing，staging，online|
-|columnCase02||栏目下书籍为空|调用接口|返回空数据|testing|
-|columnCase03||空栏目下装书|调用接口|返回新增的数据|testing|
-|columnCase04||排序|【当读后台】排序后，调用接口|返回结果排序正确|testing|
-|columnCase05||排序|【当读后台】更改状态后，调用接口|返回结果排序正确|testing|
-|columnCase06||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|testing|
-|columnCase07||栏目下有下架的书|书下架后，调用接口|下架的书不返回|testing|
-|columnCase08||栏目下下架的书重新上架|调用接口|重新上架的书可返回|testing|
-|columnCase09||删除栏目下数据|调用接口|能正常返回数据|testing|
-|columnCase10||删除栏目|调用接口|返回10002|testing|
+|columnCase01||获取当当读书-书籍栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
+|columnCase02||栏目下书籍为空|调用接口|返回空数据|test|
+|columnCase03||空栏目下装书|调用接口|返回新增的数据|test|
+|columnCase04||排序|【当读后台】排序后，调用接口|返回结果排序正确|test|
+|columnCase05||排序|【当读后台】更改状态后，调用接口|返回结果排序正确|test|
+|columnCase06||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
+|columnCase07||栏目下有下架的书|书下架后，调用接口|下架的书不返回|test|
+|columnCase08||栏目下下架的书重新上架|调用接口|重新上架的书可返回|test|
+|columnCase09||删除栏目下数据|调用接口|能正常返回数据|test|
+|columnCase10||删除栏目|调用接口|返回10002|test|
 |columnCase11||参数columnType|columnType值为空|返回10002，参数columnType不存在|test|
 |columnCase12||参数columnType|columnType值为无效值|返回10002|test|
 |columnCase13||参数start|start值为空|返回10002|test|
