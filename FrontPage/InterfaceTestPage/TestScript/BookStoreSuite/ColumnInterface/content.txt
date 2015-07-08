@@ -39,8 +39,8 @@
 |note|后台创建一个新栏目|
 |$columnType=|createColumn|书籍栏目|column_test|0|
 |setParameters|!{action:column,columnType:np_nslj,start:0,end:9,isFull:1}|
-|ensure|do get|@statusCode|
-|ensure|verify result1|
+|ensure|do get|0|
+|ensure|verify result|
 *!
 
 !contents
