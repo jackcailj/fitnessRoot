@@ -33,16 +33,13 @@
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-!* columnTest001
-!include .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnTesting
-*!
-!* columnTest002
+
+!* columnCase02 栏目下书籍为空
 |script|Column|
-|setParameters|!{columnType:np_nslj,start:0,end:3,isFull:1}|
-|note|后台添加作品|
-|show|getSubColumn|原创||all|
-|doGet|column|
-|ensure|get result1|
+|note|后台创建一个新栏目|
+|setParameters|!{action:column,columnType:np_nslj,start:0,end:9,isFull:1}|
+|ensure|do get|@statusCode|
+|ensure|verify result1|
 *!
 
 !contents
