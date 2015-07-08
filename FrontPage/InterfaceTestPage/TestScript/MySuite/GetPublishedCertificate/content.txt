@@ -1,0 +1,28 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360397
+
+----
+!3 二、接口描述：
+获取出版物证书接口
+
+refAction:用户行为参数（可以为空或者不传）但如果是登录用户点击“试读”引发的下载，那么必须传refAction=browse
+
+!3 三、涉及数据库
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:get published certificate                                                                                                                                                                                                                                 |
+|#用例名称                      |userName                |passWord|token    |mediaId   |key                                                                                                                             |isFull|refAction|status code?|data verfiy?|
+|获取出版物证书，全本                 |                        |        |#NotPass#|#GetMedia#|MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|1     |         |0           |通过          |
+|获取出版物证书，试读本                |                        |        |#NotPass#|#GetMedia#|MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|0     |         |0           |通过          |
+|获取出版物证书，登录用户，试读            |!-cailj_ddtest@126.com-!|ddtest  |         |#GetMedia#|MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|0     |browse   |0           |通过          |
+|获取出版物证书，登录用户，试读，refAction为空|!-cailj_ddtest@126.com-!|ddtest  |         |#GetMedia#|MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|0     |         |0           |通过          |
+|获取出版物证书,media不正确           |                        |        |#NotPass#|123456    |MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|1     |         |12002       |通过          |
+|获取出版物证书,media不传            |                        |        |         |#NotPass# |MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|1     |         |10002       |通过          |
+|获取出版物证书,key不正确             |                        |        |         |#NotPass# |123                                                                                                                             |1     |         |10002       |通过          |
+|获取出版物证书,key不传              |                        |        |         |#NotPass# |#NotPass#                                                                                                                       |1     |         |10002       |通过          |
+
+!contents -R2 -g -p -f -h

@@ -1,0 +1,25 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360470
+
+----
+!3 二、接口描述：
+借阅列表
+
+!3 三、涉及数据库
+|Comment        |
+|数据库 |表         |
+|ecms|user_ebook|
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:get borrow authority list                                                        |
+|#用例名称          |userName                |passWord|token    |status code?|data verfiy?|
+|获取借阅列表，正常流程    |!-cailj_ddtest@126.com-!|ddtest  |         |0           |通过          |
+|获取借阅列表，token不正确|                        |        |123      |10003       |通过          |
+|获取借阅列表，token不传 |                        |        |#NotPass#|10002       |通过          |
+
+!contents -R2 -g -p -f -h
