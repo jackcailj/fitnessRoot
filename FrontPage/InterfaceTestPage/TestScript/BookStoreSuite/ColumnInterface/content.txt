@@ -1,7 +1,9 @@
-!define TEST_SYSTEM {slim}
 !* '''测试用例'''
-接口定义：http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933440
-相关表：media_column
+接口：action=column
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933440
+相关表：
+* media_column
+* media_column_content
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|运行环境|
 |columnTest001||获取当当读书-书籍栏目下数据|调用接口|返回的数据与数据库数据一致|testing，staging，online|
@@ -16,7 +18,8 @@
 |columnTest004||删除栏目|调用接口|返回1111|testing|
 
 *!
-!*> setUp
+!*> Import
+!define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
