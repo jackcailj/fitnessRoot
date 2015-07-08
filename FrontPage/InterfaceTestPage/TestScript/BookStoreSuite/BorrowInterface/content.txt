@@ -27,15 +27,15 @@
 |com.dangdang.readerV5.bookstore|
 *!
 !*> 定义scenario 
-|scenario|specialTopicHistory|action||deviceType||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,deviceType:@deviceType,start:@start,end:@end,channelType:@channelType}|
+|scenario|borrow|action||columnType||start||end||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|special topic history|
+|script|Borrow|
 *!
 !* 测试数据
-|specialTopicHistory|
-|#用例编号|action|deviceType|start|end|channelType|statusCode|
-||specialtopichistory|DDDS_All|0|9|ALL|0|
+|borrow|
+|#用例编号|action|columnType|start|end|channelType|statusCode|
+||borrow|jieyue|0|9|ALL|0|
 *!
