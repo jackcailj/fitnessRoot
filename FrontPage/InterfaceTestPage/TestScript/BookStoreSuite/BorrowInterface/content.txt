@@ -37,5 +37,5 @@
 !* 测试数据
 |borrow|
 |#用例编号|action|columnType|start|end|channelType|statusCode|
-||borrow|all_pub_borrow_free|0|9|ALL|0|
+||borrow|pub_borrow_free|0|9|ALL|0|
 *!
