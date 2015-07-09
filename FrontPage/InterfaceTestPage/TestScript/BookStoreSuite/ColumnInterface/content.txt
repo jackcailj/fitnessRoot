@@ -9,7 +9,7 @@
 |columnCase01||获取当当读书-书籍栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
 |columnCase02||栏目下书籍为空|调用接口|返回11003|test|
 |columnCase03||空栏目下装书|调用接口|返回新增的数据|test|
-|columnCase04||排序|【当读后台】排序后，调用接口|返回结果排序正确|test|
+|columnCase04||排序|【当读后台】设置排序值，调用接口|返回结果排序正确|test|
 |columnCase05||排序|【当读后台】更改状态后，调用接口|返回结果排序正确|test|
 |columnCase06||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
 |columnCase07||栏目下有下架的书|书下架后，调用接口|下架的书不返回|test|
@@ -41,9 +41,17 @@
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|11003|
 *!
-!* columnCase03 空栏目下装书
+!* columnCase03 模拟后台在某栏目下添加书
 |script|Column|
 |note|栏目下添加20本书|
+|insertWithColumncode|$columnType|and size|20|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* columnCase04 模拟后台设置排序值
+|script|Column|
+|note|排序|
 |insertWithColumncode|$columnType|and size|20|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|0|
