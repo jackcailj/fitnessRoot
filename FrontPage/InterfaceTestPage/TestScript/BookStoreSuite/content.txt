@@ -13,7 +13,7 @@
  *[[专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopic]]
 *!
 !* '''栏目'''
- *[[频道栏目接口][]]
+ *[[频道栏目接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
  *[[书栏目接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface]]
 *!
 !* '''块'''
