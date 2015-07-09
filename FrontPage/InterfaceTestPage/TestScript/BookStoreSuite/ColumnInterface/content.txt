@@ -37,7 +37,7 @@
 |ensure|do get|@statusCode|
 *!
 !* 测试数据
-!* columnCase001
+!* columnCase001 获取书籍下所有栏目数据
 !include .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnTesting
 *!
 !* columnCase02 栏目下书籍为空
