@@ -43,7 +43,7 @@
 *!
 !* columnCase03 栏目下书籍为空
 |script|Column|
-|note|$columnType栏目下添加书籍|
+|note|栏目下添加20本书|
 |insertWithColumncode|$columnType|and size|20|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|0|
