@@ -33,7 +33,7 @@
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-
+!* 测试数据
 !* columnCase02 栏目下书籍为空
 |script|Column|
 |note|后台创建一个新栏目|
@@ -41,6 +41,6 @@
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|11003|
 *!
-
+*!
 !contents
 
