@@ -93,6 +93,7 @@
 *!
 !* columnCase08 ~ columnCase17
 |script|Column|
+
 |column|
 |#用例编号|action|columnType|start|end|isFull|statusCode|
 |columnCase08|column||0|9|1|10002|
