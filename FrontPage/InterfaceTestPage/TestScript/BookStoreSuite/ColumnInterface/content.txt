@@ -41,6 +41,16 @@
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|11003|
 *!
+!* columnCase03 栏目下书籍为空
+|script|Column|
+|note|$columnType栏目下添加出版物书籍|
+|insertWithColumncode|$columnType|and size|10|and type|0|
+|note|$columnType栏目下添加原创书籍|
+|insertWithColumncode|$columnType|and size|10|and type|1|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
 *!
 !contents
 
