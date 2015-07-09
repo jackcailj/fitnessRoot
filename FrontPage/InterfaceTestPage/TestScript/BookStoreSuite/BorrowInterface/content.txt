@@ -6,20 +6,24 @@
  * media_special_topic_category
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|borrowCase01||接口能正确返回数据|调用接口|返回的name、picPath、stId与数据库数据一致|test，staging，online|
-|borrowCase02|DDDS_All下专题为空|接口返回列表为空|调用接口|返回的specialTopicList为空，count和total为0|test|
-|borrowCase03||后台状态有效性验证|【当读后台】把某专题设置为无效，调用接口|设置为无效的专题不返回|test|
-|borrowCase04||排序|【当读后台】对专题进行排序，调用接口|返回顺序按排序值倒序返回|test|
-|borrowCase05||参数deviceType|deviceType值为空|返回10002在|test|
-|borrowCase06||参数deviceType|deviceType值为无效值|返回10002|test|
-|borrowCase07||参数start|start值为空|返回10002|test|
-|borrowCase08||参数start|start值大于列表总数时|返回空数据|test|
-|borrowCase09||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|getDDHotFreeCase10||参数end|end值为空|返回10002|test|
-|getDDHotFreeCase11||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|getDDHotFreeCase12||参数start和end|start值大于end值|返回10002|test|
-|specialtopichistoryCase13||参数channelType|channelType值为空|返回10002|test|
-|specialtopichistoryCase14||参数channelType|channelType为无效值(字符，字母，中文)|返回10002|test|
+|borrowCase01||获取当当读书->借阅栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
+|borrowCase02||借阅栏目下书籍为空|调用接口|返回的11003|test|
+|borrowCase03||空栏目下装借阅类型的书|调用接口|返回新增的数据|test|
+|borrowCase04||排序|【当读后台】设置排序值，调用接口|返回结果按排序值倒序排列|test|
+|borrowCase05||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
+|borrowCase06||借阅栏目中下架的书|调用接口|下架的书不返回|test|
+|borrowCase07||参数columnTyp|columnTyp值为空|返回10002在|test|
+|borrowCase08||参数columnTyp|columnTyp值为无效值|返回10002|test|
+|borrowCase09||参数start|start值为空|返回10002|test|
+|borrowCase10||参数start|start值大于列表总数时|返回空数据|test|
+|borrowCase11||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|borrowCase12||参数end|end值为空|返回10002|test|
+|borrowCase13||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|borrowCase14||参数start和end|start值大于end值|返回10002|test|
+|borrowCase15||参数channelType|channelType值为空|返回10002|test|
+|borrowCase16||参数channelType|channelType为无效值(字符，字母，中文)|返回10002|test|
+|borrowCase17||删除借阅栏目下数据|调用接口|返回10002|test|
+|borrowCase18||删除借阅栏目|调用接口|返回10002|test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
