@@ -2,8 +2,10 @@
 接口：action=borrow
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360282
 相关表：
- * media_special_topic
- * media_special_topic_category
+ * media_column
+ * media_column_content
+ * media_sale
+ * mediay
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |borrowCase01||获取当当读书->借阅栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
