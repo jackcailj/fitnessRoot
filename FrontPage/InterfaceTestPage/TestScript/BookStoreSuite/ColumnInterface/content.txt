@@ -37,8 +37,13 @@
 |ensure|do get|@statusCode|
 *!
 !* 测试数据
-!* columnCase001 获取书籍下所有栏目数据
-!include .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnTesting
+!* columnCase001 获取书籍栏目下所有栏目数据
+|script|Column|
+|note|展示书籍栏目下所有栏目|
+|show|
+
+|#用例编号|action|columnType|start|end|isFull|statusCode|
+|columnCase08|column||0|9|1|10002|
 *!
 !* columnCase02 栏目下书籍为空
 |script|Column|
