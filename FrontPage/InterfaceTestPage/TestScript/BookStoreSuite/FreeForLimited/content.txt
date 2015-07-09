@@ -8,12 +8,12 @@
  * media
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|freeForLimitedCase01||获取当当读书->借阅栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
-|freeForLimitedCase02||借阅栏目下书籍为空|调用接口|返回的11003|test|
-|freeForLimitedCase03||空栏目下装借阅类型的书|调用接口|返回新增的数据|test|
+|freeForLimitedCase01||获取当当读书->限免栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
+|freeForLimitedCase02||限免栏目下书籍为空|调用接口|返回的11003|test|
+|freeForLimitedCase03||空栏目下装限免类型的书|调用接口|返回新增的数据|test|
 |freeForLimitedCase04||排序|【当读后台】设置排序值，调用接口|返回结果按排序值倒序排列|test|
 |freeForLimitedCase05||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
-|freeForLimitedCase06||借阅栏目中下架的书|调用接口|下架的书不返回|test|
+|freeForLimitedCase06||限免栏目中下架的书|调用接口|下架的书不返回|test|
 |freeForLimitedCase07||参数columnTyp|columnTyp值为空|返回10002在|test|
 |freeForLimitedCase08||参数columnTyp|columnTyp值为无效值|返回10002|test|
 |freeForLimitedCase09||参数start|start值为空|返回10002|test|
@@ -24,8 +24,8 @@
 |freeForLimitedCase14||参数start和end|start值大于end值|返回10002|test|
 |freeForLimitedCase15||参数channelType|channelType值为空|返回10002|test|
 |freeForLimitedCase16||参数channelType|channelType为无效值(字符，字母，中文)|返回10002|test|
-|freeForLimitedCase17||删除借阅栏目下数据|调用接口|返回10002|test|
-|freeForLimitedCase18||删除借阅栏目|调用接口|返回10002|test|
+|freeForLimitedCase17||删除限免栏目下数据|调用接口|返回10002|test|
+|freeForLimitedCase18||删除限免栏目|调用接口|返回10002|test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
