@@ -43,8 +43,8 @@
 *!
 !* columnCase03 模拟后台在某栏目下添加书
 |script|Column|
-|note|栏目下添加10本原创书|
-|insertWithColumncode|$columnType|and size|10|and type|0|
+|note|栏目下添加10本书|
+|insertWithColumncode|$columnType|and size|10|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|0|
 |ensure|verify result|
@@ -68,6 +68,30 @@
 |script|Column|
 |note|设置为强制无效|
 |$saleId=|setInvalidWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* columnCase06 模拟后台设置有效期
+|script|Column|
+|note|设置有效期|
+|$saleId=|setSortWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* columnCase07 模拟后台下架书
+|script|Column|
+|note|下架书|
+|$saleId=|setSortWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* columnCase07 模拟后台下架的书上架
+|script|Column|
+|note|上架书|
+|$saleId=|setSortWithColumncode|$columnType|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|0|
 |ensure|verify result|
