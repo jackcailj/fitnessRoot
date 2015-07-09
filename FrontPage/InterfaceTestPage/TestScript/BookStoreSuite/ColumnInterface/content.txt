@@ -6,7 +6,7 @@
  * media_column_content
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|运行环境|
-|columnCase01||获取当当读书-书籍栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
+|columnCase01||获取当当读书->书籍栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
 |columnCase02||栏目下书籍为空|调用接口|返回11003|test|
 |columnCase03||空栏目下装书|调用接口|返回新增的数据|test|
 |columnCase04||排序|【当读后台】设置排序值，调用接口|返回结果排序正确|test|
