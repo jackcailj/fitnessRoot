@@ -35,6 +35,7 @@
 |scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
 |ensure|do get|@statusCode|
+*!
 !* 测试数据
 !* columnCase02 栏目下书籍为空
 |script|Column|
