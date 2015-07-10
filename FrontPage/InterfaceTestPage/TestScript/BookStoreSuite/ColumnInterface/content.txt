@@ -42,14 +42,14 @@
 
 !* columnCase02 栏目下书籍为空
 |script|Column|
-|note|后台创建一个新栏目|
+|note|后台创建一个新栏目 type=0书籍 type=1频道|
 |$columnType=|create with name|书籍栏目|and code|column_test|and type|0|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|11003|
 *!
 !* columnCase03 模拟后台在某栏目下添加书
 |script|Column|
-|note|栏目下添加10本书|
+|note|栏目下添加10本书 type=0普通书籍栏目 type=1借阅 type=2限免|
 |insertWithColumncode|$columnType|and size|10|and type|0|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|0|
