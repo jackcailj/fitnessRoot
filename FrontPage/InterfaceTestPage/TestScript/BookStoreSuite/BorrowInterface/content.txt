@@ -123,7 +123,7 @@
 |script|Borrow|
 |note|删除栏目|
 |delColumnWithColumncode|all_$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
+|setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|10002|
 *!
 *!
