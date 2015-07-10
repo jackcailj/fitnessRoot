@@ -37,8 +37,6 @@
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
-!4 创建script实例，后面调用scenario都是针对这个实例
-|script|Borrow|
 *!
 !* 测试数据
 
