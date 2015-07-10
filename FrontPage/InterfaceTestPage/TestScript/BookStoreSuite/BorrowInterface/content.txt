@@ -1,6 +1,6 @@
 !*> 测试用例
 接口：action=borrow
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360282
+接口描述：目前只支持出版物书籍借阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360282
 相关表：
  * media_column
  * media_column_content
