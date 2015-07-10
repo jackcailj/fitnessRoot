@@ -42,7 +42,7 @@
 !* borrowCase02 借阅栏目下书籍为空
 |script|free for limited|
 |note|后台创建一个新借阅栏目，type=0书籍 type=1频道|
-|$columnType=|create with name|借阅|and code|freeforlimited_test|and type|0|
+|$columnType=|create with name|限免|and code|freeforlimited_test|and type|0|
 |setParameters|!{action:freeforlimited,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|11003|
 *!
