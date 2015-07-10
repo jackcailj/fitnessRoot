@@ -37,7 +37,6 @@
 |scenario|borrow|action||columnType||start||end||channelType||statusCode||setParameters|
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
 |ensure|do get|@statusCode|
-|ensure|verify result|
 *!
 !* 测试数据
 
