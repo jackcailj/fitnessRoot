@@ -111,11 +111,5 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* borrowCase18 模拟后台删除栏目
-|script|Borrow|
-|note|删除栏目|
-|delColumnWithColumncode|$columnType|
-|setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|10002|
-*!
+
 *!
