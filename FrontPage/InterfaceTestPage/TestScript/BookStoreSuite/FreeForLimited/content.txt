@@ -14,18 +14,19 @@
 |freeForLimitedCase04||排序|【当读后台】设置排序值，调用接口|返回结果按排序值倒序排列|test|
 |freeForLimitedCase05||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
 |freeForLimitedCase06||限免栏目中下架的书|调用接口|下架的书不返回|test|
-|freeForLimitedCase07||参数columnTyp|columnTyp值为空|返回10002在|test|
-|freeForLimitedCase08||参数columnTyp|columnTyp值为无效值|返回10002|test|
-|freeForLimitedCase09||参数start|start值为空|返回10002|test|
-|freeForLimitedCase10||参数start|start值大于列表总数时|返回空数据|test|
-|freeForLimitedCase11||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|freeForLimitedCase12||参数end|end值为空|返回10002|test|
-|freeForLimitedCase13||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|freeForLimitedCase14||参数start和end|start值大于end值|返回10002|test|
-|freeForLimitedCase15||参数channelType|channelType值为空|返回10002|test|
-|freeForLimitedCase16||参数channelType|channelType为无效值(字符，字母，中文)|返回10002|test|
-|freeForLimitedCase17||删除限免栏目下数据|调用接口|返回10002|test|
-|freeForLimitedCase18||删除限免栏目|调用接口|返回10002|test|
+|freeForLimitedCase07||限免栏目中下架的书上架|调用接口|上架的书能正常返回|test|
+|freeForLimitedCase08||参数columnTyp|columnTyp值为空|返回10002在|test|
+|freeForLimitedCase09||参数columnTyp|columnTyp值为无效值|返回10002|test|
+|freeForLimitedCase10||参数start|start值为空|返回10002|test|
+|freeForLimitedCase11||参数start|start值大于列表总数时|返回空数据|test|
+|freeForLimitedCase12||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|freeForLimitedCase13||参数end|end值为空|返回10002|test|
+|freeForLimitedCase14||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|freeForLimitedCase15||参数start和end|start值大于end值|返回10002|test|
+|freeForLimitedCase16||参数channelType|channelType值为空|返回10002|test|
+|freeForLimitedCase17||参数channelType|channelType为无效值(字符，字母，中文)|返回10002|test|
+|freeForLimitedCase18||删除限免栏目下数据|调用接口|返回10002|test|
+|freeForLimitedCase19||删除限免栏目|调用接口|返回10002|test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -34,19 +35,20 @@
 *!
 !*> 定义scenario 
 |scenario|freeForLimited|action||columnType||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@freeforlimited,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
+|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
 |ensure|do get|@statusCode|
+|ensure|verify result|
 *!
 !* 测试数据
 
-!* borrowCase02 借阅栏目下书籍为空
+!* freeForLimitedCase02 借阅栏目下书籍为空
 |script|free for limited|
 |note|后台创建一个新借阅栏目，type=0书籍 type=1频道|
 |$columnType=|create with name|限免|and code|freeforlimited_test|and type|0|
 |setParameters|!{action:freeforlimited,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|11003|
 *!
-!* borrowCase03 模拟后台在某借阅栏目下添加书
+!* freeForLimitedCase03 模拟后台在某借阅栏目下添加书
 |script|free for limited|
 |note|借阅栏目下添加10本书，type=0普通书籍栏目 type=1借阅 type=2限免|
 |insertWithColumncode|all_$columnType|and size|10|and type|2|
@@ -54,7 +56,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* borrowCase04 模拟后台设置排序值
+!* freeForLimitedCase04 模拟后台设置排序值
 |script|free for limited|
 |note|排序|
 |$saleId=|setSortWithColumncode|all_$columnType|
@@ -62,7 +64,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* borrowCase05 模拟后台设置有效期
+!* freeForLimitedCase05 模拟后台设置有效期
 |script|free for limited|
 |note|设置有效期|
 |$saleId=|setEffectiveWithColumncode|all_$columnType|
@@ -70,7 +72,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* borrowCase06 模拟后台下架书
+!* freeForLimitedCase06 模拟后台下架书
 |script|free for limited|
 |note|下架书|
 |$saleId=|setShelfStatusWithColumncode|all_$columnType|
@@ -78,7 +80,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* borrowCase07 模拟后台上架书
+!* freeForLimitedCase07 模拟后台上架书
 |script|free for limited|
 |note|上架书|
 |$saleId=|setShelfStatusWithSaleid|$saleId|
@@ -86,31 +88,31 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* columnCase08 ~ columnCase17
+!* freeForLimitedCase08 ~ columnCase17
 |script|free for limited|
 
 |freeForLimited|
 |#用例编号|action|columnType|start|end|channelType|statusCode|
-|borrowCase08|freeforlimited||0|9|1|10002|
-|borrowCase09|freeforlimited|aaaaaa|0|9|1|10002|
-|borrowCase09|freeforlimited|*|0|9|1|10002|
-|borrowCase09|freeforlimited|栏目类型|0|9|1|10002|
-|borrowCase10|freeforlimited|$columnType||9|1|10002|
-|borrowCase11|freeforlimited|$columnType|10|20|1|10002|
-|borrowCase12|freeforlimited|$columnType|@|9|1|10002|
-|borrowCase12|freeforlimited|$columnType|开始|9|1|10002|
-|borrowCase12|freeforlimited|$columnType|a|9|1|10002|
-|borrowCase13|freeforlimited|$columnType|0||1|10002|
-|borrowCase14|freeforlimited|$columnType|0|结束|1|10002|
-|borrowCase14|freeforlimited|$columnType|0|&|1|10002|
-|borrowCase14|freeforlimited|$columnType|0|z|1|10002|
-|borrowCase15|freeforlimited|$columnType|9|1|1|10002|
-|borrowCase16|freeforlimited|$columnType|0|9||10002|
-|borrowCase17|freeforlimited|$columnType|0|9|%|10002|
-|borrowCase17|freeforlimited|$columnType|0|9|哈哈|10002|
-|borrowCase17|freeforlimited|$columnType|0|9|assf|10002|
+|freeForLimitedCase08|freeforlimited||0|9|1|10002|
+|freeForLimitedCase09|freeforlimited|aaaaaa|0|9|1|10002|
+|freeForLimitedCase09|freeforlimited|*|0|9|1|10002|
+|freeForLimitedCase09|freeforlimited|栏目类型|0|9|1|10002|
+|freeForLimitedCase10|freeforlimited|$columnType||9|1|10002|
+|freeForLimitedCase11|freeforlimited|$columnType|10|20|1|10002|
+|freeForLimitedCase12|freeforlimited|$columnType|@|9|1|10002|
+|freeForLimitedCase12|freeforlimited|$columnType|开始|9|1|10002|
+|freeForLimitedCase12|freeforlimited|$columnType|a|9|1|10002|
+|freeForLimitedCase13|freeforlimited|$columnType|0||1|10002|
+|freeForLimitedCase14|freeforlimited|$columnType|0|结束|1|10002|
+|freeForLimitedCase14|freeforlimited|$columnType|0|&|1|10002|
+|freeForLimitedCase14|freeforlimited|$columnType|0|z|1|10002|
+|freeForLimitedCase15|freeforlimited|$columnType|9|1|1|10002|
+|freeForLimitedCase16|freeforlimited|$columnType|0|9||10002|
+|freeForLimitedCase17|freeforlimited|$columnType|0|9|%|10002|
+|freeForLimitedCase17|freeforlimited|$columnType|0|9|哈哈|10002|
+|freeForLimitedCase17|freeforlimited|$columnType|0|9|assf|10002|
 *!
-!* borrowCase18 模拟后台删除栏目下书
+!* freeForLimitedCase18 模拟后台删除栏目下书
 |script|free for limited|
 |note|删除书|
 |$saleId=|delColumnDataWithColumncode|all_$columnType|
@@ -118,7 +120,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* columnCase19 模拟后台删除栏目
+!* freeForLimitedCase19 模拟后台删除栏目
 |script|free for limited|
 |note|删除栏目|
 |delColumnWithColumncode|all_$columnType|
