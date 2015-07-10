@@ -50,7 +50,7 @@
 !* columnCase03 模拟后台在某栏目下添加书
 |script|Column|
 |note|栏目下添加10本书|
-|insertWithColumncode|$columnType|and size|10|
+|insertWithColumncode|$columnType|and size|10|and type|0|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
 |ensure|do get|0|
 |ensure|verify result|
