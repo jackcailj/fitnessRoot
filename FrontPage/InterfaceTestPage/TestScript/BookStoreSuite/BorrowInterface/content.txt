@@ -83,7 +83,7 @@
 |script|Borrow|
 
 |borrow|
-|#用例编号|action|columnType|start|end|isFull|statusCode|
+|#用例编号|action|columnType|start|end|channelType|statusCode|
 |borrowCase07|borrow||0|9|1|10002|
 |borrowCase08|borrow|aaaaaa|0|9|1|10002|
 |borrowCase08|borrow|*|0|9|1|10002|
