@@ -1,0 +1,35 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934201
+
+----
+!3 二、接口描述：
+已购列表，有电子书和纸书两个分类
+
+接口中fromPaltform=ds可以返回当当读书和当读小说购买列表，fromPaltform=yc时只能返回当杜小说购买列表
+
+!3 三、涉及数据库
+|Comment             |
+|数据库    |表           |
+|digital|media_bought|
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:get my bought list                                                                                                                  |
+|#用例名称                            |userName                |passWord|token    |start    |end      |fromPaltform|status code?|data verfiy?|
+|电子书已购列表，正常流程                     |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |ds          |0           |通过          |
+|电子书已购列表，只返回当读小说购买列表              |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |yc          |0           |通过          |
+|电子书已购列表，token不正确                 |                        |        |123      |0        |10       |ds          |10003       |通过          |
+|电子书已购列表，token不传                  |                        |        |#NotPass#|0        |10       |ds          |10002       |通过          |
+|电子书已购列表，start不传                  |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|10       |ds          |0           |通过          |
+|电子书已购列表，end不传                    |!-cailj_ddtest@126.com-!|ddtest  |         |0        |#NotPass#|ds          |0           |通过          |
+|电子书已购列表，start>end                |!-cailj_ddtest@126.com-!|ddtest  |         |10       |0        |ds          |10002       |通过          |
+|电子书已购列表，start为非数字                |!-cailj_ddtest@126.com-!|ddtest  |         |ab       |10       |ds          |10002       |通过          |
+|电子书已购列表，end为非数字                  |!-cailj_ddtest@126.com-!|ddtest  |         |0        |ab       |ds          |10002       |通过          |
+|电子书已购列表，fromPaltform不正确          |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |add         |10002       |通过          |
+|电子书已购列表，fromPaltform不传，默认返回当读小说数据|!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |#NotPass#   |0           |通过          |
+
+!contents -R2 -g -p -f -h

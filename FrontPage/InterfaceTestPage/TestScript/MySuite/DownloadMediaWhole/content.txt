@@ -1,0 +1,84 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934107
+
+----
+!3 二、接口描述：
+下载全本书接口
+
+可以下载全本和试读本
+
+试读本任何人都可以下载
+
+全本：免费、已经购买、借阅的可以下载
+
+下架的电子书不能下载
+
+!3 三、涉及数据库、
+digital库media表 ，doc_type=‘Ebook’为出版物，否则为原创小说
+
+----
+!3 四、测试用例:
+|Import                                         |
+|com.dangdang.readerV5.personal_center.bookshelf|
+|com.dangdang.digital                           |
+
+获取一本出版物书籍
+
+|script        |media db               |
+|$ebookMediaId=|getMediaId;|EBOOK|VALID|
+
+获取一本原创书籍Id
+
+|script     |media db                    |
+|$ycMediaId=|getMediaId;|YUANCHUANG|VALID|
+
+获取下架电子书Id
+
+|script         |media db                |
+|$xiaJiaMediaId=|getMediaId;|EBOOK|XIAJIA|
+
+获取免费电子书Id
+
+|script       |media db             |
+|$freeMediaId=|getFreeMediaId;|EBOOK|VALID!-
+-! |
+
+获取免费但已下架电子书Id
+
+|script             |media db                    |
+|$freeXiaJiaMediaId=|getFreeMediaId;|EBOOK|XIAJIA|
+
+
+
+获取正在借阅的书籍Id
+
+|script         |media db                    |
+|$jieyueMediaId=|getFreeMediaId;|EBOOK|XIAJIA|
+
+获取借阅已过期的书籍Id
+
+|script                |media db                    |
+|$jieyueInvalidMediaId=|getFreeMediaId;|EBOOK|XIAJIA|
+
+
+
+|ddt:download media whole                                                                                              |
+|#用例名称               |userName                |passWord|token|mediaId              |isFull   |status code?|data verfiy?|
+|下载有权限的全本出版物电子书，正常流程 |!-cailj_ddtest@126.com-!|ddtest  |     |$ebookMediaId        |1        |0           |通过          |
+|下载有权限的全本非出版物电子书，正常流程|!-cailj_ddtest@126.com-!|ddtest  |     |$ycMediaId           |1        |0           |通过          |
+|下载全本电子书，没有权限        |!-cailj_ddtest@126.com-!|ddtest  |     |$ebookMediaId        |1        |10004       |通过          |
+|下载试读电子书，正常流程        |                        |        |     |$ebookMediaId        |0        |0           |通过          |
+|下载借阅电子书，在借阅期内，可以正常下载|!-cailj_ddtest@126.com-!|ddtest  |     |$jieyueMediaId       |1        |0           |通过          |
+|下载借阅电子书，已过期，应不能下载   |!-cailj_ddtest@126.com-!|ddtest  |     |$jieyueInvalidMediaId|1        |10004       |通过          |
+|下载试读电子书，书籍为下架状态     |                        |        |     |$xiaJiaMediaId       |0        |10009       |通过          |
+|下载全本电子书，书籍为下架状态     |!-cailj_ddtest@126.com-!|ddtest  |     |$xiaJiaMediaId       |1        |10009       |通过          |
+|下载免费的电子书，应可以下载      |                        |        |     |$freeMediaId         |1        |0           |通过          |
+|下载下架的免费电子书，不能下载     |                        |        |     |$freeXiaJiaMediaId   |1        |10009       |通过          |
+|下载全本电子书，mediaId不存在  |                        |        |     |1234                 |1        |12002       |通过          |
+|下载全本电子书,media不传     |                        |        |     |#NotPass#            |1        |10002       |通过          |
+|下载全本电子书,isFull不正确   |                        |        |     |                     |3        |10002       |通过          |
+|下载全本电子书,isFull非数字   |                        |        |     |$validMediaId        |ad       |10002       |通过          |
+|下载全本电子书,isFull不传    |                        |        |     |$validMediaId        |#NotPass#|10002       |通过          |
+
+!contents -R2 -g -p -f -h

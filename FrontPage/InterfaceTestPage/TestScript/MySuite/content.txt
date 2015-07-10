@@ -1,4 +1,6 @@
 !3 我的模块
+!***> '''个人中心'''
+
 *1、[[注册接口（存在设计问题，以后需修改)][.FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2]]
 
 *2、[[登录接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin]]（done）
@@ -55,5 +57,25 @@
 
 *28、[[收藏列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.DDReaderStoreUpList]]
 
+*29、[[借阅列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetBorrowAuthorityList]]
+
+*30、[[电子书已购列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtList]]
+
+*31、[[电子书已购详情列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtDetailList]]
+
+*!
+!*** 书架
+
+*1、[[获取出版物证书接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishedCertificate]]
+
+*2、[[获取证书接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetCertificate]]
+
+*3、[[下载全本接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadMediaWhole]]
+
+*4、[[下载单章接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadMedia]]
+
+*5、[[下载多章接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadMediaBatch]]
+
+*!
 ----
 !contents -R2 -g -p -f -h
