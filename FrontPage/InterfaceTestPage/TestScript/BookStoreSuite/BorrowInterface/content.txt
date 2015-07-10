@@ -55,4 +55,75 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
+!* borrowCase04 模拟后台设置排序值
+|script|Borrow|
+|note|排序|
+|$saleId=|setSortWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* borrowCase05 模拟后台设置有效期
+|script|Borrow|
+|note|设置有效期|
+|$saleId=|setEffectiveWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* borrowCase06 模拟后台下架书
+|script|Borrow|
+|note|下架书|
+|$saleId=|setShelfStatusWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* borrowCase07 模拟后台上架书
+|script|Borrow|
+|note|上架书|
+|$saleId=|setShelfStatusWithSaleid|$saleId|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* columnCase08 ~ columnCase17
+|script|Borrow|
+
+|borrow|
+|#用例编号|action|columnType|start|end|channelType|statusCode|
+|borrowCase08|borrow||0|9|1|10002|
+|borrowCase09|borrow|aaaaaa|0|9|1|10002|
+|borrowCase09|borrow|*|0|9|1|10002|
+|borrowCase09|borrow|栏目类型|0|9|1|10002|
+|borrowCase10|borrow|$columnType||9|1|10002|
+|borrowCase11|borrow|$columnType|10|20|1|10002|
+|borrowCase12|borrow|$columnType|@|9|1|10002|
+|borrowCase12|borrow|$columnType|开始|9|1|10002|
+|borrowCase12|borrow|$columnType|a|9|1|10002|
+|borrowCase13|borrow|$columnType|0||1|10002|
+|borrowCase14|borrow|$columnType|0|结束|1|10002|
+|borrowCase14|borrow|$columnType|0|&|1|10002|
+|borrowCase14|borrow|$columnType|0|z|1|10002|
+|borrowCase15|borrow|$columnType|9|1|1|10002|
+|borrowCase16|borrow|$columnType|0|9||10002|
+|borrowCase17|borrow|$columnType|0|9|%|10002|
+|borrowCase17|borrow|$columnType|0|9|哈哈|10002|
+|borrowCase17|borrow|$columnType|0|9|assf|10002|
+*!
+!* borrowCase18 模拟后台删除栏目下书
+|script|Borrow|
+|note|删除书|
+|$saleId=|delColumnDataWithColumncode|$columnType|
+|setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* borrowCase19 模拟后台删除栏目
+|script|Borrow|
+|note|删除栏目|
+|delColumnWithColumncode|$columnType|
+|setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,channelType:all}|
+|ensure|do get|10002|
+*!
 *!
