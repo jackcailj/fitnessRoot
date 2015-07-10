@@ -46,12 +46,11 @@
 |$columnType=|create with name|借阅|and code|borrow_test|and type|0|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|11003|
-!define columnType {all_}$columnType
 *!
 !* borrowCase03 模拟后台在某借阅栏目下添加书
 |script|Borrow|
 |note|借阅栏目下添加10本书，type=0普通书籍栏目 type=1借阅 type=2限免|
-|insertWithColumncode|${columnType}|and size|10|and type|1|
+|insertWithColumncode|all_${columnType}|and size|10|and type|1|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|0|
 |ensure|verify result|
@@ -59,7 +58,7 @@
 !* borrowCase04 模拟后台设置排序值
 |script|Borrow|
 |note|排序|
-|$saleId=|setSortWithColumncode|$columnType|
+|$saleId=|setSortWithColumncode|all_$columnType|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|0|
 |ensure|verify result|
@@ -67,7 +66,7 @@
 !* borrowCase05 模拟后台设置有效期
 |script|Borrow|
 |note|设置有效期|
-|$saleId=|setEffectiveWithColumncode|$columnType|
+|$saleId=|setEffectiveWithColumncode|all_$columnType|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|0|
 |ensure|verify result|
@@ -75,7 +74,7 @@
 !* borrowCase06 模拟后台下架书
 |script|Borrow|
 |note|下架书|
-|$saleId=|setShelfStatusWithColumncode|$columnType|
+|$saleId=|setShelfStatusWithColumncode|all_$columnType|
 |setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|0|
 |ensure|verify result|
@@ -115,7 +114,7 @@
 !* borrowCase18 模拟后台删除栏目下书
 |script|Borrow|
 |note|删除书|
-|$saleId=|delColumnDataWithColumncode|$columnType|
+|$saleId=|delColumnDataWithColumncode|all_$columnType|
 |setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|0|
 |ensure|verify result|
@@ -123,7 +122,7 @@
 !* borrowCase19 模拟后台删除栏目
 |script|Borrow|
 |note|删除栏目|
-|delColumnWithColumncode|$columnType|
+|delColumnWithColumncode|all_$columnType|
 |setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,channelType:all}|
 |ensure|do get|10002|
 *!
