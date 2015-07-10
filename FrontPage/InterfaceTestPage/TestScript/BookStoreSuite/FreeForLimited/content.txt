@@ -89,7 +89,7 @@
 !* columnCase08 ~ columnCase17
 |script|free for limited|
 
-|borrow|
+|freeForLimited|
 |#用例编号|action|columnType|start|end|channelType|statusCode|
 |borrowCase08|freeforlimited||0|9|1|10002|
 |borrowCase09|freeforlimited|aaaaaa|0|9|1|10002|
