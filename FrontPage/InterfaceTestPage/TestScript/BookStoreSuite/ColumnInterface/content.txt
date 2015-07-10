@@ -15,18 +15,19 @@
 |columnCase05||排序|【当读后台】更改状态后，调用接口|返回结果排序正确|test|
 |columnCase06||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
 |columnCase07||栏目下有下架的书|书下架后，调用接口|下架的书不返回|test|
-|columnCase08||参数columnType|columnType值为空|返回10002|test|
-|columnCase09||参数columnType|columnType值为无效值|返回10002|test|
-|columnCase10||参数start|start值为空|返回10002|test|
-|columnCase11||参数start|start值大于列表总数时|返回空数据|test|
-|columnCase12||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|columnCase13||参数end|end值为空|返回10002|test|
-|columnCase14||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|columnCase15||参数start和end|start值大于end值|返回10002|test|
-|columnCase16||参数isFull|isFull值为空|返回10002|test|
-|columnCase17||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
-|columnCase18||删除栏目下数据|调用接口|能正常返回数据|test|
-|columnCase19||删除栏目|调用接口|返回10002|test|
+|columnCase08||下架的书重新上架|书上架后，调用接口|上架的书可正常返回|test|
+|columnCase09||参数columnType|columnType值为空|返回10002|test|
+|columnCase10||参数columnType|columnType值为无效值|返回10002|test|
+|columnCase11||参数start|start值为空|返回10002|test|
+|columnCase12||参数start|start值大于列表总数时|返回空数据|test|
+|columnCase13||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|columnCase14||参数end|end值为空|返回10002|test|
+|columnCase15||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|columnCase16||参数start和end|start值大于end值|返回10002|test|
+|columnCase17||参数isFull|isFull值为空|返回10002|test|
+|columnCase18||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
+|columnCase19||删除栏目下数据|调用接口|能正常返回数据|test|
+|columnCase20||删除栏目|调用接口|返回10002|test|
 *!
 !*> Import
 !define TEST_SYSTEM {slim}
@@ -94,31 +95,39 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* columnCase08 ~ columnCase17
+!* columnCase08 模拟后台上架书
+|script|Column|
+|note|上架书|
+|$saleId=|setShelfStatusWithSaleid|$saleId|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* columnCase09 ~ columnCase18
 |script|Column|
 
 |column|
 |#用例编号|action|columnType|start|end|isFull|statusCode|
-|columnCase08|column||0|9|1|10002|
-|columnCase09|column|aaaaaa|0|9|1|10002|
-|columnCase09|column|*|0|9|1|10002|
-|columnCase09|column|栏目类型|0|9|1|10002|
-|columnCase10|column|$columnType||9|1|10002|
-|columnCase11|column|$columnType|10|20|1|10002|
-|columnCase12|column|$columnType|@|9|1|10002|
-|columnCase12|column|$columnType|开始|9|1|10002|
-|columnCase12|column|$columnType|a|9|1|10002|
-|columnCase13|column|$columnType|0||1|10002|
-|columnCase14|column|$columnType|0|结束|1|10002|
-|columnCase14|column|$columnType|0|&|1|10002|
-|columnCase14|column|$columnType|0|z|1|10002|
-|columnCase15|column|$columnType|9|1|1|10002|
-|columnCase16|column|$columnType|0|9||10002|
-|columnCase17|column|$columnType|0|9|%|10002|
-|columnCase17|column|$columnType|0|9|哈哈|10002|
-|columnCase17|column|$columnType|0|9|assf|10002|
+|columnCase09|column||0|9|1|10002|
+|columnCase10|column|aaaaaa|0|9|1|10002|
+|columnCase10|column|*|0|9|1|10002|
+|columnCase10|column|栏目类型|0|9|1|10002|
+|columnCase11|column|$columnType||9|1|10002|
+|columnCase12|column|$columnType|10|20|1|10002|
+|columnCase13|column|$columnType|@|9|1|10002|
+|columnCase13|column|$columnType|开始|9|1|10002|
+|columnCase13|column|$columnType|a|9|1|10002|
+|columnCase14|column|$columnType|0||1|10002|
+|columnCase15|column|$columnType|0|结束|1|10002|
+|columnCase15|column|$columnType|0|&|1|10002|
+|columnCase15|column|$columnType|0|z|1|10002|
+|columnCase16|column|$columnType|9|1|1|10002|
+|columnCase17|column|$columnType|0|9||10002|
+|columnCase18|column|$columnType|0|9|%|10002|
+|columnCase18|column|$columnType|0|9|哈哈|10002|
+|columnCase18|column|$columnType|0|9|assf|10002|
 *!
-!* columnCase18 模拟后台删除栏目下书
+!* columnCase19 模拟后台删除栏目下书
 |script|Column|
 |note|删除书|
 |$saleId=|delColumnDataWithColumncode|$columnType|
@@ -126,7 +135,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* columnCase19 模拟后台删除栏目
+!* columnCase20 模拟后台删除栏目
 |script|Column|
 |note|删除栏目|
 |delColumnWithColumncode|$columnType|
