@@ -38,9 +38,27 @@
 |scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
 |setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
 |ensure|do get|@statusCode|
+|ensure|verify result|
 *!
 !* 测试数据
+!* columnCase01
+|script|Column|
 
+|column|
+|#用例编号|action|columnType|start|end|isFull|statusCode|
+|原创->热门.今日推荐|column|all_ori_rmjrtj|0|9|1|0|
+|原创->男生.重磅热销|column|all_ori_nszbrx|0|9|1|0|
+|原创->女生.重磅热销|column|all_ori_nvszbtj|0|9|1|0|
+|原创->特价.优惠爽翻翻|column|all_ori_tjyhsff|0|9|1|0|
+|男生->推荐商品|column|all_man_tjsp||9|1|0|
+|男生->大神力作|column|all_man_dslz||9|1|0|
+|男生->潜力红文|column|all_man_qlhw||9|1|0|
+|男生->热门.今日推荐|column|all_man_rmjrtj||9|1|0|
+|女生->推荐商品|column|all_women_tjsp||9|1|0|
+|女生->大神力作|column|all_women_dslz||9|1|0|
+|女生->潜力红文|column|all_women_qlhw||9|1|0|
+|女生->热门.今日推荐|column|all_women_rmjrtj||9|1|0|
+*!
 !* columnCase02 栏目下书籍为空
 |script|Column|
 |note|后台创建一个新栏目，type=0书籍 type=1频道|
