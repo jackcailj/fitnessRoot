@@ -9,18 +9,46 @@
 接口描述：获取吧详情页信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359661
 相关数据库表：bookbar -> bar, bar_relation
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|
-|||正常流程|输入正确的barId和token参数值|获取吧详情信息|
-|||正常流程|输入正确的objectId和token参数值|获取吧详情信息|
-|||barId参数值|barId值为字母aa，其他参数值正确|未知错误|
-|||barId参数值|输入值为空，其他参数值正确|参数非法|
-|||barId参数|不传barId参数，其他参数值正确|参数非法|
-|||objectId 参数|不传objectId 参数，其他参数值正确|参数非法|
-|||objectId 参数|输入objectId 值为空，其他参数值正确|参数非法|
-|||objectId 参数|objectId值为字母bb ，其他参数值正确|未知错误|
-
-
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|输入正确的barId和token参数值|获取吧详情信息|test,staging,online|
+|||正常流程|输入正确的objectId和token参数值|获取吧详情信息|test,staging,online|
+|||barId参数值|barId值为字母aa，其他参数值正确|参数非法|test,staging,online|
+|||barId参数值|输入值为空，其他参数值正确|参数非法|test,staging,online|
+|||barId参数|不传barId参数，其他参数值正确|参数非法|test,staging,online|
+|||objectId 参数|不传objectId 参数，其他参数值正确|参数非法|test,staging,online|
+|||objectId 参数|输入objectId 值为空，其他参数值正确|参数非法|test,staging,online|
+|||objectId 参数|objectId值为字母bb ，其他参数值正确|参数非法|test,staging,online|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |queryBarInfoTest|userName||passWord||loginType||action||barId||objectId||期望||result||setParameters|
+| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,action:@action,barId:@barId,objectId:@objectId,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
 
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|query bar info|
+*!
+!* 测试数据
+|queryBarInfoTest|
+|#用例名称|userName|passWord|loginType|action|barId|objectId|期望|result|
+|正常流程|!-whytest@dd.con-!|111111|email|queryBarInfo|FromDB|REMOVE|0|pass|
+|正常流程|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE|FromDB|0|pass|
+|barId与objectId共存|!-whytest@dd.con-!|111111|email|queryBarInfo|FromDB|FromDB|0|pass|
+|barId值为字母|!-whytest@dd.con-!|111111|email|queryBarInfo|aa|REMOVE|10002|pass|
+|barId值为空|!-whytest@dd.con-!|111111|email|queryBarInfo||REMOVE|10002|pass|
+|不传参数barId|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE|REMOVE|10002|pass|
+|objectId值为字母|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE|bb|10002|pass|
+|objectId值为空|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE||10002|pass|
+|不传参数objectId|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE|REMOVE|10002|pass|
+*!
 !4 备注：barId 与 objectId两个参数在请求时，不是同时存在的
+barId 与 objectId同时存在时，先barId请求
    objectId是单品或作者ID，在bar_relation表中可以找到
+问题：barId 或 objectId为字母，汉字是错误码为10000

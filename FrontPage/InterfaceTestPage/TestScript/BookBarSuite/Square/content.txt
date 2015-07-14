@@ -3,22 +3,54 @@
 !* 测试用例
 接口：action=square
 参数：
-moduleLocation – 模块位置（square-吧广场; hotArticle-热帖）（必填）
-deviceType – 设备类型（Android-安卓客户端; iphone-苹果手机客户端; ipad-苹果平板电脑）（必填）
+ * moduleLocation – 模块位置（square-吧广场; hotArticle-热帖）（必填）
+ * deviceType – 设备类型（Android-安卓客户端; iphone-苹果手机客户端; ipad-苹果平板电脑）（必填）
 接口描述：获取广场模块，热帖模块的信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359675
 相关数据库表：bookbar -> bar_module, bar_module_content, bar_module_tag
+广场模块的状态（1 显示，2 屏蔽，3 删除）
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|
-|||广场正常流程|模块位置为广场，输入正确的参数值|获取广场信息|
-|||热帖正常流程|模块位置为热帖，输入正确的参数值|获取热帖模块信息|
-|||moduleLocation参数值|参数值为字母bb ，其他参数值正确|未知错误|
-|||moduleLocation参数值|参数值为空，其他参数值正确|参数非法|
-|||moduleLocation参数值|不传moduleLocation参数，其他参数值正确|参数非法|
-|||deviceType参数|参数值为iphone，其他参数值正确|获取书吧广场信息|
-|||deviceType参数|参数值为ipad，其他参数值正确|获取书吧广场信息|
-|||deviceType参数|参数值为空，其他参数值正确|参数非法|
-|||deviceType参数|不传参数deviceType，其他参数值正确|参数非法|
+|||广场正常流程|模块位置为广场，输入正确的参数值|获取广场信息|测试环境|
+|||热帖正常流程|模块位置为热帖，输入正确的参数值|获取热帖模块信息|test,staging,online|
+|||moduleLocation参数值|参数值为字母bb ，其他参数值正确|未知错误|test,staging,online|
+|||moduleLocation参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||moduleLocation参数值|不传moduleLocation参数，其他参数值正确|参数非法|test,staging,online|
+|||deviceType参数|参数值为iphone，其他参数值正确|获取书吧广场信息|test,staging,online|
+|||deviceType参数|参数值为ipad，其他参数值正确|获取书吧广场信息|test,staging,online|
+|||deviceType参数|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||deviceType参数|不传参数deviceType，其他参数值正确|参数非法|test,staging,online|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |squareTest|action||moduleLocation||deviceType||期望||result||setParameters|
+| setParameters|!{action:@action,moduleLocation:@moduleLocation,deviceType:@deviceType,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
 
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|square test|
+*!
+!* 测试数据
+|squareTest|
+|#用例名称|action|moduleLocation|deviceType|期望|result|
+|获取广场信息|square|square|Default|0|pass|
+|获取热帖信息|square|hotArticle|Default|0|pass|
+|moduleLocation参数为字母|square|bb|Default|10002|pass|
+|moduleLocation参数值为空|square||Default|10002|pass|
+|不传moduleLocation参数|square||Default|10002|pass|
+|deviceType参数为空|square|square||10002|pass|
+|不传deviceType参数为空|square|square|REMOVE|10002|pass|
+!4 备注：deviceType值为Default意思是在android测试环境中为Android，iphone测试环境中为iphone， ipad测试环境中为ipad
+*!
 !4 备注：
-         25029	获取书吧广场信息失败？
+应该有问题，稍后处理
+
+http://10.255.223.117/media/api2.go?action=square&moduleLocation=square&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150703034446568263343364969373750&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=DDXS-P&channelType=all&token=
+
+GET /media/api2.go?action=square&moduleLocation=hotArticle&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150703034446568263343364969373750&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=DDXS-P&channelType=all&token= 

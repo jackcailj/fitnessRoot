@@ -3,12 +3,11 @@
 !* 测试用例
 接口：action=praiseComment
 参数：
-Token - 用户token(必填)
-targetId - 评论主体的ID
-commentType – 评论类型 (1.赞,2.踩)
-targetSource – 评论来源
-isAnonymous – 是否匿名 0 不是匿名 1. 是匿名
-
+ * Token --用户token(必填)
+ * targetId --评论主体的ID(必填) (帖子的id)
+ * commentType – 评论类型(必填)(类型(1.赞,2.踩))
+ * targetSource – 评论来源(必填)(目标主体来源（1000,书吧;2000,翻篇,3000:抢先读,4000,频道）)
+ * isAnonymous – 是否匿名 0 不是匿名 1. 是匿名(必填)
 接口描述：给评论主体点赞，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360089
 相关数据库表：base_comment -> comment， praise_info
 |Comment|

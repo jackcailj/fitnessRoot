@@ -3,7 +3,7 @@
 !* 测试用例
 接口：action=queryArticleInfo
 参数：
-mediaDigestId – 帖子ID（必填）
+ * mediaDigestId – 帖子ID（必填）
 接口描述：获取某个帖子的详情页信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359669
 相关数据库表：bookbar -> article   digital-> media_digest
 |Comment|
@@ -15,7 +15,36 @@ mediaDigestId – 帖子ID（必填）
 |||mediaDigestId参数值|参数值为空，其他参数值正确|参数非法|
 |||mediaDigestId参数值|不传mediaDigestId参数，其他参数值正确|参数非法|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |squareTest|action||mediaDigestId||期望||result||setParameters|
+| setParameters|!{action:@action,mediaDigestId:@mediaDigestId,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
 
-!4 备注：
-25026	获取帖子详情失败  ？
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|query article info|
+*!
+!* 测试数据
+|squareTest|
+|#用例名称|action|mediaDigestId|期望|result|
+|正常流程|queryArticleInfo|FromDB|0|pass|
+|被屏蔽的帖子|queryArticleInfo|shield|10002|pass|
+|被删除的帖子|queryArticleInfo|deleted|10002|pass|
+|mediaDigestId参数值为aa|queryArticleInfo|aa|10002|pass|
+|mediaDigestId参数值为空|queryArticleInfo||10002|pass|
+|不传mediaDigestId参数|queryArticleInfo|REMOVE|10002|pass|
+*!
+
+!4 备注：
+bugs:
+http://10.255.223.220/zentao/bug-view-14596.html 对应 2,3
+http://10.255.223.220/zentao/bug-view-14599.html 对应 1
+http://10.255.223.220/zentao/bug-view-14601.html 对应 4
          
