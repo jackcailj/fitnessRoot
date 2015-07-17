@@ -2,6 +2,7 @@
 <properties>
 <Edit>true</Edit>
 <Files>true</Files>
+<Help>各类榜单（畅销榜、新书榜等）</Help>
 <Properties>true</Properties>
 <RecentChanges>true</RecentChanges>
 <Refactor>true</Refactor>

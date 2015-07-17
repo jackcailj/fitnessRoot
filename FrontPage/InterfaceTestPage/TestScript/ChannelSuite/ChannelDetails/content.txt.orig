@@ -1,0 +1,44 @@
+!*> 测试用例
+接口：action=channel
+接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
+ * json返回结果中：
+  * isSub 是否订阅 0：未订阅 1：已订阅
+相关表：channel
+ * shelf_status 0:下线，1：上线
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|channelCase01|频道下有文章|获取企业频道详情|调用channel接口|返回的booklistId,channelId,description,icon,ownder,----subNumber,title与数据库数据一致,hasArtical=1|test,staging,online|
+|channelCase02|频道下无文章|频道下有文章时hasArtical返回1，无文章返回0|调用channel接口|返回的字段hasArtical=0|test|
+|channelCase03||获取个人频道详情|调用channel接口|返回的booklistId,channelId,description,icon,----subNumber,title与数据库数据一致|test,staging,online|
+|channelCase04||后台修改title，icon，description后，----接口是否返回正确值|【用户后台】修改频道title，icon和description，----调用channel接口|返回的title，icon，description值与修改的值一致|test|
+|channelCase05||频道订阅数|先调用订阅接口，再调用channel接口|返回的subNumber值+1|test,staging,online|
+|channelCase06||频道订阅数|先调用取消订阅接口，再调用channel接口|返回的subNumber值-1|test,staging,online|
+|channelCase07||参数cId|cId值为空|10002|test|
+|channelCase08||参数cId|cId值为无效值|10002|test|
+|channelCase09||参数token|token值为空|正常返回结果|test,staging,online|
+|channelCase10||参数token|token值为无效值|10002|test|
+|channelCase11||参数channelType|channelType值为空|正常返回结果|test,staging,online|
+|channelCase12||参数channelType|channelType值为无效值|10002|test|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+!*> 定义scenario 
+|scenario|channel|action||cId||token||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,cId:@cId,token:@token,channelType:@channelType}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|Channel|
+*!
+!* 测试数据
+|channel|
+|#用例编号|action|cId|token|channelType|statusCode|
+<<<<<<< HEAD
+|channelCase01|channel|31||all|0|
+=======
+|channelCase01|channel|28||all|0|
+>>>>>>> 896b305cad960ff110378690144393f95429eae7
+*!

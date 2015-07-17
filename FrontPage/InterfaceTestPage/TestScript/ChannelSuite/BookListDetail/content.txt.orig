@@ -1,0 +1,63 @@
+!* 测试用例
+接口：action=bookListDetail
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359577
+ * json返回结果中
+   * mediaType，1：原创的书 2：出版物电子书  3：纸书
+相关数据库表：media_booklist_detail
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|bookListDetailCase01||获取书列表|调用接口|返回的authorPenname,channelId,coverPic,descs,----isStore,mediaId,recommandWords,title与数据库数据一致,----原创的书mediaType=1，出版物电子书mediaType=2|test,staging,online|
+|bookListDetailCase02||返回参数title|【当读后台】修改书的title，调用接口|返回修改后的title|test|
+|bookListDetailCase03||返回参数coverPic|【当读后台】修改书的coverPic，调用接口|返回修改后的coverPic|test|
+|bookListDetailCase04||返回参数descs|【当读后台】修改书的descs，调用接口|返回修改后的descs|test|
+|bookListDetailCase05||返回参数recommandWords|【当读后台】修改书的recommandWords，调用接口|返回修改后的recommandWords|test|
+|bookListDetailCase06||返回参数authorPenname|【当读后台】修改书的authorPenname，调用接口|返回修改后的authorPenname|test|
+|bookListDetailCase07||书列表为空|【用户后台】书列表为空时，调用接口|返回空数据|test|
+|bookListDetailCase08||参数bookListId|bookListId值为空|返回10002|test|
+|bookListDetailCase09||参数bookListId|bookListId值为无效值|返回10002|test|
+|bookListDetailCase10||参数start|start值为空|返回10002|test|
+|bookListDetailCase11||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|bookListDetailCase12||参数end|end值为空|返回10002|test|
+|bookListDetailCase13||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|bookListDetailCase14||参数start和end|start值大于end值|返回10002|test|
+|bookListDetailCase15||参数channelType|channelType为空||test|
+|bookListDetailCase16||参数channelType|channelType为无效值||test|
+|bookListDetailCase17||参数token|token值为空||test|
+|bookListDetailCase18||参数token|token值为无效值||test|
+*!
+<<<<<<< HEAD
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+!*> 定义scenario 
+|scenario|bookListDetail|action||bookListId||start||end||channelType||token||statusCode||setParameters|
+|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+=======
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+
+!*> 定义scenario 
+|scenario|bookListDetail|action||bookListId||start||end||channelType||token||EXPECTED||setParameters|
+|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token,EXPECTED:@EXPECTED}|
+|ensure|do get|@EXPECTED|
+|ensure|verify|
+
+>>>>>>> 896b305cad960ff110378690144393f95429eae7
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|book list detail|
+*!
+!* 测试数据
+|bookListDetail|
+<<<<<<< HEAD
+|#用例编号|action|bookListId|start|end|channelType|token|statusCode|
+||bookListDetail|31|0|9|all||0|
+*!
+=======
+|#参数|action|bookListId|start|end|channelType|token|EXPECTED|
+||bookListDetail|14|0|9|all||0|
+>>>>>>> 896b305cad960ff110378690144393f95429eae7
