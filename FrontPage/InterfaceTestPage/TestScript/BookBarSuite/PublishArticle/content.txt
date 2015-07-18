@@ -6,7 +6,7 @@
  * token – 身份认证token（必填）
  * barId吧ID – （必填）
  * mediaDigestId – 文章ID（修改帖子时必填）
- * title – 主题（必填）
+ * title – 主题（非必填）
  * content – 内容（必填）
  * imgUrls – 图片url（多个url间用逗号分隔）
  * actionType – 操作类型（1-发帖；2-修改帖子；）（必填）
@@ -68,9 +68,9 @@
 |barId值为字母|!-whytest@dd.con-!|111111|email||publishArticle|aa|FromDB|发帖|修改帖子|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|2|10002|pass|
 |barId值为空|!-whytest@dd.con-!|111111|email||publishArticle||FromDB|发帖|修改帖子4|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|2|10002|pass|
 |不传参数barId|!-whytest@dd.con-!|111111|email||publishArticle|REMOVE|FromDB|发帖|修改帖子4|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|2|10002|pass|
-|title值多余20个字|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖|发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|10002|pass|
-|title值为空|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB||发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|10002|pass|
-|不传参数title|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|REMOVE|发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|10002|pass|
+|title值多余20个字|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖|发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|0|pass|
+|title值为空|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB||发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|0|pass|
+|不传参数title|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|REMOVE|发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|0|pass|
 |content值为空|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖||!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|10002|pass|
 |不传参数content|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖|REMOVE|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|10002|pass|
 |imgUrls值为非url格式|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖|发帖测试|abcdfe|1|25031|pass|
