@@ -1,0 +1,39 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360599
+
+----
+!3 二、接口描述：
+获取云书架列表，
+
+'''注：购买的列表中应包括纸书、字体，出版物电子书、原创电子书，云书架列表应只返回电子书'''
+
+'''下架电子书应不返回。'''
+
+!3 三、涉及数据库
+|Comment                  |
+|数据库      |表              |
+|authority|media_authority|
+
+----
+!3 四、测试用例:
+|Import                                         |
+|com.dangdang.readerV5.personal_center.bookshelf|
+
+|ddt:hide user book list                                                                                   |
+|#用例名称    |userName                |passWord|token|mediaId                |isHide|status code?|data verfiy?|
+|隐藏书籍，正常流程|!-cailj_ddtest@126.com-!|ddtest  |     |#GetBookShelfProductId#|1     |0           |通过          |
+
+|Comment                                                                                                   |
+|恢复隐藏书籍，正常流程       |!-cailj_ddtest16@126.com-!|ddtest|         |                        |0        |0    |通过|
+|隐藏书籍，隐藏多个商品       |!-cailj_ddtest16@126.com-!|ddtest|         |#GetBookShelfProductId#2|1        |0    |通过|
+|恢复隐藏书籍，恢复隐藏多个商品   |!-cailj_ddtest16@126.com-!|ddtest|         |                        |0        |0    |通过|
+|隐藏书籍，token不正确     |                          |      |1234     |123455                  |1        |10003|通过|
+|隐藏书籍，token不传      |                          |      |#NotPass#|123455                  |1        |10002|通过|
+|隐藏书籍，mediaId不正确   |!-cailj_ddtest16@126.com-!|ddtest|         |123455                  |1        |0    |通过|
+|隐藏书籍，mediaId不传    |!-cailj_ddtest16@126.com-!|ddtest|         |#NotPass#               |1        |10002|通过|
+|隐藏书籍，，isHide不正确   |!-cailj_ddtest16@126.com-!|ddtest|         |123445                  |3        |10002|通过|
+|隐藏书籍，isHide为非数字   |!-cailj_ddtest16@126.com-!|ddtest|         |123445                  |a        |10002|通过|
+|隐藏书籍，isHide不传，默认为1|!-cailj_ddtest16@126.com-!|ddtest|         |123445                  |#NotPass#|0    |通过|
+
+!contents -R2 -g -p -f -h

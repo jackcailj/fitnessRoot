@@ -1,2 +1,21 @@
-!1 Test suite X
+!*** 电子书购物流程
+
+1、[[获取虚拟支付信息接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetEbookOrderFlowV2]]
+
+2、[[获取虚拟支付结算流程所需的虚拟单品ID接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetRechargeVirtualPid]]
+
+3、[[虚拟币购买接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.PurchaseEbookVirtualPayment]]
+
+*!
+!*** 电子书购物车
+
+1、[[获取电子书购物车id][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetShoppingCartId]]
+
+2、[[添加电子书购物车][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.AppendShoppingCart]]
+
+3、[[删除电子书购物车商品][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.DeleteShoppingCart]]
+
+4、[[获取电子书购物车列表][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ListShoppingCart]]
+
+*!
 !contents -R2 -g -p -f -h

@@ -1,0 +1,26 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359636#%E3%80%905.0%E3%80%91%E8%B4%AD%E7%89%A9%E8%BD%A6%E6%8E%A5%E5%8F%A3-%E8%8E%B7%E5%8F%96%E7%94%B5%E5%AD%90%E4%B9%A6%E8%B4%AD%E7%89%A9%E8%BD%A6id
+
+----
+!3 二、接口描述：
+获取购物车列表
+
+!3 三、涉及数据库
+|Comment                                   |
+|数据库    |表                                 |
+|digital|shopping_cart、shopping_cart_detail|
+
+----
+!3 四、测试用例:
+|Import                        |
+|com.dangdang.readerV5.purchase|
+
+|ddt:list shopping cart                                                                         |
+|#用例名称          |userName                  |passWord|token|''cartId ''|status code?|data verify?|
+|获取电子购物车列表，正常流程 |!-cailj_ddtest@126.com-!  |ddtest  |     |           |0           |通过          |
+|获取电子购物车列表,购物车为空|!-cailj_ddtest16@126.com-!|ddtest  |     |           |0           |通过          |
+|获取电子购物车列表，不登录  |                          |        |     |#GetCartId#|0           |通过          |
+|token不正确       |                          |        |12345|           |200         |通过          |
+
+!contents -R2 -g -p -f -h

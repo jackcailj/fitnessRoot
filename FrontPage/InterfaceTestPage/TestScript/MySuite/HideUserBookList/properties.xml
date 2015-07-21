@@ -2,14 +2,12 @@
 <properties>
 <Edit/>
 <Files/>
+<Help>隐藏、恢复隐藏书籍接口</Help>
 <Properties/>
 <RecentChanges/>
 <Refactor/>
 <Search/>
-<Suite/>
+<Test/>
 <Versions/>
 <WhereUsed/>
-<secure-read/>
-<secure-test/>
-<secure-write/>
 </properties>

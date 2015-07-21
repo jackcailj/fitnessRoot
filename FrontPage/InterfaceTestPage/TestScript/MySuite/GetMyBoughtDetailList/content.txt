@@ -17,18 +17,19 @@
 |Import                               |
 |com.dangdang.readerV5.personal_center|
 
-|ddt:get my bought detail list                                                                                          |
-|#用例名称              |userName                |passWord|token    |start    |end      |boughtId |status code?|data verfiy?|
-|电子书已购列表，全本购买       |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |491275   |0           |通过          |
-|电子书已购列表，购买多章       |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |407      |0           |通过          |
-|电子书已购列表，token不正确   |                        |        |123      |0        |10       |491275   |10003       |通过          |
-|电子书已购列表，token不传    |                        |        |#NotPass#|0        |10       |491275   |10002       |通过          |
-|电子书已购列表，boughtId不正确|!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |98876544 |0           |通过          |
-|电子书已购列表，boughtId不传 |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |#NotPass#|10002       |通过          |
-|电子书已购列表，start>end  |!-cailj_ddtest@126.com-!|ddtest  |         |10       |0        |491275   |10002       |通过          |
-|电子书已购列表,start不传    |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|10       |491275   |0           |通过          |
-|电子书已购列表,end不传      |!-cailj_ddtest@126.com-!|ddtest  |         |0        |#NotPass#|491275   |0           |通过          |
-|电子书已购列表,start为非数字  |!-cailj_ddtest@126.com-!|ddtest  |         |a        |10       |491275   |10002       |通过          |
-|电子书已购列表,end为非数字    |!-cailj_ddtest@126.com-!|ddtest  |         |0        |a        |491275   |10002       |通过          |
+|ddt:get my bought detail list                                                                                                |
+|#用例名称                    |userName                |passWord|token    |start    |end      |boughtId |status code?|data verfiy?|
+|电子书已购详情列表，全本购买           |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |491275   |0           |通过          |
+|电子书已购详情列表，购买多章           |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |407      |0           |通过          |
+|电子书已购详情列表，token不正确       |                        |        |123      |0        |10       |491275   |10003       |通过          |
+|电子书已购详情列表，token不传        |                        |        |#NotPass#|0        |10       |491275   |10002       |通过          |
+|电子书已购详情列表，boughtId不正确    |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |98876544 |0           |通过          |
+|电子书已购详情列表，boughtId不传     |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |#NotPass#|10002       |通过          |
+|电子书已购详情列表，boughtId为别人购买记录|!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |121      |10002       |通过          |
+|电子书已购详情列表，start>end      |!-cailj_ddtest@126.com-!|ddtest  |         |10       |0        |491275   |10002       |通过          |
+|电子书已购详情列表,start不传        |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|10       |491275   |0           |通过          |
+|电子书已购详情列表,end不传          |!-cailj_ddtest@126.com-!|ddtest  |         |0        |#NotPass#|491275   |0           |通过          |
+|电子书已购详情列表,start为非数字      |!-cailj_ddtest@126.com-!|ddtest  |         |a        |10       |491275   |10002       |通过          |
+|电子书已购详情列表,end为非数字        |!-cailj_ddtest@126.com-!|ddtest  |         |0        |a        |491275   |10002       |通过          |
 
 !contents -R2 -g -p -f -h

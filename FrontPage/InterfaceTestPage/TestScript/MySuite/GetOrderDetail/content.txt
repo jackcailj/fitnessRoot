@@ -1,0 +1,28 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360341
+
+----
+!3 二、接口描述：
+获取纸书订单详情
+
+!3 三、涉及数据库
+|Comment  |
+|数据库    |表|
+|digital| |
+
+----
+!3 四、测试用例:
+|Import                               |
+|com.dangdang.readerV5.personal_center|
+
+|ddt:get order detail                                                                                   |
+|#用例名称                |userName                |passWord|token    |orderId    |status code?|data verfiy?|
+|获取订单详情，正常流程          |!-cailj_ddtest@126.com-!|ddtest  |         |22110787537|0           |通过          |
+|获取订单详情，''orderId''不正确|!-cailj_ddtest@126.com-!|ddtest  |         |3445661111 |20151       |通过          |
+|获取订单详情，''orderId''不传 |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#  |10002       |通过          |
+|获取订单详情，token不正确      |                        |        |123123   |123        |10003       |通过          |
+|获取订单详情，token不传       |                        |        |#NotPass#|132        |10002       |通过          |
+|获取订单详情，获取别人的订单详情     |!-cailj_ddtest@126.com-!|ddtest  |         |1410667334 |0           |通过          |
+
+!contents -R2 -g -p -f -h

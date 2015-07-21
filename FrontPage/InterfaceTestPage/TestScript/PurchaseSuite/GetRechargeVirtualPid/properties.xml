@@ -2,14 +2,12 @@
 <properties>
 <Edit/>
 <Files/>
+<Help>获取虚拟支付结算流程所需的虚拟单品ID</Help>
 <Properties/>
 <RecentChanges/>
 <Refactor/>
 <Search/>
-<Suite/>
+<Test/>
 <Versions/>
 <WhereUsed/>
-<secure-read/>
-<secure-test/>
-<secure-write/>
 </properties>
