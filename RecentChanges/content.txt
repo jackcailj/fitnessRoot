@@ -1,23 +1,29 @@
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetUserBookList||18:11:08 星期二, 七月 21, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite||14:47:01 星期二, 七月 21, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.PurchaseEbookVirtualPayment||17:08:56 星期一, 七月 20, 2015|
-|FrontPage.InterfaceTestPage.TestingConfig||16:19:56 星期六, 七月 18, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.HideUserBookList||15:36:45 星期四, 七月 16, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.AppendShoppingCart||14:41:01 星期四, 七月 16, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.DeleteShoppingCart||14:39:51 星期四, 七月 16, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ListShoppingCart||11:34:30 星期四, 七月 16, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetShoppingCartId||14:29:43 星期二, 七月 14, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite||14:22:59 星期二, 七月 14, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetEbookOrderFlowV2||13:46:05 星期二, 七月 14, 2015|
-|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetRechargeVirtualPid||11:11:59 星期一, 七月 13, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GDTongji||10:43:34 星期一, 七月 13, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderDetail||17:01:53 星期四, 七月 09, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderList||16:56:36 星期四, 七月 09, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtDetailList||16:47:24 星期四, 七月 09, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetImUser||11:38:06 星期四, 七月 09, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.CreateImUser||11:06:27 星期四, 七月 09, 2015|
+|FrontPage.InterfaceTestPage.TestScript.ReviewSuite.AddComment||15:55:58 星期二, 七月 21, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarBook||19:34:49 星期一, 七月 20, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookBarSuite||17:55:45 星期一, 七月 20, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.IsBarMember||17:28:50 星期一, 七月 20, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.PublishArticle||16:41:31 星期一, 七月 20, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.TopAndWonderful||16:11:52 星期一, 七月 20, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetMedia||16:27:18 星期五, 七月 17, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface||10:20:56 星期五, 七月 17, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaCategory||17:33:12 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopic||16:00:06 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetPaperMedia||11:10:32 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetPaperMediaStock||11:10:22 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetBuyAlsoBuy||11:10:14 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetViewAlsoView||11:10:06 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetGuessulike||11:09:55 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaRankingList||11:06:44 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaCategoryLeaf||11:06:36 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest||11:06:05 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnGroup||11:05:56 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite||10:58:07 星期四, 七月 16, 2015|
+|FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn||17:25:58 星期一, 七月 13, 2015|
+|FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory||13:49:33 星期一, 七月 13, 2015|
 
+|FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtDetailList||17:20:31 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtList||16:06:52 星期三, 七月 08, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite||14:36:34 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadMediaWhole||13:54:43 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetCertificate||15:02:20 星期二, 七月 07, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishedCertificate||14:50:21 星期二, 七月 07, 2015|
@@ -47,7 +53,6 @@
 |FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||16:56:59 星期一, 六月 29, 2015|
 
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar||18:43:22 星期五, 七月 03, 2015|
-|FrontPage.InterfaceTestPage.TestScript.BookBarSuite||15:16:28 星期五, 七月 03, 2015|
 
 
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestContentForH5||18:18:13 星期五, 六月 26, 2015|
@@ -64,16 +69,13 @@
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.NearbyClearLocation||20:18:38 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.UpdateDigestTopCnt||19:25:54 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite.PraiseComment||17:36:51 星期四, 六月 25, 2015|
-|FrontPage.InterfaceTestPage.TestScript.ReviewSuite.AddComment||17:22:32 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite.DelComment||16:50:22 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetCommentList||16:22:06 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryArticleList||15:33:05 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetTargetCommentCount||15:11:43 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetCommentReplyList||14:40:37 星期四, 六月 25, 2015|
-|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.IsBarMember||18:10:46 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.MyBarList||17:51:17 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.Square||16:50:45 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.BookBarSuite.PublishArticle||16:13:48 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryArticleInfo||15:36:15 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarMember||14:24:25 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.BarMember||14:02:39 星期三, 六月 24, 2015|
@@ -88,6 +90,7 @@
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetAccountInfo||15:31:30 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.ThridLoginV2||13:27:26 星期四, 六月 25, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.UploadHeadPhoto||16:30:19 星期三, 六月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite||16:26:34 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetUser||15:17:46 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.getPostList||15:17:27 星期三, 六月 24, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.getNoteList||15:16:56 星期三, 六月 24, 2015|

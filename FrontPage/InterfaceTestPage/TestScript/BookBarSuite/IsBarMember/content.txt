@@ -3,19 +3,41 @@
 !* 测试用例
 接口：action=isBarMember
 参数：
-token – 身份认证token（必填）
-barId – 吧ID
+ * token – 身份认证token（必填）
+ * barId – 吧ID
 接口描述：判断用户是否该吧成员，详http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359941
 相关数据库表：bookbar -> bar， bar_member
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|
 ||用户加入一个吧|正常流程|输入barId的值为加入的吧ID，其他参数值正确|判断用户是该吧成员|
 |||正常流程|用户不在某个吧中，输入barId的值为该吧的ID，其他参数值正确|判断用户不是该吧成员|
-|||barId参数|参数值为负数，其他参数值正确|未知错误|
-|||barId参数|参数值为字母，其他参数值正确|未知错误|
+|||barId参数|参数值为字母，其他参数值正确|参数非法|
 |||barId参数|参数值为空，其他参数值正确|参数非法|
 |||barId参数|不传pageNo参数，其他参数值正确|参数非法|
-|||token参数|token参数值为空，其他参数值正确|参数非法|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |isBarMemberTest|userName||passWord||loginType||action||barId||token||期望||result||setParameters|
+| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,action:@action,barId:@barId,token:@token,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
 
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|is bar member|
+*!
+!* 测试数据
+|isBarMemberTest|
+|#用例名称|userName|passWord|loginType|action|barId|token|期望|result|
+|是吧成员|!-whytest@dd.con-!|111111|email|isBarMember|true||0|pass|
+|不是吧成员|!-whytest@dd.con-!|111111|email|isBarMember|false||0|pass|
+|barId值为字母|!-whytest@dd.con-!|111111|email|isBarMember|a||10002|pass|
+|barId值为空|!-whytest@dd.con-!|111111|email|isBarMember|||10002|pass|
+|不传参数barId|!-whytest@dd.con-!|111111|email|isBarMember|REMOVE||10002|pass|
+*!
 !4 备注：

@@ -1,0 +1,86 @@
+!*> 测试用例
+接口：action=getMedia
+接口描述：目前原创的书不支持借阅，返回json字段说明：
+ * canBorrow 调用孙晋接口
+ * freebook 判断price=0或者promotionId=3
+ * fileSize freeFileSize是在resFile表
+ * isChannelMonth 是否频道包月调用孙晋判断包月接口
+ * isChapterAuthority isWholeAuthority 是否有权限调用星皓权限接口
+ * isStore 是否收藏调用代鹏收藏接口
+ * mediaType 是根据docType字段判断 ebook 是 电子书 非ebook是原创
+ * isSupportDevice 是根据media_resfile表里数据判断的
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359460
+相关表：
+ * media
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|getMediaCase01|出版物|可借阅的书|调用接口|返回的数据与数据库数据一致|test，staging，online|
+|getMediaCase02|出版物|已借阅的书|调用接口|返回的11003|test|
+|getMediaCase03|出版物|借阅过期的书|调用接口|返回新增的数据|test|
+|getMediaCase04|出版物|免费的书||返回结果按排序值倒序排列|test|
+|getMediaCase05|出版物|已获取权限的免费书||过了有效期的书不返回|test|
+|getMediaCase06|出版物|需购买的书|调用接口|下架的书不返回|test|
+|getMediaCase07|出版物|已获取权限的购买本|调用接口|上架的书能正常返回|test|
+|getMediaCase08|出版物|支持包月的书|调用接口|上架的书能正常返回|test|
+|getMediaCase09|出版物|已获取包月权限的书|调用接口|上架的书能正常返回|test|
+|getMediaCase10|原创|免费的书|调用接口|上架的书能正常返回|test|
+|getMediaCase11|原创|已获取免费权限的书|调用接口|上架的书能正常返回|test|
+|getMediaCase12|原创|需购买章节的书|调用接口|上架的书能正常返回|test|
+|getMediaCase13|原创|已获取章节权限的书|调用接口|上架的书能正常返回|test|
+|getMediaCase14|原创|支持包月的书|调用接口|上架的书能正常返回|test|
+|getMediaCase15|原创|已获取包月权限的书|调用接口|上架的书能正常返回|test|
+|getMediaCase16||参数saleId|saleId值为空|返回10002在|test|
+|getMediaCase17||参数saleId|saleId值为无效值|返回10002|test|
+|getMediaCase18||参数mediaChannelId |mediaChannelId 值为空|返回10002|test|
+|getMediaCase19||参数mediaChannelId |mediaChannelId 值为无效值（*,字母，中文）|返回10002|test|
+|getMediaCase20||参数refAction|refAction值为空|返回10002|test|
+|getMediaCase21||参数refAction|refAction值为无效值（&,字母，中文）|返回10002|test|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.bookstore|
+*!
+!*> 定义scenario 
+|scenario|getMedia|action||userName||passWord||loginType||token||saleId||mediaChannelId||refAction||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,saleId:@saleId,start:@start,mediaChannelId:@mediaChannelId,refAction:@refAction}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+*!
+!* 测试数据
+|script|get media|
+
+|getMedia|
+|#用例编号|action|userName|passWord|loginType|token|saleId|mediaChannelId|refAction|statusCode|
+|getMediaCase01|getMedia|!-z16@123.com-!|111111|email||可借阅||browse|0|
+|getMediaCase02|getMedia|!-z16@123.com-!|111111|email||已借阅||browse|0|
+|getMediaCase03|getMedia|!-z16@123.com-!|111111|email||借阅过期||browse|0|
+|getMediaCase04|getMediae|!-z16@123.com-!|111111|email||免费||browse|0|
+|getMediaCase05|getMedia|!-z16@123.com-!|111111|email||已获取免费||browse|0|
+|getMediaCase06|getMedia|!-z16@123.com-!|111111|email||购买||browse|0|
+|getMediaCase07|getMedia|!-z16@123.com-!|111111|email||已购买||browse|0|
+|getMediaCase08|getMedia|!-z16@123.com-!|111111|email||包月||browse|0|
+|getMediaCase09|getMedia|!-z16@123.com-!|111111|email||已获取包月||browse|0|
+|getMediaCase10|getMedia|!-z16@123.com-!|111111|email||免费原创||browse|0|
+|getMediaCase11|getMedia|!-z16@123.com-!|111111|email||已获取免费原创||browse|0|
+|getMediaCase12|getMedia|!-z16@123.com-!|111111|email||购买章节||browse|0|
+|getMediaCase13|getMedia|!-z16@123.com-!|111111|email||已获取购买章节||browse|0|
+|getMediaCase14|getMedia|!-z16@123.com-!|111111|email||原创包月||browse|0|
+|getMediaCase15|getMedia|!-z16@123.com-!|111111|email||已获取原创包月||browse|0|
+|getMediaCase16|getMedia|!-z16@123.com-!|111111|email||||browse|10002|
+|getMediaCase17|getMedia|!-z16@123.com-!|111111|email||asdf||browse|10002|
+|getMediaCase17|getMedia|!-z16@123.com-!|111111|email||销售编号||browse|10002|
+|getMediaCase17|getMedia|!-z16@123.com-!|111111|email||*||browse|10002|
+|getMediaCase18|getMedia|!-z16@123.com-!|111111|email||购买|||10002|
+|getMediaCase19|getMedia|!-z16@123.com-!|111111|email||购买|mediaChannelId|browse|10002|
+|getMediaCase19|getMedia|!-z16@123.com-!|111111|email||购买|@|browse|10002|
+|getMediaCase19|getMedia|!-z16@123.com-!|111111|email||购买|参数|browse|10002|
+|getMediaCase20|getMedia|!-z16@123.com-!|111111|email||购买|||10002|
+|getMediaCase21|getMedia|!-z16@123.com-!|111111|email||购买||参数|10002|
+|getMediaCase21|getMedia|!-z16@123.com-!|111111|email||购买||&|10002|
+|getMediaCase21|getMedia|!-z16@123.com-!|111111|email||购买||refAction|10002|
+|getMediaCase22|getMedia|||||购买||refAction|0|
+|getMediaCase23|getMedia||||token|购买||refAction|10002|
+|getMediaCase23|getMedia||||*|购买||refAction|10002|
+|getMediaCase23|getMedia||||参数|购买||refAction|10002|
+*!

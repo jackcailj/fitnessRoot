@@ -2,34 +2,37 @@
 !* '''初始化书城数据'''
  *[[只适用测试环境][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.InitBookStore]]
 *!
-!* '''限免'''
- *[[限免接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.FreeForLimited]]
-*!
-!* '''借阅'''
- *[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BorrowInterface]]
-*!
-!* '''专题'''
- *[[历史专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory]]
- *[[专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopic]]
-*!
-!* '''栏目'''
+!* '''栏目.块'''
  *[[频道栏目接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
  *[[书栏目接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface]]
+ *[[栏目组接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnGroup]]
+ *[[热门标签模块接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest]]
 *!
-!* '''块'''
- *[[热门标签模块接口][]]
+!* '''专题'''
+ *[[专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory]]
+ *[[专题详情接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopic]]
 *!
-!* '''快速检索'''
- *[[快速检索接口][]]
+!* '''限免.借阅'''
+ *[[限免接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.FreeForLimited]]
+ *[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BorrowInterface]]
 *!
 !* '''分类'''
- *[[各分类列表接口][]]
- *[[分类二级页面接口（按不同维度排序）][]]
+ *[[各分类列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaCategory]]
+ *[[分类二级页面接口（按不同维度排序）][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaCategoryLeaf]]
 *!
 !* '''榜单'''
- *[[各类榜单（畅销榜、新书榜等）模块接口以及列表接口][]]
+ *[[各类榜单（畅销榜、新书榜等）模块接口以及列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaRankingList]]
  *[[男频畅销榜模块以及列表接口][]]
  *[[女频畅销榜模块以及列表接口][]]
 *!
-
+!* '''电子书单品页'''
+ *[[电子书单品页][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetMedia]]
+ *[[纸书单品页][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetPaperMedia]]
+ *[[纸书获取库存接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetPaperMediaStock]]
+*!
+!* '''推荐系统'''
+ *[[买了有买][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetBuyAlsoBuy]]
+ *[[看了又看][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetViewAlsoView]]
+ *[[猜你喜欢][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetGuessulike]]
+*!
 !contents

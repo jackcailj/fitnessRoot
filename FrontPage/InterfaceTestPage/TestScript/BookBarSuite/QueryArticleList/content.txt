@@ -12,8 +12,8 @@
 相关数据库表：bookbar -> bar, article   digital -> media_digest
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
-|||正常流程|输入正确的barId和token参数值|获取吧帖子列表信息|test,staging,online|
-|||正常流程|输入正确的objectId和token参数值|获取单品页帖子列表信息|test,staging,online|
+|||正常流程|输入正确的barId和token参数值,不传参数lastModifiedDateMsec，lastVisitDateMsec值为0|获取吧帖子列表信息|test,staging,online|
+|||正常流程|输入正确的objectId和token参数值,不传参数lastModifiedDateMsec，lastVisitDateMsec值为0|获取单品页帖子列表信息|test,staging,online|
 |||barId参数值|barId值为字母aa，其他参数值正确|参数非法|test,staging,online|
 |||barId参数值|输入值为空，其他参数值正确|参数非法|test,staging,online|
 |||barId参数|不传barId参数，其他参数值正确|参数非法|test,staging,online|
@@ -22,12 +22,10 @@
 |||objectId 参数|objectId值为字母bb ，其他参数值正确|参数非法|test,staging,online|
 |||lastModifiedDateMsec参数值|输入值为null，其他参数值正确|获取第一页帖子列表|test,staging,online|
 |||lastModifiedDateMsec参数值|输入值为上次请求最后一条记录的时间戳 其他参数值正确|获取上次最后一条记录之后的帖子列表|test,staging,online|
-|||lastModifiedDateMsec参数值|输入值为0， 其他参数值正确|获取0条帖子列表|test,staging,online|
-|||lastModifiedDateMsec参数值|不传该参数， 其他参数值正确|默认获取第一页帖子列表|test,staging,online|
+|||lastModifiedDateMsec参数值|值为当前时间， 其他参数值正确|默认获取第一页帖子列表|test,staging,online|
 |||lastVisitDateMsec参数值|传值为当前请求的系统时间，其他参数值正确|获取帖子列表，updateArticleNum应为0|test,staging,online|
 |||lastVisitDateMsec参数值|传值为上次请求的系统时间，其他参数值正确|获取帖子列表，如果上次请求时间到当前时间内有新的帖子或新的评论，则updateArticleNum应为新帖子数|test,staging,online|
 |||lastVisitDateMsec参数值|不传该参数，其他参数值正确|获取帖子列表，updateArticleNum应为0|test,staging,online|
-|||token参数值|token参数值为空，其他参数值正确|参数非法|test,staging,online|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -46,17 +44,25 @@
 |script|query article list|
 *!
 !* 测试数据
-|publishArticleTest|
+|queryArticleListTest |
 |#用例名称|action|barId|objectId|lastModifiedDateMsec|lastVisitDateMsec|期望|result|
+|获取吧ID帖子列表|queryArticleList|FromDB|REMOVE|REMOVE|0|0|pass|
+|获取obejectId帖子列表|queryArticleList|REMOVE|FromDB|REMOVE|0|0|pass|
+|barId和objectId同时存在|queryArticleList|FromDB|FromDB|REMOVE|0|0|pass|
+|barId值为字母|queryArticleList|a|REMOVE|REMOVE|0|10002|pass|
+|barId值为空|queryArticleList||REMOVE|REMOVE|0|10002|pass|
+|不传参数barId|queryArticleList|REMOVE|REMOVE|REMOVE|0|10002|pass|
+|objectId值为字母|queryArticleList|REMOVE|b|REMOVE|0|10002|pass|
+|objectId值为空|queryArticleList|REMOVE|0|REMOVE|0|10002|pass|
+|不传参数objectId|queryArticleList|REMOVE|REMOVE|REMOVE|0|10002|pass|
+|lastModifiedDateMsec值为null|queryArticleList|FromDB|REMOVE|null|0|0|pass|
+|lastModifiedDateMsec值为上次请求最后一条记录的时间戳|queryArticleList|FromDB|REMOVE|FromDB|0|0|pass|
+|lastModifiedDateMsec值为当前时间|queryArticleList|FromDB|REMOVE|currentTime|0|0|pass|
+|lastVisitDateMsec值为当前时间|queryArticleList|FromDB|REMOVE|REMOVE|currentTime|0|pass|
+|lastVisitDateMsec值为一天前|queryArticleList|FromDB|REMOVE|REMOVE|lastVisitTime|0|pass|
+|不传参数lastVisitDateMsec|queryArticleList|FromDB|REMOVE|REMOVE|REMOVE|0|pass|
 *!
 !4 备注：	
  按发帖的时间倒序展示，帖子中有新的评论时按评论时间重新排序帖子顺序
 lastModifiedDateMsec – 上次请求最后一条记录的时间戳（第一次请求时传null）
 lastVisitDateMsec – 上次请求的时间戳（上次请求时间到当前系统时间内，如果有新的帖子，或者旧帖子有更新时候也会置顶，就会在最上边显示，这时要提示用户有几条新的帖子，用户会重新下拉，查看）
-25024	获取吧帖子列表失败   ??
-25025	获取单品页帖子列表失败 ?
-
-/media/api2.go?action=queryArticleList&barId=10&lastVisitDateMsec=0
-{"data":{"articleList":[{"articleId":361,"barId":10,"commentNum":0,"content":"人类已经不再只会iiiii仍然让他体验","custId":"s1RqgMv12lhms6CjJdqf7w==","headPhoto":"http://img36.ddimg.cn/imghead/70/2/9827139178366-1_e.png?1436514579998?1436519478448","imgList":[],"isDel":0,"isPraise":0,"isShow":1,"isTop":0,"isWonderful":0,"lastModifiedDateMsec":1436506932133,"mediaDigestId":1222,"nickName":"臭小y","praiseNum":0,"title":"你的心中不安","type":2},{"articleId":360,"barId":10,"commentNum":0,"content":"人类已经不再只会iiiii仍然让他体验","custId":"s1RqgMv12lhms6CjJdqf7w==","headPhoto":"http://img36.ddimg.cn/imghead/70/2/9827139178366-1_e.png?1436514579998?1436519478448","imgList":[],"isDel":0,"isPraise":0,"isShow":1,"isTop":0,"isWonderful":0,"lastModifiedDateMsec":1436506853334,"mediaDigestId":1221,"nickName":"臭小y","praiseNum":0,"title":"你的心中不安","type":2},{"articleId":333,"barId":10,"commentNum":9,"content":"这些无聊","custId":"s1RqgMv12lhms6CjJdqf7w==","headPhoto":"http://img36.ddimg.cn/imghead/70/2/9827139178366-1_e.png?1436514579998?1436519478448","imgList":["http://img63.ddimg.cn/digital/bar/55/1/a5ab3b750912448d98e2a2163598853e.jpg"],"isDel":0,"isPraise":0,"isShow":1,"isTop":0,"isWonderful":0,"lastModifiedDateMsec":1436496642000,"mediaDigestId":1154,"nickName":"臭小y","praiseNum":1,"title":"国会议员","type":2}],"currentDate":"2015-07-10 17:11:42","systemDate":"1436519502288","updateArticleNum":3},"status":{"code":0},"systemDate":1436519502288}
-
-         

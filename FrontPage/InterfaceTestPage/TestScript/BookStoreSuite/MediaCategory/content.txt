@@ -1,0 +1,46 @@
+!*> 测试用例
+接口：action=mediaCategory
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933766
+相关表：
+ * media_column
+ * media_column_content
+ * media_statistics
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|mediaCategoryCase01||参数level|level=2|返回的数据与数据库数据一致|test，staging，online|
+|mediaCategoryCase02||参数level|level=4|返回的数据与数据库数据一致|test，staging，online|
+|mediaCategoryCase03||参数level|level=9|返回的数据与数据库数据一致|test，staging，online|
+|mediaCategoryCase04||参数level|level值为空|返回10002|test|
+|mediaCategoryCase05||参数level|level为无效值(字符，字母，中文)|返回10002|test|
+|mediaCategoryCase06||参数data|data=0默认不请求分类下数据|返回的11003|test|
+|mediaCategoryCase07||参数data|data=1请求分类下数据|返回新增的数据|test|
+|mediaCategoryCase08||参数data|data为空|返回新增的数据|test|
+|mediaCategoryCase09||参数data|data为无效值|返回新增的数据|test|
+|mediaCategoryCase10||参数channelType|channelType值为空|返回10002在|test|
+|mediaCategoryCase11||参数channelType|channelType值为无效值|返回10002|test|
+|mediaCategoryCase12||参数start|start值为空|返回10002|test|
+|mediaCategoryCase13||参数start|start值大于列表总数时|返回空数据|test|
+|mediaCategoryCase14||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|mediaCategoryCase15||参数end|end值为空|返回10002|test|
+|mediaCategoryCase16||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|mediaCategoryCase17||参数start和end|start值大于end值|返回10002|test|
+
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.bookstore|
+*!
+!*> 定义scenario 
+|scenario|mediaCategory|action||level||data||start||end||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,level:@level,data:@data,start:@start,end:@end,channelType:@channelType}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+*!
+!* 测试数据
+|script|media category|
+
+|mediaCategory|
+|#用例编号|action|level|data|start|end|channelType|statusCode|
+|mediaCategoryCase01|mediaCategory|2|0|0|9|ddds|0|
+*!
