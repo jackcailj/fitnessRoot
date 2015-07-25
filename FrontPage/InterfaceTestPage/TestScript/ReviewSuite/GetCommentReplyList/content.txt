@@ -3,25 +3,56 @@
 !* 测试用例
 接口：action=getCommentReplyList
 参数：
-targetId – 评论主体的ID
-targetSource – 评论来源(1000,书吧;2000,翻篇,3000:抢先读,4000,频道）
-commentId – 一级评论id
+ * targetId – 评论主体的ID
+ * targetSource – 评论来源(1000,书吧;2000,翻篇,3000:抢先读,4000,频道）
+ * commentId – 一级评论id
 接口描述：查看更多回复信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360070
 相关数据库表：base_comment -> comment
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|
-||书吧添加评论/回复|正常流程|输入正确的参数值|获取回复信息|
-||书吧添加评论/回复|targetId参数值|参数值为字母bb ，其他参数值正确|未知错误|
-||书吧添加评论/回复|targetId参数值|参数值为空，其他参数值正确|参数非法|
-||书吧添加评论/回复|targetId参数值|不传targetId参数，其他参数值正确|参数非法|
-||翻篇儿添加评论/回复|targetSource参数|参数值为2000，其他参数值正确|获取回复信息|
-||抢先读添加评论/回复|targetSource参数|参数值为3000，其他参数值正确|获取回复信息|
-||频道添加评论/回复|targetSource参数|参数值为4000，其他参数值正确|获取回复信息|
-||书吧添加评论/回复|targetSource参数|参数值为空，其他参数值正确|参数非法|
-||书吧添加评论/回复|targetSource参数|不传参数targetSource，其他参数值正确|参数非法|
-||书吧添加评论/回复|commentId参数|参数值为字母，其他参数值正确|未知错误|
-||书吧添加评论/回复|commentId参数|参数值为空，其他参数值正确|参数非法|
-||书吧添加评论/回复|commentId参数|不传commentId参数，其他参数值正确|参数非法|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+||书吧添加评论/回复|正常流程|输入正确的参数值|获取回复信息|test,staging,online|
+||书吧添加评论/回复|targetId参数值|参数值为字母bb ，其他参数值正确|未知错误|test,staging,online|
+||书吧添加评论/回复|targetId参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+||书吧添加评论/回复|targetId参数值|不传targetId参数，其他参数值正确|参数非法|test,staging,online|
+||翻篇儿添加评论/回复|targetSource参数|参数值为2000，其他参数值正确|获取回复信息|test,staging,online|
+||抢先读添加评论/回复|targetSource参数|参数值为3000，其他参数值正确|获取回复信息|test,staging,online|
+||频道添加评论/回复|targetSource参数|参数值为4000，其他参数值正确|获取回复信息|test,staging,online|
+||书吧添加评论/回复|targetSource参数|参数值为空，其他参数值正确|参数非法|test,staging,online|
+||书吧添加评论/回复|targetSource参数|不传参数targetSource，其他参数值正确|参数非法|test,staging,online|
+||书吧添加评论/回复|commentId参数|参数值为字母，其他参数值正确|参数非法|test,staging,online|
+||书吧添加评论/回复|commentId参数|参数值为空，其他参数值正确|参数非法|test,staging,online|
+||书吧添加评论/回复|commentId参数|不传commentId参数，其他参数值正确|参数非法|test,staging,online|
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.comment|
+*!
+!*> 定义scenario 
+| scenario |getCommentReplyListTest|action||targetId||targetSource||commentId||期望||result||setParameters|
+| setParameters|!{action:@action,targetId:@targetId,targetSource:@targetSource,commentId:@commentId,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get comment reply list|
+*!
+!* 测试数据
+|getCommentReplyListTest|
+|#用例名称|action|targetId|targetSource|commentId|期望|result|
+|正常流程|getCommentReplyList|FromDB|1000|FromDB|0|pass|
+|正常流程|getCommentReplyList|FromDB|2000|FromDB|0|pass|
+|正常流程|getCommentReplyList|FromDB|3000|FromDB|0|pass|
+|正常流程|getCommentReplyList|FromDB|4000|FromDB|0|pass|
+|targetId为字母|getCommentReplyList|a|4000|0|10002|pass|
+|targetId为空  |getCommentReplyList||4000|0|10002|pass|
+|不传targetId  |getCommentReplyList|REMOVE|4000|0|10002|pass|
+|targetSource为空  |getCommentReplyList|924||0|10002|pass|
+|不传targetSource  |getCommentReplyList|924|REMOVE|0|10002|pass|
+|commentId为字母|getCommentReplyList|FromDB|1000|c|10002|pass|
+|commentId为空  |getCommentReplyList|FromDB|1000||10002|pass|
+|不传commentId  |getCommentReplyList|FromDB|1000|REMOVE|10002|pass|
 *!
 
 !4 备注:

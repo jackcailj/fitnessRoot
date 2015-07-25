@@ -70,7 +70,8 @@
 |翻篇一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|翻篇一级评论|0|0|2000|0|0|pass|
 |抢先一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|抢先一级评论|0|0|3000|0|0|pass|
 |频道一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|频道一级评论|0|0|4000|0|0|pass|
-|回复|!-whytest@dd.con-!|111111|email||addComment|FromDB|FromDB|回复|FromDB|FromDB|1000|0|0|pass|
+|回复一级评论|!-whytest@dd.con-!|111111|email||addComment|749|1399|回复一级评论|0|749|1000|0|0|pass|
+|评论回复|!-whytest@dd.con-!|111111|email||addComment|750|1399|评论回复|UyFgrQr%252Bjcxms6CjJdqf7w%253D%253D|749|1000|0|0|pass|
 |targetId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|a|书吧一级评论|0|0|1000|0|10002|pass|
 |targetId值为空|!-whytest@dd.con-!|111111|email||addComment|0||书吧一级评论|0|0|1000|0|10002|pass|
 |不传参数targetId|!-whytest@dd.con-!|111111|email||addComment|0|REMOVE|书吧一级评论|0|0|1000|0|10002|pass|
@@ -80,8 +81,8 @@
 |replyId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|q|0|1000|0|10002|pass|
 |replyId值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论||0|1000|0|10002|pass|
 |不传replyId|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|REMOVE|0|1000|0|10002|pass|
-|targetSource值为5000|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|0|5000|0|10002|pass|
-|targetSource值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|0|0|0|10002|pass|
+|targetSource值为500|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|0|500|0|40000|pass|
+|targetSource值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|0|0|0|40000|pass|
 |不传targetSource|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|0|REMOVE|0|10002|pass|
 |replyCommentId值为字母|!-whytest@dd.con-!|111111|email||addComment|b|2101|书吧一级评论|0|0|1000|0|10002|pass|
 |replyCommentId值为空|!-whytest@dd.con-!|111111|email||addComment||2101|书吧一级评论|0|0|0|1000|10002|pass|
@@ -91,7 +92,9 @@
 |不传commentParentId|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|REMOVE|1000|0|10002|pass|
 |isAnonymous值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|0|1000||10002|pass|
 |不传isAnonymous|!-whytest@dd.con-!|111111|email||addComment|0|2101|书吧一级评论|0|0|1000|REMOVE|10002|pass|
+*!
 !4 备注:  
+bug： http://10.255.223.220/zentao/bug-view-15125.html
 这个接口可以添加一级评论，也可以添加回复
 
          
