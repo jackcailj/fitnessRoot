@@ -1,5 +1,5 @@
 !3 我的模块
-!***> '''个人中心'''
+!*** 个人中心
 
 *1、[[注册接口（存在设计问题，以后需修改)][.FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2]]
 
@@ -69,7 +69,19 @@
 
 *34、[[获取订单列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderList]]
 
-*34、[[获取订单详情列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderDetail]]
+*35、[[获取订单详情列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderDetail]]
+
+*36、[[个人中心添加关注书友][.FrontPage.InterfaceTestPage.TestScript.MySuite.AddBookFriend]]
+
+*37、[[个人中心取消关注书友][.FrontPage.InterfaceTestPage.TestScript.MySuite.CancelBookFriend]]
+
+*38、[[个人中心我的书友录列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBookFriendList]]
+
+*39、[[个人中心站内搜索书友][.FrontPage.InterfaceTestPage.TestScript.MySuite.WebSearchBookFriend]]
+
+*40、[[个人中心推荐书友][.FrontPage.InterfaceTestPage.TestScript.MySuite.RecommendBookFriendList]]
+
+*41、[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.AddAuthorizeEbook]]
 
 *!
 !*** 书架

@@ -12,18 +12,14 @@
 |Import                               |
 |com.dangdang.readerV5.personal_center|
 
-|ddt:get post list                                                                                                                                                           |
-|#用例名称                           |userName                |passWord|loginType|token|selfType|pubId                               |pageSize|sortPage|status code?|data verfiy?|
-|获取本人帖子列表，正常流程                   |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0       |                                    |1       |        |0           |通过          |
-|获取本人帖子列表，token不正确               |                        |        |         |123  |0       |                                    |1       |        |10003       |通过          |
-|获取本人帖子列表，token不传                |                        |        |         |     |0       |                                    |1       |        |10003       |通过          |
-|获取本人帖子列表，selfType不正确            |!-cailj_ddtest@126.com-!|ddtest  |email    |     |-1      |                                    |1       |        |60011       |通过          |
-|获取本人帖子列表，selfType不传             |!-cailj_ddtest@126.com-!|ddtest  |email    |     |        |                                    |1       |        |10002       |通过          |
-|获取本人帖子列表，pagesize为负数            |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0       |                                    |-1      |        |0           |通过          |
-|获取本人帖子列表，pagesize为0             |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0       |                                    |0       |        |0           |通过          |
-|获取本人帖子列表，pagesize为非数字           |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0       |                                    |abc     |        |200         |通过          |
-|获取本人帖子列表，pagesize不传             |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0       |                                    |        |        |0           |通过          |
-|获取他人帖子列表，正常流程                   |                        |        |         |     |1       |#GetPubIdByName#cailj_ddtest@126.com|1       |        |0           |通过          |
-|获取他人帖子列表，pubId不正确               |                        |        |         |     |1       |123                                 |1       |        |60012       |通过          |
-|获取他人帖子列表，传送token，检查获取的帖子列表为他人的信息|!-cailj_ddtest@126.com-!|ddtest  |email    |     |1       |#GetPubIdByName#cailj_ddtest@126.com|1       |        |0           |通过          |
-|获取他人帖子列表，pubId不传                |!-cailj_ddtest@126.com-!|ddtest  |email    |     |        |                                    |1       |        |10002       |通过          |
+|ddt:get post list                                                                                                                                                  |
+|#用例名称                           |userName                |passWord|loginType|token|selfType|pubId                               |digestId|status code?|data verfiy?|
+|获取本人帖子列表，正常流程                   |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0       |                                    |        |0           |通过          |
+|获取本人帖子列表，token不正确               |                        |        |         |123  |0       |                                    |        |10003       |通过          |
+|获取本人帖子列表，token不传                |                        |        |         |     |0       |                                    |        |10003       |通过          |
+|获取本人帖子列表，selfType不正确            |!-cailj_ddtest@126.com-!|ddtest  |email    |     |-1      |                                    |        |60011       |通过          |
+|获取本人帖子列表，selfType不传             |!-cailj_ddtest@126.com-!|ddtest  |email    |     |        |                                    |        |10002       |通过          |
+|获取他人帖子列表，正常流程                   |                        |        |         |     |1       |#GetPubIdByName#cailj_ddtest@126.com|        |0           |通过          |
+|获取他人帖子列表，pubId不正确               |                        |        |         |     |1       |123                                 |        |0           |通过          |
+|获取他人帖子列表，传送token，检查获取的帖子列表为他人的信息|!-cailj_ddtest@126.com-!|ddtest  |email    |     |1       |#GetPubIdByName#cailj_ddtest@126.com|        |0           |通过          |
+|获取他人帖子列表，pubId不传                |!-cailj_ddtest@126.com-!|ddtest  |email    |     |        |                                    |        |10002       |通过          |

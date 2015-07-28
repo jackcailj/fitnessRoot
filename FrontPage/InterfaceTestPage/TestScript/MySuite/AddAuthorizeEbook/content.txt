@@ -1,0 +1,11 @@
+!define TEST_SYSTEM {slim}
+
+
+|Import                         |
+|com.dangdang.readerV5.bookstore|
+
+|ddt:add authorize ebook                                                                 |
+|#用例名称      |userName                |passWord|token|mediaId   |status code?|data verfiy?|
+|获取订单详情，正常流程|!-cailj_ddtest@126.com-!|ddtest  |     |1900423774|0           |通过          |
+
+!contents -R2 -g -p -f -h

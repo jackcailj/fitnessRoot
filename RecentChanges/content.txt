@@ -1,3 +1,17 @@
+|FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||18:29:13 星期一, 七月 27, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.getPostList||16:22:10 星期一, 七月 27, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.ChangeGender||16:14:29 星期一, 七月 27, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.CancelBookFriend||16:02:19 星期一, 七月 27, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.AddBookFriend||15:16:51 星期一, 七月 27, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBookFriendList||11:47:22 星期一, 七月 27, 2015|
+|FrontPage.InterfaceTestPage.TestingConfig||17:55:10 星期五, 七月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtDetailList||17:43:27 星期五, 七月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderDetail||17:25:37 星期五, 七月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.RecommendBookFriendList||14:28:09 星期五, 七月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.WebSearchBookFriend||14:23:47 星期五, 七月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite||10:44:53 星期五, 七月 24, 2015|
+|FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.PurchaseEbookVirtualPayment||17:40:35 星期四, 七月 23, 2015|
+|FrontPage.InterfaceTestPage.TestScript.MySuite.AddAuthorizeEbook||17:05:50 星期四, 七月 23, 2015|
 |FrontPage.InterfaceTestPage.TestScript.ReviewSuite.AddComment||15:55:58 星期二, 七月 21, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarBook||19:34:49 星期一, 七月 20, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite||17:55:45 星期一, 七月 20, 2015|
@@ -21,9 +35,7 @@
 |FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn||17:25:58 星期一, 七月 13, 2015|
 |FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory||13:49:33 星期一, 七月 13, 2015|
 
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtDetailList||17:20:31 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtList||16:06:52 星期三, 七月 08, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite||14:36:34 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadMediaWhole||13:54:43 星期三, 七月 08, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetCertificate||15:02:20 星期二, 七月 07, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishedCertificate||14:50:21 星期二, 七月 07, 2015|
@@ -34,7 +46,6 @@
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetCaptcha||19:25:10 星期四, 七月 02, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.BindCouponV3||18:51:33 星期四, 七月 02, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.SendEmailVcode||18:24:29 星期四, 七月 02, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.ChangeGender||15:40:55 星期四, 七月 02, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.UploadHeadPhoto||10:29:15 星期四, 七月 02, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.ThridLoginV2||17:57:38 星期三, 七月 01, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.ActivateDdMoneyV2||17:49:14 星期三, 七月 01, 2015|
@@ -50,7 +61,6 @@
 |FrontPage.InterfaceTestPage.TestScript.MySuite.CheckEmailVcode||18:58:30 星期一, 六月 29, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.changeIntroduct||17:36:47 星期一, 六月 29, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.changeNickName||17:32:04 星期一, 六月 29, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||16:56:59 星期一, 六月 29, 2015|
 
 |FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar||18:43:22 星期五, 七月 03, 2015|
 
@@ -85,19 +95,5 @@
 |FrontPage.InterfaceTestPage.TestScript||15:00:32 星期二, 六月 23, 2015|
 |FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestDetail||14:28:58 星期五, 六月 19, 2015|
 
-|FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin||16:23:11 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2||16:16:26 星期五, 六月 26, 2015|
 |FrontPage.InterfaceTestPage.TestScript.MySuite.GetAccountInfo||15:31:30 星期五, 六月 26, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.ThridLoginV2||13:27:26 星期四, 六月 25, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.UploadHeadPhoto||16:30:19 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite||16:26:34 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.GetUser||15:17:46 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.getPostList||15:17:27 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.getNoteList||15:16:56 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.changeNickName||15:15:54 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.changeIntroduct||15:14:58 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.ChangeGender||15:14:03 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.SendSmsVcode||15:12:42 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.CheckSmsVcode||15:12:30 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.LoginOutV2||15:12:18 星期三, 六月 24, 2015|
-|FrontPage.InterfaceTestPage.TestScript.MySuite.ActivateDdMoneyV2||15:11:58 星期三, 六月 24, 2015|
