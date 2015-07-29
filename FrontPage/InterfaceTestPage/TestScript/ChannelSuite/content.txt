@@ -15,6 +15,15 @@
  *[[文章列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelArticle]]
  *[[文章详情页接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getDigestDetail]]
 *!
+!* '''频道包月'''
+ *[[获取图书包月频道信息][]]
+ *[[获取频道包月策略信息][]]
+ *[[购买频道包月权限][]]
+*!
+!* '''我的频道 '''
+ *[[获取我的频道列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.MyChannelList]]
+*!
+
 
 
 

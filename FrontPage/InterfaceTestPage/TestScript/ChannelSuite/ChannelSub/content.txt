@@ -5,18 +5,15 @@
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |channelSubCase01||订阅功能|首次订阅某频道|订阅成功|test|
-|channelSubCase02||订阅功能|先取消订阅再订阅|订阅成功|test,staging,online|
-|channelSubCase03||重复订阅|已订阅的频道，再次订阅|订阅操作不起作用，正常返回结果|test|
+|channelSubCase02||订阅功能|先取消订阅再订阅|订阅成功|test|
+|channelSubCase03||重复订阅|已订阅的频道，再次订阅|订阅操作不起作用，正常返回结果|test,staging,online|
 |channelSubCase04||取消订阅|已登录用户取消订阅|取消订阅成功|test,staging,online|
 |channelSubCase05||重复取消订阅|已取消订阅的频道，再次取消订阅|取消订阅操作不起作用，正常返回结果|test|
 |channelSubCase06||参数token|token值为空|返回10003，未登录用户|test|
 |channelSubCase07||参数token|token值为无效值|返回10003，未登录用户|test|
-|channelSubCase08||参数cId|cId值为空|返回10002，缺少参数cId|test|
-|channelSubCase09||参数cId|cId值为无效值（符号、字母、中文）||test|
-|channelSubCase10||参数op|op为空||test|
-|channelSubCase11||参数op|op为无效值（符号、字母、中文）||test|
-|channelSubCase12||参数channelType|channelType为空||test|
-|channelSubCase13||参数channelType|channelType为无效值（符号、字母、中文）||test|
+|channelSubCase08||参数cId|cId值为无效值（符号、字母、中文）||test|
+|channelSubCase09||参数op|op为空||test|
+|channelSubCase10||参数op|op为无效值（符号、字母、中文）||test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -24,16 +21,61 @@
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|channelsub|action||userName||passWord||loginType||token||cId||op||statusCode||setParameters|
+|scenario|channelSub|action||userName||passWord||loginType||token||cId||op||statusCode||setParameters|
 |setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,op:@op}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
-!4 创建script实例，后面调用scenario都是针对这个实例
-|script|Channelsub|
+
 *!
 !* 测试数据
-|channelsub|
+!* channelSubCase01首次订阅某频道
+|script|channel sub|
+|note|随机获取某频道cId|
+|$cId=|getChannel|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
+|note|获取用户custId|
+|$custId=|getCustId|
+|note|删除某用户订阅的某频道记录|
+|delSubWithCustid|$custId|and channelid|$cId|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* channelSubCase02先取消订阅再订阅
+|script|channel sub|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
+|note|取消订阅|
+|setSubWithCustid|$custId|and channelid|$cId|and type|0|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* channelSubCase03重复订阅
+|script|channel sub|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* channelSubCase04取消订阅
+|script|channel sub|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:0}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* channelSubCase05重复取消订阅
+|script|channel sub|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:0}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* channelSubCase06~channelSubCase13
+|script|channel sub|
+
+|channelSub|
 |#用例编号|action|userName|passWord|loginType|token|cId|op|statusCode|
-|channelSubCase01|channelSub|!-z16@123.com-!|111111|email||29|1|0|
-|channelSubCase02|channelSub|!-z16@123.com-!|111111|email||29|0|0|
+|channelSubCase06|channelSub|||||$cId|1|10003|
+|channelSubCase07|channelSub||||token|$cId|0|10003|
+|channelSubCase07|channelSub||||@|$cId|0|10003|
+|channelSubCase08|channelSub|!-z16@123.com-!|111111|email||1111|0|10002|
+|channelSubCase09|channelSub|!-z16@123.com-!|111111|email||$cId||10002|
+|channelSubCase10|channelSub|!-z16@123.com-!|111111|email||$cId|参数|10002|
+*!
 *!

@@ -1,11 +1,10 @@
 !*> 测试用例
-接口：action=freeforlimited
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360274
+接口：action=mediaRankingList
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934112
 相关表：
- * media_column
- * media_column_content
- * media_sale
- * media
+ * media_list_category 榜单基本信息表，可配置榜单标识，记录上次榜单运行时间等信息
+ * media_list_ranking 榜单数据表，记录每个榜单每天的统计数据
+ * media_statistics 分类维度统计数据表，统计每本书各个维度数据
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |freeForLimitedCase01||获取当当读书->限免栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
@@ -34,10 +33,15 @@
 |com.dangdang.readerV5.bookstore|
 *!
 !*> 定义scenario 
-|scenario|freeForLimited|action||columnType||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
+|scenario|mediaRankingList|action||listType||channelType||start||end||statusCode||setParameters|
+|setParameters|!{action:@action,listType:@listType,channelType:@channelType,start:@start,end:@end}|
 |ensure|do get|@statusCode|
-|ensure|verify result|
 *!
 !* 测试数据
+|script|media ranking list|
+
+|mediaRankingList|
+|#用例编号|action|listType|channelType|start|end|statusCode|
+|出版物畅销榜|mediaRankingList|ddds_sale|all|0|4|0|
+
 *!
