@@ -3,8 +3,14 @@
 |Import             |
 |com.dangdang.config|
 
+<<<<<<< HEAD
+| Config |
+| environment | base url | login url |
+| testing | !-http://10.255.223.212/media/api2.go-! | !-http://10.255.223.212/media/api2.go-! |
+=======
 |Config                                                                                     |
 |environment|base url                               |login url                              |
 |testing    |!-http://10.255.223.212/media/api2.go-!|!-http://10.255.223.212/media/api2.go-!|
+>>>>>>> 66219d80872a146fc08d24c48a40e7ceb45a0bb0
 
 *!

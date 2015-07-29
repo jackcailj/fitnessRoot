@@ -3,13 +3,11 @@
 <Edit/>
 <Files/>
 <Properties/>
+<Prune/>
 <RecentChanges/>
 <Refactor/>
 <Search/>
-<Suite/>
+<Test/>
 <Versions/>
 <WhereUsed/>
-<secure-read/>
-<secure-test/>
-<secure-write/>
 </properties>

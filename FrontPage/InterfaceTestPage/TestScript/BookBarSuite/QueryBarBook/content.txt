@@ -1,0 +1,37 @@
+!1 '''获取书吧关联的书籍列表接口'''
+
+!* 测试用例
+接口：action：queryBarBook 
+参数：
+  * barId – 吧ID（必填）
+接口描述：获取与该书吧有关的书籍列表，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360474
+相关数据库表：bookbar -> bar， bar_product_info   
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|输入与电子书或纸书关联的吧|获得相关书籍列表|test,staging,online|
+|||barId参数值|输入值为空|参数非法|test,staging,online|
+|||barId参数值|不传barId参数|参数非法|test,staging,online|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |queryBarBookTest|action||barId||期望||result||setParameters|
+| setParameters|!{action:@action,barId:@barId,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|query bar book|
+*!
+!* 测试数据
+|queryBarBookTest|
+|#用例名称|action|barId|期望|result|
+|正常流程|queryBarBook|FromDB|0|pass|
+|barId参数值为空|queryBarBook||10002|pass|
+|不传barId参数|queryBarBook|REMOVE|10002|pass|
+*!

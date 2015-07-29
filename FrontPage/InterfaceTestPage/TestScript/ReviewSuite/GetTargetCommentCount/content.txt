@@ -3,24 +3,53 @@
 !* 测试用例
 接口：action=getTargetCommentCount
 参数：
- token  - 用户token(必填)
- targetId  - 评论主体的ID
- targetSource - 评论来源
+  * targetId  - 评论主体的ID
+  * targetSource - 评论来源
 接口描述：根据目标主体获取评论统计信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359870
 相关数据库表：base_comment -> comment， comment_target_count
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|
-||添加评论/回复|正常流程|输入正确的参数值|获取评论统计信息|
-||添加评论/回复|targetId参数值|参数值为字母bb ，其他参数值正确|未知错误|
-||添加评论/回复|targetId参数值|参数值为空，其他参数值正确|参数非法|
-||添加评论/回复|targetId参数值|不传targetId参数，其他参数值正确|参数非法|
-||添加评论/回复|targetSource参数值|参数值为2000，其他参数值正确|获取评论统计信息|
-||添加评论/回复|targetSource参数值|参数值为3000，其他参数值正确|获取评论统计信息|
-||添加评论/回复|targetSource参数值|参数值为4000，其他参数值正确|获取评论统计信息|
-||添加评论/回复|targetSource参数值|参数值为空，其他参数值正确|参数非法|
-||添加评论/回复|targetSource参数|不传参数targetSource，其他参数值正确|参数非法|
-||添加评论/回复|token参数值|token值为空，其他参数值正确|参数非法|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|输入正确的参数值|获取评论统计信息|test,staging,online|
+|||targetId参数值|参数值为字母bb ，其他参数值正确|未知错误|test,staging,online|
+|||targetId参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||targetId参数值|不传targetId参数，其他参数值正确|参数非法|test,staging,online|
+|||targetSource参数值|参数值为2000，其他参数值正确|获取评论统计信息|test,staging,online|
+|||targetSource参数值|参数值为3000，其他参数值正确|获取评论统计信息|test,staging,online|
+|||targetSource参数值|参数值为4000，其他参数值正确|获取评论统计信息|test,staging,online|
+|||targetSource参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||targetSource参数|不传参数targetSource，其他参数值正确|参数非法|test,staging,online|
+|||token参数值|token值为空，其他参数值正确|参数非法|test,staging,online|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.comment|
+*!
+!*> 定义scenario 
+| scenario |commentCountTest|action||targetId||targetSource||期望||result||setParameters|
+| setParameters|!{action:@action,targetId:@targetId,targetSource:@targetSource,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
 
-!4 备注:  评论统计信息中评论数=一级评论数+回复数  ？？
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get target comment count|
+*!
+!* 测试数据
+|commentCountTest|
+|#用例名称|action|targetId|targetSource|期望|result|
+|正常流程|getTargetCommentCount|FromDB|1000|0|pass|
+|正常流程|getTargetCommentCount|FromDB|2000|0|pass|
+|正常流程|getTargetCommentCount|FromDB|3000|0|pass|
+|正常流程|getTargetCommentCount|FromDB|4000|0|pass|
+|targetId为字母|getTargetCommentCount|a|4000|10002|pass|
+|targetId为空  |getTargetCommentCount||4000|10002|pass|
+|不传targetId  |getTargetCommentCount|REMOVE|4000|10002|pass|
+|targetSource为字母|getTargetCommentCount|924|a|10002|pass|
+|targetSource为空  |getTargetCommentCount|924||10002|pass|
+|不传targetSource  |getTargetCommentCount|924|REMOVE|10002|pass|
+*!
+bug： http://10.255.223.220/zentao/bug-view-15126.html
+!4 备注:  评论统计信息中评论数=一级评论数+回复数
          

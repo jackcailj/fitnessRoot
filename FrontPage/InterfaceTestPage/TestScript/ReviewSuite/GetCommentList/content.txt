@@ -3,38 +3,73 @@
 !* 测试用例
 接口：action=getCommentList
 参数：
-targetId – 评论主体的ID
-targetSource – 评论来源
-pageNum – 页码
-commentId – 该页最后一条一级评论commentId，如果没有则传入0
-接口描述：获取某个评论主体的评论信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359870
+ * targetId – 评论主体的ID
+ * targetSource – 评论来源
+ * pageNum – 页码
+ * commentId – 该页最后一条一级评论commentId，如果没有则传入0
+接口描述：获取某个评论主体的评论信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359865
 相关数据库表：base_comment -> comment， comment_target_count
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|
-||添加评论/回复|正常流程|输入正确的参数值|获取评论列表信息|
-||添加评论/回复|targetId参数值|参数值为字母bb ，其他参数值正确|未知错误|
-||添加评论/回复|targetId参数值|参数值为空，其他参数值正确|参数非法|
-||添加评论/回复|targetId参数值|不传targetId参数，其他参数值正确|参数非法|
-||添加评论/回复|targetSource参数值|参数值为2000，其他参数值正确|获取评论列表信息|
-||添加评论/回复|targetSource参数值|参数值为3000，其他参数值正确|获取评论列表信息|
-||添加评论/回复|targetSource参数值|参数值为4000，其他参数值正确|获取评论列表信息|
-||添加评论/回复|targetSource参数值|参数值为空，其他参数值正确|参数非法|
-||添加评论/回复|targetSource参数|不传参数targetSource，其他参数值正确|参数非法|
-||添加评论/回复|pageNum参数值|参数值为负数，其他参数值正确|参数非法or未知错误？|
-||添加评论/回复|pageNum参数值|参数值为字母，其他参数值正确|参数非法or未知错误？|
-||添加评论/回复|pageNum参数值|参数值为空，其他参数值正确|参数非法|
-||添加评论/回复|pageNum参数值|不传参数pageNum，其他参数值正确|参数非法|
-||添加评论/回复|commentId参数|不传参数commentId，其他参数值正确|参数非法|
-||添加评论/回复|commentId参数|参数值为空，其他参数值正确|参数非法|
-||添加评论/回复|commentId参数|参数值为负数，其他参数值正确|参数非法|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+||添加评论/回复|正常流程|输入正确的参数值|获取评论列表信息|test,staging,online|
+||添加评论/回复|targetId参数值|参数值为字母bb ，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|targetId参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|targetId参数值|不传targetId参数，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|targetSource参数值|参数值为2000，其他参数值正确|获取评论列表信息|test,staging,online|
+||添加评论/回复|targetSource参数值|参数值为3000，其他参数值正确|获取评论列表信息|test,staging,online|
+||添加评论/回复|targetSource参数值|参数值为4000，其他参数值正确|获取评论列表信息|test,staging,online|
+||添加评论/回复|targetSource参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|targetSource参数|不传参数targetSource，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|pageNum参数值|参数值为负数，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|pageNum参数值|参数值为字母，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|pageNum参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|pageNum参数值|不传参数pageNum，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|commentId参数|不传参数commentId，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|commentId参数|参数值为空，其他参数值正确|参数非法|test,staging,online|
+||添加评论/回复|commentId参数|参数值为负数，其他参数值正确|参数非法|test,staging,online|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.comment|
+*!
+!*> 定义scenario 
+| scenario |getCommentListTest|action||targetId||targetSource||pageNum||commentId||期望||result||setParameters|
+| setParameters|!{action:@action,targetId:@targetId,targetSource:@targetSource,pageNum:@pageNum,commentId:@commentId,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get comment list|
+*!
+!* 测试数据
+|getCommentListTest|
+|#用例名称|action|targetId|targetSource|pageNum|commentId|期望|result|
+|正常流程|getCommentList|FromDB|1000|1|0|0|pass|
+|正常流程|getCommentList|FromDB|2000|1|0|0|pass|
+|正常流程|getCommentList|FromDB|3000|1|0|0|pass|
+|正常流程|getCommentList|FromDB|4000|1|0|0|pass|
+|targetId为字母|getCommentList|a|4000|1|0|10002|pass|
+|targetId为空  |getCommentList||4000|1|0|10002|pass|
+|不传targetId  |getCommentList|REMOVE|4000|1|0|10002|pass|
+|targetSource为空  |getCommentList|924||1|0|10002|pass|
+|不传targetSource  |getCommentList|924|REMOVE|1|0|10002|pass|
+|pageNum为负数|getCommentList|FromDB|1000|-1|0|0|pass|
+|pageNum为字母|getCommentList|FromDB|1000|c|0|10002|pass|
+|pageNum为空  |getCommentList|FromDB|1000||0|10002|pass|
+|不传pageNum  |getCommentList|FromDB|1000|REMOVE|0|10002|pass|
+|commentId为负数|getCommentList|FromDB|1000|1|-1|0|pass|
+|commentId为某一级评论id|getCommentList|FromDB|1000|1|FromDB|0|pass|
+|commentId为字母|getCommentList|FromDB|1000|1|c|10002|pass|
+|commentId为空  |getCommentList|FromDB|1000|1||10002|pass|
+|不传commentId  |getCommentList|FromDB|1000|1|REMOVE|10002|pass|
+#|commentId为某一级评论Id|getCommentList|FromDB|1000|1|FromDB|10002|pass|
 *!
 
 !4 备注:  
-一页默认显示几条评论？
-评论主体id应该是指：
-来源为书城，则 id为media、productId；？
-来源为翻篇儿，抢先读，则id为文集id，？
-来源为频道，则id为频道id  ？
-
+一页默认显示20条一级评论。
+评论的回复返回9条
 
          

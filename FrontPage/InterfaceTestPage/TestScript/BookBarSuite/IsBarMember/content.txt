@@ -14,7 +14,6 @@
 |||barId参数|参数值为字母，其他参数值正确|参数非法|
 |||barId参数|参数值为空，其他参数值正确|参数非法|
 |||barId参数|不传pageNo参数，其他参数值正确|参数非法|
-|||token参数|token参数值为空，其他参数值正确|参数非法|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -40,6 +39,5 @@
 |barId值为字母|!-whytest@dd.con-!|111111|email|isBarMember|a||10002|pass|
 |barId值为空|!-whytest@dd.con-!|111111|email|isBarMember|||10002|pass|
 |不传参数barId|!-whytest@dd.con-!|111111|email|isBarMember|REMOVE||10002|pass|
-|token值为空||||isBarMember|true||10002|pass|
 *!
 !4 备注：

@@ -1,0 +1,33 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360604
+
+----
+!3 二、接口描述：
+获取虚拟支付结算流程所需的虚拟单品ID
+
+用户直接购买流程：先购买虚拟币，然后在用购买的虚拟币购买书籍。
+
+此接口返回需要购买的虚拟币商品Id
+
+!3 三、涉及数据库
+----
+!3 四、测试用例:
+|Import                        |
+|com.dangdang.readerV5.purchase|
+
+|ddt:get recharge virtualPid                                                                          |
+|#用例名称                      |userName                |passWord|token|payable|status code?|data verfiy?|
+|获取虚拟支付结算流程所需的虚拟单品ID，获取55铃铛 |!-cailj_ddtest@126.com-!|ddtest  |     |55     |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取5铃铛  |!-cailj_ddtest@126.com-!|ddtest  |     |5      |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取50铃铛 |!-cailj_ddtest@126.com-!|ddtest  |     |50     |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取98铃铛 |!-cailj_ddtest@126.com-!|ddtest  |     |98     |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取99铃铛 |!-cailj_ddtest@126.com-!|ddtest  |     |99     |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取100铃铛|!-cailj_ddtest@126.com-!|ddtest  |     |100    |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取200铃铛|!-cailj_ddtest@126.com-!|ddtest  |     |200    |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取101铃铛|!-cailj_ddtest@126.com-!|ddtest  |     |101    |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取1铃铛  |!-cailj_ddtest@126.com-!|ddtest  |     |1      |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取198铃铛|!-cailj_ddtest@126.com-!|ddtest  |     |198    |0           |通过          |
+|获取虚拟支付结算流程所需的虚拟单品ID，获取298铃铛|!-cailj_ddtest@126.com-!|ddtest  |     |199    |0           |通过          |
+
+!contents -R2 -g -p -f -h

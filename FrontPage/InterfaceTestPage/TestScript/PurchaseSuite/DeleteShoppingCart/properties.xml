@@ -2,14 +2,12 @@
 <properties>
 <Edit/>
 <Files/>
+<Help>删除购物车接口</Help>
 <Properties/>
 <RecentChanges/>
 <Refactor/>
 <Search/>
-<Suite/>
+<Test/>
 <Versions/>
 <WhereUsed/>
-<secure-read/>
-<secure-test/>
-<secure-write/>
 </properties>

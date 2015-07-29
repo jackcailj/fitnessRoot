@@ -16,7 +16,7 @@
  *[[我的吧列表接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.MyBarList]]
  *[[是否吧成员接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.IsBarMember]]
  *[[置顶、加精接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.TopAndWonderful]]
- 
+ *[[获取书吧关联的书籍列表][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarBook]]
 
 
 # !contents -R2 -g -p -f -h

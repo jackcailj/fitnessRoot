@@ -63,6 +63,14 @@
 
 *31、[[电子书已购详情列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBoughtDetailList]]
 
+*32、--[[创建IMUser][.FrontPage.InterfaceTestPage.TestScript.MySuite.CreateImUser]]--
+
+*33、[[获取IMUser][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetImUser]]
+
+*34、[[获取订单列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderList]]
+
+*34、[[获取订单详情列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetOrderDetail]]
+
 *!
 !*** 书架
 
@@ -75,6 +83,10 @@
 *4、[[下载单章接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadMedia]]
 
 *5、[[下载多章接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadMediaBatch]]
+
+*6、[[获取云书架列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetUserBookList]]
+
+*7、[[隐藏、显示书籍接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.HideUserBookList]]
 
 *!
 ----
