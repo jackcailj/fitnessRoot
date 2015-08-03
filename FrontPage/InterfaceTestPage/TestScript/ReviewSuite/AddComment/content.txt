@@ -12,7 +12,7 @@
  * deviceType – 设备类型_(必填)_
  * isAnonymous --是否匿名 0 不是匿名 1. 是匿名_(必填)_
  * replyCommentId --被回复评论的commentId
-接口描述：新增评论，添加回复，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359870
+接口描述：新增评论，添加回复，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359860
 相关数据库表：base_comment -> comment， comment_target_count
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
@@ -65,12 +65,12 @@
 !* 测试数据
 |addCommentTest|
 |#用例名称|userName|passWord|loginType|token|action|replyCommentId|targetId|content|replyId|commentParentId|targetSource|isAnonymous|期望|result|
-|书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|书吧一级评论|0|0|1000|0|0|pass|
-|书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|书吧一级评论|0|0|1000|1|0|pass|
-|翻篇一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|翻篇一级评论|0|0|2000|0|0|pass|
-|抢先一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|抢先一级评论|0|0|3000|0|0|pass|
-|频道一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|频道一级评论|0|0|4000|0|0|pass|
-|回复一级评论|!-whytest@dd.con-!|111111|email||addComment|749|1399|回复一级评论|0|749|1000|0|0|pass|
+|书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|书吧评论|0|0|1000|0|0|pass|
+|书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|书吧评论|0|0|1000|1|0|pass|
+|翻篇一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|翻篇评论|0|0|2000|0|0|pass|
+|抢先一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|抢先评论|0|0|3000|0|0|pass|
+|频道一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|频道评论|0|0|4000|0|0|pass|
+|回复一级评论|!-whytest@dd.con-!|111111|email||addComment|749|1399|回复评论|0|749|1000|0|0|pass|
 |评论回复|!-whytest@dd.con-!|111111|email||addComment|750|1399|评论回复|UyFgrQr%252Bjcxms6CjJdqf7w%253D%253D|749|1000|0|0|pass|
 |targetId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|a|书吧一级评论|0|0|1000|0|10002|pass|
 |targetId值为空|!-whytest@dd.con-!|111111|email||addComment|0||书吧一级评论|0|0|1000|0|10002|pass|

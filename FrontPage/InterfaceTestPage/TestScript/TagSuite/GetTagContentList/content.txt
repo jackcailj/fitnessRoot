@@ -1,0 +1,39 @@
+!1 '''获取标签下的内容'''
+
+!* 测试用例
+接口：action=getTagContentList
+参数：
+ * tagIds 标签ids(必填)【格式1,3,45】逗号隔开的字符串
+接口描述：返回标签列表新，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360898
+相关数据库表：base_comment -> tag_info,tag_relation,  digital -> media, channel, media_digest
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|tagIds的值为一个id|获取成功|test,staging,online|
+|||正常流程|tagIds的值为三个id|获取成功|test,staging,online|
+|||tagIds为空|tagIds的值空|参数非法|test,staging,online|
+|||不传tagIds|不传参数tagIds|参数非法|test,staging,online|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.comment|
+*!
+!*> 定义scenario 
+| scenario |contentListTest|action||tagIds||期望||result||setParameters|
+| setParameters|!{action:@action,tagIds:@tagIds,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get tag content list|
+*!
+!* 测试数据
+|contentListTest|
+|#用例名称|action|tagIds|期望|result|
+|一个标签id|getTagContentList|One|0|pass|
+|三个标签id|getTagContentList|Three|0|pass|
+|tagIds为空|getTagContentList||10002|pass|
+|不传tagIds|getTagContentList|REMOVE|10002|pass|
+*!

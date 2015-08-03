@@ -35,8 +35,8 @@
 |squareTest|
 |#用例名称|action|mediaDigestId|期望|result|
 |正常流程|queryArticleInfo|FromDB|0|pass|
-|被屏蔽的帖子|queryArticleInfo|shield|10002|pass|
-|被删除的帖子|queryArticleInfo|deleted|10002|pass|
+|被屏蔽的帖子|queryArticleInfo|shield|25028|pass|
+|被删除的帖子|queryArticleInfo|deleted|25027|pass|
 |mediaDigestId参数值为aa|queryArticleInfo|aa|10002|pass|
 |mediaDigestId参数值为空|queryArticleInfo||10002|pass|
 |不传mediaDigestId参数|queryArticleInfo|REMOVE|10002|pass|

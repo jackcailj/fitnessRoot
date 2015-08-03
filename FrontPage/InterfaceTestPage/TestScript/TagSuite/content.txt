@@ -1,0 +1,6 @@
+!1 '''标签体系模块'''
+
+ *[[获取标签列表][.FrontPage.InterfaceTestPage.TestScript.TagSuite.GetRecommendTagList]]
+ *[[获取标签下的内容][.FrontPage.InterfaceTestPage.TestScript.TagSuite.GetTagContentList]]
+
+# !contents -R2 -g -p -f -h

@@ -28,5 +28,7 @@
 !*> '''阅读器''' 
 !see .FrontPage.InterfaceTestPage.TestScript.ReaderSuite
 *!
-
+!*> '''标签体系''' 
+!see .FrontPage.InterfaceTestPage.TestScript.TagSuite
+*!
 #!contents
