@@ -35,11 +35,13 @@
 |发送邮箱验证码，verifyType为非数字 |!-cailj_ddtest21@126.com-!|aa        |0                                    |10000       |通过          |
 |发送邮箱验证码，verifyType不传   |!-cailj_ddtest22@126.com-!|#NotPass# |0                                    |10002       |通过          |
 |发送邮箱验证码，verifyType为空   |!-cailj_ddtest23@126.com-!|          |0                                    |10002       |通过          |
-|发送邮箱验证码，custId不正确      |!-cailj_ddtest24@126.com-!|1         |123                                  |10002       |通过          |
 |发送邮箱验证码，custId为非数字     |!-cailj_ddtest25@126.com-!|1         |aa                                   |60054       |通过          |
 |发送邮箱验证码，custId不传       |!-cailj_ddtest26@126.com-!|1         |#NotPass#                            |10002       |通过          |
 |发送邮箱验证码，custId为空       |!-cailj_ddtest27@126.com-!|1         |                                     |10002       |通过          |
 
+
+|comment|
+|发送邮箱验证码，custId不正确      |!-cailj_ddtest24@126.com-!|1         |123                                  |10002       |通过          |
 同一个邮箱一天只能发送5次
 
 |ddt:send email vcode                                                           |

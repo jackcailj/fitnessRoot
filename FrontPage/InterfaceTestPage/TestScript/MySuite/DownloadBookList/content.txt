@@ -1,0 +1,31 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359609
+
+----
+!3 二、接口描述：
+获取他人书架接口，
+
+'''注：购买的列表中应包括纸书、字体，出版物电子书、原创电子书，云书架列表应只返回电子书'''
+
+'''下架电子书返回。'''
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | media |
+| authority | media_authority |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.personal_center.bookshelf |
+
+| ddt:download book list |
+| #用例名称 | uId | status code | data verfiy? |
+| 获取云书架列表，正常流程 | #GetPubIdByName#cailj_ddtest@126.com | 0 | 通过 |
+| 获取云书架列表，书架为空 | #GetPubIdByName#cailj_ddtest10@126.com | 0 | 通过 |
+| 获取云书架列表，''uId''不正确 | 123344555 | 10003 | 通过 |
+| 获取云书架列表，''uId''不传 | #NotPass# | 10002 | 通过 |
+
+!contents -R2 -g -p -f -h

@@ -18,18 +18,17 @@
 |Import                               |
 |com.dangdang.readerV5.personal_center|
 
-|ddt:dD reader storeUp cancel                                                                     |
-|#用例名称            |userName                |passWord|token    |targetIds|status code?|data verfiy?|
-|取消收藏，取消收藏图书流程    |!-cailj_ddtest@126.com-!|ddtest  |         |         |0           |通过          |
-|取消收藏，取消收藏发现流程    |!-cailj_ddtest@126.com-!|ddtest  |         |         |0           |通过          |
-|取消收藏，取消收藏翻篇儿流程   |!-cailj_ddtest@126.com-!|ddtest  |         |         |0           |通过          |
-|取消收藏，取消收藏文章流程    |!-cailj_ddtest@126.com-!|ddtest  |         |         |0           |通过          |
-|取消收藏，取消收藏帖子流程    |!-cailj_ddtest@126.com-!|ddtest  |         |         |0           |通过          |
-|取消收藏，批量取消        |!-cailj_ddtest@126.com-!|ddtest  |         |         |0           |通过          |
-|取消收藏，token为空     |                        |        |         |         |10003       |通过          |
-|取消收藏，token不传     |                        |        |#NotPass#|         |10002       |通过          |
-|取消收藏，targetIds为空 |!-cailj_ddtest@126.com-!|ddtest  |         |         |10002       |通过          |
-|取消收藏，targetIds不传 |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|10002       |通过          |
-|取消收藏，targetIds不存在|!-cailj_ddtest@126.com-!|ddtest  |         |123455   |28003       |通过          |
+|ddt:dD reader storeUp cancel                                                                                |
+|#用例名称            |userName                |passWord|token    |type   |targetIds    |status code|data verfiy?|
+|取消收藏，取消收藏图书流程    |!-cailj_ddtest@126.com-!|ddtest  |         |media  |#GetStoreId#1|0          |通过          |
+|取消收藏，取消收藏翻篇儿流程   |!-cailj_ddtest@126.com-!|ddtest  |         |digest |#GetStoreId#1|0          |通过          |
+|取消收藏，取消收藏文章流程    |!-cailj_ddtest@126.com-!|ddtest  |         |article|#GetStoreId#1|0          |通过          |
+|取消收藏，取消收藏帖子流程    |!-cailj_ddtest@126.com-!|ddtest  |         |post   |#GetStoreId#1|0          |通过          |
+|取消收藏，token为空     |                        |        |         |       |123455       |10002      |通过          |
+|取消收藏，token为不正确   |                        |        |12333    |media  |123455       |10003      |通过          |
+|取消收藏，token不传     |                        |        |#NotPass#|       |123455       |10002      |通过          |
+|取消收藏，targetIds为空 |!-cailj_ddtest@126.com-!|ddtest  |         |       |             |10002      |通过          |
+|取消收藏，targetIds不传 |!-cailj_ddtest@126.com-!|ddtest  |         |       |#NotPass#    |10002      |通过          |
+|取消收藏，targetIds不存在|!-cailj_ddtest@126.com-!|ddtest  |         |       |123455       |28006      |通过          |
 
 !contents -R2 -g -p -f -h

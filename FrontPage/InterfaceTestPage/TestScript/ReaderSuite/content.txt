@@ -1,2 +1,8 @@
-!1 Test suite X
+!*** 追更
+
+[[追更、取消追更][.FrontPage.InterfaceTestPage.TestScript.ReaderSuite.GetUpdateCustomerSubscribe]]
+
+[[用户追更开关接口][.FrontPage.InterfaceTestPage.TestScript.ReaderSuite.ClearCustomerSubscription]]
+
+*!
 !contents -R2 -g -p -f -h

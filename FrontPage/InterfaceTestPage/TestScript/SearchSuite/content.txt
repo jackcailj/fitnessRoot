@@ -1,0 +1,16 @@
+!*** 搜索相关接口
+
+[[根据关键字查询联想结果][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchAssociate]]
+
+[[根据关键字搜索接口][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.Search]]
+
+[[吧搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchBar]]
+
+[[频道搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchChanne]]
+
+[[书搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchMedia]]
+
+[[文章搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchDigest]]
+
+*!
+!contents -R2 -g -p -f -h

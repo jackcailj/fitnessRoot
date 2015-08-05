@@ -28,5 +28,8 @@
 !*> '''阅读器''' 
 !see .FrontPage.InterfaceTestPage.TestScript.ReaderSuite
 *!
+!*> '''搜索''' 
+!see .FrontPage.InterfaceTestPage.TestScript.SearchSuite
+*!
 
 #!contents

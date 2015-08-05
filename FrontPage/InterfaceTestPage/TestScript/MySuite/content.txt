@@ -11,7 +11,7 @@
 
 *5、[[获取帖子列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.getPostList]]
 
-*6、[[获取个人笔记列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.getNoteList]](done)
+*6、[[--获取个人笔记列表接口--][.FrontPage.InterfaceTestPage.TestScript.MySuite.getNoteList]](done)
 
 *7、[[修改昵称接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.changeNickName]]
 
@@ -43,7 +43,7 @@
 
 *21、[[发送邮箱验证码][.FrontPage.InterfaceTestPage.TestScript.MySuite.SendEmailVcode]]
 
-*22、[[验证邮箱验证码][.FrontPage.InterfaceTestPage.TestScript.MySuite.CheckEmailVcode]]
+*22、[[--验证邮箱验证码--][.FrontPage.InterfaceTestPage.TestScript.MySuite.CheckEmailVcode]]
 
 *23、[[获取另外找回密码联系方式][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetFindPasswordContactInfo]]
 
@@ -83,6 +83,8 @@
 
 *41、[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.AddAuthorizeEbook]]
 
+*42、[[我的频道列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.MyChannelList]]
+
 *!
 !*** 书架
 
@@ -99,6 +101,22 @@
 *6、[[获取云书架列表接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetUserBookList]]
 
 *7、[[隐藏、显示书籍接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.HideUserBookList]]
+
+*8、[[获取他人书架接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadBookList]]
+
+*!
+!*** 签到
+
+*1、[[签到接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.Signin]]
+
+*2、[[检查今天是否签到][.FrontPage.InterfaceTestPage.TestScript.MySuite.CheckSigninState]]
+
+*!
+!*** 等级经验
+
+*1、[[积分明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemList]]
+
+*2、[[经验明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetExperienceItemList]]
 
 *!
 ----
