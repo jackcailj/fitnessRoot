@@ -3,39 +3,73 @@
 !* 测试用例
 接口：action=nearbySearch
 参数：
-uToken  - 用户token   
-lat - 纬度 
-lng - 经度 
-start - 分页开始 
-limit - 每页条数 
+ * uToken  - 用户token   
+ * lat - 纬度 
+ * lng - 经度 
+ * start - 分页开始 
+ * limit - 每页条数 
 接口描述：获取附近的人列表信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359611
 相关数据库表：？？？？
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|
-|||正常流程|输入正确的参数值|获取附近人的信息|
-|||lat参数值|参数值为边界值（0,90），其他参数值正确|获取附近人信息|
-|||lat参数值|参数值为负数（-1），其他参数值正确|参数非法|
-|||lat参数值|参数值为边界值91，其他参数值正确|参数非法|
-|||lat参数值|参数值为边界值180，其他参数值正确|参数非法|
-|||lat参数值|参数值为空，其他参数值正确|参数非法|
-|||lat参数值|不传lat参数，其他参数值正确|参数非法|
-|||lng参数值|参数值为边界值（0,90,180），其他参数值正确|获取附近人信息|
-|||lng参数值|参数值为负数（-1），其他参数值正确|参数非法|
-|||lng参数值|参数值为边界值181，其他参数值正确|参数非法|
-|||lng参数值|参数值为空，其他参数值正确|参数非法|
-|||lng参数值|不传lng参数，其他参数值正确|参数非法|
-|||start参数值|参数值为负数（-1），其他参数值正确|参数非法|
-|||start参数值|参数值为字母，其他参数值正确|参数非法|
-|||start参数值|参数值为空，其他参数值正确|参数非法|
-|||start参数值|不传lng参数，其他参数值正确|参数非法|
-|||limit参数值|参数值为负数（-1），其他参数值正确|参数非法|
-|||limit参数值|参数值为字母，其他参数值正确|参数非法|
-|||limit参数值|参数值为空，其他参数值正确|参数非法|
-|||limit参数值|不传lng参数，其他参数值正确|参数非法|
-|||uToken参数值|参数值为空，其他参数值正确|参数非法|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|输入正确的参数值|获取附近人的信息|test,staging,online|
+|||lat参数值|参数值为边界值（0,90），其他参数值正确|获取附近人信息|test,staging,online|
+|||lat参数值|参数值为负数（-1），其他参数值正确|参数非法|test,staging,online|
+|||lat参数值|参数值为边界值91，其他参数值正确|参数非法|test,staging,online|
+|||lat参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||lat参数值|不传lat参数，其他参数值正确|参数非法|test,staging,online|
+|||lng参数值|参数值为边界值（0,90,180），其他参数值正确|获取附近人信息|test,staging,online|
+|||lng参数值|参数值为负数（-1），其他参数值正确|参数非法|test,staging,online|
+|||lng参数值|参数值为边界值181，其他参数值正确|参数非法|test,staging,online|
+|||lng参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||lng参数值|不传lng参数，其他参数值正确|参数非法|test,staging,online|
+|||start参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||start参数值|不传lng参数，其他参数值正确|参数非法|test,staging,online|
+|||limit参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
+|||limit参数值|不传lng参数，其他参数值正确|参数非法|test,staging,online|
+|||uToken参数值|参数值为空，其他参数值正确|参数非法|test,staging,online|
 *!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.discovery|
+*!
+!*> 定义scenario 
+| scenario |nearbySearchTest|userName||passWord||loginType||token||action||lat||lng||start||limit||期望||result||setParameters|
+| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,lat:@lat,lng:@lng,start:@start,limit:@limit,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
 
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|nearby search|
+*!
+!* 测试数据
+|nearbySearchTest|
+|#用例名称|userName|passWord|loginType|token|action|lat|lng|start|limit|期望|result|
+|正常流程|!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|116.440466|1|10|0|pass|
+|纬度为0 |!-whytest@dd.con-!|111111|email||nearbySearch|0|116.440466|1|10|0|pass|
+|纬度为90|!-whytest@dd.con-!|111111|email||nearbySearch|90|116.440466|1|10|0|pass|
+|纬度为-1 |!-whytest@dd.con-!|111111|email||nearbySearch|-1|116.440466|1|10|0|pass|
+|纬度为91 |!-whytest@dd.con-!|111111|email||nearbySearch|91|116.440466|1|10|200|pass|
+|纬度为空 |!-whytest@dd.con-!|111111|email||nearbySearch||116.440466|1|10|200|pass|
+|不传lat  |!-whytest@dd.con-!|111111|email||nearbySearch|REMOVE|116.440466|1|10|200|pass|
+|经度为0  |!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|0|1|10|0|pass|
+|经度为180|!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|180|1|10|0|pass|
+|经度为-1 |!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|-1|1|10|0|pass|
+|经度为181|!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|181|1|10|200|pass|
+|经度为空   |!-whytest@dd.con-!|111111|email||nearbySearch|39.959841||1|10|200|pass|
+|不传经度lng|!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|REMOVE|1|10|200|pass|
+|start为空  |!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|116.440466||10|200|pass|
+|不传start  |!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|116.440466|REMOVE|10|200|pass|
+|limit为空  |!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|116.440466|0||200|pass|
+|不传limit  |!-whytest@dd.con-!|111111|email||nearbySearch|39.959841|116.440466|0|REMOVE|200|pass|
+|token为空  |||||nearbySearch|39.959841|116.440466|0|10|0|pass|
+*!
 !4 备注: 
+纬度的范围是南北纬0-90°,经度的范围是东西经0-180°
+
 人是从solr取的，包括userPubId,距离，头像性别和个人介绍是从个人中心的服务取的，代鹏提供的
 从solr取得数据是通过一个内部接口得到的, '个人中心的服务'也是一个内部接口。
 需要开发提供一些cmd命令来测试验证。

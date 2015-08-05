@@ -1,6 +1,6 @@
 !*> 测试用例
-接口：action=freeforlimited
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360274
+接口：action=mediaCategoryLeaf
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934127
 相关表：
  * media_column
  * media_column_content

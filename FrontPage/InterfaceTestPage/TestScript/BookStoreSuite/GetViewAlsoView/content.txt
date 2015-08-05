@@ -1,32 +1,26 @@
 !*> 测试用例
-接口：action=freeforlimited
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360274
+接口：action=getViewAlsoView
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933830
 相关表：
- * media_column
- * media_column_content
- * media_sale
- * media
+ * 
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|freeForLimitedCase01||获取当当读书->限免栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
-|freeForLimitedCase02||限免栏目下书籍为空|调用接口|返回的11003|test|
-|freeForLimitedCase03||空栏目下装限免类型的书|调用接口|返回新增的数据|test|
-|freeForLimitedCase04||排序|【当读后台】设置排序值，调用接口|返回结果按排序值倒序排列|test|
-|freeForLimitedCase05||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
-|freeForLimitedCase06||限免栏目中下架的书|调用接口|下架的书不返回|test|
-|freeForLimitedCase07||限免栏目中下架的书上架|调用接口|上架的书能正常返回|test|
-|freeForLimitedCase08||参数columnTyp|columnTyp值为空|返回10002在|test|
-|freeForLimitedCase09||参数columnTyp|columnTyp值为无效值|返回10002|test|
-|freeForLimitedCase10||参数start|start值为空|返回10002|test|
-|freeForLimitedCase11||参数start|start值大于列表总数时|返回空数据|test|
-|freeForLimitedCase12||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|freeForLimitedCase13||参数end|end值为空|返回10002|test|
-|freeForLimitedCase14||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|freeForLimitedCase15||参数start和end|start值大于end值|返回10002|test|
-|freeForLimitedCase16||参数channelType|channelType值为空|返回10002|test|
-|freeForLimitedCase17||参数channelType|channelType为无效值(字符，字母，中文)|返回10002|test|
-|freeForLimitedCase18||删除限免栏目下数据|调用接口|返回10002|test|
-|freeForLimitedCase19||删除限免栏目|调用接口|返回10002|test|
+|getViewAlsoViewCase01|未登录用户|匿名模式，获取热销榜的数据|调用接口|返回的热销榜的数据|test，staging，online|
+|getViewAlsoViewCase02|新注册用户|获取的数据与用户有关系|调用接口|返回的11003|test|
+|getViewAlsoViewCase03|已有购买记录用户|获取的数据与用户有关系|调用接口|返回的11003|test|
+|getViewAlsoViewCase04||根据参数returnFields值，返回相应字段|returnFields=|返回10002|test|
+|getViewAlsoViewCase05||参数returnFields|returnFields值为空|返回所有字段mediaId,saleId,coverPic,title|test|
+|getViewAlsoViewCase06||参数returnFields|returnFields为无效值(字符，字母，中文)|返回10002|test|
+|getViewAlsoViewCase07||参数mediaId|mediaId值为空|返回10002在|test|
+|getViewAlsoViewCase08||参数mediaId|mediaId值为无效值|返回10002|test|
+|getViewAlsoViewCase09||参数start|start值为空|返回10002|test|
+|getViewAlsoViewCase10||参数start|start值大于列表总数时|返回空数据|test|
+|getViewAlsoViewCase11||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|getViewAlsoViewCase12||参数end|end值为空|返回10002|test|
+|getViewAlsoViewCase13||最多返回100条数据|end>100时，只返回100条数据|返回100条数据|test|
+|getViewAlsoViewCase14||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|getViewAlsoViewCase15||参数start和end|start值大于end值|返回10002|test|
+|getViewAlsoViewCase16||参数token|token为无效值(字符，字母，中文)|返回10002|test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -34,10 +28,30 @@
 |com.dangdang.readerV5.bookstore|
 *!
 !*> 定义scenario 
-|scenario|freeForLimited|action||columnType||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
+|scenario|getViewAlsoView|action||userName||passWord||loginType||token||mediaId||start||end||returnFields||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,mediaId:@mediaId,start:@start,end:@end,returnFields:@returnFields}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
+
+|script|get view also view|
 *!
 !* 测试数据
+|getViewAlsoView|
+|#用例编号|action|userName|passWord|loginType|token|mediaId|start|end|returnFields|statusCode|
+|getViewAlsoViewCase01|getViewAlsoView|||||1900431380|0|9|mediaId,saleId,coverPic|0|
+|getViewAlsoViewCase03|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9|mediaId,saleId,coverPic,title|0|
+|getViewAlsoViewCase04|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9|mediaId,saleId,coverPic,title|0|
+|getViewAlsoViewCase05|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9||0|
+|getViewAlsoViewCase06|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9|returnFields|0|
+|getViewAlsoViewCase06|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9|参数|0|
+|getViewAlsoViewCase06|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9|*|0|
+|getViewAlsoViewCase07|getViewAlsoView|!-z16@123.com-!|111111|email|||0|9|mediaId,saleId|14301|
+|getViewAlsoViewCase08|getViewAlsoView|!-z16@123.com-!|111111|email||mediaId|0|9|mediaId,saleId|14301|
+|getViewAlsoViewCase09|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380||9|mediaId,saleId|14302|
+|getViewAlsoViewCase10|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|500|550|mediaId,saleId|0|
+|getViewAlsoViewCase11|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|*|10|mediaId,saleId|14302|
+|getViewAlsoViewCase12|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0||mediaId,saleId|14303|
+|getViewAlsoViewCase14|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|&|mediaId,saleId|14303|
+|getViewAlsoViewCase15|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|9|1|mediaId,saleId|14304|
+|getViewAlsoViewCase16|getViewAlsoView||||11445hghgh|1900431380|0|9|mediaId,saleId,coverPic|0|
 *!

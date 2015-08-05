@@ -2,14 +2,28 @@
 
 !* 测试用例
 接口：action：getDigestDetail （精品详情页）
+ * digestId --- 精品id
+ * token --- 用户登录时token
+ * ddChannelId --- 频道ID
 接口描述：获取精品文的详情页，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934792
-相关数据库表：media_digest
+相关数据库表：
+media_digest (文章信息)
+channel_article_digest （文章与频道对应关系, status 1 审核通过，2 审核不通过）
+channel （频道信息）
+media  (书的信息（电子书or纸书）ebookinfo) 
+praise_info  （用户点赞信息）
+channel_sub_user （用户订阅频道信息， type： 1 订阅，0 取消订阅）
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|
-|||参数digestId|输入正确的id值，其他参数值正确|获取文章详情|
-|||参数digestId|输入id值为字母，其他参数值正确|未知错误|
-|||参数digestId|输入值为空，其他参数值正确|参数非法|
-|||参数digestId|不传该参数，其他参数值正确|参数非法|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||从翻篇入口|不传ddChannelId，其他参数输入正确的值|获取文章详情|test,staging,online|
+|||从频道入口|传ddChannelId值，其他参数值正确|获取文章详情|test,staging,online|
+|||参数digestId|输入id值为字母，其他参数值正确|参数非法|test,staging,online|
+|||参数digestId|输入值为空，其他参数值正确|参数非法|test,staging,online|
+|||参数digestId|不传该参数，其他参数值正确|参数非法|test,staging,online|
+|||参数ddChannelId|输入id值为字母，其他参数值正确|参数非法|test,staging,online|
+|||参数ddChannelId|输入值为空，其他参数值正确|参数非法|test,staging,online|
+|||参数ddChannelId|不传该参数，其他参数值正确|参数非法|test,staging,online|
+|||参数token|token为空，其他参数值正确|获取文章详情|test,staging,online|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -17,22 +31,25 @@
 |com.dangdang.readerV5.discovery|
 *!
 !*> 定义scenario 
-| scenario | getDigestDetailTest|action||digestId||EXPECTED||setParameters|
-| setParameters|!{action:@action,digestId:@digestId,EXPECTED:@EXPECTED}|
+| scenario |getDigestDetailTest|userName||passWord||loginType||token||action||digestId||ddChannelId||期望||result||setParameters|
+| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,digestId:@digestId,ddChannelId:@ddChannelId,期望:@期望}|
 |show|do request|
-|dataVerify|@EXPECTED|
-|check|get verify result |true|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|get digest detail|
 *!
 !* 测试数据
 |getDigestDetailTest|
-|#用例名称|action|digestId|EXPECTED|
-|参数值合法|getDigestDetail|FromDB|0|
-|参数digestId值为字母|getDigestDetail|aabb|10000|
-|参数digestId值为空|getDigestDetail||10002|
-|不传参数digestId|getDigestDetail|REMOVE|10002|
+|#用例名称|userName|passWord|loginType|token|action|digestId|ddChannelId|期望|result|
+|从翻篇入口|!-whytest@dd.con-!|111111|email||getDigestDetail|DigestDB|REMOVE|0|pass|
+|从频道入口|!-whytest@dd.con-!|111111|email||getDigestDetail|ChannelDB|ChannelDB|0|pass|
+|参数digestId值为字母|!-whytest@dd.con-!|111111|email||getDigestDetail|aabb|REMOVE|10000|pass|
+|参数digestId值为空  |!-whytest@dd.con-!|111111|email||getDigestDetail||REMOVE|10002|pass|
+|不传参数digestId    |!-whytest@dd.con-!|111111|email||getDigestDetail|REMOVE|REMOVE|10002|pass|
+|token为空              |||||getDigestDetail|DigestDB|REMOVE|0|pass|
 
 !4 备注：
 !4 参数值为REMOVE表示不传改参数

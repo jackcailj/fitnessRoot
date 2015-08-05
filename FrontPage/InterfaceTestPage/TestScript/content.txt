@@ -31,5 +31,7 @@
 !*> '''搜索''' 
 !see .FrontPage.InterfaceTestPage.TestScript.SearchSuite
 *!
-
+!*> '''标签体系''' 
+!see .FrontPage.InterfaceTestPage.TestScript.TagSuite
+*!
 #!contents

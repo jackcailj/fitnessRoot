@@ -46,7 +46,6 @@
 |targetId为字母|getTargetCommentCount|a|4000|10002|pass|
 |targetId为空  |getTargetCommentCount||4000|10002|pass|
 |不传targetId  |getTargetCommentCount|REMOVE|4000|10002|pass|
-|targetSource为字母|getTargetCommentCount|924|a|10002|pass|
 |targetSource为空  |getTargetCommentCount|924||10002|pass|
 |不传targetSource  |getTargetCommentCount|924|REMOVE|10002|pass|
 *!

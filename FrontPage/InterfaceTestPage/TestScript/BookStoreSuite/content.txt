@@ -16,14 +16,10 @@
  *[[限免接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.FreeForLimited]]
  *[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BorrowInterface]]
 *!
-!* '''分类'''
+!* '''榜单.分类'''
+ *[[各类榜单（畅销榜、新书榜等）模块接口以及列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaRankingList]]
  *[[各分类列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaCategory]]
  *[[分类二级页面接口（按不同维度排序）][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaCategoryLeaf]]
-*!
-!* '''榜单'''
- *[[各类榜单（畅销榜、新书榜等）模块接口以及列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.MediaRankingList]]
- *[[男频畅销榜模块以及列表接口][]]
- *[[女频畅销榜模块以及列表接口][]]
 *!
 !* '''电子书单品页'''
  *[[电子书单品页][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetMedia]]
@@ -31,7 +27,7 @@
  *[[纸书获取库存接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetPaperMediaStock]]
 *!
 !* '''推荐系统'''
- *[[买了有买][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetBuyAlsoBuy]]
+ *[[买了又买][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetBuyAlsoBuy]]
  *[[看了又看][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetViewAlsoView]]
  *[[猜你喜欢][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetGuessulike]]
 *!

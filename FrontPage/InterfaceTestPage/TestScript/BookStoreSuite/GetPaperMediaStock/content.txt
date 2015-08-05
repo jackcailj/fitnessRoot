@@ -1,11 +1,8 @@
 !*> 测试用例
-接口：action=freeforlimited
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360274
+接口：action=getPaperMediaStock
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360006
 相关表：
- * media_column
- * media_column_content
- * media_sale
- * media
+ * 
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |freeForLimitedCase01||获取当当读书->限免栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
@@ -34,10 +31,16 @@
 |com.dangdang.readerV5.bookstore|
 *!
 !*> 定义scenario 
-|scenario|freeForLimited|action||columnType||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
+|scenario|getPaperMediaStock|action||userName||passWord||email||token||productId||cityId||provinceId||townId||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,email:@email,token: ,productId:@productId,cityId:@cityId,provinceId:@provinceId,townId:@townId}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
 *!
 !* 测试数据
+|script|get paper media stock|
+
+|getPaperMediaStock|
+|#|action|userName|passWord|email|token|productId|cityId|provinceId|townId|statusCode|
+|#|getPaperMediaStock|||||574|1201|114|1140102|0|
+|#|getPaperMediaStock|||||574|14|112|1120104|0|
 *!
