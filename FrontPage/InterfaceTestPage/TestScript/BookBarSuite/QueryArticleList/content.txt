@@ -53,7 +53,7 @@
 |barId值为空|queryArticleList||REMOVE|REMOVE|0|10002|pass|
 |不传参数barId|queryArticleList|REMOVE|REMOVE|REMOVE|0|10002|pass|
 |objectId值为字母|queryArticleList|REMOVE|b|REMOVE|0|10002|pass|
-|objectId值为空|queryArticleList|REMOVE|0|REMOVE|0|10002|pass|
+|objectId值为空|queryArticleList|REMOVE||REMOVE|0|10002|pass|
 |不传参数objectId|queryArticleList|REMOVE|REMOVE|REMOVE|0|10002|pass|
 |lastModifiedDateMsec值为null|queryArticleList|FromDB|REMOVE|null|0|0|pass|
 |lastModifiedDateMsec值为上次请求最后一条记录的时间戳|queryArticleList|FromDB|REMOVE|FromDB|0|0|pass|
