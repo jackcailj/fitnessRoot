@@ -83,7 +83,7 @@
 
 *41、[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.AddAuthorizeEbook]]
 
-*42、[[我的频道列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.MyChannelList]]
+*42、[[--我的频道列表--][.FrontPage.InterfaceTestPage.TestScript.MySuite.MyChannelList]]
 
 *!
 !*** 书架
