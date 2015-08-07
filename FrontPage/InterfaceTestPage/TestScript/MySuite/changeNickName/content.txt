@@ -18,29 +18,33 @@
 
 ----
 !3 四、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center |
 
-|ddt:change nickName                                                                                                                       |
-|#用例名称               |userName                |passWord|loginType|token|thirdId|loginClient|nickname             |status code?|data verfiy?|
-|修改当当用户昵称,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |测试修改昵称               |0           |通过          |
-|修改当读小说用户昵称,正常流程     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |1          |测试修改昵称               |0           |通过          |
-|修改翻片儿用户昵称,正常流程      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |2          |测试修改昵称               |0           |通过          |
-|修改天天用户昵称,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |3          |测试修改昵称               |0           |通过          |
-|修改听书用户昵称,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |4          |测试修改昵称               |0           |通过          |
-|修改qq用户昵称,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |6      |0          |测试修改昵称               |0           |通过          |
-|修改支付宝用户昵称,正常流程      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |7      |0          |测试修改昵称               |0           |通过          |
-|修改新浪微博用户昵称,正常流程     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |5      |0          |测试修改昵称               |0           |通过          |
-|修改微信用户昵称,正常流程       |!-cailj_ddtest@126.com-!|ddtest  |email    |     |200    |0          |测试修改昵称               |0           |通过          |
-|修改昵称，不传token        |                        |        |         |     |0      |0          |测试修改昵称               |10002       |通过          |
-|修改昵称，token不正确       |                        |        |         |123  |0      |0          |测试修改昵称               |10003       |通过          |
-|修改昵称，nickname不传     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |                     |10002       |通过          |
-|修改昵称，昵称大于20个字符，应失败  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |测试修改昵称测试修改昵称测试修改昵称a12|60020       |通过          |
-|修改昵称，昵称小于4个字符，应失败   |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |小于4                  |60023       |通过          |
-|修改昵称，昵称中存在特殊字符，应失败  |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |0          |$123*-_-             |60021       |通过          |
-|修改昵称，thirdId不传      |!-cailj_ddtest@126.com-!|ddtest  |email    |     |       |0          |测试修改昵称               |10002       |通过          |
-|修改昵称，thirdId不正确     |!-cailj_ddtest@126.com-!|ddtest  |email    |     |222    |0          |测试修改昵称               |60023       |通过          |
-|修改昵称 ，loginClient不传 |!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |           |测试修改昵称               |10002       |通过          |
-|修改昵称 ，loginClient不正确|!-cailj_ddtest@126.com-!|ddtest  |email    |     |0      |123        |测试修改昵称               |10002       |通过          |
+| ddt:change nickName |
+| #用例名称 | userName | passWord | token | thirdId | loginClient | nickname | status code? | data verfiy? |
+| 修改当当用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | #RandomUserName# | 0 | 通过 |
+| 修改当读小说用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 1 | #RandomUserName# | 0 | 通过 |
+| 修改翻片儿用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 2 | #RandomUserName# | 0 | 通过 |
+| 修改天天用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 3 | #RandomUserName# | 0 | 通过 |
+| 修改听书用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 4 | #RandomUserName# | 0 | 通过 |
+| 修改qq用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 6 | 0 | #RandomUserName# | 0 | 通过 |
+| 修改支付宝用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 7 | 0 | #RandomUserName# | 0 | 通过 |
+| 修改新浪微博用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 5 | 0 | #RandomUserName# | 0 | 通过 |
+| 修改微信用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 200 | 0 | #RandomUserName# | 0 | 通过 |
+| 修改昵称，不传token | | | | 0 | 0 | #RandomUserName# | 10002 | 通过 |
+| 修改昵称，token不正确 | | | 123 | 0 | 0 | #RandomUserName# | 10003 | 通过 |
+| 修改昵称，nickname不传 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | #NotPass# | 10002 | 通过 |
+| 修改昵称，昵称大于20个字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | 测试修改昵称测试修改昵称测试修改昵称a12 | 60020 | 通过 |
+| 修改昵称，昵称小于4个字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | #RandomUserName#3 | 60019 | 通过 |
+| 修改昵称，昵称中存在特殊字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | $123*-_- | 60021 | 通过 |
+
+
+下面几种情况均可成功
+|comment|
+| 修改昵称，thirdId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 0 | #RandomUserName# | 10002 | 通过 |
+| 修改昵称，thirdId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 222 | 0 | #RandomUserName# | 60023 | 通过 |
+| 修改昵称 ，loginClient不传 | !-cailj_ddtest@126.com-! | ddtest | | 0 | #NotPass# | #RandomUserName# | 10002 | 通过 |
+| 修改昵称 ，loginClient不正确 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 123 | #RandomUserName# | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

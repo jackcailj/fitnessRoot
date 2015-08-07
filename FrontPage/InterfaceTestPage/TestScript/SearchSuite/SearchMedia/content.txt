@@ -1,0 +1,24 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360733
+
+----
+!3 二、接口描述：
+搜索接口
+
+!3 三、涉及数据库
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.search |
+
+| ddt:search media |
+| #用例名称 | keyword | start | end | status code | data verfiy? |
+| 搜索 ，正常流程 | 故事会 | 1 | 10 | 0 | 通过 |
+| 搜索，keyWord为空 | | 1 | 10 | 10002 | 通过 |
+| 搜索，keyWord不传 | #NotPass# | 1 | 10 | 10002 | 通过 |
+| 搜索，start>end | 故事会 | 10 | 1 | 10000 | 通过 |
+| 搜索,start为非数字（异常默认为1） | 故事会 | 1 | 10 | 0 | 通过 |
+| 搜索,end为非数字 | 故事会 | 1 | a | 10000 | 通过 |
+
+!contents -R2 -g -p -f -h

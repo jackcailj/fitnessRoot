@@ -16,16 +16,22 @@
 |Import                        |
 |com.dangdang.readerV5.purchase|
 
-|ddt:append shopping cart                                                                                                                             |
-|#用例名称            |userName                |passWord|token|productArray                             |cartId     |test_flag  |status code?|data verify?|
-|添加商品到购物车，正常流程    |!-cailj_ddtest@126.com-!|ddtest  |     |#GetProductAndSaleId#EBOOK,VALID,1       |#GetCartId#|           |0           |通过          |
-|不登录情况下，添加商品到购物车  |                        |        |     |#GetProductAndSaleId#EBOOK,VALID,1       |#GetCartId#|           |0           |通过          |
-|添加重复商品到购物车       |!-cailj_ddtest@126.com-!|ddtest  |     |#GetShopCartProductIdAndSaleId#          |#GetCartId#|           |20150008    |通过          |
-|添加下架书籍到购物车       |!-cailj_ddtest@126.com-!|ddtest  |     |#GetProductAndSaleId#EBOOK,XIAJIA,1      |#GetCartId#|xiajia     |0           |通过          |
-|token不正确         |                        |        |12345|#GetProductAndSaleId#EBOOK,VALID,1       |#GetCartId#|           |200         |通过          |
-|cartId不正确        |!-cailj_ddtest@126.com-!|ddtest  |     |#GetProductAndSaleId#EBOOK,VALID,1       |123456     |#GetCartId#|0           |通过          |
-|cartId不传''     ''|!-cailj_ddtest@126.com-!|ddtest  |     |#GetProductAndSaleId#EBOOK,VALID,1       |#NotPass#  |#GetCartId#|0           |通过          |
-|productArray不传   |!-cailj_ddtest@126.com-!|ddtest  |     |#NotPass#                                |#GetCartId#|           |10002       |通过          |
-|productArray不正确  |!-cailj_ddtest@126.com-!|ddtest  |     |[{"productId":"123456","saleId":"22222"}]|#GetCartId#|           |10002       |通过          |
+|ddt:append shopping cart                                                                                                                  |
+|#用例名称     |userName                |passWord|token|productArray                           |cartId     |test_flag|status code?|data verify?|
+|添加试读书籍到购物车|!-cailj_ddtest@126.com-!|ddtest  |     |#GetProductAndSaleId#SHIDU,VALID,1     |#GetCartId#|         |0           |通过          |
+|添加免费书籍到购物车|!-cailj_ddtest@126.com-!|ddtest  |     |#GetProductAndSaleId#EBOOK_FREE,VALID,1|#GetCartId#|         |0           |通过          |
+
+|comment                                                                                                                              |
+|添加商品到购物车，正常流程    |!-cailj_ddtest@126.com-!|ddtest|     |#GetProductAndSaleId#EBOOK,VALID,1       |#GetCartId#|           |0       |通过|
+|不登录情况下，添加商品到购物车  |                        |      |     |#GetProductAndSaleId#EBOOK,VALID,1       |#GetCartId#|           |0       |通过|
+|添加重复商品到购物车       |!-cailj_ddtest@126.com-!|ddtest|     |#GetShopCartProductIdAndSaleId#          |#GetCartId#|           |20150008|通过|
+|添加下架书籍到购物车       |!-cailj_ddtest@126.com-!|ddtest|     |#GetProductAndSaleId#EBOOK,XIAJIA,1      |#GetCartId#|xiajia     |0       |通过|
+|添加试读书籍到购物车       |!-cailj_ddtest@126.com-!|ddtest|     |#GetProductAndSaleId#SHIDU,VALID,1       |#GetCartId#|xiajia     |0       |通过|
+|添加免费书籍到购物车       |!-cailj_ddtest@126.com-!|ddtest|     |#GetProductAndSaleId#FREE,VALID,1        |#GetCartId#|xiajia     |0       |通过|
+|token不正确         |                        |      |12345|#GetProductAndSaleId#EBOOK,VALID,1       |#GetCartId#|           |200     |通过|
+|cartId不正确        |!-cailj_ddtest@126.com-!|ddtest|     |#GetProductAndSaleId#EBOOK,VALID,1       |123456     |#GetCartId#|0       |通过|
+|cartId不传''     ''|!-cailj_ddtest@126.com-!|ddtest|     |#GetProductAndSaleId#EBOOK,VALID,1       |#NotPass#  |#GetCartId#|0       |通过|
+|productArray不传   |!-cailj_ddtest@126.com-!|ddtest|     |#NotPass#                                |#GetCartId#|           |10002   |通过|
+|productArray不正确  |!-cailj_ddtest@126.com-!|ddtest|     |[{"productId":"123456","saleId":"22222"}]|#GetCartId#|           |20154000|通过|
 
 !contents -R2 -g -p -f -h

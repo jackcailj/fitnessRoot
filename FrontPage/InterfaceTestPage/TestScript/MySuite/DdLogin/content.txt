@@ -14,32 +14,33 @@
 
 ----
 !4 三、测试用例:
-|Import                              |
-|com.dangdang.common.functional.login|
+| Import |
+| com.dangdang.common.functional.login |
 
-|ddt:ddLogin                                                                                                                       |
-|#用例名称                |userName                |passWord|loginClient|code|loginType|pdfkey|key           |status code?|data verfiy?|
-|登录，email登录方式正常流程     |!-cailj_ddtest@126.com-!|ddtest  |0          |    |email    |      |12312312321312|0           |通过          |
-|登录，phone方式登录，正常流程    |13000000004             |ddtest1 |0          |    |phone    |      |12312312321312|0           |通过          |
-|登录，email登录方式，客户端为当读小说|!-cailj_ddtest@126.com-!|ddtest  |1          |    |email    |      |12312312321312|0           |通过          |
-|登录，email登录方式，客户端为翻篇儿 |!-cailj_ddtest@126.com-!|ddtest  |2          |    |email    |      |12312312321312|0           |通过          |
-|登录，email登录方式，客户端为天天听书|!-cailj_ddtest@126.com-!|ddtest  |3          |    |email    |      |12312312321312|0           |通过          |
-|登录，登录方式不正确           |!-cailj_ddtest@126.com-!|ddtest  |0          |    |test     |      |12312312321312|0           |通过          |
-|登录，用户名为空             |                        |ddtest  |0          |    |email    |      |12312312321312|10002       |通过          |
-|登录，密码为空              |!-cailj_ddtest@126.com-!|        |0          |    |email    |      |12312312321312|10002       |通过          |
-|登录，loginType为空       |!-cailj_ddtest@126.com-!|ddtest  |0          |    |         |      |12312312321312|0           |通过          |
-|登录，loginType不传       |!-cailj_ddtest@126.com-!|ddtest  |0          |    |#NotPass#|      |12312312321312|0           |通过          |
-|登录，key为空             |!-cailj_ddtest@126.com-!|ddtest  |0          |    |email    |      |              |10002       |通过          |
-|登录，key不传             |!-cailj_ddtest@126.com-!|ddtest  |0          |    |email    |      |#NotPass#     |10002       |通过          |
-|登录，密码不正确             |!-cailj_ddtest@126.com-!|ddtest1 |0          |    |email    |      |12312312321312|60004       |通过          |
-|登录，用户名不正确            |!-cailj_te@126.com-!    |ddtest  |0          |    |email    |      |12312312321312|60003       |通过          |
+| ddt:ddLogin | |
+| #用例名称 | userName | passWord | loginClient | code | loginType | pdfkey | key | status code | data verfiy? |
+| 登录，email登录方式正常流程 | !-cailj_ddtest@126.com-! | ddtest | 0 | | email | | 12312312321312 | 0 | 通过 |
+| 登录，phone方式登录，正常流程 | 13000000004 | ddtest1 | 0 | | phone | | 12312312321312 | 0 | 通过 |
+| 登录，email登录方式，客户端为当读小说 | !-cailj_ddtest@126.com-! | ddtest | 1 | | email | | 12312312321312 | 0 | 通过 |
+| 登录，email登录方式，客户端为翻篇儿 | !-cailj_ddtest@126.com-! | ddtest | 2 | | email | | 12312312321312 | 0 | 通过 |
+| 登录，email登录方式，客户端为天天听书 | !-cailj_ddtest@126.com-! | ddtest | 3 | | email | | 12312312321312 | 0 | 通过 |
+| 登录，登录方式不正确 | !-cailj_ddtest@126.com-! | ddtest | 0 | | test | | 12312312321312 | 0 | 通过 |
+| 登录，用户名为空 | | ddtest | 0 | | email | | 12312312321312 | 10002 | 通过 |
+| 登录，密码为空 | !-cailj_ddtest@126.com-! | | 0 | | email | | 12312312321312 | 10002 | 通过 |
+| 登录，loginType为空 | !-cailj_ddtest@126.com-! | ddtest | 0 | | | | 12312312321312 | 0 | 通过 |
+| 登录，loginType不传 | !-cailj_ddtest@126.com-! | ddtest | 0 | | #NotPass# | | 12312312321312 | 0 | 通过 |
+| 登录，key为空 | !-cailj_ddtest@126.com-! | ddtest | 0 | | email | | | 10002 | 通过 |
+| 登录，key不传 | !-cailj_ddtest@126.com-! | ddtest | 0 | | email | | #NotPass# | 10002 | 通过 |
+| 登录，密码不正确 | !-cailj_ddtest@126.com-! | ddtest1 | 0 | | email | | 12312312321312 | 60004 | 通过 |
+| 登录，用户名不正确 | !-cailj_te@126.com-! | ddtest | 0 | | email | | 12312312321312 | 60003 | 通过 |
 
 登录失败5次，需要输入验证码
 
-|ddt:ddLogin                                                                                                          |
-|#用例名称  |userName                 |passWord|loginClient|code|loginType|pdfkey|key           |status code?|data verfiy?|
-|登录失败第一次|!-cailj_ddtest6@126.com-!|ddtest1 |0          |    |email    |      |12312312321312|60004       |通过          |
-|登录失败第二次|!-cailj_ddtest6@126.com-!|ddtest1 |0          |    |email    |      |12312312321312|60004       |通过          |
-|登录失败第三次|!-cailj_ddtest6@126.com-!|ddtest1 |0          |    |email    |      |12312312321312|60004       |通过          |
-|登录失败第四次|!-cailj_ddtest6@126.com-!|ddtest1 |0          |    |email    |      |12312312321312|60004       |通过          |
-|登录失败第五次|!-cailj_ddtest6@126.com-!|ddtest1 |0          |    |email    |      |12312312321312|60007       |通过          |
+| ddt:ddLogin |
+| #用例名称 | userName | passWord | loginClient | code | loginType | pdfkey | key | deviceSerialNo | status code | data verfiy? |
+| 登录失败第一次 | !-cailj_ddtest6@126.com-! | ddtest1 | 0 | | email | | 12312312321312 | 8631510268345888 | 60004 | 通过 |
+| 登录失败第二次 | !-cailj_ddtest6@126.com-! | ddtest1 | 0 | | email | | 12312312321312 | 8631510268345888 | 60004 | 通过 |
+| 登录失败第三次 | !-cailj_ddtest6@126.com-! | ddtest1 | 0 | | email | | 12312312321312 | 8631510268345888 | 60004 | 通过 |
+| 登录失败第四次 | !-cailj_ddtest6@126.com-! | ddtest1 | 0 | | email | | 12312312321312 | 8631510268345888 | 60004 | 通过 |
+| 登录失败第五次 | !-cailj_ddtest6@126.com-! | ddtest1 | 0 | | email | | 12312312321312 | 8631510268345888 | 60007 | 通过 |
+| 登录失败第六次 | !-cailj_ddtest6@126.com-! | ddtest | 0 | | email | | 12312312321312 | 8631510268345888 | 0 | 通过 |

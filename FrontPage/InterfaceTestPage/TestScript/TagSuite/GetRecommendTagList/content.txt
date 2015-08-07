@@ -1,0 +1,31 @@
+!1 '''获取标签列表'''
+
+!* 测试用例
+接口：action=getRecommendTagList
+接口描述：返回标签列表新，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360895
+相关数据库表：base_comment -> tag_info
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|获取标签列表正常请求|获取成功|test,staging,online|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.comment|
+*!
+!*> 定义scenario 
+| scenario |tagListTest|action||期望||result||setParameters|
+| setParameters|!{action:@action,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get recommend tag list|
+*!
+!* 测试数据
+|tagListTest|
+|#用例名称|action|期望|result|
+|正常流程|getRecommendTagList|0|pass|
+*!

@@ -16,18 +16,18 @@ user_device
 
 ----
 !3 四、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center |
 
-|ddt: register V2                                                               |
-|#用例名称        |userName         |passWord             |status code?|data verify?|
-|注册，正常流程      |#UnRegisterPhone#|ddtest1              |0           |通过          |
-|注册，密码小于6位    |13012121212      |123                  |60049       |通过          |
-|注册，密码大于20位   |13012121212      |123123123123123aaaaab|60049       |通过          |
-|注册，密码不设置     |13012121212      |                     |10002       |通过          |
-|注册，密码包括特殊字符  |13012121212      |abc*42^^&            |60050       |通过          |
-|注册，手机号格式不正确  |151102678        |ddtest               |60042       |通过          |
-|注册，userName不传|#NotPass#        |ddtest               |10002       |通过          |
-|注册，手机号已经注册   |15110267876      |ddtest               |60046       |通过          |
+| ddt: register V2 |
+| #用例名称 | userName | passWord | status code | data verify? |
+| 注册，正常流程 | #UnRegisterPhone# | ddtest1 | 0 | 通过 |
+| 注册，密码小于6位 | 13012121212 | 123 | 60049 | 通过 |
+| 注册，密码大于20位 | 13012121212 | 123123123123123aaaaab | 60049 | 通过 |
+| 注册，密码不设置 | 13012121212 | | 10002 | 通过 |
+| 注册，密码包括特殊字符 | 13012121212 | abc*42^^& | 60050 | 通过 |
+| 注册，手机号格式不正确 | 151102678 | ddtest | 60042 | 通过 |
+| 注册，userName不传 | #NotPass# | ddtest | 10002 | 通过 |
+| 注册，手机号已经注册 | 15110267876 | ddtest | 60046 | 通过 |
 
 !contents -R2 -g -p -f -h

@@ -1,0 +1,21 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934157
+
+----
+!3 二、接口描述：
+获取频道联想接口
+
+!3 三、涉及数据库
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.search |
+
+| ddt:search associate |
+| #用例名称 | searchContent | platformSource | status code | data verfiy? |
+| 搜索联想结果 ，正常流程 | test | DDDS-P | 0 | 通过 |
+| 搜索联想结果，searchContent为空 | | DDDS-P | 10002 | 通过 |
+| 搜索联想结果，searchContent不传 | #NotPass# | DDDS-P | 10002 | 通过 |
+
+!contents -R2 -g -p -f -h

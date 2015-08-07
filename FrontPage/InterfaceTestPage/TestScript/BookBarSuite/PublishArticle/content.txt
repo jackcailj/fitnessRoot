@@ -69,7 +69,7 @@
 |barId值为字母|!-whytest@dd.con-!|111111|email||publishArticle|aa|FromDB|发帖|修改帖子|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|2|10002|pass|
 |barId值为空|!-whytest@dd.con-!|111111|email||publishArticle||FromDB|发帖|修改帖子4|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|2|10002|pass|
 |不传参数barId|!-whytest@dd.con-!|111111|email||publishArticle|REMOVE|FromDB|发帖|修改帖子4|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|2|10002|pass|
-|title值多余20个字|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖|发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|1|0|pass|
+|title值多余20个字|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖发帖|发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|1|25034|pass|
 |title值为空|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB||发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|1|0|pass|
 |不传参数title|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|REMOVE|发帖测试|!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|1|0|pass|
 |content值为空|!-whytest@dd.con-!|111111|email||publishArticle|FromDB|FromDB|发帖||!-http://img31.ddimg.cn/62/24/1900408121-1_e_4.jpg-!|1|1|10002|pass|

@@ -23,6 +23,6 @@
 |获取订单详情，''orderId''不传 |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#  |10002       |通过          |
 |获取订单详情，token不正确      |                        |        |123123   |123        |10003       |通过          |
 |获取订单详情，token不传       |                        |        |#NotPass#|132        |10002       |通过          |
-|获取订单详情，获取别人的订单详情     |!-cailj_ddtest@126.com-!|ddtest  |         |1410667334 |0           |通过          |
+|获取订单详情，获取别人的订单详情     |!-cailj_ddtest@126.com-!|ddtest  |         |1410667334 |201510810   |通过          |
 
 !contents -R2 -g -p -f -h

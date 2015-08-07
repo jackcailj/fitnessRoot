@@ -18,4 +18,11 @@
 4、[[获取电子书购物车列表][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ListShoppingCart]]
 
 *!
+!*** 充值
+1、[[获取充值方式][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.DepositShowView]]
+
+2、[[获取充值金额][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetDepositShowView]]
+
+3、[[充值接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ConsumerDeposit]]
+*!
 !contents -R2 -g -p -f -h
