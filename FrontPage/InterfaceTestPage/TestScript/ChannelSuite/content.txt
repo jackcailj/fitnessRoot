@@ -4,8 +4,8 @@
 *!
 !* '''频道'''
  *[[频道列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
- *[[频道详情接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails]]
  *[[频道订阅接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub]]
+ *[[频道详情接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails]]
 *!
 !* '''书单'''
  *[[书单基本信息接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookList]]
@@ -16,9 +16,9 @@
  *[[文章详情页接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getDigestDetail]]
 *!
 !* '''频道包月'''
- *[[获取图书包月频道信息][]]
- *[[获取频道包月策略信息][]]
- *[[购买频道包月权限][]]
+ *[[获取频道包月策略信息][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IChannelApi]]
+ *[[购买频道包月权限][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BuyMonthlyAuthority]]
+ *[[获取图书包月频道信息][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IMediaApi]]
 *!
 !* '''我的频道 '''
  *[[获取我的频道列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.MyChannelList]]

@@ -1,0 +1,35 @@
+!* 测试用例
+接口：IMediaApi
+接口描述：dubbo，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360714
+相关数据库表：
+ * channel
+ * media_booklist
+ * media_booklist_detail
+|Comment|
+|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
+|iMediaApiCase01||获取用户未包月的频道|调用接口|正常返回结果，与数据库数据相一致|test,staging,online|
+|iMediaApiCase02||获取用户已包月的频道|调用接口|正常返回|test,staging,online|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+|com.dangdang.common.functional.login|
+*!
+!* 测试数据
+!* setUp
+|ddt:ddLogin                                                                                                                       |
+|#用例名称|userName|passWord|loginClient|code|loginType|pdfkey|key|get token?|
+|登录|!-z16@123.com-!|111111|0| |emai| |12312312321312|$token=|
+*!
+!* iMediaApiCase01 获取用户未包月的频道
+|script|i media api dubbo|
+|note|随机获取一个频道|
+|$channelId=|getMonthlyChannel|
+|note|随机获取频道下的一本书|
+|$mediaId=|getMediaId|$channelId|
+|getWithToken|$token|and media|$mediaId|and channelid|$channelId|
+|check|verify channelId|null|true|
+*!
+
+*!

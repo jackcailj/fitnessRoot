@@ -6,16 +6,16 @@
  * channel
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|myChannelListCase01||根据token获取我的频道列表|custId值为空|订阅成功|test|
-|myChannelListCase02||根据custId获取我的频道列表|token值为空|订阅成功|test|
-|myChannelListCase03||根据custId获取我的频道列表|custId和token值都不为空|订阅操作不起作用，正常返回结果|test,staging,online|
+|myChannelListCase01||根据token获取我的频道列表|custId值为空|正常返回结果|test,staging,online|
+|myChannelListCase02||根据custId获取我的频道列表|token值为空|正常返回结果|test,staging,online|
+|myChannelListCase03||根据custId获取我的频道列表|custId和token值都不为空|正常返回结果|test,staging,online|
 |myChannelListCase04||我订阅的频道中有的已下线|调用接口|返回"shelfStatus":0|test|
 |myChannelListCase05||我订阅的频道为空|调用接口|返回"total":0|test|
-|myChannelListCase06||参数createDate|createDate值为空|取消订阅成功|test,staging,online|
-|myChannelListCase07||参数createDate|createDate值为无效值|取消订阅操作不起作用，正常返回结果|test|
-|myChannelListCase08||参数tokenhe和custId同时为空|调用接口|返回10003，未登录用户|test|
-|myChannelListCase09||参数custId|custId值为无效值|返回10003，未登录用户|test|
-|myChannelListCase10||参数token|token值为无效值||test|
+|myChannelListCase06||参数createDate|createDate值为空|正常返回结果|test,staging,online|
+|myChannelListCase07||参数createDate|createDate值为无效值|正常返回结果|test,staging,online|
+|myChannelListCase08||参数tokenhe和custId同时为空|调用接口|返回10003，未登录用户|test,staging,online|
+|myChannelListCase09||参数custId|custId值为无效值|返回10003，未登录用户|test,staging,online|
+|myChannelListCase10||参数token|token值为无效值||test,staging,online|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -87,7 +87,7 @@
 
 |myChannelList|
 |#用例编号|action|userName|passWord|loginType|token|custId|createDate|statusCode|
-|myChannelListCase07|myChannelList|!-z16@123.com-!|111111|email||||0|
+|myChannelListCase06|myChannelList|!-z16@123.com-!|111111|email||||0|
 |myChannelListCase07|myChannelList|!-z16@123.com-!|111111|email|||00001111111|0|
 |myChannelListCase08|myChannelList||||||0|10002|
 |myChannelListCase09|myChannelList|||||00000|0|10002|

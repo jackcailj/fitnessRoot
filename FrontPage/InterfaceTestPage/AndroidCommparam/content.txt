@@ -10,8 +10,9 @@
 #macAddr {18:dc:56:36:67:9c}在下面的script中直接赋值
 !define resolution {1280*720}
 !define clientOs {5.0.0}
+!define platformSource {DDDS-P}
 
 
 |script      |Config                                                                                                                                                                                                                                                                                                            |
-|setCommParam|!{returnType:${returnType},deviceType:${deviceType},channelId:${channelId},clientVersionNo:${clientVersionNo},serverVersionNo:${serverVersionNo},activityId:${activityId},permanentId:${permanentId},deviceSerialNo:${deviceSerialNo},macAddr:!-18:dc:56:36:67:9c-!,resolution:${resolution},clientOs:${clientOs}}|
+|setCommParam|!{returnType:${returnType},deviceType:${deviceType},channelId:${channelId},clientVersionNo:${clientVersionNo},serverVersionNo:${serverVersionNo},activityId:${activityId},permanentId:${permanentId},deviceSerialNo:${deviceSerialNo},macAddr:!-18:dc:56:36:67:9c-!,resolution:${resolution},clientOs:${clientOs},platformSource:${platformSource}}|
 *!

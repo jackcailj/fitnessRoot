@@ -1,6 +1,3 @@
-!*> '''登录'''
-!see .FrontPage.InterfaceTestPage.TestScript.LoginSuite
-*!
 !*> '''书城'''
 !see .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite
 *!
