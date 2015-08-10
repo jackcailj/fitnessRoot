@@ -26,21 +26,16 @@
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |channelArticleCase01||获取文章列表|调用接口|验证返回的关键字段值是否与数据库一致|test,staging,online|
-|channelArticleCase02||文集排序|调用接口|按文件的创建时间倒序排序|test,staging,online|
-|channelArticleCase03||未发布的文集不返回|调用接口|未发布的文集不返回|test|
-|channelArticleCase04||未审核通过的文集不返回|调用接口|未审核通过的文集不返回|test|
-|channelArticleCase05||获取文章列表|【用户后台】修改文集的标题、封面、摘要后，调用接口|返回的标题、封面、摘要与修改值一致|test|
-|channelArticleCase06||文集列表数量|【用户后台】增加或删除文集，使得文集总数发生变化，----调用接口|返回的文集数量正确----（不包括审核不通过的）|test|
-|channelArticleCase07||频道下无文集|调用接口||test|
-|channelArticleCase08||返回参数articlePackageListNum|调用接口|articlePackageListNum值返回正确|test|
-|channelArticleCase09||参数clId|cId值为空||test|
-|channelArticleCase10||参数cId|chId值为无效值||test|
-|channelArticleCase11||参数time|time为空||test|
-|channelArticleCase12||参数time|time为无效值||test|
-|channelArticleCase13||参数channelType|channelType为空||test|
-|channelArticleCase14||参数channelType|channelType为无效值||test|
-|channelArticleCase15||参数token|token为空|返回正常|test|
-|channelArticleCase16||参数token|token为无效值||test|
+|channelArticleCase02||未发布的文集不返回|调用接口|未发布的文集不返回|test|
+|channelArticleCase03||未审核通过的文集不返回|调用接口|未审核通过的文集不返回|test|
+|channelArticleCase04||参数clId|cId值为空||test|
+|channelArticleCase05||参数cId|chId值为无效值||test|
+|channelArticleCase06||参数time|time为空||test|
+|channelArticleCase07||参数time|time为无效值||test|
+|channelArticleCase08||参数channelType|channelType为空||test|
+|channelArticleCase09||参数channelType|channelType为无效值||test|
+|channelArticleCase10||参数token|token为空|返回正常|test|
+|channelArticleCase11||参数token|token为无效值||test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -48,15 +43,15 @@
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|bookListDetail|action||bookListId||start||end||channelType||token||statusCode||setParameters|
-|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
+|scenario|channelArticle|action||userName||passWord||loginType||token||bookListId||start||end||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
-!4 创建script实例，后面调用scenario都是针对这个实例
-|script|book list detail|
+
 *!
 !* 测试数据
-|bookListDetail|
-|#用例编号|action|bookListId|start|end|channelType|token|statusCode|
-||bookListDetail|14|0|9|all||0|
+|channelArticle|
+|script|channel article|
+|#用例编号|action|userName|passWord|loginTyp|token|bookListId|start|end|channelType|token|statusCode|
+||channelArticle|14|0|9|all||0|
 *!

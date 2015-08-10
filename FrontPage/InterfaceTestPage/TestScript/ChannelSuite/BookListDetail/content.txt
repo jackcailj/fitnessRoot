@@ -3,27 +3,25 @@
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359577
  * json返回结果中
    * mediaType，1：原创的书 2：出版物电子书  3：纸书
-相关数据库表：media_booklist_detail
+相关数据库表：
+ * media_booklist_detail
+ * media
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|bookListDetailCase01||获取书列表|调用接口|返回的authorPenname,channelId,coverPic,descs,----isStore,mediaId,recommandWords,title与数据库数据一致,----原创的书mediaType=1，出版物电子书mediaType=2|test,staging,online|
-|bookListDetailCase02||返回参数title|【当读后台】修改书的title，调用接口|返回修改后的title|test|
-|bookListDetailCase03||返回参数coverPic|【当读后台】修改书的coverPic，调用接口|返回修改后的coverPic|test|
-|bookListDetailCase04||返回参数descs|【当读后台】修改书的descs，调用接口|返回修改后的descs|test|
-|bookListDetailCase05||返回参数recommandWords|【当读后台】修改书的recommandWords，调用接口|返回修改后的recommandWords|test|
-|bookListDetailCase06||返回参数authorPenname|【当读后台】修改书的authorPenname，调用接口|返回修改后的authorPenname|test|
-|bookListDetailCase07||书列表为空|【用户后台】书列表为空时，调用接口|返回空数据|test|
-|bookListDetailCase08||参数bookListId|bookListId值为空|返回10002|test|
-|bookListDetailCase09||参数bookListId|bookListId值为无效值|返回10002|test|
-|bookListDetailCase10||参数start|start值为空|返回10002|test|
-|bookListDetailCase11||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|bookListDetailCase12||参数end|end值为空|返回10002|test|
-|bookListDetailCase13||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|bookListDetailCase14||参数start和end|start值大于end值|返回10002|test|
-|bookListDetailCase15||参数channelType|channelType为空||test|
-|bookListDetailCase16||参数channelType|channelType为无效值||test|
-|bookListDetailCase17||参数token|token值为空||test|
-|bookListDetailCase18||参数token|token值为无效值||test|
+|bookListDetailCase01||获取书列表|书单书列表中包含原创的书，调用接口|返回结果与数据库数据相一致,字段mediaType=1|test,staging,online|
+|bookListDetailCase02||获取书列表|书单书列表中包含出版物电子书，调用接口|返回结果与数据库数据相一致,字段mediaType=2|test,staging,online|
+|bookListDetailCase03||获取书列表|书单书列表中包含纸书，调用接口|返回结果与数据库数据相一致,字段mediaType=3|test,staging,online|
+|bookListDetailCase04||参数bookListId|bookListId值为空|返回10002|test|
+|bookListDetailCase05||参数bookListId|bookListId值为无效值|返回10002|test|
+|bookListDetailCase06||参数start|start值为空|返回10002|test|
+|bookListDetailCase07||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|bookListDetailCase08||参数end|end值为空|返回10002|test|
+|bookListDetailCase09||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|bookListDetailCase10||参数start和end|start值大于end值|返回10002|test|
+|bookListDetailCase11||参数channelType|channelType为空||test|
+|bookListDetailCase12||参数channelType|channelType为无效值||test|
+|bookListDetailCase13||参数token|token值为空||test|
+|bookListDetailCase14||参数token|token值为无效值||test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -31,15 +29,48 @@
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|bookListDetail|action||bookListId||start||end||channelType||token||statusCode||setParameters|
-|setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
+|scenario|bookListDetail|action||userName||passWord||loginType||token||bookListId||start||end||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
 |ensure|do get|@statusCode|
-|ensure|verify result|
-!4 创建script实例，后面调用scenario都是针对这个实例
-|script|book list detail|
 *!
 !* 测试数据
+!* bookListDetailCase01 包含原创的书
+|script|book list detail|
+|$bookListId=|getBookListIdWithType|1|
+|setParameters|!{action:bookListDetail,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,bookListId:$bookListId,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* bookListDetailCase02 包含出版物电子书
+|script|book list detail|
+|$bookListId=|getBookListIdWithType|2|
+|setParameters|!{action:bookListDetail,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,bookListId:$bookListId,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* bookListDetailCase03 包含纸书
+|script|book list detail|
+|$bookListId=|getBookListIdWithType|3|
+|setParameters|!{action:bookListDetail,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,bookListId:$bookListId,start:0,end:9,channelType:all}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!* bookListDetailCase04 ~ bookListDetailCase14
+|script|book list detail|
+|$bookListId=|getBookListIdWithType|1|
+
 |bookListDetail|
-|#用例编号|action|bookListId|start|end|channelType|token|statusCode|
-||bookListDetail|31|0|9|all||0|
+|#用例编号|action|userName|passWord|loginType|token|bookListId|start|end|channelType|statusCode|
+|bookListDetailCase04|bookListDetail|!-z16@123.com-!|111111|emial|||0|9|all|27001|
+|bookListDetailCase05|bookListDetail|!-z16@123.com-!|111111|emial||982345|0|9|all|0|
+|bookListDetailCase06|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId||9|all|11101|
+|bookListDetailCase07|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|a|9|all|11101|
+|bookListDetailCase08|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0||all|11101|
+|bookListDetailCase09|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|@|all|11101|
+|bookListDetailCase10|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|9|1|all|200|
+|bookListDetailCase11|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9||0|
+|bookListDetailCase12|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9|aaa|0|
+|bookListDetailCase13|bookListDetail|||||$bookListId|0|9|all|0|
+|bookListDetailCase14|bookListDetail||||112233|$bookListId|0|9|all|0|
+*!
 *!
