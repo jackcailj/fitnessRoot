@@ -63,16 +63,15 @@
 |createBarTest|
 |#用例名称|userName|passWord|loginType|action|barId|barName|barDesc|barImgUrl|actionType|token|期望|result|
 |修改吧背景|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-301.jpg-!|3||0|pass|
-|修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-306.txt-!|3||25012|pass|
-|修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|图片格式不符合|3||25012|pass|
+|修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-306.txt-!|3||25031|pass|
+|修改吧背景失败|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|图片格式不符合|3||25031|pass|
 
 
 !4 测试不合法数据
 |createBarTest|
 |#用例名称|userName|passWord|loginType|action|barId|barName|barDesc|barImgUrl|actionType|token|期望|result|
-|actionType参数值为4|!-whytest@dd.con-!|111111|email|createBar|REMOVE|FromDB|FromDB|FromDB|4||10002|pass|
-|actionType参数值为4|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|4||10002|pass|
-|actionType参数值为0|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|0||10002|pass|
+|actionType参数值为4|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|4||25032|pass|
+|actionType参数值为0|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|0||25032|pass|
 |actionType参数值为空|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|||10002|pass|
 |不传actionType|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|REMOVE||10002|pass|
 |建吧时barImgUrl参数值为空|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|introduction1||1||0|pass|
@@ -85,7 +84,7 @@
 |建吧时不传barDesc参数|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|REMOVE|background1|1||10002|pass|
 |barName参数值为空|!-whytest@dd.con-!|111111|email|createBar|REMOVE||desc1|url1|1||10002|pass|
 |不传barName参数|!-whytest@dd.con-!|111111|email|createBar|REMOVE|REMOVE|desc2|url2|1||10002|pass|
-|barName超过40个字|!-whytest@dd.con-!|111111|email|createBar|REMOVE|名字超过40个字名字超过40个字名字超过40个字名字超过40个字名字超过40个字名字超过40个字|FromDB|FromDB|1||25010|pass|
+|barName超过40个字|!-whytest@dd.con-!|111111|email|createBar|REMOVE|名字超过40个字名字超过40个字名字超过40个字名字超过40个字名字超过40个字名字超过40个字|FromDB|FromDB|1||0|pass|
 |token为空||||createBar|FromDB|FromDB|FromDB|FromDB|2||10002|pass|
 *!
 !* 备注： 
