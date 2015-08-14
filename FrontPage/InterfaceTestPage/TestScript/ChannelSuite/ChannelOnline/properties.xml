@@ -2,15 +2,12 @@
 <properties>
 <Edit/>
 <Files/>
+<Help>频道线上测试用例</Help>
 <Properties/>
 <RecentChanges/>
 <Refactor/>
 <Search/>
-<Static/>
-<Suites>线上环境配置信息</Suites>
+<Test/>
 <Versions/>
 <WhereUsed/>
-<secure-read/>
-<secure-test/>
-<secure-write/>
 </properties>

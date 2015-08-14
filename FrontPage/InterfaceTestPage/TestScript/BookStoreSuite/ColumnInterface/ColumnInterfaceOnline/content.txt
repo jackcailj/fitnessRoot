@@ -1,0 +1,47 @@
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.bookstore|
+*!
+!*> 定义scenario 
+|scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
+|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+|ensure|tearDown|
+
+|script|Column|
+*!
+!*> columnCase01
+|column|
+|#模块名称|action|columnType|start|end|isFull|statusCode|
+|推荐->新书首发|column|all_rec_xssf|0|9|1|0|
+|推荐->当当独家|column|all_rec_dddj|0|9|1|0|
+|推荐->当当精排|column|all_rec_ddjp|0|9|1|0|
+|出版->文学小说|column|all_pub_wzxs|0|9|1|0|
+|出版->经管职场|column|all_pub_jgzc|0|9|1|0|
+|出版->成功励志|column|all_pub_cglz|0|9|1|0|
+|出版->历史人文|column|all_pub_lswx|0|9|1|0|
+|出版->生活两性|column|all_pub_lxsh|0|9|1|0|
+|原创->男生.重磅热销|column|all_ori_nszbrx|0|9|1|0|
+|原创->女生.重磅热销|column|all_ori_nvszbtj|0|9|1|0|
+|原创->豆瓜专区|column|all_ori_dgzq|0|9|1|0|
+|原创->完结.超人气全本|column|all_ori_wjcrqqb|0|9|1|0|
+|原创->榜单.热门推荐|column|all_ori_rmjrtj|0|9|1|0|
+*!
+!*> columnCase09 ~ columnCase18 
+!define columnType {all_rec_xssf}
+|column|
+|#用例编号|action|columnType|start|end|isFull|statusCode|
+|columnCase09|column||0|9|1|10002|
+|columnCase10|column|*|0|9|1|10002|
+|columnCase11|column|${columnType}||9|1|10002|
+|columnCase12|column|${columnType}|2000|2001|1|200|
+|columnCase13|column|${columnType}|@|9|1|10002|
+|columnCase14|column|${columnType}|0||1|10002|
+|columnCase15|column|${columnType}|0|z|1|10002|
+|columnCase16|column|${columnType}|9|1|1|10002|
+|columnCase17|column|${columnType}|0|9||10002|
+|columnCase18|column|${columnType}|0|9|5|10002|
+*!
+

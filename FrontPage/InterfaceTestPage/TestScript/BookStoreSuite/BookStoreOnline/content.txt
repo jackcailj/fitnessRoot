@@ -1,0 +1,2 @@
+!4 栏目接口
+!include .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface.ColumnInterfaceOnline

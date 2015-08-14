@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：IChannelApi
 接口描述：dubbo，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360707
 相关数据库表：
@@ -10,12 +10,12 @@
 |iChannelApiCase01||正常流程|获取某频道的包月策略信息|正常返回结果，与数据库数据相一致|test,staging,online|
 |iChannelApiCase02||频道没有配置包月策略|调用接口|正常返回|test,staging,online|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!* 测试数据
 !* iChannelApiCase01 频道已配置包月策略
 |script|i channel api dubbo|
 |$channel=|getMonthlyChannel|

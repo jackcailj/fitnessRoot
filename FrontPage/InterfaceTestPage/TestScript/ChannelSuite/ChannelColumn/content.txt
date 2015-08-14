@@ -26,39 +26,27 @@
 |channelColumnCase07||后台设置有效期|【当读后台】设置有效期，调用接口|过有效期的频道不返回|test|
 |channelColumnCase08||后台设置|【当读后台】更改状态后，调用接口|强制有效的频道排序优先|test|
 |channelColumnCase09||后台排序|【当读后台】设置排序值后，调用接口|按排序值由大到小返回|test|
-|channelColumnCase10||参数columnType|columnType值为空|返回10002，参数columnType不存在|test|
-|channelColumnCase11||参数columnType|columnType值为无效值|返回10002|test|
-|channelColumnCase12||参数start|start值为空|返回10002|test|
-|channelColumnCase13||参数start|start值大于列表总数时|返回空数据|test|
-|channelColumnCase14||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|channelColumnCase15||参数end|end值为空|返回10002|test|
-|channelColumnCase16||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|channelColumnCase17||参数start和end|start值大于end值|返回10002|test|
-|channelColumnCase18||参数isFull|isFull值为空|返回10002|test|
-|channelColumnCase19||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test|
+|channelColumnCase10||参数columnType|columnType值为空|返回10002，参数columnType不存在|test，staging，online|
+|channelColumnCase11||参数columnType|columnType值为无效值|返回10002|test，staging，online|
+|channelColumnCase12||参数start|start值为空|返回10002|test，staging，online|
+|channelColumnCase13||参数start|start值大于列表总数时|返回空数据|test，staging，online|
+|channelColumnCase14||参数start|start值为无效值（*,字母，中文）|返回10002|test，staging，online|
+|channelColumnCase15||参数end|end值为空|返回10002|test，staging，online|
+|channelColumnCase16||参数end|end值为无效值（&,字母，中文）|返回10002|test，staging，online|
+|channelColumnCase17||参数start和end|start值大于end值|返回10002|test，staging，online|
+|channelColumnCase18||参数isFull|isFull值为空|返回10002|test，staging，online|
+|channelColumnCase19||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test，staging，online|
 |channelColumnCase20||删除频道|【当读后台】删除频道栏目下某频道，调用接口|删除的频道不返回|test|
 |channelColumnCase21||删除频道栏目|【当读后台】删除频道，调用接口|10002|test|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!*> 定义scenario 
-|scenario|channelColumn|action||columnType||start||end||isFull||statusCode||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-*!
-!* 测试数据
-!* channelColumnCase01
-|script|channel column|
-
-|channelColumn|
-|#用例编号|action|columnType|start|end|isFull|statusCode|
-|频道栏目->all_channel_test|column|all_channel_test|0|9|1|0|
-*!
-!* channelColumnCase02 频道栏目为空，获取频道栏目
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn.ChannelColumnOnline
+!*> channelColumnCase02 频道栏目为空，获取频道栏目
 |script|channel column|
 |note|后台创建一个新频道，type=0书籍 type=1频道|
 |$columnType=|create with name|频道栏目|and code|interface_test|
@@ -66,7 +54,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* channelColumnCase03 频道栏目下添加频道
+!*> channelColumnCase03 频道栏目下添加频道
 |script|channel column|
 |note|后台频道栏目中添加频道|
 |insertChannelWithColumncode|$columnType|and size|10|
@@ -74,7 +62,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* channelColumnCase04 下线频道不返回
+!*> channelColumnCase04 下线频道不返回
 |script|channel column|
 |note|下线频道|
 |$channelId=|setShelfStatusWithColumnCode|$columnType|
@@ -83,7 +71,7 @@
 |ensure|verify result|
 |check|verify channel|$channelId|true|
 *!
-!* channelColumnCase05 上线频道返回
+!*> channelColumnCase05 上线频道返回
 |script|channel column|
 |note|上线频道|
 |$channelId=|setStatusWithChannel|$channelId|and status|1|
@@ -91,7 +79,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* channelColumnCase06 无书单的频道不返回
+!*> channelColumnCase06 无书单的频道不返回
 |script|channel column|
 |note|频道下无书单|
 |delBookListWithChannelId|17|
@@ -100,7 +88,7 @@
 |ensure|verify result|
 |check|verify channel|17|true|
 *!
-!* channelColumnCase07 模拟后台设置有效期
+!*> channelColumnCase07 模拟后台设置有效期
 |script|channel column|
 |note|设置有效期|
 |setEffectiveWithColumncode|$columnType|
@@ -108,7 +96,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* channelColumnCase08 模拟后台设置状态
+!*> channelColumnCase08 模拟后台设置状态
 |script|channel column|
 |note|设置为强制有效|
 |setEffective|$columnType|
@@ -123,7 +111,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* channelColumnCase09 模拟后台设置排序值
+!*> channelColumnCase09 模拟后台设置排序值
 |script|channel column|
 |note|设置排序值|
 |setSortWithColumncode|$columnType|
@@ -131,21 +119,7 @@
 |ensure|do get|0|
 |ensure|verify result|
 *!
-!* channelColumnCase10~19
-|channelColumn|
-|#用例编号|action|columnType|start|end|isFull|statusCode|
-|channelColumnCase10|column||0|9|1|10002|
-|channelColumnCase11|column|aa|0|9|1|10002|
-|channelColumnCase12|column|$columnType||9|1|10002|
-|channelColumnCase13|column|$columnType|500|9|1|10002|
-|channelColumnCase14|column|$columnType|*|9|1|10002|
-|channelColumnCase15|column|$columnType|0||1|10002|
-|channelColumnCase16|column|$columnType|0|end|1|10002|
-|channelColumnCase17|column|$columnType|9|0|1|10002|
-|channelColumnCase18|column|$columnType|0|9||10002|
-|channelColumnCase19|column|$columnType|0|9|3|10002|
-*!
-!* channelColumnCase20 模拟后台删除频道栏目下某频道
+!*> channelColumnCase20 模拟后台删除频道栏目下某频道
 |script|channel column|
 |note|删除频道栏目下某频道|
 |$channelId=|delColumnDataWithColumncode|$columnType|
@@ -154,7 +128,7 @@
 |ensure|verify result|
 |check|verify channel|$channelId|true|
 *!
-!* channelColumnCase21 模拟后台删除频道栏目
+!*> channelColumnCase21 模拟后台删除频道栏目
 |script|channel column|
 |note|删除频道栏目|
 |delColumnWithColumncode|$columnType|
@@ -162,3 +136,5 @@
 |ensure|do get|10002|
 *!
 *!
+
+!contents

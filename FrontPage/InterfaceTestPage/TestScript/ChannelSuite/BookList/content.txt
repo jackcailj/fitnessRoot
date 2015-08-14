@@ -1,28 +1,30 @@
-!* 测试用例
+!*> 测试用例
 接口：action=bookList
 接口描述：书单基本信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359575
 相关数据库表：media_bookList
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |bookListCase01||获取书单基本信息|调用接口|返回结果与数据库数据相一致|test,staging,online|
-|bookListCase02||参数bookListId|bookListId值为空|10002|test|
-|bookListCase03||参数bookListId|bookListId值为无效值|10002|test|
-|bookListCase04||参数channelType|channelType为空|10002|test|
-|bookListCase05||参数channelType|channelType为无效值|10002|test|
-|bookListCase06||参数token|token为空|返回正常|test|
-|bookListCase07||参数token|token为无效值|10002|test|
+|bookListCase02||参数bookListId|bookListId值为空|10002|test,staging,online|
+|bookListCase03||参数bookListId|bookListId值为无效值|10002|test,staging,online|
+|bookListCase04||参数channelType|channelType为空|正常返回|test,staging,online|
+|bookListCase05||参数channelType|channelType为无效值|正常返回|test,staging,online|
+|bookListCase06||参数token|token为空|正常返回|test,staging,online|
+|bookListCase07||参数token|token为无效值|正常返回|test,staging,online|
 *!
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
-
+*!
 !*> 定义scenario 
 |scenario|bookList|action||userName||passWord||loginType||token||bookListId||channelType||statusCode||setParameters|
 |setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,bookListId:@bookListId,channelType:@channelType}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
+|ensure|tearDown|
 *!
-!* 测试数据
 !* bookListCase01 获取书单基本信息
 |script|book list|
 |note|随机获取bookListId|

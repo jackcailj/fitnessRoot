@@ -1,0 +1,12 @@
+!4 频道列表接口  
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn.ChannelColumnOnline
+!4 频道订阅接口
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub.ChannelSubOnline
+!4 频道详情接口
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails
+!4 书单基本信息接口
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookList
+!4 书单列表接口
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookListDetail
+!4 获取我的频道列表接口
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.MyChannelList.MyChannelListOnline

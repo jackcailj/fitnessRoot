@@ -3,6 +3,6 @@
 |com.dangdang.config|
 
 |Config|
-|environment|base url|login url|temp url|
-|online|!-http://e.dangdang.com/mobile/api2.do-!|!-http://e.dangdang.com/mobile/api2.do-!|!-http://e.dangdang.com/media/api.go-!|
+|environment|testData|base url|login url|
+|online|readerV5|!-http://k.dangdang.com/media/api2.go-!|!-http://k.dangdang.com/media/api2.go-!|
 *!

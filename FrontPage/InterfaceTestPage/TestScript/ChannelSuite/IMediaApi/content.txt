@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：IMediaApi
 接口描述：dubbo，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360714
 相关数据库表：
@@ -10,14 +10,14 @@
 |iMediaApiCase01||获取用户未包月的频道|调用接口|正常返回结果，与数据库数据相一致|test,staging,online|
 |iMediaApiCase02||获取用户已包月的频道|调用接口|正常返回|test,staging,online|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 |com.dangdang.common.functional.login|
 *!
-!* 测试数据
-!* setUp
+!*> setUp
 |ddt:ddLogin                                                                                                                       |
 |#用例名称|userName|passWord|loginClient|code|loginType|pdfkey|key|get token?|
 |登录|!-z16@123.com-!|111111|0| |emai| |12312312321312|$token=|

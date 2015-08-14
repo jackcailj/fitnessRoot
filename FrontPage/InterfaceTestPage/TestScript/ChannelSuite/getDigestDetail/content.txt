@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：action=getDigestDetail
 接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934792
 相关表： 
@@ -18,7 +18,8 @@
 |getDigestDetailCase08||参数token|token值为空|未知错误|
 |getDigestDetailCase09||参数token|token值为无效值|参数非法|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
@@ -28,10 +29,10 @@
 |setParameters|!{action:@action,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
-!4 创建script实例，后面调用scenario都是针对这个实例
+|ensure|tearDown|
+
 |script|book list detail|
 *!
-!* 测试数据
 |bookListDetail|
 |#用例编号|action|bookListId|start|end|channelType|token|statusCode|
 ||bookListDetail|14|0|9|all||0|

@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：action=myChannelList
 接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360265
 相关数据库表：
@@ -17,12 +17,21 @@
 |myChannelListCase09||参数custId|custId值为无效值|返回10003，未登录用户|test,staging,online|
 |myChannelListCase10||参数token|token值为无效值||test,staging,online|
 *!
-!* Import
+!*> 测试数据
+!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.MyChannelList.MyChannelListOnline
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!* setUp 订阅频道
+!*> 定义scenario 
+|scenario|myChannelList|action||userName||passWord||loginType||token||custId||createDate||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,custId:@custId,createDate:@createDate}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+|ensure|tearDown|
+*!
+!*> setUp 订阅频道
 |script|channel sub|
 |note|随机获取某频道cId|
 |$cId=|getChannel|
@@ -31,42 +40,6 @@
 |$cId=|getChannel|
 |setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
 |ensure|do get|0|
-*!
-!*> 定义scenario 
-|scenario|myChannelList|action||userName||passWord||loginType||token||custId||createDate||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,custId:@custId,createDate:@createDate}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-
-*!
-!* 测试数据
-!* myChannelListCase01 根据token获取我的频道列表
-|script|my channel list|
-
-|myChannelList|
-|#用例编号|action|userName|passWord|loginType|token|custId|createDate|statusCode|
-|channelSubCase06|myChannelList|!-z16@123.com-!|111111|email|||0|0|
-*!
-!* myChannelListCase02 根据custId获取我的频道列表
-|script|my channel list|
-|setParameters|!{action:myChannelList,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,custId: ,createDate:0}|
-|note|获取用户custId|
-|$custId=|getCustId|
-|note|设置参数custId的值|
-|setCustId|$custId|
-|changeParamWithKey|token|and value| |
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* myChannelListCase03 custId和token值都不为空
-|script|my channel list|
-|setParameters|!{action:myChannelList,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,custId: ,createDate:0}|
-|note|获取用户custId|
-|$custId=|getCustId|
-|note|设置参数custId的值|
-|setCustId|$custId|
-|ensure|do get|0|
-|ensure|verify result|
 *!
 !* myChannelListCase04 我订阅的频道中有的已下线
 |script|my channel list|
@@ -81,17 +54,6 @@
 |ensure|verify result|
 |note|上线频道|
 |setShelfStatusWithChannelid|$channel|and status|1|
-*!
-!* myChannelListCase06~myChannelListCase10
-|script|my channel list|
-
-|myChannelList|
-|#用例编号|action|userName|passWord|loginType|token|custId|createDate|statusCode|
-|myChannelListCase06|myChannelList|!-z16@123.com-!|111111|email||||0|
-|myChannelListCase07|myChannelList|!-z16@123.com-!|111111|email|||00001111111|0|
-|myChannelListCase08|myChannelList||||||0|10002|
-|myChannelListCase09|myChannelList|||||00000|0|10002|
-|myChannelListCase10|myChannelList||||asdfdjkj111111||0|10003|
 *!
 !* myChannelListCase05 我订阅的频道为空
 |script|my channel list|

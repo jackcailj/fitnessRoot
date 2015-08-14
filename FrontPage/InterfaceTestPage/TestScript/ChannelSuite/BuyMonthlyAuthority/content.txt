@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：action=buyMonthlyAuthority
 接口描述：购买频道包月权限，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360843
 相关数据库表：
@@ -17,7 +17,8 @@
 |myChannelListCase09||参数custId|custId值为无效值|返回10003，未登录用户|test|
 |myChannelListCase10||参数token|token值为无效值||test|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
@@ -28,7 +29,6 @@
 |ensure|do get|@statusCode|
 |ensure|verify result|
 *!
-!* 测试数据
 !* myChannelListCase02 根据custId获取我的频道列表
 |script|buy monthly authority|
 

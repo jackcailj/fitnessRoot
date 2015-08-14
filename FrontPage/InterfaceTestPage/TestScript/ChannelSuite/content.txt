@@ -1,5 +1,8 @@
 !1 '''频道'''
-!* '''初始化频道'''
+!* '''线上运行用例'''
+!see .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelOnline
+*!
+!* '''初始化频道数据'''
  *[[只适用测试环境][]]
 *!
 !* '''频道'''

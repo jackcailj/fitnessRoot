@@ -13,22 +13,23 @@
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |channelCase01||获取企业频道详情|调用channel接口|返回结果与数据库数据相一致|test,staging,online|
 |channelCase02||获取个人频道详情|调用channel接口|返回结果与数据库数据相一致|test,staging,online|
-|channelCase03||频道下无文章|频道下无文章时hasArtical返回0|返回的字段hasArtical=0|test|
-|channelCase04||频道下有文章|频道下有文章时hasArtical返回1|返回的字段hasArtical=1|test|
-|channelCase05||频道可进行包月|频道可进行包月时|返回的字段=0|test|
-|channelCase06||用户有频道包月权限|调用channel接口|返回的字段hasBoughtMonthly=1|test|
-|channelCase07||用户已订阅频道|调用channel接口|返回的字段isSub=1|test|
-|channelCase08||用户未订阅频道|调用channel接口|返回的字段isSub=0|test|
+|channelCase03||频道下无文章|频道下无文章时hasArtical返回0|返回的字段hasArtical=0|test,staging,online|
+|channelCase04||频道下有文章|频道下有文章时hasArtical返回1|返回的字段hasArtical=1|test,staging,online|
+|channelCase05||频道可进行包月|频道可进行包月时|返回的字段=0|test,staging,online|
+|channelCase06||用户有频道包月权限|调用channel接口|返回的字段hasBoughtMonthly=1|test,staging,online|
+|channelCase07||用户已订阅频道|调用channel接口|返回的字段isSub=1|test,staging,online|
+|channelCase08||用户未订阅频道|调用channel接口|返回的字段isSub=0|test,staging,online|
 |channelCase09||频道订阅数|先调用订阅接口，再调用channel接口|返回的subNumber值+1|test,staging,online|
 |channelCase10||频道订阅数|先调用取消订阅接口，再调用channel接口|返回的subNumber值-1|test,staging,online|
-|channelCase11||参数cId|cId值为空|10002|test|
-|channelCase12||参数cId|cId值为无效值|10002|test|
+|channelCase11||参数cId|cId值为空|10002|test,staging,online|
+|channelCase12||参数cId|cId值为无效值|10002|test,staging,online|
 |channelCase13||参数token|token值为空|正常返回结果|test,staging,online|
-|channelCase14||参数token|token值为无效值|10002|test|
+|channelCase14||参数token|token值为无效值|10002|test,staging,online|
 |channelCase15||参数channelType|channelType值为空|正常返回结果|test,staging,online|
-|channelCase16||参数channelType|channelType值为无效值|10002|test|
+|channelCase16||参数channelType|channelType值为无效值|10002|test,staging,online|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
@@ -37,10 +38,10 @@
 |scenario|channel|action||userName||passWord||loginType||token||cId||channelType||statusCode||setParameters|
 |setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,channelType:@channelType}|
 |ensure|do get|@statusCode|
+|ensure|tearDown|
 
 |script|Channel|
 *!
-!* 测试数据
 !* channelCase01 获取企业频道详情
 |script|Channel|
 |note|获取企业频道id|

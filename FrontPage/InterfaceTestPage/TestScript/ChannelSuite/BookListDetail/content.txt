@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：action=bookListDetail
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359577
  * json返回结果中
@@ -11,19 +11,20 @@
 |bookListDetailCase01||获取书列表|书单书列表中包含原创的书，调用接口|返回结果与数据库数据相一致,字段mediaType=1|test,staging,online|
 |bookListDetailCase02||获取书列表|书单书列表中包含出版物电子书，调用接口|返回结果与数据库数据相一致,字段mediaType=2|test,staging,online|
 |bookListDetailCase03||获取书列表|书单书列表中包含纸书，调用接口|返回结果与数据库数据相一致,字段mediaType=3|test,staging,online|
-|bookListDetailCase04||参数bookListId|bookListId值为空|返回10002|test|
-|bookListDetailCase05||参数bookListId|bookListId值为无效值|返回10002|test|
-|bookListDetailCase06||参数start|start值为空|返回10002|test|
-|bookListDetailCase07||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|bookListDetailCase08||参数end|end值为空|返回10002|test|
-|bookListDetailCase09||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|bookListDetailCase10||参数start和end|start值大于end值|返回10002|test|
-|bookListDetailCase11||参数channelType|channelType为空||test|
-|bookListDetailCase12||参数channelType|channelType为无效值||test|
-|bookListDetailCase13||参数token|token值为空||test|
-|bookListDetailCase14||参数token|token值为无效值||test|
+|bookListDetailCase04||参数bookListId|bookListId值为空|返回27001|test,staging,online|
+|bookListDetailCase05||参数bookListId|bookListId值为无效值|返回空|test,staging,online|
+|bookListDetailCase06||参数start|start值为空|返回11101|test,staging,online|
+|bookListDetailCase07||参数start|start值为无效值（*,字母，中文）|返回11101|test,staging,online|
+|bookListDetailCase08||参数end|end值为空|返回11101|test,staging,online|
+|bookListDetailCase09||参数end|end值为无效值（&,字母，中文）|返回11101|test,staging,online|
+|bookListDetailCase10||参数start和end|start值大于end值|200|test,staging,online|
+|bookListDetailCase11||参数channelType|channelType为空|正常返回|test,staging,online|
+|bookListDetailCase12||参数channelType|channelType为无效值|正常返回|test,staging,online|
+|bookListDetailCase13||参数token|token值为空|正常返回|test,staging,online|
+|bookListDetailCase14||参数token|token值为无效值|正常返回|test,staging,online|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
@@ -32,8 +33,8 @@
 |scenario|bookListDetail|action||userName||passWord||loginType||token||bookListId||start||end||channelType||statusCode||setParameters|
 |setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
 |ensure|do get|@statusCode|
+|ensure|tearDown|
 *!
-!* 测试数据
 !* bookListDetailCase01 包含原创的书
 |script|book list detail|
 |$bookListId=|getBookListIdWithType|1|

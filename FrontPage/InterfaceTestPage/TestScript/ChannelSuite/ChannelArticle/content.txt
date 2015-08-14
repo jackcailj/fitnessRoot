@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：action=channelArticle
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359570
  * json返回结果中：
@@ -37,7 +37,8 @@
 |channelArticleCase10||参数token|token为空|返回正常|test|
 |channelArticleCase11||参数token|token为无效值||test|
 *!
-!* Import
+!*> 测试数据
+!*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
@@ -47,9 +48,8 @@
 |setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
-
+|ensure|tearDown|
 *!
-!* 测试数据
 |channelArticle|
 |script|channel article|
 |#用例编号|action|userName|passWord|loginTyp|token|bookListId|start|end|channelType|token|statusCode|

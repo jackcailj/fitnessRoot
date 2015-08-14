@@ -1,0 +1,44 @@
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+!*> 定义scenario 
+|scenario|channelSub|action||userName||passWord||loginType||token||cId||op||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,op:@op}|
+|ensure|do get|@statusCode|
+|ensure|verify result|
+|ensure|tearDown|
+*!
+!*> channelSubCase03订阅
+|script|channel sub|
+|note|随机获取某频道cId|
+|$cId=|getChannel|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelSubCase04取消订阅
+|script|channel sub|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:0}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelSubCase05重复取消订阅
+|script|channel sub|
+|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:0}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelSubCase06~channelSubCase13
+|script|channel sub|
+
+|channelSub|
+|#用例编号|action|userName|passWord|loginType|token|cId|op|statusCode|
+|channelSubCase06|channelSub|||||$cId|1|10003|
+|channelSubCase07|channelSub||||token|$cId|0|10003|
+|channelSubCase07|channelSub||||@|$cId|0|10003|
+|channelSubCase08|channelSub|!-z16@123.com-!|111111|email||1111|0|10002|
+|channelSubCase09|channelSub|!-z16@123.com-!|111111|email||$cId||10002|
+|channelSubCase10|channelSub|!-z16@123.com-!|111111|email||$cId|参数|10002|
+*!
