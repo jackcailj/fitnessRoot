@@ -51,7 +51,7 @@
 |不传参数type|!-whytest@dd.con-!|111111|email|myBarList|REMOVE|1||10002|pass|
 |pageNo值为大于1|!-whytest@dd.con-!|111111|email|myBarList|2|2||0|pass|
 |pageNo值为负数|!-whytest@dd.con-!|111111|email|myBarList|2|-1||0|pass|
-|pageNo值为字母|!-whytest@dd.con-!|111111|email|myBarList|2|a||0|pass|
+|pageNo值为字母|!-whytest@dd.con-!|111111|email|myBarList|2|a||10002|pass|
 |pageNo值为空|!-whytest@dd.con-!|111111|email|myBarList|2|||10002|pass|
 |不传参数pageNo|!-whytest@dd.con-!|111111|email|myBarList|2|REMOVE||10002|pass|
 |token值为空||||myBarList|2|1||10002|pass|

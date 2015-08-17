@@ -14,10 +14,6 @@
 |||正常流程|摇第二次|得到摇奖结果|test,staging,online|
 |||正常流程|摇第三次|得到摇奖结果|test,staging,online|
 |||正常流程|摇第四次|摇奖次数用完|test,staging,online|
-|||deviceSerialNo为空|deviceSerialNo值为空，其他参数正确|参数非法|test,staging,online|
-|||不传参数deviceSerialNo|不传deviceSerialNo，其他参数正确|参数非法|test,staging,online|
-|||deviceType为空|deviceType值为空，其他参数正确|参数非法|test,staging,online|
-|||不传参数deviceType|不传deviceType，其他参数正确|参数非法|test,staging,online|
 |||token为空|token为空，其他参数正确|参数非法|test,staging,online|
 *!
 !* Import
@@ -26,8 +22,8 @@
 |com.dangdang.readerV5.discovery|
 *!
 !*> 定义scenario 
-| scenario |lotteryResultTest|userName||passWord||loginType||token||action||deviceSerialNo||deviceType||期望||result||setParameters|
-| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,deviceSerialNo:@deviceSerialNo,deviceType:@deviceType,期望:@期望}|
+| scenario |lotteryResultTest|userName||passWord||loginType||token||action||期望||result||setParameters|
+| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,期望:@期望}|
 |show|do request|
 |dataVerify|@期望|
 |check|verified result |@result|
@@ -38,18 +34,12 @@
 *!
 !* 测试数据
 |lotteryResultTest|
-|#用例名称|userName|passWord|loginType|token|action|deviceSerialNo|deviceType|期望|result|
-|摇第一次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|Random|Android|0|pass|
-|摇第二次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|Random|Android|0|pass|
-|摇第三次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|Random|Android|0|pass|
-|摇第四次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|Random|Android|34000|pass|
-|deviceSerialNo为空|!-z11@123.com-!|111111|email||getLotteryResultWithBell||Android|0|pass|
-|不传deviceSerialNo|!-z11@123.com-!|111111|email||getLotteryResultWithBell|REMOVE|Android|0|pass|
-|deviceType为空    |!-z11@123.com-!|111111|email||getLotteryResultWithBell|Random||10002|pass|
-|不传deviceType    |!-z11@123.com-!|111111|email||getLotteryResultWithBell|Random|REMOVE|10002|pass|
-|deviceType为iphone|!-z11@123.com-!|111111|email||getLotteryResultWithBell|Random|iphone|0|pass|
-|token为空         |||||getLotteryResultWithBell|Random|Android|0|pass|
+|#用例名称|userName|passWord|loginType|token|action|期望|result|
+|摇第一次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|0|pass|
+|摇第二次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|0|pass|
+|摇第三次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|0|pass|
+|摇第四次 |!-z11@123.com-!|111111|email||getLotteryResultWithBell|34000|pass|
+|token为空         |||||getLotteryResultWithBell|0|pass|
 *!
 
 备注：
-deviceSerialNo为空，或不传时，有默认的设备序列号
