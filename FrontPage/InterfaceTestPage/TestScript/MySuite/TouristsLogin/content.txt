@@ -12,11 +12,11 @@ ios游客登录，密码为8位随机数字，客户端本地保存
 ----
 !3 四、测试用例:
 |Import                              |
-|com.dangdang.common.functional.login|
+|com.dangdang.readerV5.personal_center|
 
 |ddt:tourists login                                         |
 |#用例名称        |key      |passWord |status code?|data verfiy?|
-|游客登录，正常流程    |testkey  |12345679 |0           |通过          |
+|游客登录，正常流程    |testkey  |12345678 |0           |通过          |
 |游客登录，密码小于8位数字|testkey  |789      |60004       |通过          |
 |游客登录，密码大于8位数字|testkey  |789456123|60004       |通过          |
 |游客登录，密码为空    |testkey  |         |10002       |通过          |

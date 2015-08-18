@@ -15,39 +15,31 @@
 
 ----
 !3 四、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center |
 
-|ddt:dD reader storeUp save                                                                                  |
-|#用例名称    |userName                |passWord|token|type |targetIds                  |status code|data verfiy?|
-|收藏，收藏图书流程|!-cailj_ddtest@126.com-!|ddtest  |     |media|#GetUnStoreId#EBOOK,VALID,1|0          |通过          |
-
-|comment                                                                                                       |
-|收藏，收藏图书流程           |!-cailj_ddtest@126.com-!|ddtest|         |media    |#GetUnStoreId#EBOOK,VALID,1 |0    |通过|
-|收藏，收藏翻篇儿流程          |!-cailj_ddtest@126.com-!|ddtest|         |article  |#GetUnStoreId#VALID,1       |0    |通过|
-|收藏，收藏文章流程           |!-cailj_ddtest@126.com-!|ddtest|         |article  |#GetUnStoreId#VALID,1       |0    |通过|
-|收藏，重复收藏收藏图书流程       |!-cailj_ddtest@126.com-!|ddtest|         |media    |#GetStoreId#VALID,1         |28007|通过|
-|收藏，收藏帖子流程           |!-cailj_ddtest@126.com-!|ddtest|         |post     |#GetUnStoreId#VALID,1       |0    |通过|
-|收藏，收藏已删除帖子流程        |!-cailj_ddtest@126.com-!|ddtest|         |post     |#GetUnStoreId#XIAJIA,1      |28005|通过|
-|收藏，收藏已删除文章流程        |!-cailj_ddtest@126.com-!|ddtest|         |article  |#GetUnStoreId#XIAJIA,1      |28004|通过|
-|收藏，收藏下架书籍流程         |!-cailj_ddtest@126.com-!|ddtest|         |media    |#GetUnStoreId#EBOOK,XIAJIA,1|28003|通过|
-|收藏，token为空          |                        |      |         |media    |123455                      |10003|通过|
-|收藏，token不传          |                        |      |#NotPass#|media    |123455                      |10002|通过|
-|收藏，type为空           |!-cailj_ddtest@126.com-!|ddtest|         |         |123455                      |10002|通过|
-|收藏，type不传           |!-cailj_ddtest@126.com-!|ddtest|         |#NotPass#|123455                      |10002|通过|
-|收藏，type不正确          |!-cailj_ddtest@126.com-!|ddtest|         |test     |123455                      |28001|通过|
-|收藏，targetIds为空      |!-cailj_ddtest@126.com-!|ddtest|         |media    |123455                      |10002|通过|
-|收藏，targetIds不传      |!-cailj_ddtest@126.com-!|ddtest|         |media    |#NotPass#                   |10002|通过|
-|收藏，图书targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest|         |media    |123455                      |28003|通过|
-|收藏，发现targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest|         |discover |123455                      |28004|通过|
-|收藏，翻篇儿targetIds不存在  |!-cailj_ddtest@126.com-!|ddtest|         |digest   |123455                      |28004|通过|
-|收藏，文章targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest|         |article  |123455                      |28004|通过|
-|收藏，帖子targetIds不存在   |!-cailj_ddtest@126.com-!|ddtest|         |post     |123455                      |28005|通过|
-|收藏，重复收藏图书           |!-cailj_ddtest@126.com-!|ddtest|         |media    |                            |28007|通过|
-|收藏，重复收藏发现           |!-cailj_ddtest@126.com-!|ddtest|         |discover |                            |28007|通过|
-|收藏，重复收藏翻篇儿          |!-cailj_ddtest@126.com-!|ddtest|         |digest   |                            |28007|通过|
-|收藏，重复收藏文章           |!-cailj_ddtest@126.com-!|ddtest|         |article  |                            |28007|通过|
-|收藏，重复收藏帖子           |!-cailj_ddtest@126.com-!|ddtest|         |post     |                            |28007|通过|
-|收藏，type和targetIds不匹配|!-cailj_ddtest@126.com-!|ddtest|         |media    |                            |10002|通过|
+| ddt:dD reader storeUp save |
+| #用例名称 | userName | passWord | token | type | targetIds | flag | status code | data verfiy? |
+| 收藏，收藏图书流程 | !-cailj_ddtest@126.com-! | ddtest | | media | #GetUnStoreId#EBOOK,VALID,1 | | 0 | 通过 |
+| 收藏，收藏翻篇儿流程 | !-cailj_ddtest@126.com-! | ddtest | | article | #GetUnStoreId#VALID,1 | | 0 | 通过 |
+| 收藏，收藏文章流程 | !-cailj_ddtest@126.com-! | ddtest | | article | #GetUnStoreId#VALID,1 | | 0 | 通过 |
+| 收藏，重复收藏收藏图书流程 | !-cailj_ddtest@126.com-! | ddtest | | media | #GetStoreId#1 | | 28007 | 通过 |
+| 收藏，收藏帖子流程 | !-cailj_ddtest@126.com-! | ddtest | | post | #GetUnStoreId#VALID,1 | | 0 | 通过 |
+| 收藏，收藏已删除帖子流程 | !-cailj_ddtest@126.com-! | ddtest | | post | #GetUnStoreId#XIAJIA,1 | error_data | 0 | 通过 |
+| 收藏，收藏已删除文章流程 | !-cailj_ddtest@126.com-! | ddtest | | article | #GetUnStoreId#XIAJIA,1 | error_data | 0 | 通过 |
+| 收藏，收藏下架书籍流程 | !-cailj_ddtest@126.com-! | ddtest | | media | #GetUnStoreId#EBOOK,XIAJIA,1 | error_data | 0 | 通过 |
+| 收藏，token为空 | | | | media | 123455 | | 10002 | 通过 |
+| 收藏，token不传 | | | #NotPass# | media | 123455 | | 10002 | 通过 |
+| 收藏，type为空 | !-cailj_ddtest@126.com-! | ddtest | | | 123455 | | 10002 | 通过 |
+| 收藏，type不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 123455 | | 10002 | 通过 |
+| 收藏，type不正确 | !-cailj_ddtest@126.com-! | ddtest | | test | 123455 | | 28001 | 通过 |
+| 收藏，targetIds为空 | !-cailj_ddtest@126.com-! | ddtest | | media | 123455 | | 28007 | 通过 |
+| 收藏，targetIds不传 | !-cailj_ddtest@126.com-! | ddtest | | media | #NotPass# | | 10002 | 通过 |
+| 收藏，图书targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | media | 123455 | | 28007 | 通过 |
+| 收藏，发现targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | discover | 123455 | error_data | 0 | 通过 |
+| 收藏，翻篇儿targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | digest | 123455 | error_data | 0 | 通过 |
+| 收藏，文章targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | article | 123455 | error_data | 0 | 通过 |
+| 收藏，帖子targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | post | 123455 | error_data | 0 | 通过 |
+| 收藏，type和targetIds不匹配 | !-cailj_ddtest@126.com-! | ddtest | | media | | | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

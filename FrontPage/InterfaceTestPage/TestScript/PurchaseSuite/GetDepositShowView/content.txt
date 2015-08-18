@@ -7,23 +7,23 @@
 获取充值方式列表
 
 !3 三、涉及数据库
-|Comment               |
-|数据库    |表             |
-|digital|media_activity|
+| Comment |
+| 数据库 | 表 |
+| digital | media_activity |
 
 ----
 !3 四、测试用例:
-|Import                        |
-|com.dangdang.readerV5.purchase|
+| Import |
+| com.dangdang.readerV5.purchase |
 
-|ddt:get DS deposit show view                                                                         |
-|#用例名称        |userName                |passWord|token|paymentId|fromPaltform|status code|data verify?|
-|获取充值方式接口，正常流程|!-cailj_ddtest@126.com-!|ddtest  |     |1018     |ds_android  |0          |通过          |
-
-|comment                                                                                        |
-|获取充值方式接口，不传token                     |                        |      |     ||         |10003|通过|
-|获取充值方式接口，token不正确                    |                        |      |12345||         |10003|通过|
-|获取充值方式接口，fromPaltform不传，默认为ds_android|!-cailj_ddtest@126.com-!|ddtest|     ||#NotPass#|0    |通过|
-|获取充值方式接口,fromPaltform不正确             |!-cailj_ddtest@126.com-!|ddtest|     ||ssss     |10002|通过|
+| ddt:get deposit show view |
+| #用例名称 | userName | passWord | token | paymentId | fromPaltform | status code | data verify? |
+| 获取充值方式接口，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1018 | ds_android | 0 | 通过 |
+| 获取充值方式接口，不传token | | | | 1018 | ds_android | 10003 | 通过 |
+| 获取充值方式接口，token不正确 | | | 12345 | 1018 | ds_android | 10003 | 通过 |
+| 获取充值方式接口，fromPaltform不传，默认为ds_android | !-cailj_ddtest@126.com-! | ddtest | | 1018 | | 0 | 通过 |
+| 获取充值方式接口,fromPaltform不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1018 | ssss | 10002 | 通过 |
+| 获取充值方式接口,paymentId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 100000 | ds_android | 10002 | 通过 |
+| 获取充值方式接口,paymentId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | ds_android | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

@@ -28,10 +28,10 @@
 | 恢复隐藏书籍，恢复隐藏多个商品 | !-cailj_ddtest@126.com-! | ddtest | | #GetBookShelfProductId#HIDDEN,2 | 0 | 0 | 通过 |
 | 隐藏书籍，token不正确 | | | 1234 | 123455 | 1 | 10003 | 通过 |
 | 隐藏书籍，token不传 | | | #NotPass# | 123455 | 1 | 10002 | 通过 |
-| 隐藏书籍，mediaId不正确 | !-cailj_ddtest16@126.com-! | ddtest | | 123455 | 1 | 0 | 通过 |
-| 隐藏书籍，mediaId不传 | !-cailj_ddtest16@126.com-! | ddtest | | #NotPass# | 1 | 10002 | 通过 |
-| 隐藏书籍，，isHide不正确 | !-cailj_ddtest16@126.com-! | ddtest | | #GetBookShelfProductId#UNHIDDEN,1 | 3 | 10002 | 通过 |
-| 隐藏书籍，isHide为非数字 | !-cailj_ddtest16@126.com-! | ddtest | | 123445 | a | -1003 | 通过 |
-| 隐藏书籍，isHide不传，默认为1 | !-cailj_ddtest16@126.com-! | ddtest | | 123445 | #NotPass# | 0 | 通过 |
+| 隐藏书籍，mediaId不正确 | !-cailj_ddtest15@126.com-! | ddtest | | 123455 | 1 | 0 | 通过 |
+| 隐藏书籍，mediaId不传 | !-cailj_ddtest15@126.com-! | ddtest | | #NotPass# | 1 | 10002 | 通过 |
+| 隐藏书籍，，isHide不正确 | !-cailj_ddtest15@126.com-! | ddtest | | #GetBookShelfProductId#UNHIDDEN,1 | 3 | 10002 | 通过 |
+| 隐藏书籍，isHide为非数字 | !-cailj_ddtest15@126.com-! | ddtest | | 123445 | a | -1003 | 通过 |
+| 隐藏书籍，isHide不传，默认为1 | !-cailj_ddtest15@126.com-! | ddtest | | 123445 | #NotPass# | 0 | 通过 |
 
 !contents -R2 -g -p -f -h

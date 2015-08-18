@@ -19,7 +19,7 @@
 |com.dangdang.readerV5.personal_center|
 
 |ddt:get my bought list                                                                                                                  |
-|#用例名称                            |userName                |passWord|token    |start    |end      |fromPaltform|status code?|data verfiy?|
+|#用例名称                            |userName                |passWord|token    |start    |end      |fromPaltform|status code|data verfiy?|
 |电子书已购列表，正常流程                     |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |ds          |0           |通过          |
 |电子书已购列表，只返回当读小说购买列表              |!-cailj_ddtest@126.com-!|ddtest  |         |0        |10       |yc          |0           |通过          |
 |电子书已购列表，token不正确                 |                        |        |123      |0        |10       |ds          |10003       |通过          |

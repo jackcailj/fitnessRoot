@@ -18,7 +18,7 @@
 |com.dangdang.readerV5.personal_center|
 
 |ddt:get account info                                                                                           |
-|#用例名称                 |userName                 |passWord|loginType|token|accountType|status code?|data verify?|
+|#用例名称                 |userName                 |passWord|loginType|token|accountType|status code|data verify?|
 |获取用户金铃铛，正常流程          |!-cailj_ddtest@126.com-! |ddtest  |email    |     |master     |0           |通过          |
 |获取用户银铃铛，正常流程          |!-cailj_ddtest@126.com-! |ddtest  |email    |     |attach     |0           |通过          |
 |获取用户金铃铛，没有充值的用户       |!-cailj_ddtest6@126.com-!|ddtest  |email    |     |master     |0           |通过          |

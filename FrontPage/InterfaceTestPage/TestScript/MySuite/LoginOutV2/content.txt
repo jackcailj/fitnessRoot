@@ -19,6 +19,6 @@
 |#用例名称        |userName                |passWord|loginType|token    |status code?|data verify?|
 |退出登录,正常流程    |!-cailj_ddtest@126.com-!|ddtest  |email    |         |0           |通过          |
 |退出登录，token不传 |                        |        |         |#NotPass#|10002       |通过          |
-|退出登录，token不正确|                        |        |         |123      |10003       |通过          |
+|退出登录，token不正确|                        |        |         |123      |0       |通过          |
 
 !contents -R2 -g -p -f -h

@@ -17,40 +17,25 @@
 | com.dangdang.readerV5.personal_center.bookshelf |
 
 | ddt:get update customer subscribe |
-| #用例名称 | userName | passWord | token | appId | mediaId | operationType | status code | data verfiy? |
-| 追更一本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,VALID,1 | 1 | 0 | 通过 |
-| 追更书籍，appId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1000 | #GetUnSubscribe#YUANCHUANG,VALID,1 | 1 | 0 | 通过 |
-| 追更书籍，appId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | #GetSubscribe#1 | 0 | 21001 | 通过 |
-| 追更书籍，appId为非数字 | !-cailj_ddtest@126.com-! | ddtest | | a | #GetSubscribe#1 | 0 | 21012 | 通过 |
-| 追更书籍，token不正确 | | | 123 | 1 | 123455555555 | 0 | 10003 | 通过 |
-| 追更书籍，token不传 | | | #NotPass# | 1 | 11111111 | 0 | 10002 | 通过 |
-| 追更书籍，operationType不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 | 6 | 21016 | 通过 |
-| 追更书籍，operationType不传 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 | #NotPass# | 21015 | 通过 |
-| 追更书籍，operationType为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 | a | 21016 | 通过 |
-| 追更书籍，mediaId为空 | !-cailj_ddtest@126.com-! | ddtest | | 1 | | 0 | 21013 | 通过 |
-| 追更书籍，mediaId不传 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #NotPass# | 0 | 21013 | 通过 |
-| 追更书籍，mediaId不存在 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234 | 0 | 21013 | 通过 |
-| 取消追更书籍，mediaId不存在 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234555 | 0 | 21013 | 通过 |
-
-| comment |
-| 追更一本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,VALID,1 | 1 | 0 | 通过 |
-| 重复追更一本书籍 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 | 1 | 0 | 通过 |
-| 取消追更一本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 | 0 | 0 | 通过 |
-| 追更多本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,VALID,2 | 1 | 0 | 通过 |
-| 取消追更多本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#2 | 0 | 0 | 通过 |
-| 追更多本书籍，其中一个mediaId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,VALID,1 and 12311111 | 1 | 0 | 通过 |
-| 取消追更多本书籍，其中一个mediaId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 and 12322 | 0 | 0 | 通过 |
-| 追更非原创书籍 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#EBOOK,VALID,1 | 1 | 0 | 通过 |
-| 追更下架书籍 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,XIAJIA,1 | 1 | 0 | 通过 |
-| 追更书籍，appId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 7 | 1234 | 1 | 0 | 通过 |
-| 追更书籍，appId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 1234 | 1 | 0 | 通过 |
-| 追更书籍，appId为非数字 | !-cailj_ddtest@126.com-! | ddtest | | a | 1234 | 1 | 200 | 通过 |
-| 追更书籍，token不正确 | | | 123 | 1 | 1234 | 1 | 10003 | 通过 |
-| 追更书籍，token不传 | | | #NotPass# | 1 | 1234 | 1 | 10002 | 通过 |
-| 追更书籍，operationType不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234 | 6 | 10003 | 通过 |
-| 追更书籍，operationType不传 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234 | #NotPass# | 10002 | 通过 |
-| 追更书籍，operationType为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234 | a | 10002 | 通过 |
-| 追更书籍，mediaId为空 | !-cailj_ddtest@126.com-! | ddtest | | 1 | | 1 | 10002 | 通过 |
-| 追更书籍，mediaId不传 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #NotPass# | 1 | 10002 | 通过 |
+| #用例名称 | userName | passWord | token | appId | mediaId | operationType | flag | status code | data verfiy? |
+| 追更一本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,VALID,1 | 1 | | 0 | 通过 |
+| 重复追更一本书籍 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 | 1 | | 0 | 通过 |
+| 取消追更一本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 | 0 | | 0 | 通过 |
+| 追更多本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,VALID,2 | 1 | | 0 | 通过 |
+| 取消追更多本书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#2 | 0 | | 0 | 通过 |
+| 追更多本书籍，其中一个mediaId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,VALID,1 and 12311111 | 1 | | 200 | 通过 |
+| 取消追更多本书籍，其中一个mediaId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetSubscribe#1 and 12322 | 0 | | 200 | 通过 |
+| 追更非原创书籍 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#EBOOK,VALID,1 | 1 | | 0 | 通过 |
+| 追更下架书籍 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetUnSubscribe#YUANCHUANG,XIAJIA,1 | 1 | xiajia | 0 | 通过 |
+| 追更书籍，appId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 7 | 1234 | 1 | | 200 | 通过 |
+| 追更书籍，appId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 1234 | 1 | | 21001 | 通过 |
+| 追更书籍，appId为非数字 | !-cailj_ddtest@126.com-! | ddtest | | a | 1234 | 1 | | 21012 | 通过 |
+| 追更书籍，token不正确 | | | 123 | 1 | 1234 | 1 | | 10003 | 通过 |
+| 追更书籍，token不传 | | | #NotPass# | 1 | 1234 | 1 | | 200 | 通过 |
+| 追更书籍，operationType不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234 | 6 | | 21016 | 通过 |
+| 追更书籍，operationType不传 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234 | #NotPass# | | 21015 | 通过 |
+| 追更书籍，operationType为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 1234 | a | | 21016 | 通过 |
+| 追更书籍，mediaId为空 | !-cailj_ddtest@126.com-! | ddtest | | 1 | | 1 | | 21013 | 通过 |
+| 追更书籍，mediaId不传 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #NotPass# | 1 | | 21013 | 通过 |
 
 !contents -R2 -g -p -f -h
