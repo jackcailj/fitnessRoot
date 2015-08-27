@@ -119,5 +119,10 @@
 *2、[[经验明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetExperienceItemList]]
 
 *!
+
+!*** 活动推广
+*1、[[活动推广接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetActivitys]]
+*2、[[活动领取银铃铛][.FrontPage.InterfaceTestPage.TestScript.MySuite.UserAttendActivityReward]]
+*!
 ----
 !contents -R2 -g -p -f -h

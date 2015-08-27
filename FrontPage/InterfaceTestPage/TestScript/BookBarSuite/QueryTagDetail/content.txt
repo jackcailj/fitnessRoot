@@ -47,7 +47,6 @@
 |pageNo参数值为负数|queryTagDetail|FromDB|-1|0|pass|
 |pageNo参数值为空|queryTagDetail|FromDB||10002|pass|
 |不传pageNo参数|queryTagDetail|FromDB|REMOVE|10002|pass|
-!4 备注：deviceType值为Default意思是在android测试环境中为Android，iphone测试环境中为iphone， ipad测试环境中为ipad
 *!
 !4 备注：
 bug: http://10.255.223.220/zentao/bug-view-14683.html

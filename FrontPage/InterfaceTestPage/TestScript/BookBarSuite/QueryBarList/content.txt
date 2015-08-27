@@ -9,9 +9,10 @@
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
 |||barName参数值|输入的吧名称是已有的吧|获得已有吧列表信息|test,staging,online|
-|||barName参数值|输入全新的吧名称|已有吧列表信息为空|test,staging,online|
 |||barName参数值|输入值为空|参数非法|test,staging,online|
 |||barName参数|不传BarName参数|参数非法|test,staging,online|
+
+#|||barName参数值|输入全新的吧名称|已有吧列表信息为空|test,staging,online|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -33,10 +34,10 @@
 |queryBarListTest|
 |#用例名称|action|barName|期望|result|
 |输入全新的吧名称|queryBarList|Random|0|pass|
-|输入的吧名称是已有的吧|queryBarList|FromDB|0|pass|
-|名称是已有的吧名的子串|queryBarList|FromDB-sub|0|pass|
 |barName参数值为空|queryBarList||10002|pass|
 |不传barName参数|queryBarList|REMOVE|10002|pass|
+#|输入的吧名称是已有的吧|queryBarList|FromDB|0|pass|
+#|名称是已有的吧名的子串|queryBarList|FromDB-sub|0|pass|
 *!
 !4 备注：
 bug：http://10.255.223.220/zentao/bug-view-14505.html

@@ -10,8 +10,6 @@
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
 |||正常流程|输入正确的参数值|删帖成功|test|
-|||mediaDigestId参数值|mediaDigestId值为被屏蔽的帖子的id，其他参数值正确|帖子被屏蔽，删帖失败|test|
-|||mediaDigestId参数值|mediaDigestId值为被删除的帖子的id，其他参数值正确|帖子被删除，删帖失败|test|
 |||mediaDigestId参数值|参数值为字母bb ，其他参数值正确|参数非法|test|
 |||mediaDigestId参数值|参数值为空，其他参数值正确|参数非法|test|
 |||mediaDigestId参数值|不传mediaDigestId参数，其他参数值正确|参数非法|test|
@@ -28,7 +26,6 @@
 |show|do request|
 |dataVerify|@期望|
 |check|verified result |@result|
-|show|tear down|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|del article|
@@ -37,8 +34,6 @@
 |delArticleTest|
 |#用例名称|action|mediaDigestId|token|期望|result|
 |正常删帖|delArticle|FromDB|fromLogin|0|pass|
-|被屏蔽的帖子|delArticle|shield|fromLogin|10002|pass|
-|被删除的帖子|delArticle|deleted|fromLogin|10002|pass|
 |mediaDigestId参数值为aa|delArticle|aa|fromLogin|10002|pass|
 |mediaDigestId参数值为空|delArticle||fromLogin|10002|pass|
 |不传mediaDigestId参数|delArticle|REMOVE|fromLogin|10002|pass|

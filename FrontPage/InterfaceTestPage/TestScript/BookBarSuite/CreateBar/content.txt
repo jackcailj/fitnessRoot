@@ -30,7 +30,6 @@
 |||建吧时barDesc参数|不传barDesc参数，其他参数值正确|参数非法|test|
 ||已有吧或建新吧|修改吧简介时barDesc参数|输入值为空，其他参数值正确|参数非法|test|
 ||已有吧或建新吧|修改吧简介时barDesc参数|不传barDesc参数，其他参数值正确|参数非法|test|
-|||barName参数值|输入多余40个字符，其他参数值正确|吧创建失败|test|
 |||barName参数|不传barName参数，其他参数值正确|参数非法|test|
 |||barName参数值|输入值为空，其他参数值正确|参数非法|test|
 |||token参数值|输入值为空，其他参数值正确|参数非法|test|
@@ -76,15 +75,14 @@
 |不传actionType|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|REMOVE||10002|pass|
 |建吧时barImgUrl参数值为空|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|introduction1||1||0|pass|
 |建吧时不传barImgUrl参数|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|introduction1|REMOVE|1||0|pass|
-|修改吧背景时barImgUrl参数值为空|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB||3||10002|pass|
-|修改吧背景时不传barImgUrl参数|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|REMOVE|3||10002|pass|
+|修改吧背景时barImgUrl参数值为空|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB||3||25044|pass|
+|修改吧背景时不传barImgUrl参数|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|REMOVE|3||25044|pass|
 |修改吧简介时barDesc参数值为空|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB||FromDB|2||10002|pass|
 |修改吧简介时不传barDesc参数|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|REMOVE|FromDB|2||10002|pass|
 |建吧时barDesc参数值为空|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random||background1|1||10002|pass|
 |建吧时不传barDesc参数|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|REMOVE|background1|1||10002|pass|
 |barName参数值为空|!-whytest@dd.con-!|111111|email|createBar|REMOVE||desc1|url1|1||10002|pass|
 |不传barName参数|!-whytest@dd.con-!|111111|email|createBar|REMOVE|REMOVE|desc2|url2|1||10002|pass|
-|barName超过40个字|!-whytest@dd.con-!|111111|email|createBar|REMOVE|名字超过40个字名字超过40个字名字超过40个字名字超过40个字名字超过40个字名字超过40个字|FromDB|FromDB|1||0|pass|
 |token为空||||createBar|FromDB|FromDB|FromDB|FromDB|2||10002|pass|
 *!
 !* 备注： 
