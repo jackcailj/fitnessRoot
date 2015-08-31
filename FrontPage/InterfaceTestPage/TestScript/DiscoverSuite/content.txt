@@ -18,7 +18,6 @@
 # *[[赞评论内容][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.AddDigestBookReviewPriase]]
 # *[[精品文章评论列表页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestBookReviewList]]
 # *[[添加精品文章到已有文集][]]
-# *[[精品首页-V2][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestHomePageList]]
 # *[[翻片儿意见反馈][]]
 # *[[同一用户文集名重复校验][]]
 # *[[一篇儿][]]
@@ -26,6 +25,7 @@
 !* '''其他'''
 # *[[获取发现详情][]]
 # *[[获取发现列表][]]
+ *[[精品首页-V2][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestHomePageList]]
  *[[精品详情页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDigestDetail]]
  *[[点赞接口][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.UpdateDigestTopCnt]]
  *[[发现频道首页][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetDiscoveryHomePageInfo]]
