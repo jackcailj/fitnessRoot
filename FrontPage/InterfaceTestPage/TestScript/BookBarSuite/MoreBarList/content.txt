@@ -29,8 +29,8 @@
 |com.dangdang.readerV5.bookbar|
 *!
 !*> 定义scenario 
-| scenario |moreBarListTest|action||barModuleId||deviceType||pageNo||期望||result||setParameters|
-| setParameters|!{action:@action,barModuleId:@barModuleId,deviceType:@deviceType,pageNo:@pageNo,期望:@期望}|
+| scenario |moreBarListTest|action||barModuleId||pageNo||期望||result||setParameters|
+| setParameters|!{action:@action,barModuleId:@barModuleId,pageNo:@pageNo,期望:@期望}|
 |show|do request|
 |dataVerify|@期望|
 |check|verified result |@result|
@@ -41,18 +41,15 @@
 *!
 !* 测试数据
 |moreBarListTest|
-|#用例名称|action|barModuleId|deviceType|pageNo|期望|result|
-|正常流程|moreBarList|FromDB|Default|1|0|pass|
-|moduleTagId参数值为字母|moreBarList|bb|Default|1|10002|pass|
-|moduleTagId参数值为空|moreBarList||Default|1|10002|pass|
-|不传moduleTagId参数|moreBarList|REMOVE|Default|1|10002|pass|
-|deviceType参数为空|moreBarList|FromDB||1|10002|pass|
-|不传deviceType参数为空|moreBarList|FromDB|REMOVE|1|10002|pass|
-|pageNo参数值为字母|moreBarList|FromDB|Default|a|10002|pass|
-|pageNo参数值为负数|moreBarList|FromDB|Default|-1|10002|pass|
-|pageNo参数值为空|moreBarList|FromDB|Default||10002|pass|
-|不传pageNo参数|moreBarList|FromDB|Default|REMOVE|10002|pass|
-!4 备注：deviceType值为Default意思是在android测试环境中为Android，iphone测试环境中为iphone， ipad测试环境中为ipad
+|#用例名称|action|barModuleId|pageNo|期望|result|
+|正常流程|moreBarList|FromDB|1|0|pass|
+|moduleTagId参数值为字母|moreBarList|bb|1|10002|pass|
+|moduleTagId参数值为空|moreBarList||1|10002|pass|
+|不传moduleTagId参数|moreBarList|REMOVE|1|10002|pass|
+|pageNo参数值为字母|moreBarList|FromDB|a|10002|pass|
+|pageNo参数值为负数|moreBarList|FromDB|-1|0|pass|
+|pageNo参数值为空|moreBarList|FromDB||10002|pass|
+|不传pageNo参数|moreBarList|FromDB|REMOVE|10002|pass|
 *!
 
 !4 备注：
