@@ -4,7 +4,14 @@
 | com.dangdang.config |
 
 | Config |
-| environment | base url | login url |
-| testing | !-http://10.255.223.212/media/api2.go-! | !-http://10.255.223.212/media/api2.go-! |
+| environment | testData | base url | login url |
+| testing | readerV5 | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.117/media/api2.go-! |
+
+| comment |
+| environment | testData | base url | login url |
+| online | readerV5 | !-http://e.dangdang.com/media/api2.go-! | !-http://e.dangdang.com/media/api2.go-! |
+| online | readerV5 | !-http://k.dangdang.com/media/api2.go-! | !-http://k.dangdang.com/media/api2.go-! |
+| testing | readerV4 | !-http://192.168.132.73:9090/mobile/api2.do-! | !-http://192.168.132.73:9090/mobile/api2.do-! |
+| testing | readerV4 | !-http://10.255.223.131/mobile/api2.do-! | !-http://10.255.223.131/mobile/api2.do-! |
 
 *!
