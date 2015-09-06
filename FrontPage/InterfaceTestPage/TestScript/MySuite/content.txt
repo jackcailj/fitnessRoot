@@ -1,7 +1,7 @@
 !3 我的模块
 !*** 个人中心
 
-*1、[[注册接口（存在设计问题，以后需修改)][.FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2]]
+*1、[[注册接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2]]
 
 *2、[[登录接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DdLogin]]（done）
 
@@ -47,7 +47,7 @@
 
 *23、[[获取另外找回密码联系方式][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetFindPasswordContactInfo]]
 
-*24、[[找回密码最后一步设置密码（存在设计问题，以后需修改）][.FrontPage.InterfaceTestPage.TestScript.MySuite.SetNewPassword]]
+*24、[[找回密码最后一步设置密码][.FrontPage.InterfaceTestPage.TestScript.MySuite.SetNewPassword]]
 
 *25、[[IOS游客登录][.FrontPage.InterfaceTestPage.TestScript.MySuite.TouristsLogin]]（done）
 
@@ -84,6 +84,8 @@
 *41、[[借阅接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.AddAuthorizeEbook]]
 
 *42、[[--我的频道列表--][.FrontPage.InterfaceTestPage.TestScript.MySuite.MyChannelList]]
+
+*43、[[我发布的帖子文章列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishArticleAndPost]]
 
 *!
 !*** 书架
