@@ -6,7 +6,6 @@
  *[[只适用测试环境][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.InitBookStore]]
 *!
 !* '''栏目.块'''
- *[[频道栏目接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
  *[[栏目接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface]]
  *[[栏目组接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnGroup]]
  *[[热门标签模块接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest]]

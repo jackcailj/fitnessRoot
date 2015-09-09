@@ -2,8 +2,9 @@
 !* '''线上运行用例'''
 !see .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelOnline
 *!
-!* '''初始化频道数据'''
+!* '''辅助工具'''
  *[[只适用测试环境][]]
+ *[[频道批量订阅][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub.ChannelSubs]]
 *!
 !* '''频道'''
  *[[频道列表接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]

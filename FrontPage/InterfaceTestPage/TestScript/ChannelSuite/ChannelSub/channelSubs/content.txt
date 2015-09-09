@@ -1,0 +1,30 @@
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+!*> 定义scenario 
+|scenario|channelSub|action||userName||passWord||loginType||token||cId||op||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,op:@op}|
+|ensure|do gets|@statusCode|
+
+|script|channel sub|
+*!
+!* 批量订阅
+!define cId {'绛妖精','深夜食堂','酷儿玩音乐','天王老公壁咚成瘾','上神请留步','點欣小屋','我和小岑','奋不顾身的爱情','皇陵之谜','穿越中华五千年','老牧的迷局','大秦苏醒','御风楼','坦克的文艺世界','聚仙亭','鬼话连篇','老周开讲','儿科医生妈妈','绘本爸爸杨政','青苔院','果兔文化','数字化与编辑','小川叔的江湖','故事咖啡馆'}
+|channelSub|
+|#用例编号|action|userName|passWord|loginType|token|cId|op|statusCode|
+||channelSub|!-zaaa@123.com-!|111111|email||${cId}|1|0|
+||channelSub|!-zppp@123.com-!|111111|email||${cId}|1|0|
+||channelSub|!-zwww@123.com-!|111111|email||${cId}|1|0|
+||channelSub|!-zooo@123.com-!|111111|email||${cId}|1|0|
+||channelSub|!-zvvv@123.com-!|111111|email||${cId}|1|0|
+||channelSub|15810289598|111111|phone||${cId}|1|0|
+||channelSub|!-ziii@123.com-!|111111|email||${cId}|1|0|
+||channelSub|!-zqqq@123.com-!|111111|email||${cId}|1|0|
+||channelSub|!-lzp1@qq.com-!|111111|email||${cId}|1|0|
+||channelSub|18500228275|111111|phone||${cId}|1|0|
+||channelSub|!-zhangchaofu@dangdang.com-!|Zcf8928974|email||${cId}|1|0|
+||channelSub|!-cailj_ddtest@126.com-!|ddtest|email||${cId}|1|0|
+
+*!

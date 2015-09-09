@@ -14,7 +14,7 @@
 |script|channel sub|
 |note|随机获取某频道cId|
 |$cId=|getChannel|
-|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
+|setParameters|!{action:channelSub,userName:!-z1@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
 |ensure|do get|0|
 |ensure|verify result|
 *!
