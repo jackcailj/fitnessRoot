@@ -4,7 +4,7 @@
 | com.dangdang.config |
 
 | Config |
-| environment | testData | base url | login url |
-| testing | readerV5 | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.117/media/api2.go-! |
+| environment | base url | login url |
+| testing | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.117/media/api2.go-! |
 
 *!

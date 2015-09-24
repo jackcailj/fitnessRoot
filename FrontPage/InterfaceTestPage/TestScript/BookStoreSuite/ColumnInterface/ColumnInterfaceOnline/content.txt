@@ -16,6 +16,7 @@
 |column|
 |#模块名称|action|columnType|start|end|isFull|statusCode|
 |推荐->新书首发|column|all_rec_xssf|0|9|1|0|
+|推荐->纸书|column|all_paper|0|9|1|0|
 |推荐->当当独家|column|all_rec_dddj|0|9|1|0|
 |推荐->当当精排|column|all_rec_ddjp|0|9|1|0|
 |出版->文学小说|column|all_pub_wzxs|0|9|1|0|
@@ -44,4 +45,5 @@
 |columnCase17|column|${columnType}|0|9||10002|
 |columnCase18|column|${columnType}|0|9|5|10002|
 *!
+
 

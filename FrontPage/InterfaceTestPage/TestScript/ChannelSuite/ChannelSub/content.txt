@@ -19,8 +19,14 @@
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
+|com.dangdang.common.functional.login|
 |com.dangdang.readerV5.channel|
 *!
+|script|ddLogin|
+|setParameters|!{action:ddLogin,userName:!-z16@123.com-!,passWord:111111,loginClient:0,code: ,loginType:email,pdfkey: ,key:12312312321312}|
+|ensure|do get|0|
+|$token|get token|
+
 !* channelSubCase01首次订阅某频道
 |script|channel sub|
 |note|随机获取某频道cId|
