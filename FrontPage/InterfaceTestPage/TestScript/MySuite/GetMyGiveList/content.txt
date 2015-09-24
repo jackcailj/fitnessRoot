@@ -1,0 +1,30 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360978
+
+----
+!3 二、接口描述：
+获取积分明细列表
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | media_give、media_give_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.personal_center |
+
+| ddt:get my give list |
+| #用例名称 | userName | passWord | token | amount | start | channelType | status code | data verfiy? |
+| 获取赠书列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 10 | 1 | | 0 | 通过 |
+
+| comment |
+| 获取赠书列表，列表为空 | !-cailj_ddtest10@126.com-! | ddtest1 | | 10 | 0 | 0 | 通过 |
+| 获取赠书列表，''token不正确'' | | | 1234 | 10 | 0 | 10003 | 通过 |
+| 获取赠书列表，''token''不传 | | | #NotPass# | 10 | 0 | 10002 | 通过 |
+| 获取赠书列表，start为非数字 | !-cailj_ddtest10@126.com-! | ddtest1 | | 10 | a | 10002 | 通过 |
+| 获取赠书列表，start为非数字 | !-cailj_ddtest10@126.com-! | ddtest1 | | a | 0 | 10002 | 通过 |
+
+!contents -R2 -g -p -f -h

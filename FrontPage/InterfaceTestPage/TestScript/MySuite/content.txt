@@ -1,5 +1,6 @@
 !3 我的模块
-!*** 个人中心
+
+!***> 个人中心
 
 *1、[[注册接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2]]
 
@@ -88,7 +89,8 @@
 *43、[[我发布的帖子文章列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishArticleAndPost]]
 
 *!
-!*** 书架
+----
+!***> 书架
 
 *1、[[获取出版物证书接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishedCertificate]]
 
@@ -107,24 +109,48 @@
 *8、[[获取他人书架接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadBookList]]
 
 *!
-!*** 签到
+----
+!***> 签到
 
 *1、[[签到接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.Signin]]
 
 *2、[[检查今天是否签到][.FrontPage.InterfaceTestPage.TestScript.MySuite.CheckSigninState]]
 
 *!
-!*** 等级经验
+----
+!***> 等级经验
 
 *1、[[积分明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemList]]
 
 *2、[[经验明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetExperienceItemList]]
 
 *!
+----
+!***> 活动推广
 
-!*** 活动推广
-*1、[[活动推广接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetActivitys]]
+*1、[[活动推广接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetActivitys]] 
 *2、[[活动领取银铃铛][.FrontPage.InterfaceTestPage.TestScript.MySuite.UserAttendActivityReward]]
+
+*!
+----
+!***> 赠书相关
+
+*1、[[我的赠书列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyGiveList]] 
+*2、[[我的收书列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyReceiveList]]
+
+*!
+----
+!***> 云同步相关相关
+
+*1、[[同步书签笔记][.FrontPage.InterfaceTestPage.TestScript.MySuite.UpdateBookCloudSyncReadInfo]] 
+*2、[[同步阅读进度][.FrontPage.InterfaceTestPage.TestScript.MySuite.UpdateBookCloudSyncReadProgressInfo]] 
+*3、[[获得书签笔记列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetBookCloudSyncReadInfo]] 
+*4、[[获得阅读时长、进度列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetBookCloudSyncReadProgressInfo]] 
+*5、[[获得一个人一本书的笔记详情][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPersonalBookNoteInfo]] 
+*6、[[获得笔记分类列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPersonalBookNoteInfoList]] 
+*7、[[个人获得笔记总数][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPersonalBookNoteInfoNo]] 
+*8、[[获得阅历信息接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetExperienceInfoList]]
+
 *!
 ----
 !contents -R2 -g -p -f -h
