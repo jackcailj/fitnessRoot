@@ -1,0 +1,9 @@
+!3 云同步相关用例
+*1、[[同步书签笔记][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.UpdateBookCloudSyncReadInfo]] 
+*2、[[同步阅读进度][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.UpdateBookCloudSyncReadProgressInfo]] 
+*3、[[获得书签笔记列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetBookCloudSyncReadInfo]] 
+*4、[[获得阅读时长、进度列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetBookCloudSyncReadProgressInfo]] 
+*5、[[获得一个人一本书的笔记详情][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetPersonalBookNoteInfo]] 
+*6、[[获得笔记分类列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetPersonalBookNoteInfoList]] 
+*7、[[个人获得笔记总数][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetPersonalBookNoteInfoNo]] 
+*8、[[获得阅历信息接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetExperienceInfoList]]

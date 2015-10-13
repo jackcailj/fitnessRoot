@@ -1,0 +1,4 @@
+!3 等级经验用例
+*1、[[积分明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemSuit.GetIntegralItemList]]
+
+*2、[[经验明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemSuit.GetExperienceItemList]]

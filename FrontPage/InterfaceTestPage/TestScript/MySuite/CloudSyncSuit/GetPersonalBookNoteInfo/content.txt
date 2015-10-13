@@ -1,0 +1,32 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361366
+
+----
+!3 二、接口描述：
+获取一个人一本书的笔记详情
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| base_comment | cloud_reading_time、cloud_reading_progress |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.personal_center.cloud_sync_read |
+
+| ddt:get personal book note info |
+| #用例名称 | userName | passWord | token | productId | versionTime | pageNum | pageSize | status code | data verfiy? |
+| 获得一本书笔记详情，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | | 0 | 10 | 0 | 通过 |
+| 获得一本书笔记详情，productId不存在 | !-cailj_ddtest@126.com-! | ddtest | | 1231 | | 0 | 10 | 0 | 通过 |
+| 获得一本书笔记详情,productId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | 0 | 10 | 10002 | 通过 |
+| 获得一本书笔记详情，token不正确 | | | 123 | 1900279820 | | 0 | 10 | 10003 | 通过 |
+| 获得一本书笔记详情，token不传 | | | #NotPass# | 1900279820 | | 0 | 10 | 10002 | 通过 |
+| 获得一本书笔记详情，pageNum为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | | a | 10 | 200 | 通过 |
+| 获得一本书笔记详情，pageSize为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | | 0 | a | 200 | 通过 |
+| 获得一本书笔记详情，pageNum为负数 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | | -1 | 10 | 0 | 通过 |
+| 获得一本书笔记详情，pageSize为负数 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | | 0 | -10 | 0 | 通过 |
+| 获得一本书笔记详情，pageSize为0 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | | 0 | 0 | 0 | 通过 |
+
+!contents -R2 -g -p -f -h
