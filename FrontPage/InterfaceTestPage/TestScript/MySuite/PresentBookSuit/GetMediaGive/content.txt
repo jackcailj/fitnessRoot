@@ -1,0 +1,54 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360974
+
+----
+!3 二、接口描述：
+收书接口
+
+!-<font face="Avenir, Verdana, sans-serif">
+</font>-!1、收书时可以全部收取，也可以收取部分
+
+2、已经领取的书籍不能再次领取
+
+3、有权限的书籍不能领取
+
+4、收书成功后，收书人增加此书权限，赠书人失去此书权限(验证)
+
+5、赠书人不能领取自己赠送的图书
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | media_give、media_give_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.present_book |
+
+生成赠书红包
+
+| script | give media give |
+| setParameters | !{userName:!-cailj_ddtest@126.com-!,passWord:ddtest,advice:分享一下,mediaIds:$sendMeidaId=#GetBuyProductId#BUY!1,期望:0} |
+| show | do work and verify |
+| check | getDataVerifyResult | true |
+| $packetId= | getMediaPacketId |
+
+| ddt:get media give |
+| #用例名称 | userName | passWord | token | mediaPacketId | mediaIds | status code | data verfiy? |
+| 收书，收取自己的赠送的书籍 | !-cailj_ddtest@126.com-! | ddtest | | $packetId | $sendMeidaId | 15701 | 通过 |
+| 收书，收取全部书籍 | !-cailj_ddtest1@126.com-! | ddtest | | $packetId | $sendMeidaId | 0 | 通过 |
+| 收书，收取已收取的书籍 | !-cailj_ddtest1@126.com-! | ddtest | | $packetId | $sendMeidaId | 15701 | 通过 |
+| 收书，mediaIds为空 | !-cailj_ddtest@126.com-! | ddtest | | $packetId | | 10003 | 通过 |
+| 收书，mediaIds不传 | !-cailj_ddtest@126.com-! | ddtest | | $packetId | #NotPass# | 10003 | 通过 |
+| 收书，mediaPacketId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 123 | $sendMeidaId | 15702 | 通过 |
+| 收书，mediaPacketId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | $sendMeidaId | 15702 | 通过 |
+| 收书，token不正确 | | | 123 | $packetId | $sendMeidaId | 10003 | 通过 |
+| 收书，token不传 | | | #NotPass# | $packetId | $sendMeidaId | 10003 | 通过 |
+
+| comment |已测，但脚本没有实现|
+| 收书，收取有权限的书籍 | !-cailj_ddtest@126.com-! | ddtest | | 0006dda208654c1a9ce48b4a5d6096ce | | 15701 | 通过 |
+| 收书，收取部分书籍 | !-cailj_ddtest@126.com-! | ddtest | | 0006dda208654c1a9ce48b4a5d6096ce | | 0 | 通过 |
+
+!contents -R2 -g -p -f -h

@@ -1,0 +1,7 @@
+!contents -R2 -g -p -f -h
+
+|Import|
+|com.dangdang.ddframework.core|
+
+|script|variable store|
+|clearGlobalVar|

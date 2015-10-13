@@ -9,17 +9,17 @@
 需要咨询代鹏验证码存放数据库
 
 !3 四、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center |
 
-|ddt:Get User                                                                                                                                         |
-|#用例名称                 |userName                |passWord|loginType|selfType|token    |pubId                               |status code ?|data verfiy?|
-|获取自己的信息，正常流程          |!-cailj_ddtest@126.com-!|ddtest  |email    |0       |         |#NotPass#                           |0            |通过          |
-|获取自己的信息，selfType不正确   |!-cailj_ddtest@126.com-!|ddtest  |email    |-1      |         |#NotPass#                           |60011        |通过          |
-|获取自己的信息，selfType不传    |!-cailj_ddtest@126.com-!|ddtest  |email    |        |         |#NotPass#                           |10002        |通过          |
-|获取自己的信息，token不正确      |                        |        |         |0       |testtoken|#NotPass#                           |10003        |通过          |
-|获取自己的信息，token不传       |                        |        |         |0       |         |#NotPass#                           |10003        |通过          |
-|获取他人信息，正常流程           |                        |        |         |1       |         |#GetPubIdByName#cailj_ddtest@126.com|0            |通过          |
-|获取他人信息，pubId不正确       |                        |        |         |1       |         |123                                 |60012        |通过          |
-|获取他人信息，pubId不传        |                        |        |         |1       |         |#NotPass#                           |10002        |通过          |
-|获取他人信息，传送自己信息，pbuId不正确|!-cailj_ddtest@126.com-!|ddtest  |email    |1       |         |123                                 |60012        |通过          |
+| ddt:Get User |
+| #用例名称 | userName | passWord | loginType | selfType | token | pubId | status code ? | data verfiy? |
+| 获取自己的信息，正常流程 | !-cailj_ddtest@126.com-! | ddtest | email | 0 | | #NotPass# | 0 | 通过 |
+| 获取自己的信息，selfType不正确 | !-cailj_ddtest@126.com-! | ddtest | email | -1 | | #NotPass# | 60011 | 通过 |
+| 获取自己的信息，selfType不传 | !-cailj_ddtest@126.com-! | ddtest | email | | | #NotPass# | 10002 | 通过 |
+| 获取自己的信息，token不正确 | | | | 0 | testtoken | #NotPass# | 10003 | 通过 |
+| 获取自己的信息，token不传 | | | | 0 | | #NotPass# | 10003 | 通过 |
+| 获取他人信息，正常流程 | | | | 1 | | #GetPubIdByName#cailj_ddtest@126.com | 0 | 通过 |
+| 获取他人信息，pubId不正确 | | | | 1 | | 123 | 60012 | 通过 |
+| 获取他人信息，pubId不传 | | | | 1 | | #NotPass# | 10002 | 通过 |
+| 获取他人信息，传送自己信息，pbuId不正确 | !-cailj_ddtest@126.com-! | ddtest | email | 1 | | 123 | 60012 | 通过 |

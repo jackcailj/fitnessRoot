@@ -1,0 +1,60 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360972
+
+----
+!3 二、接口描述：
+赠书红包接口
+
+赠书规则：
+
+1、只能赠送自己购买的书籍（试读、借阅、别人赠送的书籍、小说未完结的不能赠送）
+
+2、赠送后，48小时内没有领取，红包失效，不能被领取。
+
+3、赠送途径可以为im、qq、微信好友、微信朋友圈、qq空间、新浪微博
+
+4、赠书赠言必须为30字以内
+
+5、同一本书再没有被领取前可以多次赠送，被领取后，其他红包中的书籍也失效。
+
+6、领取赠书时，可以部分领取，也可以全部领取。
+
+7、领取赠书时，如果自己有书籍权限，不能领取，被别人领取后，也不能领取
+
+8、赠送图书后，书籍权限会与4.0同步
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | media_give、media_give_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.present_book |
+
+参数说明：
+
+advice：赠书的留言
+
+mediaIds：赠送书籍id，多个书籍用逗号分开
+
+| ddt:give media give |
+| #用例名称 | userName | passWord | token | advice | mediaIds | status code | data verfiy? |
+| 赠送图书，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | $sendMediaIds=#GetBuyProductId#BUY,2 | 0 | 通过 |
+| 赠送图书，赠送已经送出但未被领取的书籍 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | $sendMediaIds | 0 | 通过 |
+| 赠送图书，赠送自己没有权限的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetUnBuyProduct#EBOOK,VALID,1 | 15700 | 通过 |
+| 赠送图书，赠送已经被领取过的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBuyProductId#SENDEDBOOK,1 | 15700 | 通过 |
+| 赠送图书，赠送试读本书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetUnBuyProduct#SHIDU,VALID,1 | 15700 | 通过 |
+| 赠送图书，赠送别人赠送的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBuyProductId#ZENGSONG,1 | 15705 | 通过 |
+| 赠送图书，赠送小说未完结的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBuyProductId#NOTFULL,1 | 15705 | 通过 |
+| 赠送图书，赠送借阅的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBorrowProduct#1 | 15700 | 通过 |
+| 赠送图书,advice不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | $sendMediaIds | 200 | 通过 |
+| 赠送图书,advice为31个字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 有福同享，分享几本书给你，这些书都是我觉得比较好的，你看看吧。 | $sendMediaIds | 10002 | 通过 |
+| 赠送图书,mediaIds不传 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #NotPass# | 10003 | 通过 |
+| 赠送图书，mediaIds为空 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | | 10003 | 通过 |
+| 赠送图书,token不正确 | | | 123 | 分享一下 | $sendMediaIds | 10003 | 通过 |
+| 赠送图书,token不传 | | | #NotPass# | 分享一下 | $sendMediaIds | 10003 | 通过 |
+
+!contents -R2 -g -p -f -h

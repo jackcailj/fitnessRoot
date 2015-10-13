@@ -1,5 +1,4 @@
 !3 我的模块
-
 !***> 个人中心
 
 *1、[[注册接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.registerV2]]
@@ -135,8 +134,9 @@
 ----
 !***> 赠书相关
 
-*1、[[我的赠书列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyGiveList]] 
-*2、[[我的收书列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyReceiveList]]
+!include .FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit
+
+
 
 *!
 ----

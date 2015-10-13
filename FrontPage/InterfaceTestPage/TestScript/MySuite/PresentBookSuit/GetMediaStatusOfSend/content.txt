@@ -1,0 +1,30 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361017
+
+----
+!3 二、接口描述：
+赠书红包接口
+
+红包状态包括：0：进行中，1：被领取，2：红包超时失效
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | media_give、media_give_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.present_book |
+
+
+| ddt:get media status of send |
+| #用例名称 | userName | passWord | token | mediaPacketId | status code | data verfiy? |
+| 获取红包状态，正在进行中的红包 | !-cailj_ddtest@126.com-! | ddtest | | #GetPacket#INPROGRESS | 0 | 通过 |
+| 获取红包状态，被领取的红包 | !-cailj_ddtest@126.com-! | ddtest | | #GetPacket#COMPLETE | 0 | 通过 |
+| 获取红包状态，超时的红包 | !-cailj_ddtest@126.com-! | ddtest | | #GetPacket#INVALID | 0 | 通过 |
+| 获取红包状态，mediaPacketId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 123 | 0 | 通过 |
+| 获取红包状态，mediaPacketId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 10003 | 通过 |
+
+!contents -R2 -g -p -f -h

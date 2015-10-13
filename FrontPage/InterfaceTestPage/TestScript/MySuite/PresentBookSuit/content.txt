@@ -1,0 +1,8 @@
+赠书相关用例
+
+*1、[[我的赠书列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit.GetMyGiveList]] 
+*2、[[我的收书列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit.GetMyReceiveList]]
+*3、[[赠书红包接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit.GiveMediaGive]]
+*4、[[获取赠书红包状态接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit.GetMediaStatusOfSend]]
+*5、[[获取赠书红包详情接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit.GetMediaGiveStatusOfSender]]
+*6、[[收书接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit.GetMediaGive]]
