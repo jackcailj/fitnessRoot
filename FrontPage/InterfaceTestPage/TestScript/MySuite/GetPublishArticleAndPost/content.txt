@@ -24,11 +24,8 @@
 
 | ddt: get publish article and post |
 | #用例名称 | userName | passWord | token | selfType | pubId | createDateLong | pageSize | flag | status code | data verfiy? |
-| 获取个人发布的帖子和文章列表 | !-zcf@sina.com-! | 111111 | | 0 | | | 10 | | 0 | 通过 |
-
-
-|comment|
-| 获取别人发布的帖子和文章列表 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetPubIdByName#cailj_ddtest6@126.com | | 10 | | 0 | 通过 |
+| 获取个人发布的帖子和文章列表 | !-cailj_ddtest@126.com-! | ddtest | | 0 | | | 10 | | 0 | 通过 |
+| 获取别人发布的帖子和文章列表 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetPubIdByName#cailj_ddtest2@126.com | | 10 | | 0 | 通过 |
 | 获取个人发布的帖子和文章列表，token不正确 | | | 123 | 0 | | | 10 | | 10003 | 通过 |
 | 获取个人发布的帖子和文章列表，token不传 | | | #NotPass# | 0 | | | 10 | | 10003 | 通过 |
 | 获取个人发布的帖子和文章列表，pubId不正确 | | | | 1 | 123 | | 10 | 验证数据为null | 0 | 通过 |

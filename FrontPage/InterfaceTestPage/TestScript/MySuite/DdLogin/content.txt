@@ -20,7 +20,7 @@
 | ddt:ddLogin |
 | 用例名称 | userName | passWord | loginClient | code | loginType | pdfkey | key | status code | data verfiy? |
 | 登录，email登录方式正常流程 | !-cailj_ddtest@126.com-! | ddtest | 0 | | email | | 12312312321312 | 0 | 通过 |
-| 登录，phone方式登录，正常流程 | 15110267876 | 111111 | 0 | | phone | | 12312312321312 | 0 | 通过 |
+| 登录，phone方式登录，正常流程 | 15110267876 | ddtest1 | 0 | | phone | | 12312312321312 | 0 | 通过 |
 | 登录，email登录方式，客户端为当读小说 | !-cailj_ddtest@126.com-! | ddtest | 1 | | email | | 12312312321312 | 0 | 通过 |
 | 登录，email登录方式，客户端为翻篇儿 | !-cailj_ddtest@126.com-! | ddtest | 2 | | email | | 12312312321312 | 0 | 通过 |
 | 登录，email登录方式，客户端为天天听书 | !-cailj_ddtest@126.com-! | ddtest | 3 | | email | | 12312312321312 | 0 | 通过 |

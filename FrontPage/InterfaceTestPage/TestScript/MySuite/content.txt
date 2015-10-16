@@ -51,9 +51,7 @@
 
 *25、[[IOS游客登录][.FrontPage.InterfaceTestPage.TestScript.MySuite.TouristsLogin]]（done）
 
-*26、[[添加收藏][.FrontPage.InterfaceTestPage.TestScript.MySuite.DDReaderStoreUpSave]]
-
-*27、[[取消收藏][.FrontPage.InterfaceTestPage.TestScript.MySuite.DDReaderStoreUpCancel]]
+*26、[[添加\取消收藏][.FrontPage.InterfaceTestPage.TestScript.MySuite.DDReaderStoreUpSave]]
 
 *28、[[收藏列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.DDReaderStoreUpList]]
 
@@ -119,38 +117,22 @@
 ----
 !***> 等级经验
 
-*1、[[积分明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemList]]
-
-*2、[[经验明细列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetExperienceItemList]]
-
+!include .FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemSuit
 *!
 ----
 !***> 活动推广
 
-*1、[[活动推广接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetActivitys]] 
-*2、[[活动领取银铃铛][.FrontPage.InterfaceTestPage.TestScript.MySuite.UserAttendActivityReward]]
-
+!include .FrontPage.InterfaceTestPage.TestScript.MySuite.ActivitysSuit
 *!
 ----
 !***> 赠书相关
 
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit
-
-
-
 *!
 ----
 !***> 云同步相关相关
 
-*1、[[同步书签笔记][.FrontPage.InterfaceTestPage.TestScript.MySuite.UpdateBookCloudSyncReadInfo]] 
-*2、[[同步阅读进度][.FrontPage.InterfaceTestPage.TestScript.MySuite.UpdateBookCloudSyncReadProgressInfo]] 
-*3、[[获得书签笔记列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetBookCloudSyncReadInfo]] 
-*4、[[获得阅读时长、进度列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetBookCloudSyncReadProgressInfo]] 
-*5、[[获得一个人一本书的笔记详情][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPersonalBookNoteInfo]] 
-*6、[[获得笔记分类列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPersonalBookNoteInfoList]] 
-*7、[[个人获得笔记总数][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPersonalBookNoteInfoNo]] 
-*8、[[获得阅历信息接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetExperienceInfoList]]
-
+!include .FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit
 *!
 ----
 !contents -R2 -g -p -f -h

@@ -30,8 +30,8 @@
 生成赠书红包
 
 | script | give media give |
-| setParameters | !{userName:!-cailj_ddtest@126.com-!,passWord:ddtest,advice:分享一下,mediaIds:$sendMeidaId=#GetBuyProductId#BUY!1,期望:0} |
-| show | do work and verify |
+| setParameters | !{userName:!-cailj_ddtest@126.com-!,passWord:ddtest,advice:分享一下,mediaIds:$sendMeidaId=#GetBuyProductId#BUY;1,期望:0} |
+| do work and verify |
 | check | getDataVerifyResult | true |
 | $packetId= | getMediaPacketId |
 
@@ -47,7 +47,7 @@
 | 收书，token不正确 | | | 123 | $packetId | $sendMeidaId | 10003 | 通过 |
 | 收书，token不传 | | | #NotPass# | $packetId | $sendMeidaId | 10003 | 通过 |
 
-| comment |已测，但脚本没有实现|
+| comment | 已测，但脚本没有实现 |
 | 收书，收取有权限的书籍 | !-cailj_ddtest@126.com-! | ddtest | | 0006dda208654c1a9ce48b4a5d6096ce | | 15701 | 通过 |
 | 收书，收取部分书籍 | !-cailj_ddtest@126.com-! | ddtest | | 0006dda208654c1a9ce48b4a5d6096ce | | 0 | 通过 |
 

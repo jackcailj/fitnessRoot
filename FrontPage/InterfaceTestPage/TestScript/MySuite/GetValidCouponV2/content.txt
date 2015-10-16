@@ -18,17 +18,17 @@
 
 ----
 !3 四、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center |
 
-|ddt:get valid coupon v2                                                                                                               |
-|#用例名称                    |userName                |passWord|loginType|token    |payCertificate  |orderAmount|status code?|data verify?|
-|获取礼卷列表，正常流程              |!-cailj_ddtest@126.com-!|ddtest  |email    |         |                |           |0           |通过          |
-|获取礼卷列表，token不传           |                        |        |         |#NotPass#|                |           |10002       |通过          |
-|获取礼卷列表，token不正确          |                        |        |         |123      |                |           |10003       |通过          |
-|结算时获取礼卷列表,正常流程           |!-cailj_ddtest@126.com-!|ddtest  |email    |         |ebookCertificate|1          |0           |通过          |
-|结算时获取礼卷列表,orderAmount为负数 |!-cailj_ddtest@126.com-!|ddtest  |email    |         |ebookCertificate|-1         |10002       |通过          |
-|结算时获取礼卷列表,orderAmount为非数字|!-cailj_ddtest@126.com-!|ddtest  |email    |         |ebookCertificate|abc        |10002       |通过          |
-|结算时获取礼卷列表,orderAmount不传  |!-cailj_ddtest@126.com-!|ddtest  |email    |         |ebookCertificate|#NotPass#  |10002       |通过          |
+| ddt:get valid coupon v2 |
+| #用例名称 | userName | passWord | loginType | token | payCertificate | orderAmount | status code? | data verify? |
+| 获取礼卷列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | email | | | | 0 | 通过 |
+| 获取礼卷列表，token不传 | | | | #NotPass# | | | 10002 | 通过 |
+| 获取礼卷列表，token不正确 | | | | 123 | | | 10003 | 通过 |
+| 结算时获取礼卷列表,正常流程 | !-cailj_ddtest@126.com-! | ddtest | email | | ebookCertificate | 1 | 0 | 通过 |
+| 结算时获取礼卷列表,orderAmount为负数 | !-cailj_ddtest@126.com-! | ddtest | email | | ebookCertificate | -1 | 0 | 通过 |
+| 结算时获取礼卷列表,orderAmount为非数字 | !-cailj_ddtest@126.com-! | ddtest | email | | ebookCertificate | abc | 0 | 通过 |
+| 结算时获取礼卷列表,orderAmount不传 | !-cailj_ddtest@126.com-! | ddtest | email | | ebookCertificate | #NotPass# | 0 | 通过 |
 
 !contents -R2 -g -p -f -h
