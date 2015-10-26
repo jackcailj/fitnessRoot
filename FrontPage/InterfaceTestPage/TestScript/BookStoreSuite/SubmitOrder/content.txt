@@ -1,0 +1,33 @@
+!1 '''提交订单'''
+
+!* 测试用例
+接口：action=submitOrder
+参数：
+ * token – 身份认证token必填
+接口描述：http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360162
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|提交订单|
+|||token为空|token参数值为空，其他参数正常|参数非法|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.purchase|
+*!
+!*> 定义scenario 
+| scenario |submitOrderTest|action||userName||passWord||loginType||token||期望||result||setParameters|
+| setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|submit order|
+*!
+!* 测试数据
+|submitOrderTest|
+|#用例名称|action|userName|passWord|loginType|token|期望|result|
+|正常流程|submitOrder|!-whytest@dd.con-!|111111|email||0|pass|
+|token为空|submitOrder|||||10002|pass|
+*!

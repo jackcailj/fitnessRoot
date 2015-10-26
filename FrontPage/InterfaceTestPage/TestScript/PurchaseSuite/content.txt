@@ -25,4 +25,41 @@
 
 3、[[充值接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ConsumerDeposit]]
 *!
+!* '''纸质书购物车'''
+ *[[添加购物车][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.AppendCart]]
+ *[[更新购物车][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.UpdateCart]]
+ *[[删除购物车][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.DeleteCart]]
+ *[[结算检查购物车][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.BalanceCart]]
+ *[[获取购物车][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetCart]]
+ *[[勾选购买项][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.CheckItemCart]]
+ *[[取消勾选购买项][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.UncheckItemCart]]
+ *[[换赠品接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ExchangeGiftCart]]
+ *[[删除换赠品接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.RemoveGiftCart]]
+*!
+!* '''礼品卡-礼券'''
+ *[[下单赠送礼券][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetReturnCoupon]]
+ *[[礼券激活][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.BindCoupon]]
+ *[[获取可用礼券][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetValidCoupon]]
+ *[[使用礼券支付][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.UseCoupon]]
+ *[[取消使用礼券支付][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.CancelCoupon]]
+ *[[激活礼品卡][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ActivateDdMoney]]
+ *[[获取礼品卡列表][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetDdMoneyList]]
+ *[[使用礼品卡支付][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.UseDdMoney]]
+ *[[取消使用礼品卡支付][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.CancelDdMoney]]
+ *[[获取礼品卡列表][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetDdMoneyList]]
+*!
+!* '''收货'''
+ *[[保存收货地址接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.SaveShipAddress]]
+ *[[收货人列表][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetShipAddressOptions]]
+*!
+!* '''送货'''
+ *[[保存送货方式接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.SaveShipment]]
+ *[[获取送货方式接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetShipmentOptions]]
+*!
+!* '''提交订单'''
+ *[[提交订单][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.SubmitOrder]]
+*!
+!* '''优惠方式'''
+ *[[优惠方式][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetDiscountPattern]]
+*!
 !contents -R2 -g -p -f -h

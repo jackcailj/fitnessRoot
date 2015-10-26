@@ -1,0 +1,36 @@
+!1 '''收货人列表'''
+
+!* 测试用例
+接口：action=getShipAddressOptions
+参数：
+ * token – 身份认证token必填
+接口描述：获取用户所有可用的地址信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360053
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|输入正确的参数值|获取收货人列表|
+|||token为空|token参数值为空，其他参数正常|参数非法|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.purchase|
+*!
+!*> 定义scenario 
+| scenario |getShipAddressTest|action||userName||passWord||loginType||token||期望||result||setParameters|
+| setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get ship address options|
+*!
+!* 测试数据
+|getShipAddressTest|
+|#用例名称|action|userName|passWord|loginType|token|期望|result|
+|正常流程|getShipAddressOptions|!-whytest@dd.con-!|111111|email||0|pass|
+|token为空|getShipAddressOptions|||||10002|pass|
+*!
+
+!4 POST /media/api2.go?action=getShipAddressOptions&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0.0&serverVersionNo=1.2.1&permanentId=20150917020927913392996461857243835&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=DDDS-P&channelType=&token=1f72a93ad62ae89fa5b173653f9b32a9

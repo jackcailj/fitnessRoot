@@ -1,0 +1,51 @@
+!1 '''获取送货方式接口'''
+
+!* 测试用例
+接口：action=getShipmentOptions
+参数：
+ * token – 身份认证token必填
+ * cityId – 城市必填
+ * townId – 地区必填
+ * shopId – 商家必填
+ * cartId – 购物车必填
+ * fromPlatform – 必填
+ * isLocalArrive – 是否本地发货必填
+ * orderItemsType – 订单项类型必填
+ * orderSequenceId – 订单序列号
+接口描述：获取送货方式接口，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360045
+相关数据库表？？？：
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|
+|||正常流程|本地输入正确的参数值|获取送货方式|
+|||正常流程|isLocalArrive为false，输入正确的参数值|获取送货方式|
+|||正常流程|orderItemsType为2，输入正确的参数值|获取送货方式|
+|||cartId为空|cartId为空，输入正确的参数值|参数非法|
+|||orderItemsType为空|orderItemsType为空，输入正确的参数值|参数非法|
+|||token为空|token为空，输入正确的参数值|参数非法|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.purchase|
+*!
+!*> 定义scenario 
+| scenario |getShipmentOptionsTest|action||userName||passWord||loginType||token||cartId||cityId||townId||shopId||isLocalArrive||orderItemsType||fromPlatform||orderSequenceId||期望||result||setParameters|
+| setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cartId:@cartId,cityId:@cityId,townId:@townId,shopId:@shopId,isLocalArrive:@isLocalArrive,orderItemsType:@orderItemsType,fromPlatform:@fromPlatform,orderSequenceId:@orderSequenceId,期望:@期望}|
+|show|do request|
+|dataVerify|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get shipment options|
+*!
+!* 测试数据
+|getShipmentOptionsTest|
+|#用例名称|action|userName|passWord|loginType|token|cartId|cityId|townId|shopId|isLocalArrive|orderItemsType|fromPlatform|orderSequenceId|期望|result|
+|正常流程|getShipmentOptions|!-whytest@dd.con-!|111111|email||fromCustId|1110105|1110105|0|true|1|103|0_0|0|pass|
+|正常流程|getShipmentOptions|!-whytest@dd.con-!|111111|email||fromCustId|1110105|1110105|0|false|1|103|0_0|0|pass|
+|正常流程|getShipmentOptions|!-whytest@dd.con-!|111111|email||fromCustId|1110105|1110105|0|true|2|103|0_0|0|pass|
+|cartId为空|getShipmentOptions|!-whytest@dd.con-!|111111|email|||1110105|1110105|0|true|1|103|0_0|4922015|pass|
+|orderItemsType为空|getShipmentOptions|!-whytest@dd.con-!|111111|email||fromCustId|1110105|1110105|0|true||103|0_0|-1003|pass|
+|token为空|getShipmentOptions|||||fromCustId|1110105|1110105|0|true|2|103|0_0|10002|pass|
+*!
