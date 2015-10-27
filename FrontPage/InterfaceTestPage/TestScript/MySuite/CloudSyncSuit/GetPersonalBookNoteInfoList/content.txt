@@ -17,14 +17,14 @@
 | com.dangdang.readerV5.personal_center.cloud_sync_read |
 
 | ddt:get personal book note info list |
-| #用例名称 | userName | passWord | token | versionTime | pageNum | pageSize | status code | data verfiy? |
-| 获得笔记分类列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | | 0 | 10 | 0 | 通过 |
-| 获得笔记分类列表，token不正确 | | | 123 | | 0 | 10 | 10003 | 通过 |
-| 获得笔记分类列表，token不传 | | | #NotPass# | | 0 | 10 | 10002 | 通过 |
+| case | userName | passWord | token | versionTime | pageNum | pageSize | status code | data verfiy? |
+| 获得笔记分类列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | | 1 | 10 | 0 | 通过 |
+| 获得笔记分类列表，token不正确 | | | 123 | | 1 | 10 | 1 | 通过 |
+| 获得笔记分类列表，token不传 | | | #NotPass# | | 1 | 10 | -1003 | 通过 |
 | 获得笔记分类列表，pageNum为非数字 | !-cailj_ddtest@126.com-! | ddtest | | | a | 10 | 200 | 通过 |
-| 获得笔记分类列表，pageSize为非数字 | !-cailj_ddtest@126.com-! | ddtest | | | 0 | a | 200 | 通过 |
-| 获得笔记分类列表，pageNum为负数 | !-cailj_ddtest@126.com-! | ddtest | | | -1 | 10 | 0 | 通过 |
-| 获得笔记分类列表，pageSize为负数 | !-cailj_ddtest@126.com-! | ddtest | | | 0 | -10 | 0 | 通过 |
-| 获得笔记分类列表，pageSize为0 | !-cailj_ddtest@126.com-! | ddtest | | | 0 | 0 | 0 | 通过 |
+| 获得笔记分类列表，pageSize为非数字 | !-cailj_ddtest@126.com-! | ddtest | | | 1 | a | 200 | 通过 |
+| 获得笔记分类列表，pageNum为负数 | !-cailj_ddtest@126.com-! | ddtest | | | -1 | 10 | 200 | 通过 |
+| 获得笔记分类列表，pageSize为负数 | !-cailj_ddtest@126.com-! | ddtest | | | 1 | -10 | 0 | 通过 |
+| 获得笔记分类列表，pageSize为0 | !-cailj_ddtest@126.com-! | ddtest | | | 1 | 0 | 0 | 通过 |
 
 !contents -R2 -g -p -f -h

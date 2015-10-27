@@ -7,24 +7,23 @@
 搜索书友
 
 !3 三、涉及数据库
-|Comment            |
-|数据库    |表          |
-|ucenter|book_friend|
+| Comment |
+| 数据库 | 表 |
+| ucenter | book_friend |
 
 ----
 !3 四、测试用例:
-|Import                                          |
-|com.dangdang.readerV5.personal_center.bookfriend|
+| Import |
+| com.dangdang.readerV5.personal_center.bookfriend |
 
-|ddt:web search book friend                                                                                        |
-|#用例名称              |userName                |passWord|token    |searchInput              |status code|data verfiy?|
-|搜索书友，搜索昵称          |!-cailj_ddtest@126.com-!|ddtest  |         |生机                       |0          |通过          |
-|搜索书友，搜索邮箱          |!-cailj_ddtest@126.com-!|ddtest  |         |!-cailj_ddtest2@126.com-!|0          |通过          |
-|搜索书友，搜索手机          |!-cailj_ddtest@126.com-!|ddtest  |         |!-13000000100-!          |0          |通过          |
-|搜索书友，searchInput不传 |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#                |10002      |通过          |
-|搜索书友，searchInput为空 |!-cailj_ddtest@126.com-!|ddtest  |         |                         |10002      |通过          |
-|搜索书友，searchInput为空格|!-cailj_ddtest@126.com-!|ddtest  |         |                         |10002      |通过          |
-|搜索书友，token不正确      |                        |        |123      |!-cailj_ddtest2@126.com-!|0          |通过          |
-|搜索书友，token不传       |                        |        |#NotPass#|!-cailj_ddtest2@126.com-!|0          |通过          |
+| ddt:web search book friend |
+| #用例名称 | userName | passWord | token | searchInput | status code | data verfiy? |
+| 搜索书友，搜索昵称 | !-cailj_ddtest@126.com-! | ddtest | | 生机 | 0 | 通过 |
+| 搜索书友，搜索邮箱 | !-cailj_ddtest@126.com-! | ddtest | | !-cailj_ddtest6-!  | 0 | 通过 |
+| 搜索书友，搜索手机 | !-cailj_ddtest@126.com-! | ddtest | | !-13000000100-! | 0 | 通过 |
+| 搜索书友，searchInput不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |
+| 搜索书友，searchInput为空 | !-cailj_ddtest@126.com-! | ddtest | | | 10002 | 通过 |
+| 搜索书友，searchInput为空格 | !-cailj_ddtest@126.com-! | ddtest | | | 10002 | 通过 |
+| 搜索书友，token不传 | | | #NotPass# | !-cailj_ddtest2-!  | 0 | 通过 |
 
 !contents -R2 -g -p -f -h

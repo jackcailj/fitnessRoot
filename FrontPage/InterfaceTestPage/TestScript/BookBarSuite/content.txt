@@ -1,6 +1,5 @@
 !1 '''书吧模块'''
-
- *[[创建吧、修改吧简介、修改吧背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar]]
+*[[创建吧、修改吧简介、修改吧背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar]]
  *[[获取吧默认背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarDefImg]]
  *[[书吧搜索接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarList]]
  *[[吧详情页接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarInfo]]
@@ -17,6 +16,7 @@
  *[[是否吧成员接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.IsBarMember]]
  *[[置顶、加精接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.TopAndWonderful]]
  *[[获取书吧关联的书籍列表][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarBook]]
-
+ *[[分享书吧接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.ShareToBar]]
+ *[[推荐文章][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.Recommendarticle]]
 
 # !contents -R2 -g -p -f -h

@@ -19,10 +19,10 @@
 | ddt:get experience item list |
 | #用例名称 | userName | passWord | token | pageSize | lastExperienceItemsId | status code | data verfiy? |
 | 获取经验明细列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 10 | 0 | 0 | 通过 |
-| 获取经验明细列表，列表为空 | !-cailj_ddtest10@126.com-! | ddtest1 | | 10 | 0 | 0 | 通过 |
+| 获取经验明细列表，列表为空 | !-cailj_ddtest6@126.com-! | ddtest | | 10 | 0 | 0 | 通过 |
 | 获取经验明细列表，''token不正确'' | | | 1234 | 10 | 0 | 10003 | 通过 |
 | 获取经验明细列表，''token''不传 | | | #NotPass# | 10 | 0 | 10002 | 通过 |
-| 获取经验明细列表，pageSize为非数字 | !-cailj_ddtest10@126.com-! | ddtest1 | | ab | 0 | 10002 | 通过 |
-| 获取经验明细列表，lastExperienceItemsId为非数字  | !-cailj_ddtest10@126.com-! | ddtest1 | | 10 | a | 10002 | 通过 |
+| 获取经验明细列表，pageSize为非数字 | !-cailj_ddtest6@126.com-! | ddtest | | ab | 0 | 10002 | 通过 |
+| 获取经验明细列表，lastExperienceItemsId为非数字 | !-cailj_ddtest6@126.com-! | ddtest | | 10 | a | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

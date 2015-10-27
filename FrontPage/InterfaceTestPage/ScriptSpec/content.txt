@@ -1,0 +1,7 @@
+!5 1、数据库相关放到com.dangdang.db包内，类命名方式，表明+Db
+!5 2、表格内调用方法保存变量格式
+ * $var=#解析类名（不包含Parse)#参数（以逗号或者分号分隔，如果需要包含其他如 and ，可以ParamParse类中定义扩展）
+ * 涉及到的类：!-ParseFactory-!：解析字符串，调用对应的方法，并存储变量!-ParamParse-!：参数解析处理类!-VariableStore-!：变量存储类，包括一个用例中的临时变量、还有全局变量存储。需要在结束时调用clear临时变量，clearGlobalVar清除全局变量。
+ * 解析类放到com.dangdang.param.parse包中
+
+!contents -R2 -g -p -f -h

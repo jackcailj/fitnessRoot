@@ -47,7 +47,7 @@ mediaIds：赠送书籍id，多个书籍用逗号分开
 | 赠送图书，赠送自己没有权限的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetUnBuyProduct#EBOOK,VALID,1 | 15700 | 通过 |
 | 赠送图书，赠送已经被领取过的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBuyProductId#SENDEDBOOK,1 | 15700 | 通过 |
 | 赠送图书，赠送试读本书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetUnBuyProduct#SHIDU,VALID,1 | 15700 | 通过 |
-| 赠送图书，赠送别人赠送的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBuyProductId#ZENGSONG,1 | 15705 | 通过 |
+| 赠送图书，赠送别人赠送的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBuyProductId#ZENGSONG,1 | 15707 | 通过 |
 | 赠送图书，赠送小说未完结的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBuyProductId#NOTFULL,1 | 15705 | 通过 |
 | 赠送图书，赠送借阅的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 分享一下 | #GetBorrowProduct#1 | 15700 | 通过 |
 | 赠送图书,advice不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | $sendMediaIds | 200 | 通过 |

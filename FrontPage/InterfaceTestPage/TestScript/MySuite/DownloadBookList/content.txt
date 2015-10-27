@@ -23,8 +23,8 @@
 
 | ddt:download book list |
 | #用例名称 | uId | status code | data verfiy? |
-| 获取云书架列表，正常流程 | #GetPubIdByName#cailj_ddtest@126.com | 0 | 通过 |
-| 获取云书架列表，书架为空 | #GetPubIdByName#cailj_ddtest2@126.com | 0 | 通过 |
+| 获取云书架列表，正常流程 | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |
+| 获取云书架列表，书架为空 | #GetPubIdByName#cailj_ddtest2@126.com,ddtest | 0 | 通过 |
 | 获取云书架列表，''uId''不正确 | 123344555 | 0 | 通过 |
 | 获取云书架列表，''uId''不传 | #NotPass# | 200 | 通过 |
 

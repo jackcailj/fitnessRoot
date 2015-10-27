@@ -17,4 +17,6 @@
 !1 脚本
  * [[Script][.FrontPage.InterfaceTestPage.TestScript]]
 
+    
+ * [[脚本规范][.FrontPage.InterfaceTestPage.ScriptSpec]]
 !contents

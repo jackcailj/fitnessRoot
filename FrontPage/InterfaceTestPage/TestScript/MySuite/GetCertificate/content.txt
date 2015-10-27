@@ -11,17 +11,17 @@ refAction:用户行为参数（可以为空或者不传）但如果是登录用�
 !3 三、涉及数据库
 ----
 !3 四、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center.bookshelf |
 
-|ddt:get certificate                                                                                                                                                                                                                              |
-|#用例名称                |userName                |passWord|token    |mediaId   |publicKey                                                                                                                       |refAction|status code?|data verfiy?|
-|获取证书，正常流程            |                        |        |#NotPass#|#GetMedia#|MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|         |0           |通过          |
-|获取证书，登录用户            |!-cailj_ddtest@126.com-!|ddtest  |         |#GetMedia#|MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|browse   |0           |通过          |
-|获取证书，登录用户，refAction为空|!-cailj_ddtest@126.com-!|ddtest  |         |#GetMedia#|MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|         |0           |通过          |
-|获取出版物证书,media不正确     |                        |        |#NotPass#|123456    |MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|         |12002       |通过          |
-|获取出版物证书,media不传      |                        |        |         |#NotPass# |MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ==|         |10002       |通过          |
-|获取出版物证书,key不正确       |                        |        |         |#NotPass# |123                                                                                                                             |         |10002       |通过          |
-|获取出版物证书,key不传        |                        |        |         |#NotPass# |#NotPass#                                                                                                                       |         |10002       |通过          |
+| ddt:get certificate |
+| #用例名称 | userName | passWord | token | mediaId | publicKey | refAction | status code | data verfiy? |
+| 获取证书，正常流程 | | | #NotPass# | #GetMedia# | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | | 0 | 通过 |
+| 获取证书，登录用户 | !-cailj_ddtest@126.com-! | ddtest | | #GetMedia# | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | browse | 0 | 通过 |
+| 获取证书，登录用户，refAction为空 | !-cailj_ddtest@126.com-! | ddtest | | #GetMedia# | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | | 0 | 通过 |
+| 获取出版物证书,media不正确 | | | #NotPass# | 123456 | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | | 12002 | 通过 |
+| 获取出版物证书,media不传 | | | | #NotPass# | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | | 10002 | 通过 |
+| 获取出版物证书,key不正确 | | | | #NotPass# | 123 | | 10002 | 通过 |
+| 获取出版物证书,key不传 | | | | #NotPass# | #NotPass# | | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

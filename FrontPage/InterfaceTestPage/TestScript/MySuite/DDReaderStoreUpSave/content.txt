@@ -34,14 +34,16 @@
 | 收藏，type不正确 | !-cailj_ddtest@126.com-! | ddtest | | test | $StoreBookId | | 28001 | 通过 |
 | 收藏，targetIds为空 | !-cailj_ddtest@126.com-! | ddtest | | media | | | 10002 | 通过 |
 | 收藏，targetIds不传 | !-cailj_ddtest@126.com-! | ddtest | | media | #NotPass# | | 10002 | 通过 |
-| 收藏，图书targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | media | 123455 | | 28007 | 通过 |
+| 收藏，图书targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | media | 123455 |error_data | 0 | 通过 |
 | 收藏，发现targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | discover | 123455 | error_data | 0 | 通过 |
 | 收藏，翻篇儿targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | digest | 123455 | error_data | 0 | 通过 |
 | 收藏，文章targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | article | 123455 | error_data | 0 | 通过 |
 | 收藏，帖子targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | post | 123455 | error_data | 0 | 通过 |
 
+
 | comment | 没有进行类型和id的对应检查 |
 | 收藏，type和targetIds不匹配 | !-cailj_ddtest@126.com-! | ddtest | | media | $StoreArticleId | | 10002 | 通过 |
+
 
 !3 取消收藏
 !3 一、接口wiki地址：

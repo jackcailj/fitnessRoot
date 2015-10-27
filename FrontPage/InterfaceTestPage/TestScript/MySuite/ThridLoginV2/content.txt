@@ -10,13 +10,13 @@
 
 ----
 !4 三、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center |
 
-|ddt:thrid login v2                                                                                                                                                                                   |
-|#用例名称             |loginClient|cust_third_id|order_source|third_id|key      |nickName   |custImg                                                         |isUseCommonAppKey|status code?|data verfiy?|
-|登录，qq用户登录，正常流程    |0          |123456       |30000       |6       |123231231|测试昵称       |http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg|0                |0           |通过          |
-|登录，支付宝用户登录，正常流程   |0          |123456       |30000       |7       |131231231|测试昵称       |http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg|0                |0           |通过          |
-|登录，新浪微博用户登录，正常流程  |1          |123458       |30000       |5       |123231231|测试昵称       |http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg|0                |0           |通过          |
-|登录，微信用户登录，正常流程    |2          |123459       |30000       |200     |123231231|测试昵称       |http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg|1                |0           |通过          |
-|登录，微信用户登录，昵称中有特殊字符|0          |123457       |30000       |6       |123231231|-_-×我是小丑*@#|http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg|0                |0           |通过          |
+| ddt:thrid login v2 |
+| #用例名称 | loginClient | cust_third_id | order_source | third_id | key | nickName | custImg | isUseCommonAppKey | status code | data verfiy? |
+| 登录，qq用户登录，正常流程 | 0 | 123456 | 30000 | 6 | 123231231 | 测试昵称 | http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg | 0 | 0 | 通过 |
+| 登录，支付宝用户登录，正常流程 | 0 | 123456 | 30000 | 7 | 131231231 | 测试昵称 | http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg | 0 | 0 | 通过 |
+| 登录，新浪微博用户登录，正常流程 | 1 | 123458 | 30000 | 5 | 123231231 | 测试昵称 | http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg | 0 | 0 | 通过 |
+| 登录，微信用户登录，正常流程 | 2 | 123459 | 30000 | 200 | 123231231 | 测试昵称 | http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg | 1 | 0 | 通过 |
+| 登录，微信用户登录，昵称中有特殊字符 | 0 | 123457 | 30000 | 6 | 123231231 | -_-×我是小丑*@# | http://img60.ddimg.cn/9a34bfc6-ab83-4ca3-933c-992b6447a757_g.jpg | 0 | 0 | 通过 |

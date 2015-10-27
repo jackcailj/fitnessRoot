@@ -37,7 +37,7 @@
 | 修改昵称，nickname不传 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | #NotPass# | 10002 | 通过 |
 | 修改昵称，昵称大于20个字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | 测试修改昵称测试修改昵称测试修改昵称a12 | 60020 | 通过 |
 | 修改昵称，昵称小于4个字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | #RandomUserName#3 | 60019 | 通过 |
-| 修改昵称，昵称中存在特殊字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | $123*-_- | 60021 | 通过 |
+| 修改昵称，昵称中存在特殊字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | 123*$-_- | 60021 | 通过 |
 
 
 下面几种情况均可成功

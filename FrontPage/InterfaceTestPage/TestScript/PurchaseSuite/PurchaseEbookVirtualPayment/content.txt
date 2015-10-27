@@ -18,6 +18,10 @@
 
 | ddt:purchase ebook virtual payment |
 | 用例名称 | userName | passWord | token | productArray | isAppendBorrow | dayNum | fromPlatform | timestamp | sign | flag | status code | data verify? |
+| 购买免费书籍!-
+-! | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK_FREE,VALID,1 | | | 103 | | | | | |
+
+| comment |
 | 购买书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | | | 0 | 通过 |
 | 重复购买书籍 | !-cailj_ddtest@126.com-! | ddtest | | #GetBuyProductAndSaleId#1 | | | 103 | | | 重复 | 0 | 通过 |
 | 购买字体 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#FONT,VALID,1 | | | 103 | | | font | 0 | 通过 |

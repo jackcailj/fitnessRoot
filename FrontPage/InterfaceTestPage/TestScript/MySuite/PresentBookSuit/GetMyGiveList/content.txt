@@ -19,10 +19,10 @@
 | ddt:get my give list |
 | #用例名称 | userName | passWord | token | amount | start | status code | data verfiy? |
 | 获取赠书列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 10 | 1 | 0 | 通过 |
-| 获取赠书列表，列表为空 | !-cailj_ddtest10@126.com-! | ddtest1 | | 10 | 0 | 0 | 通过 |
+| 获取赠书列表，列表为空 | !-cailj_ddtest6@126.com-! | ddtest | | 10 | 0 | 0 | 通过 |
 | 获取赠书列表，''token不正确'' | | | 1234 | 10 | 0 | 10003 | 通过 |
 | 获取赠书列表，''token''不传 | | | #NotPass# | 10 | 0 | 10003 | 通过 |
-| 获取赠书列表，start为非数字 | !-cailj_ddtest10@126.com-! | ddtest1 | | 10 | a | 10002 | 通过 |
-| 获取赠书列表，start为非数字 | !-cailj_ddtest10@126.com-! | ddtest1 | | a | 0 | 10002 | 通过 |
+| 获取赠书列表，start为非数字 | !-cailj_ddtest6@126.com-! | ddtest | | 10 | a | 10002 | 通过 |
+| 获取赠书列表，start为非数字 | !-cailj_ddtest6@126.com-! | ddtest | | a | 0 | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

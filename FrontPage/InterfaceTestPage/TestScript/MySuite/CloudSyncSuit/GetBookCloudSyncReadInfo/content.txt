@@ -18,11 +18,11 @@
 
 | ddt:get book cloud sync read  info |
 | #用例名称 | userName | passWord | token | productId | versionTime | status code | data verfiy? |
-| 获得书签、笔记列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | 1442803840 | 0 | 通过 |
+| 获得书签、笔记列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | $bijiProductId=#GetBuyProductId#BUY,1 | 1442803840 | 0 | 通过 |
 | 获得书签、笔记列表，productId不存在 | !-cailj_ddtest@126.com-! | ddtest | | 1231 | 1442803840 | 0 | 通过 |
-| 获得书签、笔记列表,productId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 1442803840 | 10002 | 通过 |
-| 获得书签、笔记列表，versionTime不传 | !-cailj_ddtest@126.com-! | ddtest | | 1900279820 | #NotPass# | 10002 | 通过 |
-| 获得书签、笔记列表，token不正确 | | | 123 | 1900279820 | 1442803840 | 10003 | 通过 |
-| 获得书签、笔记列表，token不传 | | | #NotPass# | 1900279820 | 1442803840 | 10002 | 通过 |
+| 获得书签、笔记列表,productId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 1442803840 | -1003 | 通过 |
+| 获得书签、笔记列表，versionTime不传 | !-cailj_ddtest@126.com-! | ddtest | | $bijiProductId | #NotPass# | -1003 | 通过 |
+| 获得书签、笔记列表，token不正确 | | | 123 | $bijiProductId | 1442803840 | 1 | 通过 |
+| 获得书签、笔记列表，token不传 | | | #NotPass# | $bijiProductId | 1442803840 | -1003 | 通过 |
 
 !contents -R2 -g -p -f -h
