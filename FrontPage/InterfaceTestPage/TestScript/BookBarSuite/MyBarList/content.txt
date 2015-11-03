@@ -51,9 +51,6 @@
 
 | myBarListTest |
 | #用例名称 | userName | passWord | loginType | action | type | pageNo | token | 期望 | result |
-| pageNo值为大于1 | !-cailj_ddtest@126.com-! | ddtest | email | myBarList | 2 | 2 | | 0 | pass |
-
-| comment |
 | 我的吧列表 | !-whytest@dd.con-! | 111111 | email | myBarList | 1 | 1 | | 0 | pass |
 | 加入的吧列表 | !-whytest@dd.con-! | 111111 | email | myBarList | 2 | 1 | | 0 | pass |
 | type值为3 | !-whytest@dd.con-! | 111111 | email | myBarList | 3 | 1 | | 0 | pass |

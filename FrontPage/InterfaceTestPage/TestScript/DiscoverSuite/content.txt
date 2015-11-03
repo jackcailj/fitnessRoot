@@ -36,9 +36,9 @@
 *!
 
 !* '''摇一摇'''
+ *[[获取摇一摇初始化信息接口][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetClienInfo]]
  *[[获取摇奖结果][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetLotteryResult]]
  *[[领取/放弃奖品服务接口][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.RecivedOrCancelPrize]]
- *[[获取摇一摇初始化信息接口][.FrontPage.InterfaceTestPage.TestScript.DiscoverSuite.GetClienInfo]]
 *!
 
 # !contents -R2 -g -p -f -h

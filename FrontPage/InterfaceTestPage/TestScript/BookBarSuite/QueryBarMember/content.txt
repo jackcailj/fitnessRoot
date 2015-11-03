@@ -36,15 +36,15 @@
 !* 测试数据
 |queryBarListTest|
 |#用例名称|action|barId|pageNo|期望|result|
-|正常流程|queryBarMember|FromDB|0|0|pass|
+|正常流程|queryBarMember|$barId=#GetBarIdOrObjectId#APPROVED,barId|0|0|pass|
 |barId参数值为字母|queryBarMember|bb|0|10002|pass|
 |barId参数值空|queryBarMember||0|10002|pass|
 |不传barId参数值|queryBarMember|REMOVE|0|10002|pass|
-|不传pageNo参数|queryBarMember|FromDB|REMOVE|10002|pass|
-|pageNo参数值为空|queryBarMember|FromDB||10002|pass|
-|pageNo参数值为负数|queryBarMember|FromDB|-1|0|pass|
-|pageNo参数值为1|queryBarMember|FromDB|1|0|pass|
-|pageNo参数值为a|queryBarMember|FromDB|a|10002|pass|
+|不传pageNo参数|queryBarMember|$barId|REMOVE|10002|pass|
+|pageNo参数值为空|queryBarMember|$barId||10002|pass|
+|pageNo参数值为负数|queryBarMember|$barId|-1|0|pass|
+|pageNo参数值为1|queryBarMember|$barId|1|0|pass|
+|pageNo参数值为a|queryBarMember|$barId|a|10002|pass|
 *!
 
 !4 备注：

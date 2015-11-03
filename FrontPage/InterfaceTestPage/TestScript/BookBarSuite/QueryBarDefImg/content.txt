@@ -31,5 +31,3 @@
 |#用例名称|action|期望|result|
 |正常流程|queryBarDefImg|0|pass|
 *!
-!4 备注： 怎样做才会获取默认背景图片失败？
-

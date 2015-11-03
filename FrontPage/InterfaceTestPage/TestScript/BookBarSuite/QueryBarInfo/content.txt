@@ -38,9 +38,9 @@
 !* 测试数据
 |queryBarInfoTest|
 |#用例名称|userName|passWord|loginType|action|barId|objectId|期望|result|
-|正常流程|!-whytest@dd.con-!|111111|email|queryBarInfo|FromDB|REMOVE|0|pass|
-|正常流程|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE|FromDB|0|pass|
-|barId与objectId共存|!-whytest@dd.con-!|111111|email|queryBarInfo|FromDB|FromDB|0|pass|
+|正常流程|!-whytest@dd.con-!|111111|email|queryBarInfo|$barId=#GetBarIdOrObjectId#APPROVED,barId|REMOVE|0|pass|
+|正常流程|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE|$objectId=#GetBarIdOrObjectId#APPROVED,objectId|0|pass|
+|barId与objectId共存|!-whytest@dd.con-!|111111|email|queryBarInfo|$barId|$objectId|0|pass|
 |barId值为字母|!-whytest@dd.con-!|111111|email|queryBarInfo|aa|REMOVE|10002|pass|
 |barId值为空|!-whytest@dd.con-!|111111|email|queryBarInfo||REMOVE|10002|pass|
 |不传参数barId|!-whytest@dd.con-!|111111|email|queryBarInfo|REMOVE|REMOVE|10002|pass|

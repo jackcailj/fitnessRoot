@@ -1,5 +1,5 @@
 !1 '''书吧模块'''
-*[[创建吧、修改吧简介、修改吧背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar]]
+ *[[创建吧、修改吧简介、修改吧背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar]]
  *[[获取吧默认背景图片接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarDefImg]]
  *[[书吧搜索接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarList]]
  *[[吧详情页接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.QueryBarInfo]]

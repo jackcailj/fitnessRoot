@@ -73,8 +73,6 @@
 |actionType参数值为0|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|0||25032|pass|
 |actionType参数值为空|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|||10002|pass|
 |不传actionType|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|FromDB|REMOVE||10002|pass|
-|建吧时barImgUrl参数值为空|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|introduction1||1||0|pass|
-|建吧时不传barImgUrl参数|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|introduction1|REMOVE|1||0|pass|
 |修改吧背景时barImgUrl参数值为空|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB||3||25044|pass|
 |修改吧背景时不传barImgUrl参数|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB|FromDB|REMOVE|3||25044|pass|
 |修改吧简介时barDesc参数值为空|!-whytest@dd.con-!|111111|email|createBar|FromDB|FromDB||FromDB|2||10002|pass|

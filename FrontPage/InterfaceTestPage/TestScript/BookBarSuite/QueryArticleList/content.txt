@@ -63,6 +63,7 @@
 |不传参数lastVisitDateMsec|queryArticleList|FromDB|REMOVE|REMOVE|REMOVE|0|pass|
 *!
 !4 备注：	
+ 帖子排序规则：单品页是按权重排序，书吧详情页是按时间排序
  按发帖的时间倒序展示，帖子中有新的评论时按评论时间重新排序帖子顺序
 lastModifiedDateMsec – 上次请求最后一条记录的时间戳（第一次请求时传null）
 lastVisitDateMsec – 上次请求的时间戳（上次请求时间到当前系统时间内，如果有新的帖子，或者旧帖子有更新时候也会置顶，就会在最上边显示，这时要提示用户有几条新的帖子，用户会重新下拉，查看）
