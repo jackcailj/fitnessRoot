@@ -13,27 +13,27 @@
 '''注:账户的帖子信息须手动处理，需要包括删除的帖子、不显示的帖子'''
 
 !3 三、涉及数据库
-| comment |
-| 数据库 | 表 |
-| digital | media_digest |
+|comment             |
+|数据库    |表           |
+|digital|media_digest|
 
 ----
 !3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.personal_center |
+|Import                               |
+|com.dangdang.readerV5.personal_center|
 
-| ddt: get publish article and post |
-| #用例名称 | userName | passWord | token | selfType | pubId | createDateLong | pageSize | flag | status code | data verfiy? |
-| 获取个人发布的帖子和文章列表 | !-cailj_ddtest@126.com-! | ddtest | | 0 | | | 10 | | 0 | 通过 |
-| 获取别人发布的帖子和文章列表 | !-cailj_ddtest@126.com-! | ddtest | | 1 | #GetPubIdByName#cailj_ddtest2@126.com,ddtest | | 10 | | 0 | 通过 |
-| 获取个人发布的帖子和文章列表，token不正确 | | | 123 | 0 | | | 10 | | 10003 | 通过 |
-| 获取个人发布的帖子和文章列表，token不传 | | | #NotPass# | 0 | | | 10 | | 10003 | 通过 |
-| 获取个人发布的帖子和文章列表，pubId不正确 | | | | 1 | 123 | | 10 | 验证数据为null | 0 | 通过 |
-| 获取个人发布的帖子和文章列表，pubId不传 | | | | 1 | #NotPass# | | 10 | | 10002 | 通过 |
-| 获取个人发布的帖子和文章列表，pagesize为负数 | !-cailj_ddtest@126.com-! | ddtest | | 0 | | | -10 | | 10000 | 通过 |
-| 获取个人发布的帖子和文章列表，pagesize为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 0 | | | as | | 200 | 通过 |
-| 获取我的收藏列表，pagesize不传，默认为10 | !-cailj_ddtest@126.com-! | ddtest | | 0 | | | #NotPass# | | 0 | 通过 |
-| 获取个人发布的帖子和文章列表，selfType不正确 | !-cailj_ddtest@126.com-! | ddtest | | 3 | | | 10 | | 60011 | 通过 |
-| 获取个人发布的帖子和文章列表，selfType不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | | 10 | | 10002 | 通过 |
+|ddt: get publish article and post                                                                                                                                                                |
+|#用例名称                      |userName                |passWord|token    |selfType |pubId                                       |createDateLong|pageSize |flag            |status code|data verfiy?|
+|获取个人发布的帖子和文章列表             |!-cailj_ddtest@126.com-!|ddtest  |         |0        |                                            |              |10       |                |0          |通过          |
+|获取别人发布的帖子和文章列表             |!-cailj_ddtest@126.com-!|ddtest  |         |1        |#GetPubIdByName#cailj_ddtest2@126.com,ddtest|              |10       |                |0          |通过          |
+|获取个人发布的帖子和文章列表，token不正确    |                        |        |123      |0        |                                            |              |10       |                |10003      |通过          |
+|获取个人发布的帖子和文章列表，token不传     |                        |        |#NotPass#|0        |                                            |              |10       |                |10003      |通过          |
+|获取个人发布的帖子和文章列表，pubId不正确    |                        |        |         |1        |123                                         |              |10       |flag_pubid_error|0          |通过          |
+|获取个人发布的帖子和文章列表，pubId不传     |                        |        |         |1        |#NotPass#                                   |              |10       |                |10002      |通过          |
+|获取个人发布的帖子和文章列表，pagesize为负数 |!-cailj_ddtest@126.com-!|ddtest  |         |0        |                                            |              |-10      |                |10000      |通过          |
+|获取个人发布的帖子和文章列表，pagesize为非数字|!-cailj_ddtest@126.com-!|ddtest  |         |0        |                                            |              |as       |                |200        |通过          |
+|获取我的收藏列表，pagesize不传，默认为10  |!-cailj_ddtest@126.com-!|ddtest  |         |0        |                                            |              |#NotPass#|                |0          |通过          |
+|获取个人发布的帖子和文章列表，selfType不正确 |!-cailj_ddtest@126.com-!|ddtest  |         |3        |                                            |              |10       |                |60011      |通过          |
+|获取个人发布的帖子和文章列表，selfType不传  |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|                                            |              |10       |                |10002      |通过          |
 
 !contents -R2 -g -p -f -h

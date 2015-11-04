@@ -13,28 +13,28 @@
 
 ----
 !3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.personal_center |
+|Import                               |
+|com.dangdang.readerV5.personal_center|
 
-| ddt:dD reader storeUp list |
-| #用例名称 | userName | passWord | token | selfType | type | pubId | storeDateLong | pageSize | status code | data verfiy? |
-| 获取我的收藏的图书列表(包括纸书，电子书) | !-cailj_ddtest@126.com-! | ddtest | | 0 | media | | | 10 | 0 | 通过 |
-| 获取我的收藏的文章列表（包括发现、频道、抢先读） | !-cailj_ddtest@126.com-! | ddtest | | 0 | article | | | 10 | 0 | 通过 |
-| 获取我的收藏的帖子列表 | !-cailj_ddtest@126.com-! | ddtest | | 0 | post | | | 10 | 0 | 通过 |
-| 获取别人收藏的图书列表 | !-cailj_ddtest@126.com-! | ddtest | | 1 | media | #GetPubIdByName#cailj_ddtest2@126.com,ddtest | | 10 | 0 | 通过 |
-| 获取别人收藏的文章列表 | !-cailj_ddtest@126.com-! | ddtest | | 1 | article | #GetPubIdByName#cailj_ddtest2@126.com,ddtest | | 10 | 0 | 通过 |
-| 获取别人收藏的帖子列表 | !-cailj_ddtest@126.com-! | ddtest | | 1 | post | #GetPubIdByName#cailj_ddtest2@126.com,ddtest | | 10 | 0 | 通过 |
-| 获取我的收藏列表，type不正确 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 123 | | | 10 | 28001 | 通过 |
-| 获取我的收藏列表，type不传 | !-cailj_ddtest@126.com-! | ddtest | | 0 | #NotPass# | | | 10 | 10002 | 通过 |
-| 获取我的收藏列表，type为空 | !-cailj_ddtest@126.com-! | ddtest | | 0 | | | | 10 | 10002 | 通过 |
-| 获取我的收藏列表，token不正确 | | | 123 | 0 | media | | | 10 | 10003 | 通过 |
-| 获取我的收藏列表，token不传 | | | #NotPass# | 0 | media | | | 10 | 10003 | 通过 |
-| 获取别人收藏列表，pubId不正确 | | | | 1 | media | 123 | | 10 | 60012 | 通过 |
-| 获取别人收藏列表，pubId不传 | | | | 1 | media | #NotPass# | | 10 | 10002 | 通过 |
-| 获取我的收藏列表，pagesize为负数 | !-cailj_ddtest@126.com-! | ddtest | | 0 | media | | | -10 | 10000 | 通过 |
-| 获取我的收藏列表，pagesize为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 0 | media | | | as | 200 | 通过 |
-| 获取我的收藏列表，pagesize不传，默认为10 | !-cailj_ddtest@126.com-! | ddtest | | 0 | media | | | #NotPass# | 0 | 通过 |
-| 获取我的收藏列表，selfType不正确 | !-cailj_ddtest@126.com-! | ddtest | | 3 | media | | | 10 | 60011 | 通过 |
-| 获取我的收藏列表，selfType不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | media | | | 10 | 10002 | 通过 |
+|ddt:dD reader storeUp list                                                                                                                                                                    |
+|#用例名称                    |userName                |passWord|token    |selfType |type     |pubId                                              |storeDateLong|pageSize |status code|data verfiy?|
+|获取我的收藏的图书列表(包括纸书，电子书)    |!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                                   |             |10       |0          |通过          |
+|获取我的收藏的文章列表（包括发现、频道、抢先读） |!-cailj_ddtest@126.com-!|ddtest  |         |0        |article  |                                                   |             |10       |0          |通过          |
+|获取我的收藏的帖子列表              |!-cailj_ddtest@126.com-!|ddtest  |         |0        |post     |                                                   |             |10       |0          |通过          |
+|获取别人收藏的图书列表              |!-cailj_ddtest@126.com-!|ddtest  |         |1        |media    |$pubId=#GetPubIdByName#cailj_ddtest2@126.com,ddtest|             |10       |0          |通过          |
+|获取别人收藏的文章列表              |!-cailj_ddtest@126.com-!|ddtest  |         |1        |article  |$pubId                                             |             |10       |0          |通过          |
+|获取别人收藏的帖子列表              |!-cailj_ddtest@126.com-!|ddtest  |         |1        |post     |$pubId                                             |             |10       |0          |通过          |
+|获取我的收藏列表，type不正确         |!-cailj_ddtest@126.com-!|ddtest  |         |0        |123      |                                                   |             |10       |28001      |通过          |
+|获取我的收藏列表，type不传          |!-cailj_ddtest@126.com-!|ddtest  |         |0        |#NotPass#|                                                   |             |10       |10002      |通过          |
+|获取我的收藏列表，type为空          |!-cailj_ddtest@126.com-!|ddtest  |         |0        |         |                                                   |             |10       |10002      |通过          |
+|获取我的收藏列表，token不正确        |                        |        |123      |0        |media    |                                                   |             |10       |10003      |通过          |
+|获取我的收藏列表，token不传         |                        |        |#NotPass#|0        |media    |                                                   |             |10       |10003      |通过          |
+|获取别人收藏列表，pubId不正确        |                        |        |         |1        |media    |123                                                |             |10       |60012      |通过          |
+|获取别人收藏列表，pubId不传         |                        |        |         |1        |media    |#NotPass#                                          |             |10       |10002      |通过          |
+|获取我的收藏列表，pagesize为负数     |!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                                   |             |-10      |10000      |通过          |
+|获取我的收藏列表，pagesize为非数字    |!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                                   |             |as       |200        |通过          |
+|获取我的收藏列表，pagesize不传，默认为10|!-cailj_ddtest@126.com-!|ddtest  |         |0        |media    |                                                   |             |#NotPass#|0          |通过          |
+|获取我的收藏列表，selfType不正确     |!-cailj_ddtest@126.com-!|ddtest  |         |3        |media    |                                                   |             |10       |60011      |通过          |
+|获取我的收藏列表，selfType不传      |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|media    |                                                   |             |10       |10002      |通过          |
 
 !contents -R2 -g -p -f -h

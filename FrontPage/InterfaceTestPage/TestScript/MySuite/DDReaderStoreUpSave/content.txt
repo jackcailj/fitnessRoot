@@ -15,35 +15,33 @@
 
 ----
 !3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.personal_center |
+|Import                               |
+|com.dangdang.readerV5.personal_center|
 
-| ddt:dD reader storeUp save |
-| #用例名称 | userName | passWord | token | type | targetIds | flag | status code | data verfiy? |
-| 收藏，收藏图书流程 | !-cailj_ddtest@126.com-! | ddtest | | media | $StoreBookId=#GetUnStoreId#EBOOK,VALID,1 | | 0 | 通过 |
-| 收藏，收藏翻篇儿流程 | !-cailj_ddtest@126.com-! | ddtest | | article | $StoreArticleId=#GetUnStoreId#VALID,1 | | 0 | 通过 |
-| 收藏，重复收藏收藏图书流程 | !-cailj_ddtest@126.com-! | ddtest | | media | $StoreBookId | | 28007 | 通过 |
-| 收藏，收藏帖子流程 | !-cailj_ddtest@126.com-! | ddtest | | post | $StorePostId=#GetUnStoreId#VALID,1 | | 0 | 通过 |
-| 收藏，收藏已删除帖子流程 | !-cailj_ddtest@126.com-! | ddtest | | post | #GetUnStoreId#XIAJIA,1 | error_data | 0 | 通过 |
-| 收藏，收藏已删除文章流程 | !-cailj_ddtest@126.com-! | ddtest | | article | #GetUnStoreId#XIAJIA,1 | error_data | 0 | 通过 |
-| 收藏，收藏下架书籍流程 | !-cailj_ddtest@126.com-! | ddtest | | media | $StoreXiaJiaBookId=#GetUnStoreId#EBOOK,XIAJIA,1 | error_data | 0 | 通过 |
-| 收藏，token为空 | | | | media | $StoreBookId | | 10002 | 通过 |
-| 收藏，token不传 | | | #NotPass# | media | $StoreBookId | | 10002 | 通过 |
-| 收藏，type为空 | !-cailj_ddtest@126.com-! | ddtest | | | $StoreBookId | | 10002 | 通过 |
-| 收藏，type不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | $StoreBookId | | 10002 | 通过 |
-| 收藏，type不正确 | !-cailj_ddtest@126.com-! | ddtest | | test | $StoreBookId | | 28001 | 通过 |
-| 收藏，targetIds为空 | !-cailj_ddtest@126.com-! | ddtest | | media | | | 10002 | 通过 |
-| 收藏，targetIds不传 | !-cailj_ddtest@126.com-! | ddtest | | media | #NotPass# | | 10002 | 通过 |
-| 收藏，图书targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | media | 123455 |error_data | 0 | 通过 |
-| 收藏，发现targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | discover | 123455 | error_data | 0 | 通过 |
-| 收藏，翻篇儿targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | digest | 123455 | error_data | 0 | 通过 |
-| 收藏，文章targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | article | 123455 | error_data | 0 | 通过 |
-| 收藏，帖子targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | post | 123455 | error_data | 0 | 通过 |
+|ddt:dD reader storeUp save                                                                                                                                  |
+|#用例名称             |userName                |passWord|token    |type     |targetIds                                      |flag      |status code|data verfiy?|
+|收藏，收藏图书流程         |!-cailj_ddtest@126.com-!|ddtest  |         |media    |$StoreBookId=#GetUnStoreId#EBOOK,VALID,1       |          |0          |通过          |
+|收藏，收藏翻篇儿流程        |!-cailj_ddtest@126.com-!|ddtest  |         |article  |$StoreArticleId=#GetUnStoreId#VALID,1          |          |0          |通过          |
+|收藏，重复收藏收藏图书流程     |!-cailj_ddtest@126.com-!|ddtest  |         |media    |$StoreBookId                                   |          |28007      |通过          |
+|收藏，收藏帖子流程         |!-cailj_ddtest@126.com-!|ddtest  |         |post     |$StorePostId=#GetUnStoreId#VALID,1             |          |0          |通过          |
+|收藏，收藏已删除帖子流程      |!-cailj_ddtest@126.com-!|ddtest  |         |post     |#GetUnStoreId#XIAJIA,1                         |error_data|0          |通过          |
+|收藏，收藏已删除文章流程      |!-cailj_ddtest@126.com-!|ddtest  |         |article  |#GetUnStoreId#XIAJIA,1                         |error_data|0          |通过          |
+|收藏，收藏下架书籍流程       |!-cailj_ddtest@126.com-!|ddtest  |         |media    |$StoreXiaJiaBookId=#GetUnStoreId#EBOOK,XIAJIA,1|error_data|0          |通过          |
+|收藏，token为空        |                        |        |         |media    |$StoreBookId                                   |          |10002      |通过          |
+|收藏，token不传        |                        |        |#NotPass#|media    |$StoreBookId                                   |          |10002      |通过          |
+|收藏，type为空         |!-cailj_ddtest@126.com-!|ddtest  |         |         |$StoreBookId                                   |          |10002      |通过          |
+|收藏，type不传         |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#|$StoreBookId                                   |          |10002      |通过          |
+|收藏，type不正确        |!-cailj_ddtest@126.com-!|ddtest  |         |test     |$StoreBookId                                   |          |28001      |通过          |
+|收藏，targetIds为空    |!-cailj_ddtest@126.com-!|ddtest  |         |media    |                                               |          |10002      |通过          |
+|收藏，targetIds不传    |!-cailj_ddtest@126.com-!|ddtest  |         |media    |#NotPass#                                      |          |10002      |通过          |
+|收藏，图书targetIds不存在 |!-cailj_ddtest@126.com-!|ddtest  |         |media    |123455                                         |error_data|28007      |通过          |
+|收藏，发现targetIds不存在 |!-cailj_ddtest@126.com-!|ddtest  |         |discover |123455                                         |error_data|0          |通过          |
+|收藏，翻篇儿targetIds不存在|!-cailj_ddtest@126.com-!|ddtest  |         |digest   |123455                                         |error_data|0          |通过          |
+|收藏，文章targetIds不存在 |!-cailj_ddtest@126.com-!|ddtest  |         |article  |123455                                         |error_data|0          |通过          |
+|收藏，帖子targetIds不存在 |!-cailj_ddtest@126.com-!|ddtest  |         |post     |123455                                         |error_data|0          |通过          |
 
-
-| comment | 没有进行类型和id的对应检查 |
-| 收藏，type和targetIds不匹配 | !-cailj_ddtest@126.com-! | ddtest | | media | $StoreArticleId | | 10002 | 通过 |
-
+|comment             |没有进行类型和id的对应检查                                                  |
+|收藏，type和targetIds不匹配|!-cailj_ddtest@126.com-!|ddtest||media|$StoreArticleId||10002|通过|
 
 !3 取消收藏
 !3 一、接口wiki地址：
@@ -62,20 +60,20 @@
 
 ----
 !3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.personal_center |
+|Import                               |
+|com.dangdang.readerV5.personal_center|
 
-| ddt:dD reader storeUp cancel |
-| #用例名称 | userName | passWord | token | type | targetIds | status code | data verfiy? |
-| 取消收藏，取消收藏图书流程 | !-cailj_ddtest@126.com-! | ddtest | | media | $StoreBookId | 0 | 通过 |
-| 取消收藏，取消收藏文章流程 | !-cailj_ddtest@126.com-! | ddtest | | article | $StoreArticleId | 0 | 通过 |
-| 取消收藏，取消收藏帖子流程 | !-cailj_ddtest@126.com-! | ddtest | | post | $StorePostId | 0 | 通过 |
-| 取消收藏，token为空 | | | | media | 123455 | 10002 | 通过 |
-| 取消收藏，token为不正确 | | | 12333 | media | 123455 | 10003 | 通过 |
-| 取消收藏，token不传 | | | #NotPass# | media | 123455 | 10002 | 通过 |
-| 取消收藏，targetIds为空 | !-cailj_ddtest@126.com-! | ddtest | | media | | 10002 | 通过 |
-| 取消收藏，targetIds不传 | !-cailj_ddtest@126.com-! | ddtest | | media | #NotPass# | 10002 | 通过 |
-| 取消收藏，targetIds不存在 | !-cailj_ddtest@126.com-! | ddtest | | media | $StoreBookId | 28006 | 通过 |
+|ddt:dD reader storeUp cancel                                                                                  |
+|#用例名称            |userName                |passWord|token    |type   |targetIds      |status code|data verfiy?|
+|取消收藏，取消收藏图书流程    |!-cailj_ddtest@126.com-!|ddtest  |         |media  |$StoreBookId   |0          |通过          |
+|取消收藏，取消收藏文章流程    |!-cailj_ddtest@126.com-!|ddtest  |         |article|$StoreArticleId|0          |通过          |
+|取消收藏，取消收藏帖子流程    |!-cailj_ddtest@126.com-!|ddtest  |         |post   |$StorePostId   |0          |通过          |
+|取消收藏，token为空     |                        |        |         |media  |123455         |10002      |通过          |
+|取消收藏，token为不正确   |                        |        |12333    |media  |123455         |10003      |通过          |
+|取消收藏，token不传     |                        |        |#NotPass#|media  |123455         |10002      |通过          |
+|取消收藏，targetIds为空 |!-cailj_ddtest@126.com-!|ddtest  |         |media  |               |10002      |通过          |
+|取消收藏，targetIds不传 |!-cailj_ddtest@126.com-!|ddtest  |         |media  |#NotPass#      |10002      |通过          |
+|取消收藏，targetIds不存在|!-cailj_ddtest@126.com-!|ddtest  |         |media  |$StoreBookId   |28006      |通过          |
 
 !contents -R2 -g -p -f -h
 !contents -R2 -g -p -f -h

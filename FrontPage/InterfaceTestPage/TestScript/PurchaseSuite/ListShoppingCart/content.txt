@@ -7,20 +7,20 @@
 获取购物车列表
 
 !3 三、涉及数据库
-| Comment |
-| 数据库 | 表 |
-| digital | shopping_cart、shopping_cart_detail |
+|Comment                                   |
+|数据库    |表                                 |
+|digital|shopping_cart、shopping_cart_detail|
 
 ----
 !3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.purchase |
+|Import                        |
+|com.dangdang.readerV5.purchase|
 
-| ddt:list shopping cart |
-| #用例名称 | userName | passWord | token | ''cartId '' | status code | data verify? |
-| 获取电子购物车列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | | 0 | 通过 |
-| 获取电子购物车列表,购物车为空 | !-cailj_ddtest15@126.com-! | ddtest | | | 0 | 通过 |
-| 获取电子购物车列表，不登录 | | | | #GetCartId# | 0 | 通过 |
-| token不正确 | | | 12345 | | 200 | 通过 |
+|ddt:list shopping cart                                                                        |
+|#用例名称          |userName                  |passWord|token|cartId     |status code|data verify?|
+|获取电子购物车列表，正常流程 |!-cailj_ddtest@126.com-!  |ddtest  |     |           |0          |通过          |
+|获取电子购物车列表,购物车为空|!-cailj_ddtest15@126.com-!|ddtest  |     |           |0          |通过          |
+|获取电子购物车列表，不登录  |                          |        |     |#GetCartId#|0          |通过          |
+|token不正确       |                          |        |12345|           |200        |通过          |
 
 !contents -R2 -g -p -f -h

@@ -7,42 +7,38 @@
 获取纸书订单详情
 
 !3 三、涉及数据库
-| Comment |
-| 数据库 | 表 |
-| digital | |
+|Comment  |
+|数据库    |表|
+|digital| |
 
 ----
 !3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.personal_center |
-
-
+|Import                               |
+|com.dangdang.readerV5.personal_center|
 
 获取自己的orderID
 
-| script | get order list |
-| setParameters | !{userName:!-cailj_ddtest@126.com-!,passWord:ddtest,pageIndex:0,pageSize:10,conditionTime:0,conditionStatus:0,期望:0} |
-| do work and verify |
-| check | getDataVerifyResult | true |
-| $orderId= | getOrderId |
-
-
+|script       |get order list                                                                                                     |
+|setParameters|!{userName:!-cailj_ddtest@126.com-!,passWord:ddtest,pageIndex:0,pageSize:10,conditionTime:0,conditionStatus:0,期望:0}|
+|do work and verify                                                                                                               |
+|check        |getDataVerifyResult                                              |true                                             |
+|$orderId=    |getOrderId                                                                                                         |
 
 获取别人的orderID
 
-| script | get order list |
-| setParameters | !{userName:!-z11@123.com-!,passWord:111111,pageIndex:0,pageSize:10,conditionTime:0,conditionStatus:0,期望:0} |
-| do work and verify |
-| check | getDataVerifyResult | true |
-| $otherOrderId= | getOrderId |
+|script        |get order list                                                                                            |
+|setParameters |!{userName:!-z11@123.com-!,passWord:111111,pageIndex:0,pageSize:10,conditionTime:0,conditionStatus:0,期望:0}|
+|do work and verify                                                                                                       |
+|check         |getDataVerifyResult                                         |true                                         |
+|$otherOrderId=|getOrderId                                                                                                |
 
-| ddt:get order detail |
-| #用例名称 | userName | passWord | token | orderId | status code | data verfiy? |
-| 获取订单详情，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | $orderId | 0 | 通过 |
-| 获取订单详情，''orderId''不正确 | !-cailj_ddtest@126.com-! | ddtest | | 12222323222222 | 12015 | 通过 |
-| 获取订单详情，''orderId''不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |
-| 获取订单详情，token不正确 | | | 123123 | $orderId | 10003 | 通过 |
-| 获取订单详情，token不传 | | | #NotPass# | $orderId | 10002 | 通过 |
-| 获取订单详情，获取别人的订单详情 | !-cailj_ddtest@126.com-! | ddtest | | $otherOrderId | 201510810 | 通过 |
+|ddt:get order detail                                                                                     |
+|#用例名称                |userName                |passWord|token    |orderId       |status code|data verfiy?|
+|获取订单详情，正常流程          |!-cailj_ddtest@126.com-!|ddtest  |         |$orderId      |0          |通过          |
+|获取订单详情，''orderId''不正确|!-cailj_ddtest@126.com-!|ddtest  |         |12222323222222|12015      |通过          |
+|获取订单详情，''orderId''不传 |!-cailj_ddtest@126.com-!|ddtest  |         |#NotPass#     |10002      |通过          |
+|获取订单详情，token不正确      |                        |        |123123   |$orderId      |10003      |通过          |
+|获取订单详情，token不传       |                        |        |#NotPass#|$orderId      |10002      |通过          |
+|获取订单详情，获取别人的订单详情     |!-cailj_ddtest@126.com-!|ddtest  |         |$otherOrderId |201510810  |通过          |
 
 !contents -R2 -g -p -f -h
