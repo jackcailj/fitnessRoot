@@ -8,7 +8,7 @@
  * content – 评论内容 (必填)
  * replyId 回复对象Id 如果是评论传入0 (必填)
  * commentParentId – 一级评论ID 如果是一级评论 传入0_(必填)_
- * targetSource – 评论来源 1000:书吧 2000：翻篇 3000：抢先读 4000：频道_(必填)_
+ * targetSource – 评论来源 1000:书吧 2000：翻篇 3000：抢先读 4000：频道  7000：攻略_(必填)_
  * deviceType – 设备类型_(必填)_
  * isAnonymous --是否匿名 0 不是匿名 1. 是匿名_(必填)_
  * replyCommentId --被回复评论的commentId
@@ -65,33 +65,34 @@
 !* 测试数据
 |addCommentTest|
 |#用例名称|userName|passWord|loginType|token|action|replyCommentId|targetId|content|replyId|commentParentId|targetSource|isAnonymous|期望|result|
-|书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好|0|0|1000|0|0|pass|
+|书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好好|0|0|1000|0|0|pass|
 |书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好|0|0|1000|1|0|pass|
 |翻篇一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好|0|0|2000|0|0|pass|
 |抢先一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好呀|0|0|3000|0|0|pass|
 |频道一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好文|0|0|4000|0|0|pass|
-|回复一级评论|!-whytest@dd.con-!|111111|email||addComment|749|1399|嗯，不错|0|749|1000|0|0|pass|
-|评论回复|!-whytest@dd.con-!|111111|email||addComment|750|1399|赞|UyFgrQr%252Bjcxms6CjJdqf7w%253D%253D|749|1000|0|0|pass|
-|targetId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|a|好|0|0|1000|0|10002|pass|
-|targetId值为空|!-whytest@dd.con-!|111111|email||addComment|0||好|0|0|1000|0|10002|pass|
+|攻略一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好文|0|0|7000|0|0|pass|
+|targetId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|a|好啊|0|0|1000|0|10002|pass|
+|targetId值为空|!-whytest@dd.con-!|111111|email||addComment|0||呵呵|0|0|1000|0|10002|pass|
 |不传参数targetId|!-whytest@dd.con-!|111111|email||addComment|0|REMOVE|好|0|0|1000|0|10002|pass|
 |content值为特殊字符|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|&%&*#@|0|0|1000|0|0|pass|
 |content值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101||0|0|1000|0|10002|pass|
 |不传参数content|!-whytest@dd.con-!|111111|email||addComment|0|2101|REMOVE|0|0|1000|0|10002|pass|
 |replyId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错|q|0|1000|0|10002|pass|
-|replyId值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错||0|1000|0|10002|pass|
-|不传replyId|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错|REMOVE|0|1000|0|10002|pass|
-|targetSource值为500|!-whytest@dd.con-!|111111|email||addComment|0|2101|很不错|0|0|500|0|40000|pass|
-|targetSource值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错|0|0|0|0|40000|pass|
-|不传targetSource|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错|0|0|REMOVE|0|10002|pass|
-|replyCommentId值为字母|!-whytest@dd.con-!|111111|email||addComment|b|2101|超不错|0|0|1000|0|10002|pass|
+|replyId值为空|!-whytest@dd.con-!|111111|email||addComment|0|2102|不错，哈哈||0|1000|0|10002|pass|
+|不传replyId|!-whytest@dd.con-!|111111|email||addComment|0|2102|不错|REMOVE|0|1000|0|10002|pass|
+|targetSource值为500|!-whytest@dd.con-!|111111|email||addComment|0|2102|很不错|0|0|500|0|40000|pass|
+|targetSource值为空|!-whytest@dd.con-!|111111|email||addComment|0|2103|不错|0|0|0|0|40000|pass|
+|不传targetSource|!-whytest@dd.con-!|111111|email||addComment|0|2103|不错，呵呵|0|0|REMOVE|0|10002|pass|
+|replyCommentId值为字母|!-whytest@dd.con-!|111111|email||addComment|b|2103|超不错|0|0|1000|0|10002|pass|
 |replyCommentId值为空|!-whytest@dd.con-!|111111|email||addComment||2101|不错|0|0|0|1000|10002|pass|
-|不传replyCommentId|!-whytest@dd.con-!|111111|email||addComment|REMOVE|2101|不错|0|0|1000|0|10002|pass|
-|commentParentId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错|0|u|1000|0|10002|pass|
-|commentParentId值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|赞一个|0||1000|0|10002|pass|
-|不传commentParentId|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错|0|REMOVE|1000|0|10002|pass|
-|isAnonymous值为空|!-whytest@dd.con-!|111111|email||addComment|0|2101|不错|0|0|1000||10002|pass|
-|不传isAnonymous|!-whytest@dd.con-!|111111|email||addComment|0|2101|赞赞|0|0|1000|REMOVE|10002|pass|
+|不传replyCommentId|!-whytest@dd.con-!|111111|email||addComment|REMOVE|2104|不错|0|0|1000|0|10002|pass|
+|commentParentId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|2104|不错|0|u|1000|0|10002|pass|
+|commentParentId值为空|!-whytest@dd.con-!|111111|email||addComment|0|2104|赞一个|0||1000|0|10002|pass|
+|不传commentParentId|!-whytest@dd.con-!|111111|email||addComment|0|2105|不错哈|0|REMOVE|1000|0|10002|pass|
+|isAnonymous值为空|!-whytest@dd.con-!|111111|email||addComment|0|2105|嗯嗯|0|0|1000||10002|pass|
+|不传isAnonymous|!-whytest@dd.con-!|111111|email||addComment|0|2105|赞赞|0|0|1000|REMOVE|10002|pass|
+#|回复一级评论|!-whytest@dd.con-!|111111|email||addComment|749|1399|嗯，不错|0|749|1000|0|0|pass|
+#|评论回复|!-whytest@dd.con-!|111111|email||addComment|750|1399|赞|UyFgrQr%252Bjcxms6CjJdqf7w%253D%253D|749|1000|0|0|pass|
 *!
 !4 备注:  
 bug： http://10.255.223.220/zentao/bug-view-15125.html
