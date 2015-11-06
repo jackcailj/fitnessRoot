@@ -13,31 +13,34 @@
 !3 三、涉及数据库
 ----
 !3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.purchase |
+|Import                        |
+|com.dangdang.readerV5.purchase|
 
-| ddt:purchase ebook virtual payment |
-| 用例名称 | userName | passWord | token | productArray | isAppendBorrow | dayNum | fromPlatform | timestamp | sign | flag | status code | data verify? |
-| 购买免费书籍!-
--! | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK_FREE,VALID,1 | | | 103 | | | | | |
+|ddt:purchase ebook virtual payment                                                                                                                                   |
+|testcase|userName                |passWord|token|productArray                        |isAppendBorrow|dayNum|fromPlatform|timestamp|sign|flag|status code|data verify?|
+|续借电子书   |!-cailj_ddtest@126.com-!|ddtest  |     |#GetBorrowProductAndSaleId#TIMEOUT,1|true          |1     |103         |         |    |    |0          |通过          |
 
-| comment |
-| 购买书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | | | 0 | 通过 |
-| 重复购买书籍 | !-cailj_ddtest@126.com-! | ddtest | | #GetBuyProductAndSaleId#1 | | | 103 | | | 重复 | 0 | 通过 |
-| 购买字体 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#FONT,VALID,1 | | | 103 | | | font | 0 | 通过 |
-| 购买多本书籍 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,2 | | | 103 | | | | 0 | 通过 |
-| 购买下架电子书 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,XIAJIA,1 | | | 103 | | | | 27200 | 通过 |
-| 账户余额不足，购买失败 | !-cailj_ddtest2@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | | | 27100 | 通过 |
-| 没有主副账户用户购买，应失败 | !-cailj_ddtest16@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | | | 27108 | 通过 |
-| 购买书籍Id不存在 | !-cailj_ddtest@126.com-! | ddtest | | [{"productId":"123456","saleId":"1234545"},{"productId":"123456","saleId":"131345"}] | | | 103 | | | | 27201 | 通过 |
-| 购买多个书籍，其中有一个商品id不正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 and 12352222 | | | 103 | | | | 27201 | 通过 |
-| 不传productIds | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | | 103 | | | | 10002 | 通过 |
-| sign不正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | 23123123 | | 10002 | 通过 |
-| 不传sign | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | #NotPass# | | 10002 | 通过 |
-| 不传timestamp | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | #NotPass# | | | 10002 | 通过 |
-| token不正确 | | | 12345 | [{"productId":"123456","saleId":"1234545"},{"productId":"123456","saleId":"131345"}] | | | 103 | | | | 10002 | 通过 |
-| from_url不传 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | #NotPass# | | | | 10002 | 通过 |
+|comment                                                                                             |
+|购买书籍，正常流程|!-cailj_ddtest@126.com-!|ddtest||#GetUnBuyProductAndSaleId#EBOOK,VALID,1|||103|||    |0|通过|
+|重复购买书籍   |!-cailj_ddtest@126.com-!|ddtest||#GetBuyProductAndSaleId#1              |||103|||free|0|通过|
+|购买字体     |!-cailj_ddtest@126.com-!|ddtest||#GetUnBuyProductAndSaleId#FONT,VALID,1 |||103|||font|0|通过|
+|购买免费书籍!-
+-! | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK_FREE,VALID,1 | | | 103 | | | free | 0 | 通过 |
+|购买多本书籍             |!-cailj_ddtest@126.com-! |ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,VALID,2                                             |||103      |         |         ||0    |通过|
+|购买下架电子书            |!-cailj_ddtest@126.com-! |ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,XIAJIA,1                                            |||103      |         |         ||27200|通过|
+|账户余额不足，购买失败        |!-cailj_ddtest2@126.com-!|ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,VALID,1                                             |||103      |         |         ||27100|通过|
+|购买书籍Id不存在          |!-cailj_ddtest@126.com-! |ddtest|     |[{"productId":"123456","saleId":"1234545"},{"productId":"123456","saleId":"131345"}]|||103      |         |         ||27201|通过|
+|购买多个书籍，其中有一个商品id不正确|!-cailj_ddtest@126.com-! |ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,VALID,1 and 12352222                                |||103      |         |         ||27201|通过|
+|不传productIds       |!-cailj_ddtest@126.com-! |ddtest|     |#NotPass#                                                                           |||103      |         |         ||10002|通过|
+|sign不正确            |!-cailj_ddtest@126.com-! |ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,VALID,1                                             |||103      |         |23123123 ||10002|通过|
+|不传sign             |!-cailj_ddtest@126.com-! |ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,VALID,1                                             |||103      |         |#NotPass#||10002|通过|
+|不传timestamp        |!-cailj_ddtest@126.com-! |ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,VALID,1                                             |||103      |#NotPass#|         ||10002|通过|
+|token不正确           |                         |      |12345|[{"productId":"123456","saleId":"1234545"},{"productId":"123456","saleId":"131345"}]|||103      |         |         ||10002|通过|
+|from_url不传         |!-cailj_ddtest@126.com-! |ddtest|     |#GetUnBuyProductAndSaleId#EBOOK,VALID,1                                             |||#NotPass#|         |         ||10002|通过|
 
 注：续借电子书情况已测试，但脚本没有写
+
+|comment       |此情况已经不存在，没有主副账号会自动创建                                                                       |
+|没有主副账户用户购买，应失败|!-clj_noaccount@126.com-!|111111||#GetUnBuyProductAndSaleId#EBOOK,VALID,1|||103||||27108|通过|
 
 !contents -R2 -g -p -f -h
