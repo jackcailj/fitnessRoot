@@ -1,52 +1,47 @@
 !*> 测试用例
 接口：action=channelSub
-接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359564
-相关数据库表：channel_sub_user
+接口描述：频道订阅或取消订阅,订阅数量验证，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359564
+相关数据库[表]：digital[channel_sub_user, channel]
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|channelSubCase01||订阅功能|首次订阅某频道|订阅成功|test|
-|channelSubCase02||订阅功能|先取消订阅再订阅|订阅成功|test|
-|channelSubCase03||重复订阅|已订阅的频道，再次订阅|订阅操作不起作用，正常返回结果|test,staging,online|
-|channelSubCase04||取消订阅|已登录用户取消订阅|取消订阅成功|test,staging,online|
-|channelSubCase05||重复取消订阅|已取消订阅的频道，再次取消订阅|取消订阅操作不起作用，正常返回结果|test,staging,online|
-|channelSubCase06||参数token|token值为空|返回10003，未登录用户|test,staging,online|
-|channelSubCase07||参数token|token值为无效值|返回10003，未登录用户|test,staging,online|
-|channelSubCase08||参数cId|cId值为无效值（符号、字母、中文）||test,staging,online|
-|channelSubCase09||参数op|op为空||test,staging,online|
-|channelSubCase10||参数op|op为无效值（符号、字母、中文）||test,staging,online|
+|Case01||订阅|正常订阅流程|订阅成功,频道订阅总数与数据库中数量一致|all|
+|Case02||取消订阅|正常取消订阅流程|取消订阅成功，频道订阅总数与数据库中数量一致|all|
+|Case03||订阅|先取消订阅再订阅|订阅成功，频道订阅总数与数据库中数量一致|all|
+|Case04||参数token|token值为空|10003|all|
+|Case05||参数token|token值为无效值|10003|all|
+|Case06||参数cId|cId值为空|200|all|
+|Case07||参数cId|cId值为无效值|200|all|
+|Case08||参数op|op为空|10002|all|
+|Case09||参数op|op为无效值|200|all|
 *!
-!*> 测试数据
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.common.functional.login|
 |com.dangdang.readerV5.channel|
 *!
+!define userName {!-z16@123.com-!}
+!define passWord {111111}
+!define loginType {email}
 |script|ddLogin|
-|setParameters|!{action:ddLogin,userName:!-z16@123.com-!,passWord:111111,loginClient:0,code: ,loginType:email,pdfkey: ,key:12312312321312}|
-|ensure|do get|0|
-|$token|get token|
+|setParameters|!{action:ddLogin,userName:${userName},passWord:${passWord},loginClient:0,code: ,loginType:${loginType},pdfkey: ,key:12312312321312}|
+|do work|
+|$custId=|get custId|
 
-!* channelSubCase01首次订阅某频道
 |script|channel sub|
-|note|随机获取某频道cId|
-|$cId=|getChannel|
-|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
-|note|获取用户custId|
-|$custId=|getCustId|
-|note|删除某用户订阅的某频道记录|
-|delSubWithCustid|$custId|and channelid|$cId|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelSubCase02先取消订阅再订阅
-|script|channel sub|
-|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
-|note|取消订阅|
-|setSubWithCustid|$custId|and channelid|$cId|and type|0|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub.ChannelSubOnline
+|$cId=|getNotUserChannel|$custId|
+
+|ddt: channel sub|
+|#用例编号|userName|passWord|loginType|token|cId|op|statusCode|enviroment|data verify?|
+|Case01|${userName}|${passWord}|${loginType}||$cId|1|0|all|通过|
+|Case02|${userName}|${passWord}|${loginType}||$cId|0|0|all|通过|
+|Case03|${userName}|${passWord}|${loginType}||$cId|1|0|all|通过|
+|Case04|||||$cId|1|10003|all|通过|
+|Case05||||aaaaaaa|$cId|1|10003|all|通过|
+|Case06|${userName}|${passWord}|${loginType}|||1|10002|all|通过|
+|Case07|${userName}|${passWord}|${loginType}||cId|1|200|all|通过|
+|Case08|${userName}|${passWord}|${loginType}||$cId||10002|all|通过|
+|Case09|${userName}|${passWord}|${loginType}||$cId|3|10002|all|通过|
 *!
 !contents

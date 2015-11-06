@@ -1,0 +1,23 @@
+!* 测试用例
+接口：action=bookListBookUpdate
+参数：type 类型（频道0书单1）
+
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361688
+相关数据库[表]：
+|Comment|
+|用例编号|前提条件|测试点|测试内容|预期结果|运行环境|
+|Case01||type=0|频道更新||all|
+|Case02||type=1|书单更新||all|
+|Case03||type|type值为空|返回code值10002|all|
+|Case04||type|type值为无效值|返回code值10002|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt: book list book update|
+|#用例编号|userName|passWord|loginType|token|bId|relateBooks|type|status code|enviroment|data verify?|
+|Case01|!-refuel09@dangdang.com-!|111111|email||196|2,1900089576,1900089576|1|10002|testing|通过|
+*!

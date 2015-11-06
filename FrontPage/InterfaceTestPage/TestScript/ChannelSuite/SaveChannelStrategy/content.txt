@@ -1,0 +1,29 @@
+电子书的上下架状态：1下架，0上架
+纸书的上下架状态： 1下架，0或null 上架
+
+!*> setUp
+!*> 常量
+!define userName {!-z16@123.com-!}
+!define passWord {111111}
+!define loginType {email}
+*!
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.v5_1|
+*!
+!*> 定义scenario 
+|scenario|saveChannelStrategy|action||userName||passWord||loginType||token||productArray||title||content||author||description||statusCode||setParameters||enviroment|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,productArray:@productArray,title:@title,content:@content,author:@author,description:@description,enviroment:@enviroment}|
+|ensure|do get|@statusCode|
+|ensure|tearDown|
+
+|script|Save Channel Strategy|
+*!
+!* 
+|saveChannelStrategy|
+|#用例编号|action|userName|passWord|loginType|token|productArray|title|content|author|description|statusCode|enviroment|
+|saveChannelStrategy06|saveChannelStrategy|${userName}|${passWord}|${loginType}||[{"mediaId":"1900090175","saleId":"1900090175","type":"2"},{"productId":"1900090175","type":"3"}|||||0|testing|
+
+
+*!

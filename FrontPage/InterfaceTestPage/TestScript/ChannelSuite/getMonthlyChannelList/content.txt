@@ -1,0 +1,31 @@
+!*> 测试用例
+接口：action=getMonthlyChannelList
+接口描述：
+ * 下线的频道可以在列表中显示，客户端也可以进入频道，直到权限过期
+ * ios(android)上包月的频道可以在android(ios)上显示 (ios上频道包月还未实现)
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361238
+相关数据库[表]：
+ * digital[channel]
+ * authority[media_monthly_authority]
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|没有包月的频道|返回空列表|all|
+|Case02|有包月的频道|按创建时间的先后顺序返回|all|
+|Case03|包月频道列表中有包月到期的频道||testing|
+|Case04|包月频道列表中有下线的频道||testing|
+|Case05|pageSize=4|返回4条数据|all|
+|Case06|token为空|返回code值10002|all|
+|Case07|token为无效值|返回code值10002|all
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt:get monthly channel list|
+|#用例编号|userName|passWord|loginType|token|lastModifiedDate|pageSize|status code|enviroment|data verify?|
+|Case02||||#GetToken#UserMonthly|||0|all|通过|
+|Case03||||#GetToken#UserMonthlyOverdue|||0|all|通过|
+
+*!

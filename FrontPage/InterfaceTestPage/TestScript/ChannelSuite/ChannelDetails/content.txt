@@ -1,149 +1,55 @@
 !*> 测试用例
 接口：action=channel
-接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
+接口描述：无书单或无文章或无攻略的频道都可以在客户端显示，验证点是否订阅，是否包月，频道订阅总数，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
  * json返回结果中：
   * isSub 是否订阅 0：未订阅 1：已订阅
   * hasBoughtMonthly 1:有包月权限 0：没有包月权限
   * isAllowMonthly 1:允许包月 0：不允许包月
   * monthlyType 付款类型 0：金铃铛 1：金铃铛+银铃铛
   * subNumber 频道订阅总数
-相关表：channel
- * shelf_status 0:下线，1：上线
+相关数据库[表]：
+digital [channel, media_booklist] * shelf_status 0:下线，1：上线
+ucenter[login_type]
+base_comment[tag_info,tag_relation]
+ 
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|channelCase01||获取企业频道详情|调用channel接口|返回结果与数据库数据相一致|test,staging,online|
-|channelCase02||获取个人频道详情|调用channel接口|返回结果与数据库数据相一致|test,staging,online|
-|channelCase03||频道下无文章|频道下无文章时hasArtical返回0|返回的字段hasArtical=0|test,staging,online|
-|channelCase04||频道下有文章|频道下有文章时hasArtical返回1|返回的字段hasArtical=1|test,staging,online|
-|channelCase05||频道可进行包月|频道可进行包月时|返回的字段=0|test,staging,online|
-|channelCase06||用户有频道包月权限|调用channel接口|返回的字段hasBoughtMonthly=1|test,staging,online|
-|channelCase07||用户已订阅频道|调用channel接口|返回的字段isSub=1|test,staging,online|
-|channelCase08||用户未订阅频道|调用channel接口|返回的字段isSub=0|test,staging,online|
-|channelCase09||频道订阅数|先调用订阅接口，再调用channel接口|返回的subNumber值+1|test,staging,online|
-|channelCase10||频道订阅数|先调用取消订阅接口，再调用channel接口|返回的subNumber值-1|test,staging,online|
-|channelCase11||参数cId|cId值为空|10002|test,staging,online|
-|channelCase12||参数cId|cId值为无效值|10002|test,staging,online|
-|channelCase13||参数token|token值为空|正常返回结果|test,staging,online|
-|channelCase14||参数token|token值为无效值|10002|test,staging,online|
-|channelCase15||参数channelType|channelType值为空|正常返回结果|test,staging,online|
-|channelCase16||参数channelType|channelType值为无效值|10002|test,staging,online|
+|Case01||频道类型|获取企业频道详情|返回结果与数据库数据相一致|all|
+|Case02||频道类型|获取个人频道详情|返回结果与数据库数据相一致|all|
+|Case03||频道内容|频道无文章无书单无攻略|返回结果与数据库数据相一致|all|
+|Case04||频道内容|频道无文章|返回结果与数据库数据相一致|all|
+|Case05||频道内容|频道无书单|返回结果与数据库数据相一致|all|
+|Case06|频道有包月权限|包月权限|频道可进行包月|返回结果与数据库数据相一致|all|
+|Case07|频道没有包月权限|包月权限|频道不可进行包月|返回结果与数据库数据相一致|all|
+|Case08|用户已包月|||返回结果与数据库数据相一致|all|
+|Case09|用户未包月|||返回结果与数据库数据相一致|all|
+|Case10|用户已订阅频道|订阅|调用channel接口|返回结果与数据库数据相一致|all|
+|Case11|用户未订阅频道|订阅|调用channel接口|返返回结果与数据库数据相一致|all|
+|Case12||我的频道|调用channel接口|返回的字段isSub=0|all|
+|Case13||参数cId|cId值为空|10002|all|
+|Case14||参数cId|cId值为无效值|10002|all|
+|Case15||参数token|token值为无效值|10002|all|
+
 *!
-!*> 测试数据
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!*> 定义scenario 
-|scenario|channel|action||userName||passWord||loginType||token||cId||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,channelType:@channelType}|
-|ensure|do get|@statusCode|
-|ensure|tearDown|
+!define userName {!-z16@123.com-!}
+!define passWord {111111}
+!define loginType {email}
 
-|script|Channel|
-*!
-!* channelCase01 获取企业频道详情
-|script|Channel|
-|note|获取企业频道id|
-|$channelId=|getChannelWithOwnerType|2|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$channelId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase02 获取个人频道详情
-|script|Channel|
-|note|获取个人频道id|
-|$channelId=|getChannelWithOwnerType|1|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$channelId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase03 频道下无文章
-|script|Channel|
-|note|获取无文章频道|
-|$channelId=|getChannelNoHasArticles|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$channelId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase04 频道下有文章
-|script|Channel|
-|note|获取有文章频道|
-|$channelId=|getChannelHasArticles|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$channelId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase05 频道可进行包月
-|script|Channel|
-|note|获取可包月频道|
-|$channelId=|getChannelWithIsAllowMonthly|1|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$channelId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase07 用户已订阅频道
-|script|channel sub|
-|note|随机获取某频道cId|
-|$cId=|getChannel|
-|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
-|ensure|do get|0|
-|ensure|verify result|
+|ddt: Channel|
+|#用例名称|userName|passWord|loginType|token|cId|status code|enviroment|data verify?|
+|Case01|||||#GetChannelId#TYPE,1|0|all|通过|
+|Case02|||||#GetChannelId#TYPE,2|0|all|通过|
+|Case10||||||10002|all|通过|
+|Case11|||||cId|10002|all|通过|
+|Case12||||aaaa|cId|10002|all|通过|
 
-|script|Channel|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$channelId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
 *!
-!* channelCase08 用户未订阅频道
-|script|Channel|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId: ,channelType:all}|
-|note|获取用户custId|
-|$custId=|getCustId|
-|note|获取用户未订阅的频道|
-|$channelId=|getChannelIsSub|$custId|
-|note|设置channelId|
-|setParamWithKey|cId|and value|$channelId|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase09 验证频道总数
-|script|channel sub|
-|note|随机获取某频道cId|
-|$cId=|getChannel|
-|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:1}|
-|ensure|do get|0|
-|ensure|verify result|
 
-|script|Channel|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase10 验证频道总数
-|script|channel sub|
-|note|随机获取某频道cId|
-|$cId=|getChannel|
-|setParameters|!{action:channelSub,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,op:0}|
-|ensure|do get|0|
-|ensure|verify result|
 
-|script|Channel|
-|setParameters|!{action:channel,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,cId:$cId,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* channelCase10~channelCase16 
-|script|channel sub|
-|$cId=|getChannel|
-
-|channel|
-|#用例名称|action|userName|passWord|loginType|token|cId|channelType|statusCode|
-|channelCase11|channel|!-z16@123.com-!|111111|email|||all|10002|
-|channelCase12|channel|!-z16@123.com-!|111111|email||111111|all|10007|
-|channelCase13|channel|||||$cId|all|0|
-|channelCase14|channel||||1122aaa|$cId|all|0|
-|channelCase15|channel|!-z16@123.com-!|111111|email||$cId||0|
-|channelCase16|channel|!-z16@123.com-!|111111|email||$cId|why|0|
-*!
-*!
+!contents

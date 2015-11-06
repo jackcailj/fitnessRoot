@@ -18,7 +18,7 @@
 |getDigestDetailCase08||参数token|token值为空|未知错误|
 |getDigestDetailCase09||参数token|token值为无效值|参数非法|
 *!
-!*> 测试数据
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|

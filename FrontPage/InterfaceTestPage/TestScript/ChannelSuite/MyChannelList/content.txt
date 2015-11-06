@@ -1,36 +1,100 @@
 !*> 测试用例
 接口：action=myChannelList
-接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360265
-相关数据库表：
- * channel_sub_user
- * channel
+接口描述：
+ * 自己的频道无论上下线都返回。
+ * 订阅的频道下线后不返回。
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360265
+相关数据库表：库digital
+ * 表channel_sub_user
+ * 表channel
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|myChannelListCase01||根据token获取我的频道列表|custId值为空|正常返回结果|test,staging,online|
-|myChannelListCase02||根据custId获取我的频道列表|token值为空|正常返回结果|test,staging,online|
-|myChannelListCase03||根据custId获取我的频道列表|custId和token值都不为空|正常返回结果|test,staging,online|
-|myChannelListCase04||我订阅的频道中有的已下线|调用接口|返回"shelfStatus":0|test|
-|myChannelListCase05||我订阅的频道为空|调用接口|返回"total":0|test|
-|myChannelListCase06||参数createDate|createDate值为空|正常返回结果|test,staging,online|
-|myChannelListCase07||参数createDate|createDate值为无效值|正常返回结果|test,staging,online|
-|myChannelListCase08||参数tokenhe和custId同时为空|调用接口|返回10003，未登录用户|test,staging,online|
-|myChannelListCase09||参数custId|custId值为无效值|返回10003，未登录用户|test,staging,online|
-|myChannelListCase10||参数token|token值为无效值||test,staging,online|
+|用例编号|测试点|测试数据|预期结果|运行环境|
+|Case01|无自己的频道，无订阅的频道|refuel01@dangdang.com|正常返回，列表为空|all|
+|Case02|有自己的频道（自己创建的），无订阅的频道，上线|refuel02@dangdang.com|返回自己的频道|all|
+|Case03|有自己的频道（系统创建的），无订阅的频道，下线|refuel03@dangdang.com|返回自己的频道|all|
+|Case04|无自己的频道，有订阅的频道(3无频道，无书单，无文章，无攻略，完整的)，上线|refuel04@dangdang.com|正常返回结果|all|
+|Case05|无自己的频道，有订阅的频道，部分下线|refuel05@dangdang.com|下线的频道不返回|all|
+|Case06|无自己的频道，有订阅的频道，全部下线|refuel06@dangdang.com|正常返回，列表为空|all|
+|Case07|有自己的频道（自己创建的），有订阅的频道，上线|refuel07@dangdang.com|正常返回结果|all|
+|Case08|有自己的频道（系统创建的），有订阅的频道，部分下线|refuel08@dangdang.com|下线的频道不返回|all|
+|Case09|根据token获取我的频道列表|custId值为空|正常返回结果|all|
+|Case10|根据token获取我的频道列表|custId值为空|正常返回结果|all|
+|Case11|根据custId获取我的频道列表|token值为空|正常返回结果|all|
+|Case12|根据custId获取我的频道列表|custId和token值都不为空|正常返回结果|all|
+|Case13|参数createDate|createDate值为空|正常返回结果|all|
+|Case14|参数createDate|createDate值为无效值|正常返回结果|all|
+|Case15|参数token和custId同时为空|调用接口|返回10003，未登录用户|all|
+|Case16|参数custId|custId为无效值|返回10003，未登录用户|all|
+|Case17|参数token|token为无效值||all|
 *!
-!*> 测试数据
-!include .FrontPage.InterfaceTestPage.TestScript.ChannelSuite.MyChannelList.MyChannelListOnline
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|myChannelList|action||userName||passWord||loginType||token||custId||createDate||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,custId:@custId,createDate:@createDate}|
+|scenario|myChannelList|action||token||custId||createDate||pageSize||start||end||statusCode||setParameters||enviroment|
+|setParameters|!{action:@action,token:@token,custId:@custId,createDate:@createDate,pageSize:@pageSize,start:@start,end:@end,enviroment:@enviroment}|
 |ensure|do get|@statusCode|
 |ensure|verify result|
 |ensure|tearDown|
 *!
+
+!*> myChannelListCase01 根据token获取我的频道列表
+|script|my channel list|
+
+|myChannelList|
+|#用例编号|action|userName|passWord|loginType|token|custId|createDate|statusCode|
+|channelSubCase06|myChannelList|!-z16@123.com-!|111111|email|||0|0|
+*!
+!*> myChannelListCase02 根据custId获取我的频道列表
+|script|my channel list|
+|setParameters|!{action:myChannelList,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,custId: ,createDate:0}|
+|note|获取用户custId|
+|$custId=|getCustId|
+|note|设置参数custId的值|
+|setCustId|$custId|
+|changeParamWithKey|token|and value| |
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> myChannelListCase03 custId和token值都不为空
+|script|my channel list|
+|setParameters|!{action:myChannelList,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,custId: ,createDate:0}|
+|note|获取用户custId|
+|$custId=|getCustId|
+|note|设置参数custId的值|
+|setCustId|$custId|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> myChannelListCase06~myChannelListCase10
+|script|my channel list|
+
+|myChannelList|
+|#用例编号|action|userName|passWord|loginType|token|custId|createDate|statusCode|
+|myChannelListCase06|myChannelList|!-z16@123.com-!|111111|email||||0|
+|myChannelListCase07|myChannelList|!-z16@123.com-!|111111|email|||00001111111|0|
+|myChannelListCase08|myChannelList||||||0|10002|
+|myChannelListCase09|myChannelList|||||00000|0|10002|
+|myChannelListCase10|myChannelList||||asdfdjkj111111||0|10003|
+*!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 !*> setUp 订阅频道
 |script|channel sub|
 |note|随机获取某频道cId|

@@ -1,0 +1,28 @@
+!*> setUp
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+!*> 定义scenario 
+|scenario|channel|action||userName||passWord||loginType||token||cId||channelType||statusCode||setParameters|
+|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,channelType:@channelType}|
+|ensure|do get|@statusCode|
+|ensure|tearDown|
+*!
+!*> 获取频道Id
+|script|Channel|
+|$cId=|getChannel|
+*!
+*!
+!* channelCase10~channelCase16 
+|channel|
+|#用例名称|action|userName|passWord|loginType|token|cId|channelType|statusCode|
+|channelCase11|channel|!-z16@123.com-!|111111|email|||all|10002|
+|channelCase12|channel|!-z16@123.com-!|111111|email||111111|all|10007|
+|channelCase13|channel|||||$cId|all|0|
+|channelCase14|channel||||1122aaa|$cId|all|0|
+|channelCase15|channel|!-z16@123.com-!|111111|email||$cId||0|
+|channelCase16|channel|!-z16@123.com-!|111111|email||$cId|why|0|
+*!
+

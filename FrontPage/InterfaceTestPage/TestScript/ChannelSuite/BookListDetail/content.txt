@@ -8,22 +8,22 @@
  * media
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|bookListDetailCase01||获取书列表|书单书列表中包含原创的书，调用接口|返回结果与数据库数据相一致,字段mediaType=1|test,staging,online|
-|bookListDetailCase02||获取书列表|书单书列表中包含出版物电子书，调用接口|返回结果与数据库数据相一致,字段mediaType=2|test,staging,online|
-|bookListDetailCase03||获取书列表|书单书列表中包含纸书，调用接口|返回结果与数据库数据相一致,字段mediaType=3|test,staging,online|
-|bookListDetailCase04||参数bookListId|bookListId值为空|返回27001|test,staging,online|
-|bookListDetailCase05||参数bookListId|bookListId值为无效值|返回空|test,staging,online|
-|bookListDetailCase06||参数start|start值为空|返回11101|test,staging,online|
-|bookListDetailCase07||参数start|start值为无效值（*,字母，中文）|返回11101|test,staging,online|
-|bookListDetailCase08||参数end|end值为空|返回11101|test,staging,online|
-|bookListDetailCase09||参数end|end值为无效值（&,字母，中文）|返回11101|test,staging,online|
-|bookListDetailCase10||参数start和end|start值大于end值|200|test,staging,online|
-|bookListDetailCase11||参数channelType|channelType为空|正常返回|test,staging,online|
-|bookListDetailCase12||参数channelType|channelType为无效值|正常返回|test,staging,online|
-|bookListDetailCase13||参数token|token值为空|正常返回|test,staging,online|
-|bookListDetailCase14||参数token|token值为无效值|正常返回|test,staging,online|
+|Case01||获取书列表|书单书列表中包含原创的书，调用接口|返回结果与数据库数据相一致,字段mediaType=1|test,staging,online|
+|Case02||获取书列表|书单书列表中包含出版物电子书，调用接口|返回结果与数据库数据相一致,字段mediaType=2|test,staging,online|
+|Case03||获取书列表|书单书列表中包含纸书，调用接口|返回结果与数据库数据相一致,字段mediaType=3|test,staging,online|
+|Case04||参数bookListId|bookListId值为空|返回27001|test,staging,online|
+|Case05||参数bookListId|bookListId值为无效值|返回空|test,staging,online|
+|Case06||参数start|start值为空|返回11101|test,staging,online|
+|Case07||参数start|start值为无效值（*,字母，中文）|返回11101|test,staging,online|
+|Case08||参数end|end值为空|返回11101|test,staging,online|
+|Case09||参数end|end值为无效值（&,字母，中文）|返回11101|test,staging,online|
+|Case10||参数start和end|start值大于end值|200|test,staging,online|
+|Case11||参数channelType|channelType为空|正常返回|test,staging,online|
+|Case12||参数channelType|channelType为无效值|正常返回|test,staging,online|
+|Case13||参数token|token值为空|正常返回|test,staging,online|
+|Case14||参数token|token值为无效值|正常返回|test,staging,online|
 *!
-!*> 测试数据
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
@@ -60,18 +60,18 @@
 |script|book list detail|
 |$bookListId=|getBookListIdWithType|1|
 
-|bookListDetail|
-|#用例编号|action|userName|passWord|loginType|token|bookListId|start|end|channelType|statusCode|
-|bookListDetailCase04|bookListDetail|!-z16@123.com-!|111111|emial|||0|9|all|27001|
-|bookListDetailCase05|bookListDetail|!-z16@123.com-!|111111|emial||982345|0|9|all|0|
-|bookListDetailCase06|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId||9|all|11101|
-|bookListDetailCase07|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|a|9|all|11101|
-|bookListDetailCase08|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0||all|11101|
-|bookListDetailCase09|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|@|all|11101|
-|bookListDetailCase10|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|9|1|all|200|
-|bookListDetailCase11|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9||0|
-|bookListDetailCase12|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9|aaa|0|
-|bookListDetailCase13|bookListDetail|||||$bookListId|0|9|all|0|
-|bookListDetailCase14|bookListDetail||||112233|$bookListId|0|9|all|0|
+|ddt: book list detail|
+|#用例编号|action|userName|passWord|loginType|token|bookListId|start|end|status code|enviroment|data verify?|
+|Case04|bookListDetail|!-z16@123.com-!|111111|emial|||0|9|27001||通过|
+|Case05|bookListDetail|!-z16@123.com-!|111111|emial||982345|0|9|0||通过|
+|Case06|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId||9|11101||通过|
+|Case07|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|a|9|11101||通过|
+|Case08|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0||11101||通过|
+|Case09|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|@|11101||通过|
+|Case10|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|9|1|200||通过|
+|Case11|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9|0||通过|
+|Case12|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9|0||通过|
+|Case13|bookListDetail|||||$bookListId|0|9|0||通过|
+|Case14|bookListDetail||||112233|$bookListId|0|9|0||通过|
 *!
 *!

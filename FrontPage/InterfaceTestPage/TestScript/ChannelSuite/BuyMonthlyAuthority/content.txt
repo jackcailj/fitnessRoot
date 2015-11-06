@@ -1,39 +1,60 @@
 !*> 测试用例
 接口：action=buyMonthlyAuthority
-接口描述：购买频道包月权限，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360843
-相关数据库表：
- * channel_sub_user
- * channel
+接口描述：
+ * 包月1个月按30天计算
+ * 包月扣除主帐户金额，android用户扣除android主帐户金额，ios用户扣除ios主帐户金额
+ * 自动续费功能需要跑后台任务（本用例中未实现）
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360843
+相关数据库[表]：
+ * digital[channel, channel_monthly_strategy]
+ * account[master_account]
+ * authority[media_monthly_authority]
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|myChannelListCase01||根据token获取我的频道列表|custId值为空|订阅成功|test|
-|myChannelListCase02||根据custId获取我的频道列表|token值为空|订阅成功|test|
-|myChannelListCase03||根据custId获取我的频道列表|custId和token值都不为空|订阅操作不起作用，正常返回结果|test,staging,online|
-|myChannelListCase04||我订阅的频道中有的已下线|调用接口|返回"shelfStatus":0|test|
-|myChannelListCase05||我订阅的频道为空|调用接口|返回"total":0|test|
-|myChannelListCase06||参数createDate|createDate值为空|取消订阅成功|test,staging,online|
-|myChannelListCase07||参数createDate|createDate值为无效值|取消订阅操作不起作用，正常返回结果|test|
-|myChannelListCase08||参数tokenhe和custId同时为空|调用接口|返回10003，未登录用户|test|
-|myChannelListCase09||参数custId|custId值为无效值|返回10003，未登录用户|test|
-|myChannelListCase10||参数token|token值为无效值||test|
+|用例编号|是否支持包月|是否已购买|是否过期|是否自动续费|预期结果|运行环境|
+|Case01|否|-|-|-|99999，频道不支持包月|testing|
+|Case02|是|否|-|-|包月成功,包月到期时间，主帐户余额正确|testing|
+|Case03|是|是|否|-|同上|testing|
+|Case04|是|是|是|是|同上|testing|
+|Case05|是|是|是|否|同上|testing|
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case06|频道支持包月且下线||all|
+|Case07|未过期且已下线||all|
+|Case08|99999，账户余额不足|包月失败|all|
+|Case09|10002，参数非法|订阅成功|all|
+|Case10|99999，没有此频道|包月失败|all|
+|Case11|channelMonthlyStrategyId为空|10002，参数非法|all|
+|Case12|channelMonthlyStrategyId为无效值|99999，没有相关的包月策略|all|
+|Case13|isAutomaticallyRenew为空||all|
+|Case14|isAutomaticallyRenew为无效值||all|
 *!
-!*> 测试数据
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!*> 定义scenario 
-|scenario|buyMonthlyAuthority|action||userName||passWord||loginType||token||cId||channelMonthlyStrategyId||isAutomaticallyRenew ||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cId:@cId,channelMonthlyStrategyId:@channelMonthlyStrategyId,isAutomaticallyRenew:@isAutomaticallyRenew}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-*!
-!* myChannelListCase02 根据custId获取我的频道列表
-|script|buy monthly authority|
+note：自动续费需要跑后台任务，自动化未实现，需手动验证   
 
-|buyMonthlyAuthority|
-|action|userName|passWord|loginType|token|cId|channelMonthlyStrategyId|isAutomaticallyRenew |statusCode|
-|buyMonthlyAuthority|!-z16@123.com-!|111111|email||17|63|0|0|
-*!
+|ddt: buy monthly authority|
+|#用例编号|userName|passWord|loginType|token|cId|channelMonthlyStrategyId|isAutomaticallyRenew |statusCode|enviroment|data verify?|
+|Case06|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#Offline,1|auto|0|99999|testing|通过|
+
+|Comment|
+|Case01|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,0|0|0|99999|all|通过|
+|Case02|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|0|0|testing|通过|
+|Case03|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfOverdue,0|auto|0|0|testing|通过|
+|Case06|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#Offline,0|auto|0|99999|testing|通过|
+|Case07|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#Offline,1|auto|0|99999|testing|通过|
+|Case08|!-refuel03@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|0|99999|testing|通过|
+|Case09|!-refuel08@dangdang.com-!|111111|email|||0|0|10002|testing|通过|
+|Case10|!-refuel08@dangdang.com-!|111111|email||99999|0|0|99999|testing|通过|
+|Case11|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1||0|10002|testing|通过|
+|Case12|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|9999|0|99999|testing|通过|
+
+|Comment|
+|Case04|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAutoRenew,1|auto|1|0|testing|通过|
+|Case05|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAutoRenew,0|auto|0|0|testing|通过|
+|Case13|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|||testing|通过|
+|Case14|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|10||testing|通过|
 *!

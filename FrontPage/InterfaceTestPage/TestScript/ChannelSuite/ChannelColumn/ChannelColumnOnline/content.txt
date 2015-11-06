@@ -39,3 +39,101 @@
 |channelColumnCase18|column|${columnType}|0|9||10002|
 |channelColumnCase19|column|${columnType}|0|9|3|10002|
 *!
+
+
+
+!*> channelColumnCase02 频道栏目为空，获取频道栏目
+|script|channel column|
+|note|后台创建一个新频道，type=0书籍 type=1频道|
+|$columnType=|create with name|频道栏目|and code|interface_test|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelColumnCase03 频道栏目下添加频道
+|script|channel column|
+|note|后台频道栏目中添加频道|
+|insertChannelWithColumncode|$columnType|and size|10|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelColumnCase04 下线频道不返回
+|script|channel column|
+|note|下线频道|
+|$channelId=|setShelfStatusWithColumnCode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+|check|verify channel|$channelId|true|
+*!
+!*> channelColumnCase05 上线频道返回
+|script|channel column|
+|note|上线频道|
+|$channelId=|setStatusWithChannel|$channelId|and status|1|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelColumnCase06 无书单的频道不返回
+|script|channel column|
+|note|频道下无书单|
+|delBookListWithChannelId|17|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+|check|verify channel|17|true|
+*!
+!*> channelColumnCase07 模拟后台设置有效期
+|script|channel column|
+|note|设置有效期|
+|setEffectiveWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelColumnCase08 模拟后台设置状态
+|script|channel column|
+|note|设置为强制有效|
+|setEffective|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+
+|script|channel column|
+|note|设置为强制无效|
+|setInvalidWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelColumnCase09 模拟后台设置排序值
+|script|channel column|
+|note|设置排序值|
+|setSortWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+*!
+!*> channelColumnCase20 模拟后台删除频道栏目下某频道
+|script|channel column|
+|note|删除频道栏目下某频道|
+|$channelId=|delColumnDataWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|0|
+|ensure|verify result|
+|check|verify channel|$channelId|true|
+*!
+!*> channelColumnCase21 模拟后台删除频道栏目
+|script|channel column|
+|note|删除频道栏目|
+|delColumnWithColumncode|$columnType|
+|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
+|ensure|do get|10002|
+*!
+
+|Case02||0|9|1|0|all|通过|
+|Case03||0|9|1|0|all|通过|
+|Case04||0|9|1|0|all|通过|
+|Case05||0|9|1|0|all|通过|
+|Case06||0|9|1|0|all|通过|

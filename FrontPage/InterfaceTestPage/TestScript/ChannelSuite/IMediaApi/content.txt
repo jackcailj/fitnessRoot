@@ -1,35 +1,46 @@
 !*> 测试用例
 接口：IMediaApi
 接口描述：dubbo，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360714
-相关数据库表：
- * channel
- * media_booklist
- * media_booklist_detail
+相关数据库[表]：
+ * authority[media_monthly_authority]
+ * digital[channel]
+ * ucenter[user_device]
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|iMediaApiCase01||获取用户未包月的频道|调用接口|正常返回结果，与数据库数据相一致|test,staging,online|
-|iMediaApiCase02||获取用户已包月的频道|调用接口|正常返回|test,staging,online|
+|Case01|已包月|获取用户频道包月信息|调用接口|正常返回结果，与数据库数据相一致|testing|
+|Case02|未包月|获取用户频道包月信息|调用接口|正常返回|testing|
 *!
-!*> 测试数据
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
-|com.dangdang.common.functional.login|
 *!
-!*> setUp
-|ddt:ddLogin                                                                                                                       |
-|#用例名称|userName|passWord|loginClient|code|loginType|pdfkey|key|get token?|
-|登录|!-z16@123.com-!|111111|0| |emai| |12312312321312|$token=|
+!*> 定义scenario 
+|scenario|myChannelList|
+|$token=|set token|
+|$channelId=|set channel id|$token|
+|$mediaId=|set media id|$channelId|
+|check|getWithToken|$token|and media|$mediaId|and channelid|$channelId|
+
+|myChannelList|
+|#用例编号|action|userName|passWord|loginType|token|custId|createDate|statusCode|
+
 *!
-!* iMediaApiCase01 获取用户未包月的频道
+!* Case01 用户频道已包月
 |script|i media api dubbo|
-|note|随机获取一个频道|
-|$channelId=|getMonthlyChannel|
-|note|随机获取频道下的一本书|
-|$mediaId=|getMediaId|$channelId|
+|note|获取有频道包月的用户token|
+|$token=||
+|note|获取用户已包月的频道Id|
+|$boughtMonthlyChannelID=||
 |getWithToken|$token|and media|$mediaId|and channelid|$channelId|
 |check|verify channelId|null|true|
 *!
-
+!* Case02 用户频道未包月
+|script|i media api dubbo|
+|note|获取用户未包月的频道Id|
+|$boughtMonthlyChannelID=||
+|getWithToken|$token|and media|$mediaId|and channelid|$channelId|
+|check|verify channelId|null|true|
+*!
 *!

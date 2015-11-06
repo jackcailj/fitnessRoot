@@ -4,45 +4,24 @@
 相关数据库表：media_bookList
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|bookListCase01||获取书单基本信息|调用接口|返回结果与数据库数据相一致|test,staging,online|
-|bookListCase02||参数bookListId|bookListId值为空|10002|test,staging,online|
-|bookListCase03||参数bookListId|bookListId值为无效值|10002|test,staging,online|
-|bookListCase04||参数channelType|channelType为空|正常返回|test,staging,online|
-|bookListCase05||参数channelType|channelType为无效值|正常返回|test,staging,online|
-|bookListCase06||参数token|token为空|正常返回|test,staging,online|
-|bookListCase07||参数token|token为无效值|正常返回|test,staging,online|
+|Case01||获取书单基本信息|调用接口|返回结果与数据库数据相一致|all|
+|Case02||参数bookListId|bookListId值为空|10002|all|
+|Case03||参数bookListId|bookListId值为无效值|10002|all|
+|Case06||参数token|token为空|正常返回|all|
+|Case07||参数token|token为无效值|正常返回|all|
 *!
-!*> 测试数据
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!*> 定义scenario 
-|scenario|bookList|action||userName||passWord||loginType||token||bookListId||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,bookListId:@bookListId,channelType:@channelType}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-|ensure|tearDown|
-*!
-!* bookListCase01 获取书单基本信息
 |script|book list|
 |note|随机获取bookListId|
 |$bookListId=|getOneBookList|
-|setParameters|!{action:bookList,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,bookListId:$bookListId,channelType:all}|
-|ensure|do get|0|
-*!
-!* bookListCase02 ~ bookListCase07
-|script|book list|
-|$bookListId=|getOneBookList|
 
-|bookList|
-|#用例编号|action|userName|passWord|loginType|token|bookListId|channelType|statusCode|
-|bookListCase02|bookList|!-z16@123.com-!|111111|email|||all||10002|
-|bookListCase03|bookList|!-z16@123.com-!|111111|email||9988|all||10002|
-|bookListCase04|bookList|!-z16@123.com-!|111111|email||$bookListId|||0|
-|bookListCase05|bookList|!-z16@123.com-!|111111|email||$bookListId|aaa||0|
-|bookListCase06|bookList|||||$bookListId|all||0|
-|bookListCase07|bookList||||11aadd|$bookListId|all||0|
+|ddt: book list|
+|#用例编号|userName|passWord|loginType|token|bookListId|status code|enviroment|data verify?|
+|Case01|!-z16@123.com-!|111111|email||196|0|testing|通过|
 *!
-*!
+

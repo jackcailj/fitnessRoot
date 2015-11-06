@@ -1,33 +1,31 @@
 !*> '''测试用例'''
 接口：action=column
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933440
-相关表：
- * media_column
- * media_column_content
- * media_sale
- * media
+相关数据库表：库digital
+ * 表media_column
+ * 表media_column_content
+ * 表media_sale
+ * 表media
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|运行环境|
-|columnCase01||获取当当读书->书籍栏目下数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
-|columnCase02||栏目下书籍为空|调用接口|返回11003|test|
-|columnCase03||空栏目下装书|调用接口|返回新增的数据|test|
-|columnCase04||排序|【当读后台】设置排序值，调用接口|返回结果排序正确|test|
-|columnCase05||排序|【当读后台】更改状态后，调用接口|返回结果排序正确|test|
-|columnCase06||有效期|【当读后台】设置有效期后，调用接口|过了有效期的书不返回|test|
-|columnCase07||栏目下有下架的书|书下架后，调用接口|下架的书不返回|test|
-|columnCase08||下架的书重新上架|书上架后，调用接口|上架的书可正常返回|test|
-|columnCase09||参数columnType|columnType值为空|返回10002|test，staging，online|
-|columnCase10||参数columnType|columnType值为无效值|返回10002|test，staging，online|
-|columnCase11||参数start|start值为空|返回10002|test，staging，online|
-|columnCase12||参数start|start值大于列表总数时|返回空数据|test|
-|columnCase13||参数start|start值为无效值（*,字母，中文）|返回10002|test，staging，online|
-|columnCase14||参数end|end值为空|返回10002|test，staging，online|
-|columnCase15||参数end|end值为无效值（&,字母，中文）|返回10002|test，staging，online|
-|columnCase16||参数start和end|start值大于end值|返回10002|test，staging，online|
-|columnCase17||参数isFull|isFull值为空|返回10002|test，staging，online|
-|columnCase18||参数isFull|isFull为无效值(字符，字母，中文)|返回10002|test，staging，online|
-|columnCase19||删除栏目下数据|调用接口|能正常返回数据|test|
-|columnCase20||删除栏目|调用接口|返回10002|test|
+|Case01||获取当当读书->书籍栏目下数据|调用接口|返回的数据与数据库数据一致|all|
+|Case02||栏目下书籍为空|调用接口|返回11003|testing|
+|Case03||排序|【后台】设置排序值，调用接口|返回结果排序正确|testing|
+|Case04||排序|【后台】更改状态后，调用接口|返回结果排序正确|testing|
+|Case05||有效期|【后台】设置有效期后，调用接口|过了有效期的书不返回|testing|
+|Case06||栏目下有下架的书|书下架后，调用接口|下架的书不返回|testing|
+|Case07||参数columnType|columnType值为空|返回10002|all|
+|Case08||参数columnType|columnType值为无效值|返回10002|all|
+|Case09||参数start|start值为空|返回10002|all|
+|Case10||参数start|start值大于列表总数时|返回空数据|all|
+|Case11||参数start|start值为无效值|返回10002|all|
+|Case12||参数end|end值为空|返回10002|all|
+|Case13||参数end|end值为无效值|返回10002|all|
+|Case14||参数start和end|start值大于end值|返回10002|all|
+|Case15||参数isFull|isFull值为空|返回10002|all|
+|Case16||参数isFull|isFull为无效值|返回10002|all|
+|Case17||删除栏目下数据|调用接口|能正常返回数据|testing|
+|Case18||删除栏目|调用接口|返回10002|testing|
 *!
 !*> 测试数据
 !include .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface.ColumnInterfaceOnline

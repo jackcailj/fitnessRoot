@@ -1,0 +1,23 @@
+!* 测试用例
+接口：action=channelBookListUpdate
+参数：type 类型（频道0书单1）
+
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361263
+相关数据库[表]：
+|Comment|
+|用例编号|前提条件|测试点|测试内容|预期结果|运行环境|
+|Case01||type=0|频道更新||all|
+|Case02||type=1|书单更新||all|
+|Case03||type|type值为空|返回code值10002|all|
+|Case04||type|type值为无效值|返回code值10002|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt: channel book list update|
+|#用例编号|userName|passWord|loginType|token|type|cbid|name|description|icon|status code|enviroment|data verify?|
+|Case01|!-z16@123.com-!|111111|email||0|178||1.企业频道  2.无书单 有文章  3.上线状态 4.单篇文章  多篇文章  攻略他了了||0|testing|通过|
+*!

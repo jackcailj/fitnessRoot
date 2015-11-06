@@ -1,12 +1,9 @@
 !1 '''书城'''
-!* 线上运行用例
-!see .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BookStoreOnline
-*!
-!* '''初始化书城数据'''
+!*> '''辅助工具'''
  *[[只适用测试环境][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.InitBookStore]]
 *!
 !* '''栏目.块'''
- *[[栏目接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface]]
+ *[[栏目接口(column)][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface]]
  *[[栏目组接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnGroup]]
  *[[热门标签模块接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest]]
 *!
@@ -29,7 +26,7 @@
  *[[纸书获取库存接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetPaperMediaStock]]
 *!
 !* '''推荐系统'''
- *[[买了又买][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetBuyAlsoBuy]]
+ *[[买了又买(getBuyAlsoBuy)][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetBuyAlsoBuy]]
  *[[看了又看][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetViewAlsoView]]
  *[[猜你喜欢][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetGuessulike]]
 *!
