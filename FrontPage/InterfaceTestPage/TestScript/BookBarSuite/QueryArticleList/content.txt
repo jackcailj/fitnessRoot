@@ -43,6 +43,7 @@
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|query article list|
 *!
+
 !* 测试数据
 |queryArticleListTest |
 |#用例名称|action|barId|objectId|lastModifiedDateMsec|lastVisitDateMsec|期望|result|
@@ -62,8 +63,30 @@
 |lastVisitDateMsec值为一天前|queryArticleList|FromDB|REMOVE|REMOVE|lastVisitTime|0|pass|
 |不传参数lastVisitDateMsec|queryArticleList|FromDB|REMOVE|REMOVE|REMOVE|0|pass|
 *!
+
+!4 版本5.2中，帖子列表接口action改为queryArticleListV2，到时将启用如下测试用例
+#!* 测试数据
+#|queryArticleListTest |
+#|#用例名称|action|barId|objectId|lastModifiedDateMsec|lastVisitDateMsec|期望|result|
+#|获取吧ID帖子列表|queryArticleListV2|FromDB|REMOVE|REMOVE|0|0|pass|
+#|获取obejectId帖子列表|queryArticleListV2|REMOVE|FromDB|REMOVE|0|0|pass|
+#|barId和objectId同时存在|queryArticleListV2|FromDB|FromDB|REMOVE|0|0|pass|
+#|barId值为字母|queryArticleListV2|a|REMOVE|REMOVE|0|10002|pass|
+#|barId值为空|queryArticleListV2||REMOVE|REMOVE|0|10002|pass|
+#|不传参数barId|queryArticleListV2|REMOVE|REMOVE|REMOVE|0|10002|pass|
+#|objectId值为字母|queryArticleListV2|REMOVE|b|REMOVE|0|10002|pass|
+#|objectId值为空|queryArticleListV2|REMOVE||REMOVE|0|10002|pass|
+#|不传参数objectId|queryArticleListV2|REMOVE|REMOVE|REMOVE|0|10002|pass|
+#|lastModifiedDateMsec值为null|queryArticleListV2|FromDB|REMOVE|null|0|0|pass|
+#|lastModifiedDateMsec值为上次请求最后一条记录的时间戳|queryArticleListV2|FromDB|REMOVE|FromDB|0|0|pass|
+#|lastModifiedDateMsec值为当前时间|queryArticleListV2|FromDB|REMOVE|currentTime|0|0|pass|
+#|lastVisitDateMsec值为当前时间|queryArticleListV2|FromDB|REMOVE|REMOVE|currentTime|0|pass|
+#|lastVisitDateMsec值为一天前|queryArticleListV2|FromDB|REMOVE|REMOVE|lastVisitTime|0|pass|
+#|不传参数lastVisitDateMsec|queryArticleListV2|FromDB|REMOVE|REMOVE|REMOVE|0|pass|
+#*!
 !4 备注：	
  帖子排序规则：单品页是按权重排序，书吧详情页是按时间排序
  按发帖的时间倒序展示，帖子中有新的评论时按评论时间重新排序帖子顺序
 lastModifiedDateMsec – 上次请求最后一条记录的时间戳（第一次请求时传null）
 lastVisitDateMsec – 上次请求的时间戳（上次请求时间到当前系统时间内，如果有新的帖子，或者旧帖子有更新时候也会置顶，就会在最上边显示，这时要提示用户有几条新的帖子，用户会重新下拉，查看）
+bug：http://10.255.223.220/zentao/bug-view-18858.html

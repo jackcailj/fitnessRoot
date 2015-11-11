@@ -1,4 +1,4 @@
-!1 '''书吧模块'''
+!1 '''评论模块'''
 
  *[[查看更多回复接口][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetCommentReplyList]]
  *[[根据目标主体获取评论统计信息][.FrontPage.InterfaceTestPage.TestScript.ReviewSuite.GetTargetCommentCount]]

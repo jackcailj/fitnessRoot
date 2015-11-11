@@ -67,10 +67,11 @@
 |#用例名称|userName|passWord|loginType|token|action|replyCommentId|targetId|content|replyId|commentParentId|targetSource|isAnonymous|期望|result|
 |书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好好|0|0|1000|0|0|pass|
 |书吧一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好|0|0|1000|1|0|pass|
-|翻篇一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好|0|0|2000|0|0|pass|
+|翻篇一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好地方|0|0|2000|0|0|pass|
 |抢先一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好呀|0|0|3000|0|0|pass|
 |频道一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好文|0|0|4000|0|0|pass|
 |攻略一级评论|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|好文|0|0|7000|0|0|pass|
+|敏感词|!-whytest@dd.con-!|111111|email||addComment|0|FromDB|加 抠|0|0|1000|0|40003|pass|
 |targetId值为字母|!-whytest@dd.con-!|111111|email||addComment|0|a|好啊|0|0|1000|0|10002|pass|
 |targetId值为空|!-whytest@dd.con-!|111111|email||addComment|0||呵呵|0|0|1000|0|10002|pass|
 |不传参数targetId|!-whytest@dd.con-!|111111|email||addComment|0|REMOVE|好|0|0|1000|0|10002|pass|
