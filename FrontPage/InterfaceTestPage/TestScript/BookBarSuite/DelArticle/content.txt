@@ -22,9 +22,9 @@
 *!
 !*> 定义scenario 
 | scenario |delArticleTest|action||mediaDigestId||token||期望||result||setParameters|
-| setParameters|!{action:@action,mediaDigestId:@mediaDigestId,token:@token,期望:@期望}|
+| setParams|!{action:@action,mediaDigestId:@mediaDigestId,token:@token,期望:@期望}|
 |show|do request|
-|dataVerify|@期望|
+|dataVerified|@期望|
 |check|verified result |@result|
 
 !4 创建script实例，后面调用scenario都是针对这个实例

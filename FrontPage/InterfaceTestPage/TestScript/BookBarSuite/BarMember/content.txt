@@ -37,9 +37,8 @@
 *!
 !*> 定义scenario 
 | scenario |barMemberTest|userName||passWord||loginType||action||barId||actionType||applyReason||token||期望||result||environment||setParameters|
-| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,action:@action,barId:@barId,barId:@barId,actionType:@actionType,applyReason:@applyReason,token:@token,期望:@期望,environment:@environment}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{userName:@userName,passWord:@passWord,loginType:@loginType,action:@action,barId:@barId,barId:@barId,actionType:@actionType,applyReason:@applyReason,token:@token,期望:@期望,environment:@environment}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 

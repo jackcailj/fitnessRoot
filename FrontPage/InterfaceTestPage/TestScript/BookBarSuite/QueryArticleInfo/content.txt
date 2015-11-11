@@ -26,7 +26,7 @@
 !*> 定义scenario 
 | scenario |queryArticleInfoTest|action||mediaDigestId||期望||result||setParameters|
 | setParams|!{action:@action,mediaDigestId:@mediaDigestId,期望:@期望}|
-|dataVeried|@期望|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 

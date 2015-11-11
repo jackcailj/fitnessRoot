@@ -34,9 +34,8 @@
 *!
 !*> 定义scenario 
 |scenario |queryArticleListTest|action||barId||objectId||lastModifiedDateMsec||lastVisitDateMsec||期望||result||setParameters|
-|setParameters|!{action:@action,barId:@barId,objectId:@objectId,lastModifiedDateMsec:@lastModifiedDateMsec,lastVisitDateMsec:@lastVisitDateMsec,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+|setParams|!{action:@action,barId:@barId,objectId:@objectId,lastModifiedDateMsec:@lastModifiedDateMsec,lastVisitDateMsec:@lastVisitDateMsec,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result|@result|
 |show|tear down|
 
