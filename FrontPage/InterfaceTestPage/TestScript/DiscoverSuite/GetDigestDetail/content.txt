@@ -32,9 +32,8 @@ channel_sub_user （用户订阅频道信息， type： 1 订阅，0 取消订�
 *!
 !*> 定义scenario 
 | scenario |getDigestDetailTest|userName||passWord||loginType||token||action||digestId||ddChannelId||期望||result||setParameters|
-| setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,digestId:@digestId,ddChannelId:@ddChannelId,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,digestId:@digestId,ddChannelId:@ddChannelId,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 

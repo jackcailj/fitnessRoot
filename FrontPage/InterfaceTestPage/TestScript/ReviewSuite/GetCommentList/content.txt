@@ -35,39 +35,61 @@
 *!
 !*> 定义scenario 
 | scenario |getCommentListTest|action||targetId||targetSource||pageNum||commentId||期望||result||setParameters|
-| setParameters|!{action:@action,targetId:@targetId,targetSource:@targetSource,pageNum:@pageNum,commentId:@commentId,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{action:@action,targetId:@targetId,targetSource:@targetSource,pageNum:@pageNum,commentId:@commentId,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 
 !4 创建script实例，后面调用scenario都是针对这个实例
 |script|get comment list|
 *!
+#!* 测试数据
+#|getCommentListTest|
+#|#用例名称|action|targetId|targetSource|pageNum|commentId|期望|result|
+#|正常流程|getCommentList|FromDB|1000|1|0|0|pass|
+#|正常流程|getCommentList|FromDB|2000|1|0|0|pass|
+#|正常流程|getCommentList|FromDB|3000|1|0|0|pass|
+#|正常流程|getCommentList|FromDB|4000|1|0|0|pass|
+#|targetId为字母|getCommentList|a|4000|1|0|10002|pass|
+#|targetId为空  |getCommentList||4000|1|0|10002|pass|
+#|不传targetId  |getCommentList|REMOVE|4000|1|0|10002|pass|
+#|targetSource为空  |getCommentList|924||1|0|10002|pass|
+#|不传targetSource  |getCommentList|924|REMOVE|1|0|10002|pass|
+#|pageNum为负数|getCommentList|FromDB|1000|-1|0|0|pass|
+#|pageNum为字母|getCommentList|FromDB|1000|c|0|10002|pass|
+#|pageNum为空  |getCommentList|FromDB|1000||0|10002|pass|
+#|不传pageNum  |getCommentList|FromDB|1000|REMOVE|0|10002|pass|
+#|commentId为负数|getCommentList|FromDB|1000|1|-1|0|pass|
+#|commentId为某一级评论id|getCommentList|FromDB|1000|1|FromDB|0|pass|
+#|commentId为字母|getCommentList|FromDB|1000|1|c|10002|pass|
+#|commentId为空  |getCommentList|FromDB|1000|1||10002|pass|
+#|不传commentId  |getCommentList|FromDB|1000|1|REMOVE|10002|pass|
+#|commentId为某一级评论Id|getCommentList|FromDB|1000|1|FromDB|10002|pass|
+#*!
+
 !* 测试数据
 |getCommentListTest|
 |#用例名称|action|targetId|targetSource|pageNum|commentId|期望|result|
-|正常流程|getCommentList|FromDB|1000|1|0|0|pass|
-|正常流程|getCommentList|FromDB|2000|1|0|0|pass|
-|正常流程|getCommentList|FromDB|3000|1|0|0|pass|
-|正常流程|getCommentList|FromDB|4000|1|0|0|pass|
-|targetId为字母|getCommentList|a|4000|1|0|10002|pass|
-|targetId为空  |getCommentList||4000|1|0|10002|pass|
-|不传targetId  |getCommentList|REMOVE|4000|1|0|10002|pass|
-|targetSource为空  |getCommentList|924||1|0|10002|pass|
-|不传targetSource  |getCommentList|924|REMOVE|1|0|10002|pass|
-|pageNum为负数|getCommentList|FromDB|1000|-1|0|0|pass|
-|pageNum为字母|getCommentList|FromDB|1000|c|0|10002|pass|
-|pageNum为空  |getCommentList|FromDB|1000||0|10002|pass|
-|不传pageNum  |getCommentList|FromDB|1000|REMOVE|0|10002|pass|
-|commentId为负数|getCommentList|FromDB|1000|1|-1|0|pass|
-|commentId为某一级评论id|getCommentList|FromDB|1000|1|FromDB|0|pass|
-|commentId为字母|getCommentList|FromDB|1000|1|c|10002|pass|
-|commentId为空  |getCommentList|FromDB|1000|1||10002|pass|
-|不传commentId  |getCommentList|FromDB|1000|1|REMOVE|10002|pass|
-#|commentId为某一级评论Id|getCommentList|FromDB|1000|1|FromDB|10002|pass|
+|正常流程|getCommentListV2|FromDB|1000|1|0|0|pass|
+|正常流程|getCommentListV2|FromDB|2000|1|0|0|pass|
+|正常流程|getCommentListV2|FromDB|3000|1|0|0|pass|
+|正常流程|getCommentListV2|FromDB|4000|1|0|0|pass|
+|targetId为字母|getCommentListV2|a|4000|1|0|10002|pass|
+|targetId为空  |getCommentListV2||4000|1|0|10002|pass|
+|不传targetId  |getCommentListV2|REMOVE|4000|1|0|10002|pass|
+|targetSource为空  |getCommentListV2|924||1|0|10002|pass|
+|不传targetSource  |getCommentListV2|924|REMOVE|1|0|10002|pass|
+|pageNum为负数|getCommentListV2|FromDB|1000|-1|0|0|pass|
+|pageNum为字母|getCommentListV2|FromDB|1000|c|0|10002|pass|
+|pageNum为空  |getCommentListV2|FromDB|1000||0|10002|pass|
+|不传pageNum  |getCommentListV2|FromDB|1000|REMOVE|0|10002|pass|
+|commentId为负数|getCommentListV2|FromDB|1000|1|-1|0|pass|
+|commentId为某一级评论id|getCommentListV2|FromDB|1000|1|FromDB|0|pass|
+|commentId为字母|getCommentListV2|FromDB|1000|1|c|10002|pass|
+|commentId为空  |getCommentListV2|FromDB|1000|1||10002|pass|
+|不传commentId  |getCommentListV2|FromDB|1000|1|REMOVE|10002|pass|
+#|commentId为某一级评论Id|getCommentListV2|FromDB|1000|1|FromDB|10002|pass|
 *!
-
 !4 备注:  
 一页默认显示20条一级评论。
 评论的回复返回9条

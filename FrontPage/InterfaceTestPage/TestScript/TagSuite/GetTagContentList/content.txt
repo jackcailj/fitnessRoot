@@ -20,9 +20,8 @@
 *!
 !*> 定义scenario 
 | scenario |contentListTest|action||tagIds||期望||result||setParameters|
-| setParameters|!{action:@action,tagIds:@tagIds,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{action:@action,tagIds:@tagIds,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 

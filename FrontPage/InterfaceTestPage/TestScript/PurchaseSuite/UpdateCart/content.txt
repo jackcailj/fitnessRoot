@@ -21,9 +21,8 @@
 *!
 !*> 定义scenario 
 | scenario |updateCartTest|action||userName||passWord||loginType||token||fromPlatform||itemIds||cartId||batchIds||期望||result||setParameters|
-| setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,fromPlatform:@fromPlatform,itemIds:@itemIds,cartId:@cartId,batchIds:@batchIds,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,fromPlatform:@fromPlatform,itemIds:@itemIds,cartId:@cartId,batchIds:@batchIds,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 !4 创建script实例，后面调用scenario都是针对这个实例

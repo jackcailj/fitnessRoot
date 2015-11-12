@@ -30,9 +30,8 @@
 *!
 !*> 定义scenario 
 | scenario |getShipmentOptionsTest|action||userName||passWord||loginType||token||cartId||cityId||townId||shopId||isLocalArrive||orderItemsType||fromPlatform||orderSequenceId||期望||result||setParameters|
-| setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cartId:@cartId,cityId:@cityId,townId:@townId,shopId:@shopId,isLocalArrive:@isLocalArrive,orderItemsType:@orderItemsType,fromPlatform:@fromPlatform,orderSequenceId:@orderSequenceId,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,cartId:@cartId,cityId:@cityId,townId:@townId,shopId:@shopId,isLocalArrive:@isLocalArrive,orderItemsType:@orderItemsType,fromPlatform:@fromPlatform,orderSequenceId:@orderSequenceId,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 

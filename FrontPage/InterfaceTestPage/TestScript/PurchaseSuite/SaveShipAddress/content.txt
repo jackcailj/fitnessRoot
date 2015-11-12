@@ -35,9 +35,8 @@
 *!
 !*> 定义scenario 
 | scenario |saveShipAddressTest|action||userName||passWord||loginType||token||addrId||cartId||shipMan||addrDetail||shipZip||countryId||provinceId||cityId||townId||quarterId||shipTel||shipMb||fromPlatform||orderSequenceId||期望||result||setParameters|
-| setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,type:@type,addrId:@addrId,cartId:@cartId,shipMan:@shipMan,addrDetail:@addrDetail,shipZip:@shipZip,countryId:@countryId,provinceId:@provinceId,cityId:@cityId,townId:@townId,quarterId:@quarterId,shipTel:@shipTel,shipMb:@shipMb,fromPlatform:@fromPlatform,orderSequenceId:@orderSequenceId,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,type:@type,addrId:@addrId,cartId:@cartId,shipMan:@shipMan,addrDetail:@addrDetail,shipZip:@shipZip,countryId:@countryId,provinceId:@provinceId,cityId:@cityId,townId:@townId,quarterId:@quarterId,shipTel:@shipTel,shipMb:@shipMb,fromPlatform:@fromPlatform,orderSequenceId:@orderSequenceId,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 

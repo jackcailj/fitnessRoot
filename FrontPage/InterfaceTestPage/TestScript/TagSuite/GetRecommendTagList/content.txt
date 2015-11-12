@@ -15,9 +15,8 @@
 *!
 !*> 定义scenario 
 | scenario |tagListTest|action||期望||result||setParameters|
-| setParameters|!{action:@action,期望:@期望}|
-|show|do request|
-|dataVerify|@期望|
+| setParams|!{action:@action,期望:@期望}|
+|dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|
 
