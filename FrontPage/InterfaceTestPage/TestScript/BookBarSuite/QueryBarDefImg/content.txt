@@ -18,7 +18,6 @@
 !*> 定义scenario 
 | scenario |queryBarDefImgTest|action||期望||result||setParameters|
 | setParams|!{action:@action,期望:@期望}|
-|show|do request|
 |dataVerified|@期望|
 |check|verified result |@result|
 |show|tear down|

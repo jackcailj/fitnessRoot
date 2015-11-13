@@ -36,16 +36,14 @@
 !* 测试数据
 |squareTest|
 |#用例名称|action|moduleLocation|期望|result|
-|获取广场信息|square|square|0|pass|
-|获取热帖信息|square|hotArticle|0|pass|
-|moduleLocation参数为字母|square|bb|10002|pass|
-|moduleLocation参数值为空|square||10002|pass|
-|不传moduleLocation参数|square||10002|pass|
+|获取广场信息|squareV2|square|0|pass|
+|获取热帖信息|squareV2|hotArticle|0|pass|
+|moduleLocation参数为字母|squareV2|bb|10002|pass|
+|moduleLocation参数值为空|squareV2||10002|pass|
+|不传moduleLocation参数|squareV2||10002|pass|
 !4 备注：deviceType值为Default意思是在android测试环境中为Android，iphone测试环境中为iphone， ipad测试环境中为ipad
 *!
 !4 备注：
-应该有问题，稍后处理
-
 http://10.255.223.117/media/api2.go?action=square&moduleLocation=square&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150703034446568263343364969373750&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=DDXS-P&channelType=all&token=
 
 GET /media/api2.go?action=square&moduleLocation=hotArticle&returnType=json&deviceType=Android&channelId=30000&clientVersionNo=5.0&serverVersionNo=1.2.1&permanentId=20150703034446568263343364969373750&deviceSerialNo=864587026900416&macAddr=c0%3Aee%3Afb%3A04%3A27%3A3e&resolution=1080*1920&clientOs=4.3&platformSource=DDXS-P&channelType=all&token= 
