@@ -1,0 +1,43 @@
+!1 '''我的朋友圈'''
+
+!* 测试用例
+接口：action：getMyBookFriendMoments
+参数：
+ * token 用户登录token(必填)
+ * act	下拉和第一次进列表:new；上拉:old（必填）
+ * createDateLong	第一次进来不传，下拉act=new时，传第一页第一条数据的createDateLong，上拉act=old，传每一页最后一条数据的createDateLong
+ * pageSize	分页大小，默认服务端:10
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361792
+相关数据库表：ucenter -> book_friend     digital-> media_digest
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.personal_center.bookfriend|
+*!
+!*> 定义scenario 
+| scenario |getMyBookFriendMomentsTest|action||userName||passWord||loginType||token||acter||crateDateLong||pageSize||期望||result||setParameters|
+| setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,acter:@acter,crateDateLong:@crateDateLong,pageSize:@pageSize,期望:@期望}|
+|dataVerified|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|get My book friend moments|
+*!
+!* 测试数据
+|getMyBookFriendMomentsTest|
+|#用例名称|action|userName|passWord|loginType|token|acter|crateDateLong|pageSize|期望|result|
+|正常流程 |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|REMOVE|REMOVE|0|pass|
+|crateDateLong为0 |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|0|REMOVE|0|pass|
+|crateDateLong为当前时间 |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|!today -xml|REMOVE|0|pass|
+|crateDateLong为空 |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new||REMOVE|0|pass|
+|pageSize为0|getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|REMOVE|0|0|pass|
+|pageSize为11|getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|REMOVE|11|0|pass|
+|pageSize为-1|getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|REMOVE|-1|10000|pass|
+|act为old |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||old|0|REMOVE|0|pass|
+|act为old |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||old|!today -xml|REMOVE|0|pass|
+|act为kong |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email|||0|REMOVE|10002|pass|
+|token为空 |getMyBookFriendMoments|||||new|REMOVE|REMOVE|10003|pass|
+
+*!

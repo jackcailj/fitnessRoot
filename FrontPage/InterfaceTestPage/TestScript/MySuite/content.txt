@@ -85,6 +85,7 @@
 
 *43、[[我发布的帖子文章列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishArticleAndPost]]
 
+*44、[[个人中心我的书友圈][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBookFriendMoments]]
 *!
 ----
 !***> 书架
