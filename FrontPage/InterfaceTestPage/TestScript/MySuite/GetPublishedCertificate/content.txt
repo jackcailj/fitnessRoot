@@ -15,8 +15,8 @@ refAction:用户行为参数（可以为空或者不传）但如果是登录用�
 | com.dangdang.readerV5.personal_center |
 
 | ddt:get published certificate |
-| #用例名称 | userName | passWord | token | mediaId | key | isFull | refAction | status code? | data verfiy? |
-| 获取出版物证书，全本 | !-cailj_ddtest@126.com-! | ddtest |  | #GetBuyProductId#BUY,1 | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | 0 | 通过 |
+| #用例名称 | userName | passWord | token | mediaId | key | isFull | refAction | status code | data verfiy? |
+| 获取出版物证书，全本 | !-cailj_ddtest@126.com-! | ddtest | | #GetBuyProductId#BUY,1 | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | 0 | 通过 |
 | 获取出版物证书，试读本 | | | #NotPass# | $shiduProductId=#GetProductIds#SHIDU,VALID,1 | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 0 | | 0 | 通过 |
 | 获取出版物证书，登录用户，试读 | !-cailj_ddtest@126.com-! | ddtest | | $shiduProductId | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 0 | browse | 0 | 通过 |
 | 获取出版物证书，登录用户，试读，refAction为空 | !-cailj_ddtest@126.com-! | ddtest | | $shiduProductId | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 0 | | 0 | 通过 |

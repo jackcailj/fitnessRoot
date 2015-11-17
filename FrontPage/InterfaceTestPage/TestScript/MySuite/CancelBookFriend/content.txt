@@ -7,34 +7,34 @@
 关注书友
 
 !3 三、涉及数据库
-|Comment            |
-|数据库    |表          |
-|ucenter|book_friend|
+| Comment |
+| 数据库 | 表 |
+| ucenter | book_friend |
 
 ----
 !3 四、测试用例:
-|Import                                          |
-|com.dangdang.readerV5.personal_center.bookfriend|
+| Import |
+| com.dangdang.readerV5.personal_center.bookfriend |
 
 数据准备，添加书友
 
-|ddt:add book friend                                                                                                      |
-|#用例名称         |userName                 |passWord|token|friendPubId                                         |status code?|
-|关注书友，主动关注，正常流程|!-cailj_ddtest4@126.com-!|ddtest  |     |$pubId1=#GetPubIdByName#cailj_ddtest6@126.com,ddtest|0           |
-|关注书友，互相关注，主动关注|!-cailj_ddtest1@126.com-!|ddtest  |     |$pubId2=#GetPubIdByName#cailj_ddtest2@126.com,ddtest|0           |
-|关注书友，互相关注，被动关注|!-cailj_ddtest2@126.com-!|ddtest  |     |$pubId3=#GetPubIdByName#cailj_ddtest1@126.com,ddtest|0           |
+| ddt:add book friend |
+| #用例名称 | userName | passWord | token | friendPubId | status code | data verify? |
+| 关注书友，主动关注，正常流程 | !-cailj_ddtest11@126.com-! | ddtest | | $pubId1=#GetPubIdByName#cailj_ddtest6@126.com,ddtest | 0 | 通过 |
+| 关注书友，互相关注，主动关注 | !-cailj_ddtest1@126.com-! | ddtest | | $pubId2=#GetPubIdByName#cailj_ddtest2@126.com,ddtest | 0 | 通过 |
+| 关注书友，互相关注，被动关注 | !-cailj_ddtest2@126.com-! | ddtest | | $pubId3=#GetPubIdByName#cailj_ddtest1@126.com,ddtest | 0 | 通过 |
 
-|ddt:cancel book friend                                                                                                                                        |
-|#用例名称                    |userName                 |passWord|token    |friendPubId                                  |flag            |status code|data verfiy?|
-|取消关注书友，正常流程              |!-cailj_ddtest4@126.com-!|ddtest  |         |$pubId1                                      |                |0          |通过          |
-|取消关注书友，正常流程              |!-cailj_ddtest2@126.com-!|ddtest  |         |$pubId3                                      |                |0          |通过          |
-|取消关注书友，正常流程              |!-cailj_ddtest1@126.com-!|ddtest  |         |$pubId2                                      |                |0          |通过          |
-|取消关注书友，未登录用户             |                         |        |         |123213                                       |                |10002      |通过          |
-|取消关注书友，token不正确          |                         |        |12354    |123213                                       |                |10003      |通过          |
-|取消关注书友，token不传           |                         |        |#NotPass#|132213                                       |                |10002      |通过          |
-|取消关注书友，friendPubId不正确    |!-cailj_ddtest@126.com-! |ddtest  |         |123455666666                                 |flag_pubid_error|60064      |通过          |
-|取消关注书友，friendPubId为未关注的书友|!-cailj_ddtest@126.com-! |ddtest  |         |#GetPubIdByName#cailj_ddtest15@126.com,ddtest|                |60068      |通过          |
-|取消关注书友，friendPubId不传     |!-cailj_ddtest@126.com-! |ddtest  |         |#NotPass#                                    |                |10002      |通过          |
-|取消关注书友，friendPubId为自己    |!-cailj_ddtest@126.com-! |ddtest  |         |#GetPubIdByName#cailj_ddtest@126.com,ddtest  |                |60068      |通过          |
+| ddt:cancel book friend |
+| #用例名称 | userName | passWord | token | friendPubId | flag | status code | data verfiy? |
+| 取消关注书友，正常流程 | !-cailj_ddtest11@126.com-! | ddtest | | $pubId1 | | 0 | 通过 |
+| 取消关注书友，正常流程 | !-cailj_ddtest2@126.com-! | ddtest | | $pubId3 | | 0 | 通过 |
+| 取消关注书友，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | $pubId2 | | 0 | 通过 |
+| 取消关注书友，未登录用户 | | | | 123213 | | 10002 | 通过 |
+| 取消关注书友，token不正确 | | | 12354 | 123213 | | 10003 | 通过 |
+| 取消关注书友，token不传 | | | #NotPass# | 132213 | | 10002 | 通过 |
+| 取消关注书友，friendPubId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 123455666666 | flag_pubid_error | 60064 | 通过 |
+| 取消关注书友，friendPubId为未关注的书友 | !-cailj_ddtest@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest15@126.com,ddtest | | 60068 | 通过 |
+| 取消关注书友，friendPubId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | 10002 | 通过 |
+| 取消关注书友，friendPubId为自己 | !-cailj_ddtest@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | | 60068 | 通过 |
 
 '' !contents -R2 -g -p -f -h''

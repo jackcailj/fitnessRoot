@@ -22,7 +22,7 @@
 | com.dangdang.readerV5.personal_center |
 
 | ddt:change nickName |
-| #用例名称 | userName | passWord | token | thirdId | loginClient | nickname | status code? | data verfiy? |
+| #用例名称 | userName | passWord | token | thirdId | loginClient | nickname | status code  | data verfiy? |
 | 修改当当用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | #RandomUserName# | 0 | 通过 |
 | 修改当读小说用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 1 | #RandomUserName# | 0 | 通过 |
 | 修改翻片儿用户昵称,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 2 | #RandomUserName# | 0 | 通过 |
@@ -39,9 +39,9 @@
 | 修改昵称，昵称小于4个字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | #RandomUserName#3 | 60019 | 通过 |
 | 修改昵称，昵称中存在特殊字符，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | 123*$-_- | 60021 | 通过 |
 
-
 下面几种情况均可成功
-|comment|
+
+| comment |
 | 修改昵称，thirdId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 0 | #RandomUserName# | 10002 | 通过 |
 | 修改昵称，thirdId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 222 | 0 | #RandomUserName# | 60023 | 通过 |
 | 修改昵称 ，loginClient不传 | !-cailj_ddtest@126.com-! | ddtest | | 0 | #NotPass# | #RandomUserName# | 10002 | 通过 |

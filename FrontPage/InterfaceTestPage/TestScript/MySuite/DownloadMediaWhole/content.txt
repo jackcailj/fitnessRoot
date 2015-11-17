@@ -27,7 +27,7 @@ digital库media表 ，doc_type=‘Ebook’为出版物，否则为原创小说
 数据准备：准备借阅书籍
 
 | ddt:add authorize ebook |
-| #用例名称 | userName | passWord | token | mediaId | status code? | data verfiy? |
+| #用例名称 | userName | passWord | token | mediaId | status code  | data verfiy? |
 | 获取订单详情，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | $jieYueBookId=#GetCanBorrowBookId#EBOOK,VALID,1 | 0 | 通过 |
 
 | ddt:download media whole |
@@ -40,7 +40,7 @@ digital库media表 ，doc_type=‘Ebook’为出版物，否则为原创小说
 | 下载借阅电子书，在借阅期内，可以正常下载 | !-cailj_ddtest@126.com-! | ddtest | | $jieYueBookId | 1 | 0 | 通过 |
 | 下载借阅电子书，已过期，应不能下载 | !-cailj_ddtest@126.com-! | ddtest | | #GetBorrowProduct#TIMEOUT,1 | 1 | 10004 | 通过 |
 | 下载试读电子书，书籍为下架状态 | !-cailj_ddtest@126.com-! | ddtest | | #GetProductIds#SHIDU,XIAJIA,1 | 0 | 10009 | 通过 |
-| 下载免费的电子书，应可以下载 | !-cailj_ddtest@126.com-!  | ddtest | | #GetProductIds#EBOOK_FREE,VALID,1 | 1 | 0 | 通过 |
+| 下载免费的电子书，应可以下载 | !-cailj_ddtest@126.com-! | ddtest | | #GetProductIds#EBOOK_FREE,VALID,1 | 1 | 0 | 通过 |
 | 下载下架的免费电子书，不能下载 | !-cailj_ddtest@126.com-! | ddtest | | #GetProductIds#EBOOK_FREE,XIAJIA,1 | 1 | 10004 | 通过 |
 | 下载全本电子书，mediaId不存在 | !-cailj_ddtest@126.com-! | ddtest | | 1234 | 1 | 12002 | 通过 |
 | 下载全本电子书,media不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 1 | 10002 | 通过 |
