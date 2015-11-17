@@ -31,9 +31,9 @@
 *!
 |ddt:delete digest|
 |#用例编号|userName|passWord|loginType|token|digestId|status code|enviroment|data verify?|
-|Case01|${userName}|${passWord}|${loginType}||#GetDigestId#UserDigestId,5|0|testing|通过|
-|Case02|${userName}|${passWord}|${loginType}||#GetDigestId#UserDigestId,3|0|testing|通过|
-|Case03|${userName}|${passWord}|${loginType}||11921|10004|testing|通过|
+|Case01|${userName}|${passWord}|${loginType}||#GetDigestId#UserDigestId,5|0|all|通过|
+|Case02|${userName}|${passWord}|${loginType}||#GetDigestId#UserDigestId,3|0|all|通过|
+|Case03|${userName}|${passWord}|${loginType}||11921|10004|all|通过|
 
 
 

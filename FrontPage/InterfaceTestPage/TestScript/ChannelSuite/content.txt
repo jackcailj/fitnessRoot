@@ -36,7 +36,7 @@
  *[[文章详情页接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getDigestDetail]] 
  *[[获取频道或者书单默认背景图地址列表接口(getBackgroundImgList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.GetBackgroundImgList]]  
  *[[攻略信息保存接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.SaveChannelStrategy]] 
- *[[用户删除攻略(文章)接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.deleteDigest]]
+ *[[用户删除攻略(文章)接口(deleteDigest)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.deleteDigest]]
 *!
  
 
