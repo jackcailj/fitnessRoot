@@ -38,6 +38,6 @@
 |act为old |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||old|0|REMOVE|0|pass|
 |act为old |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||old|!today -xml|REMOVE|0|pass|
 |act为kong |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email|||0|REMOVE|10002|pass|
-|token为空 |getMyBookFriendMoments|||||new|REMOVE|REMOVE|10003|pass|
+|token为空 |getMyBookFriendMoments|||||new|REMOVE|REMOVE|10002|pass|
 
 *!
