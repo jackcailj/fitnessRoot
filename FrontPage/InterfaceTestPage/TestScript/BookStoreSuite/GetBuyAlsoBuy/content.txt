@@ -1,26 +1,25 @@
 !*> 测试用例
 接口：action=getBuyAlsoBuy
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933332
-相关表：
- * 
+相关表
+  
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|getBuyAlsoBuyCase01|未登录用户|匿名模式，获取热销榜的数据|调用接口|返回的热销榜的数据|test，staging，online|
-|getBuyAlsoBuyCase02|已登录用户|获取的数据与用户有关系|调用接口|返回的11003|test|
-|getBuyAlsoBuyCase03|已有购买记录用户|获取的数据与用户有关系|调用接口|返回的11003|test|
-|getBuyAlsoBuyCase04||根据参数returnFields值，返回相应字段|returnFields=|返回10002|test|
-|getBuyAlsoBuyCase05||参数returnFields|returnFields值为空|返回所有字段mediaId,saleId,coverPic,title|test|
-|getBuyAlsoBuyCase06||参数returnFields|returnFields为无效值(字符，字母，中文)|返回10002|test|
-|getBuyAlsoBuyCase07||参数mediaId|mediaId值为空|返回10002在|test|
-|getBuyAlsoBuyCase08||参数mediaId|mediaId值为无效值|返回10002|test|
-|getBuyAlsoBuyCase09||参数start|start值为空|返回10002|test|
-|getBuyAlsoBuyCase10||参数start|start值大于列表总数时|返回空数据|test|
-|getBuyAlsoBuyCase11||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|getBuyAlsoBuyCase12||参数end|end值为空|返回10002|test|
-|getBuyAlsoBuyCase13||最多返回100条数据|end>100时，只返回100条数据|返回100条数据|test|
-|getBuyAlsoBuyCase14||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|getBuyAlsoBuyCase15||参数start和end|start值大于end值|返回10002|test|
-|getBuyAlsoBuyCase16||参数token|token为无效值(字符，字母，中文)|返回10002|test|
+|用例编号|是否登录|是否有购买记录|参数returnFields|预期结果|运行环境|
+|Case01|否|是|返回的热销榜的数据|空|staging，online|
+|Case02|是|否|mediaId,saleId|staging，online|
+|Case03|是|是|mediaId,saleId,authorPenname|获取的数据与用户有关系|staging,online|
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case04|token为无效值|返回10002|test|
+|Case05|mediaId值为空|返回10002在|test|
+|Case06|mediaId值为无效值|返回10002|test|
+|Case07|start值为空|返回10002|test|
+|Case08|start值为无效值|返回10002|test|
+|Case09|end值为空|返回10002|test|
+|Case10|end值为无效值|返回10002|test|
+|Case11|start值大于end值|返回10002|test|
+|Case12|returnFields为无效值(字符，字母，中文)|返回10002|test|
+
 
 *!
 !* Import
@@ -28,33 +27,22 @@
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-!*> 定义scenario 
-|scenario|getBuyAlsoBuy|action||userName||passWord||loginType||token||mediaId||start||end||returnFields||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,mediaId:@mediaId,start:@start,end:@end,returnFields:@returnFields}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-
-|script|get buy also buy|
-*!
 !* 测试数据
-|getBuyAlsoBuy|
-|#用例编号|action|userName|passWord|loginType|token|mediaId|start|end|returnFields|statusCode|
-|getBuyAlsoBuyCase01|getBuyAlsoBuy|||||1900431380|0|9|mediaId,saleId,coverPic|0|
-|getBuyAlsoBuyCase03|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0|9|mediaId,saleId,coverPic,title|0|
-|getBuyAlsoBuyCase04|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0|9|mediaId,saleId,coverPic,title|0|
-|getBuyAlsoBuyCase05|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0|9||0|
-|getBuyAlsoBuyCase06|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0|9|returnFields|0|
-|getBuyAlsoBuyCase06|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0|9|参数|0|
-|getBuyAlsoBuyCase06|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0|9|*|0|
-|getBuyAlsoBuyCase07|getBuyAlsoBuy|!-z16@123.com-!|111111|email|||0|9|mediaId,saleId|14001|
-|getBuyAlsoBuyCase08|getBuyAlsoBuy|!-z16@123.com-!|111111|email||参数|0|9|mediaId,saleId|14001|
-|getBuyAlsoBuyCase09|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380||9|mediaId,saleId|14002|
-|getBuyAlsoBuyCase10|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|500|550|mediaId,saleId|0|
-|getBuyAlsoBuyCase11|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|*|10|mediaId,saleId|14002|
-|getBuyAlsoBuyCase11|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|start|10|mediaId,saleId|14002|
-|getBuyAlsoBuyCase12|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0||mediaId,saleId|14003|
-|getBuyAlsoBuyCase14|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|0|&|mediaId,saleId|14003|
-|getBuyAlsoBuyCase15|getBuyAlsoBuy|!-z16@123.com-!|111111|email||1900431380|9|1|mediaId,saleId|14304|
-|getBuyAlsoBuyCase16|getBuyAlsoBuy||||11122222|1900431380|0|9|mediaId,saleId,coverPic|0|
+|ddt: get buy also buy|
+|#用例编号|action|token|mediaId|start|end|returnFields|status code|enviroment|data verify?|
+|Case01|getBuyAlsoBuy||#GetMediaId#1|0|9||0||通过|
+
+|Comment|
+|Case02|getBuyAlsoBuy|#GetToken#UserNoBuyBook|$mediaId|0|9|mediaId,saleId|0||通过|
+|Case03|getBuyAlsoBuy|#GetToken#UserAlreadyBuyBook|auto|0|9|mediaId,saleId,authorPenname|0||通过|
+|Case04|getBuyAlsoBuy|aaaaa|$mediaId|0|9||0||通过|
+|Case05|getBuyAlsoBuy|||0|9||0||通过|
+|Case06|getBuyAlsoBuy||99999999|0|9|参数|0||通过|
+|Case07|getBuyAlsoBuy||$mediaId||9|mediaId,saleId|14001||通过|
+|Case08|getBuyAlsoBuy||$mediaId|*|9|mediaId,saleId|14001||通过|
+|Case09|getBuyAlsoBuy||$mediaId|0||mediaId,saleId|14002||通过|
+|Case10|getBuyAlsoBuy||$mediaId||a|mediaId,saleId|0||通过|
+|Case11|getBuyAlsoBuy||$mediaId|10|1|mediaId,saleId|14002||通过|
+|Case12|getBuyAlsoBuy||$mediaId|0|9|aaaaaa|14003||通过|
 
 *!

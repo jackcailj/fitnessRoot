@@ -1,5 +1,21 @@
-电子书的上下架状态：1下架，0上架
-纸书的上下架状态： 1下架，0或null 上架
+!* 测试用例
+接口：action=deleteDigest
+接口描述：
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361679
+相关数据库[表]：
+ * account [account_action_type_info]
+ * account [account_experience_items]
+ * account [account_integral_items]
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|客户端发表攻略|经验/增加积分15|all|
+|Case02|（用户后台）用户发布单品文章|经验/增加积分15|人工测试|
+|Case03|（用户后台）用户发布多篇文章|经验/增加积分15*N|人工测试|
+*!
+相关数据库[表]：
+ * account [account_action_type_info]
+ * account [account_experience_items]
+ * account [account_integral_items]
 
 !*> setUp
 !*> 常量
@@ -10,20 +26,13 @@
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
-|com.dangdang.readerV5.v5_1|
+|com.dangdang.readerV5.channel|
 *!
-!*> 定义scenario 
-|scenario|saveChannelStrategy|action||userName||passWord||loginType||token||productArray||title||content||author||description||statusCode||setParameters||enviroment|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,productArray:@productArray,title:@title,content:@content,author:@author,description:@description,enviroment:@enviroment}|
-|ensure|do get|@statusCode|
-|ensure|tearDown|
-
-|script|Save Channel Strategy|
 *!
 !* 
-|saveChannelStrategy|
-|#用例编号|action|userName|passWord|loginType|token|productArray|title|content|author|description|statusCode|enviroment|
-|saveChannelStrategy06|saveChannelStrategy|${userName}|${passWord}|${loginType}||[{"mediaId":"1900090175","saleId":"1900090175","type":"2"},{"productId":"1900090175","type":"3"}|||||0|testing|
+|ddt:save channel strategy|
+|#用例编号|action|userName|passWord|loginType|token|productArray|title|content|author|description|status code|enviroment|data verify?|
+|Case06|saveChannelStrategy|${userName}|${passWord}|${loginType}|||||||0|testing|通过|
 
 
 *!

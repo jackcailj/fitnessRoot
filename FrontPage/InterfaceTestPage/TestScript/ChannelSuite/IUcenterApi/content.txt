@@ -1,0 +1,45 @@
+!*> 测试用例
+接口：IUcenterApi
+接口描述：（开发：代鹏）
+dubbo，引入ucenter 1.0.1-SNAPSHOT版本jar包
+IUcenterApi类
+    /**
+	 * Description: 道长认证接口
+	 * @Version1.0 2015年11月4日 下午12:00:59 by 代鹏（daipeng@dangdang.com）创建
+	 * @param custId
+	 * @param ownerEnums
+	 * @return
+	 */
+	public ResultVo channelOwnerAuthorizationHandle(Long custId, ChannelOwnerEnums ownerEnums);
+
+
+相关数据库表[表]：库digital
+
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|频道已配置包月策略|返回的结果与数据库数据一致，channel表中字段isAllowMonthly=1|testing|
+|Case02|频道没有配置包月策略|channel表中字段isAllowMonthly=0|testing|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+!* Case01 道长用户
+|script|i channel api dubbo|
+|$channel=|getMonthlyStrategyChannel|
+|getChannel|$channel|
+|note|验证包月策略|
+|ensure|verify result|
+|note|验证允许包月|
+|ensure|verifyIsAllowMonthly|1|
+*!
+!* Case02 非道长用户
+|script|i channel api dubbo|
+|$channel=|getNoMonthlyStrategyChannel|
+|getChannel|$channel|
+|note|验证不允许包月|
+|ensure|verifyIsAllowMonthly|0|
+*!
+*!

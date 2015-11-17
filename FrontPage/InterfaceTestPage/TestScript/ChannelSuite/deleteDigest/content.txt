@@ -1,1 +1,40 @@
-<test page>
+!* 测试用例
+接口：action=deleteDigest
+接口描述：
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361553
+相关数据库[表]：
+ * account [account_action_type_info]
+ * account [account_experience_items]
+ * account [account_integral_items]
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|客户端删除攻略|经验/积分扣除15|all|
+|Case02|（用户后台）用户删除单品文章|经验/积分扣除15|人工测试|
+|Case02|（用户后台）用户删除多篇文章|经验/积分扣除15*N|人工测试|
+|Case03|（cms后台）管理员审核不通过攻略|经验/积分扣除30|人工测试|
+|Case04|（cms后台）管理员审核不通过文章|经验/积分扣除30|人工测试|
+|Case05|用户没有权限|返回code值10002|all|
+|Case06|digestId不存在|返回code值10002|all|
+*!
+
+!*> setUp
+!*> 常量 50098052
+!define userName {!-z16@123.com-!}
+!define passWord {111111}
+!define loginType {email}
+*!
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+*!
+|ddt:delete digest|
+|#用例编号|userName|passWord|loginType|token|digestId|status code|enviroment|data verify?|
+|Case01|${userName}|${passWord}|${loginType}||#GetDigestId#UserDigestId,5|0|testing|通过|
+|Case02|${userName}|${passWord}|${loginType}||#GetDigestId#UserDigestId,3|0|testing|通过|
+|Case03|${userName}|${passWord}|${loginType}||11921|10004|testing|通过|
+
+
+
+

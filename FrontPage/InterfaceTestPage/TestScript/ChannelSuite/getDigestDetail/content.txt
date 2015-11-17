@@ -3,7 +3,7 @@
 接口描述：频道订阅或取消订阅，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3934792
 相关表： 
  * 表media_digest
-  * type  类型 1:翻篇儿; 2:抢先读; 3:频道; 4:贴子;
+  * type  类型 1:翻篇儿; 2:抢先读; 3:频道; 4:贴子; 5:攻略;
   * title原始标题
   * cart_title App展示标题  （同title）
   * card_remark 卡片摘要

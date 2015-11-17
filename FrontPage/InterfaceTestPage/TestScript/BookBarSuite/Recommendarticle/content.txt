@@ -5,20 +5,48 @@
 ----
 !3 二、接口描述：
 推荐文章接口
+ * 频道中的文章
+ * 抢鲜读/翻篇儿
+ * 攻略
 
 !3 三、涉及数据库
 | Comment |
 | 数据库 | 表 |
-
+| digital|media_digest|
+| base_comment|comment_target_count|
 ----
+
+频道中的文章
+media_digest
+
+1. 所属标签下 有文章 48小时内  随机展示5条
+2。所属标签下 没有文章  48小时内  返回空
+
+
+攻略： 48小时内
+
+
+1。 获取文章id   获取文章标签 
+
+
 !3 四、测试用例:
 | Import |
 | com.dangdang.readerV5.personal_center |
 
 | ddt:Recommendarticle |
-| #用例名称 | id | status code | data verfiy? |
-| 获取推荐文章 | 2696 | 0 | 通过 |
-| 获取推荐文章，id不正确 | 0 | 10006 | 通过 |
-| 获取推荐文章，不传id， | #NotPass# | 10002 | 通过 |
+| #用例名称 | id | start | end | status code | data verfiy? |    
+| 频道文章 | #GetDigestId#DigestId,3| 0|30|0 | 通过 |   
+
+
+|Comment|
+| 频道文章 | #GetDigestId#DigestId,3| 0|30|0 | 通过 |
+| 频道文章 | 12747| 0|30|0 | 通过 |
+| 攻略文章 | #GetDigestId#StrategyBefore30,30| 0|30|0 | 通过 |
+| 攻略文章 | 14217| 0|30|0 | 通过 |
+| 攻略文章 | 14037| 0|30|0 | 通过 |
+| 获取推荐文章 | 737 |0 |5|0 | 通过 |
+| 获取推荐文章 | 2696 | ||0 | 通过 |
+| 获取推荐文章，id不正确 | 0 ||| 10006 | 通过 |
+| 获取推荐文章，不传id， | #NotPass# ||| 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

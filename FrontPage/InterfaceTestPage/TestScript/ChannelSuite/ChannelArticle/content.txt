@@ -18,7 +18,7 @@
   * status  文章审核状态，0：未审核 1：审核 2：审核不通过
 
  * 表media_digest
-  * type  类型 1:翻篇儿; 2:抢先读; 3:频道; 4:贴子;
+  * type  类型 1:翻篇儿; 2:抢先读; 3:频道; 4:贴子; 5:攻略;
   * title原始标题
   * cart_title App展示标题  （同title）
   * card_remark 卡片摘要

@@ -5,6 +5,7 @@
 *!
 !* 频道列表
  *[[频道列表接口(column)(数据准备)(未完成：后台操作，删除, wiki上的加法问题)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
+ *[[获取UserBaseInfo(IUcenterApi)(dubbo)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IUcenterApi]]
 *!
 !* 频道和书单信息 
  *[[频道详情接口(channel)(3~7待完善,我的频道包月权限返回1，我的频道isSub=1)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails]] 
@@ -21,8 +22,8 @@
     * 账号：refuel03@dangdang.com 主帐户余额为0
     * 有包月过期频道(自动续费，不自动续费)数据    
  *[[获取频道包月策略信息(IChannelApi)(dubbo)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IChannelApi]]  
- *[[购买频道包月权限(buyMonthlyAuthority)(带验证)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BuyMonthlyAuthority]] 
- *[[包月频道列表(getMonthlyChannelList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getMonthlyChannelList]]   
+ *[[购买频道包月权限(buyMonthlyAuthority)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BuyMonthlyAuthority]] 
+ *[[包月频道列表(getMonthlyChannelList)(带验证)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getMonthlyChannelList]]   
  *[[自动包月/取消自动包月(changeAutoBuyMonthlyState)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.changeAutoBuyMonthlyState]]
 *!
 !* 书单书列表 

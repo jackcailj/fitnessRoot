@@ -1,15 +1,21 @@
-!* 测试用例
-接口：action=changeAutoBuyMonthlyState   下线的频道
-参数：type 类型（频道0书单1）
-
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361232
-相关数据库[表]：digital [channel_bg_img]
+!*> 测试用例
+接口：action=changeAutoBuyMonthly
+接口描述：
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361232
+相关数据库[表]：
+ * authority[media_monthly_authority]
 |Comment|
-|用例编号|前提条件|测试点|测试内容|预期结果|运行环境|
-|Case01||type=1|获取频道默认背景图地址|按创建时间的先后顺序返回type=1的url|all|
-|Case02||type=0|获取书单默认背景图地址|按创建时间的先后顺序返回type=0的url|all|
-|Case03||type|type值为空|返回code值10002|all|
-|Case04||type|type值为无效值|返回code值10002|all|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|未过期的频道，设置为自动包月|表字段isAutomaticallyRenew=1|all|
+|Case02|已过期的频道，设置为自动包月|表字段isAutomaticallyRenew=1|all|
+|Case03|未过期的频道，设置为取消自动包月|表字段isAutomaticallyRenew=0|all|
+|Case04|已过期的频道，设置为取消自动包月|表字段isAutomaticallyRenew=0|all|
+|Case05|参数token为空|10002，参数非法|all|
+|Case06|参数token为无效值|10003，为登录用户|all|
+|Case07|参数cId为空|10002，参数非法|all|
+|Case08|参数cId为无效值|99999，频道未找到|all|
+|Case09|参数isAutomaticallyRenew为空|表字段isAutomaticallyRenew=0|all|
+|Case10|参数isAutomaticallyRenew为无效值|10002，参数非法|all|
 *!
 !* 测试数据
 !*> Import
@@ -17,11 +23,24 @@
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-|ddt:get background img list|
-|#用例编号|type|status code|enviroment|data verify?|
-|Case01|1|0|all|通过|
-|Case02|0|0|all|通过|
-|Case03||10002|all|通过|
-|Case03|6|10002|all|通过|
+|ddt:change auto buy monthly state|
+|#用例编号|userName|passWord|loginType|token|cId|isAutomaticallyRenew|status code|enviroment|data verify?|
+|Case01|!-refuel08@dangdang.com-!|111111|email||$cId=#GetChannelId#NoOverdueIfAutoRenew,0|1|0|all|通过|
+|Case03|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#NoOverdueIfAutoRenew,1|0|0|all|通过|
+|Case05|||||$cId|0|10002|all|通过|
+|Case06||||aaaa|$cId|0|10003|all|通过|
+|Case07|!-refuel08@dangdang.com-!|111111|email|||0|10002|all|通过|
+|Case08|!-refuel08@dangdang.com-!|111111|email||9999|0|99999|all|通过|
 
+|Comment|
+|Case01|!-refuel08@dangdang.com-!|111111|email||$cId=#GetChannelId#NoOverdueIfAutoRenew,0|1|0|all|通过|
+|Case02|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#OverdueIfAutoRenew,0|1|0|all|通过|
+|Case03|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#NoOverdueIfAutoRenew,1|0|0|all|通过|
+|Case04|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#OverdueIfAutoRenew,1|0|0|all|通过|
+|Case05|||||$cId|0|10002|all|通过|
+|Case06||||aaaa|$cId|0|10003|all|通过|
+|Case07|!-refuel08@dangdang.com-!|111111|email|||0|10002|all|通过|
+|Case08|!-refuel08@dangdang.com-!|111111|email||9999|0|99999|all|通过|
+|Case09|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#NoOverdueIfAutoRenew,0||0|all|通过|
+|Case10|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#NoOverdueIfAutoRenew,0|6|0|all|通过|
 *!
