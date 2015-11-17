@@ -26,9 +26,8 @@
 | #用例名称 | userName | passWord | token | productIds | cartId | orderSource | status code | data verify |
 | 删除购物车商品，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetShopCartProductId#10000 | $cartId=#GetCartId# | 103 | 0 | 通过 |
 
-
 | ddt:append shopping cart |
-| #用例名称 | userName | passWord | token | productArray | cartId | test_flag | status code? | data verify? |
+| #用例名称 | userName | passWord | token | productArray | cartId | test_flag | status code | data verify? |
 | 添加商品到购物车，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | $validProductId=#GetProductAndSaleId#EBOOK,VALID,1 | $cartId | | 0 | 通过 |
 | 不登录情况下，添加商品到购物车 | | | | #GetProductAndSaleId#EBOOK,VALID,1 | $notLoginCartId | | 0 | 通过 |
 | 添加重复商品到购物车 | !-cailj_ddtest@126.com-! | ddtest | | $validProductId | $cartId | | 20150008 | 通过 |
@@ -37,7 +36,6 @@
 | 添加免费书籍到购物车 | !-cailj_ddtest@126.com-! | ddtest | | #GetProductAndSaleId#EBOOK_FREE,VALID,1 | $cartId | | 0 | 通过 |
 | productArray不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | $cartId | | 10002 | 通过 |
 | productArray不正确 | !-cailj_ddtest@126.com-! | ddtest | | [{"productId":"123456","saleId":"22222"}] | $cartId | | 20154000 | 通过 |
-| 添加试读书籍到购物车 | !-cailj_ddtest@126.com-! | ddtest | | #GetProductAndSaleId#SHIDU,VALID,1 | $cartId | | 0 | 通过 |
 | 添加免费书籍到购物车 | !-cailj_ddtest@126.com-! | ddtest | | #GetProductAndSaleId#EBOOK_FREE,VALID,1 | $cartId | | 0 | 通过 |
 
 | comment |

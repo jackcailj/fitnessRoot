@@ -16,12 +16,16 @@
 | Import |
 | com.dangdang.readerV5.purchase |
 
+| ddt:append shopping cart |
+| #用例名称 | userName | passWord | token | productArray | cartId | test_flag | status code | data verify? |
+| 添加商品到购物车，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | $validProductId=#GetProductAndSaleId#EBOOK,VALID,1 | $cardId=#GetCartId# | | 0 | 通过 |
+
 | ddt:delete shopping cart |
 | #用例名称 | userName | passWord | token | productIds | cartId | orderSource | status code | data verify? |
-| 删除购物车商品，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetShopCartProductId# | #GetCartId# | 103 | 0 | 通过 |
-| 删除购物车商品，''productId不存在'' | | | | 123456 | #GetCartId# | 103 | 0 | 通过 |
-| 删除购物车商品，''productId不传'' | | | | #NotPass# | #GetCartId# | 103 | 10002 | 通过 |
+| 删除购物车商品，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetShopCartProductId# | $cardId | 103 | 0 | 通过 |
+| 删除购物车商品，''productId不存在'' | | | | 123456 | $cardId | 103 | 0 | 通过 |
+| 删除购物车商品，''productId不传'' | | | | #NotPass# | $cardId | 103 | 10002 | 通过 |
 | 删除购物车商品，cartId不正确 | | | | 123456 | 123456 | 103 | 0 | 通过 |
-| cartId不传''     '' | | | | #GetProductAndSaleId#EBOOK,VALID,1 | #NotPass# | 103 | 10002 | 通过 |
+| cartId不传''     '' | | | | $validProductId | #NotPass# | 103 | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h
