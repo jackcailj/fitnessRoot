@@ -4,6 +4,6 @@
 
 |ddt:add authorize ebook                                                                                       |
 |#用例名称      |userName                |passWord|token|mediaId                          |status code|data verfiy?|
-|获取订单详情，正常流程|!-cailj_ddtest@126.com-!|ddtest  |     |#GetCanBorrowBookId#EBOOK,VALID,1|0          |通过          |
+|借阅书籍|!-cailj_ddtest@126.com-!|ddtest  |     |#GetCanBorrowBookId#EBOOK,VALID,1|0          |通过          |
 
 !contents -R2 -g -p -f -h

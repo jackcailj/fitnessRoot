@@ -5,4 +5,9 @@
 [[用户追更开关接口][.FrontPage.InterfaceTestPage.TestScript.ReaderSuite.ClearCustomerSubscription]]
 
 *!
+!*** 阅读
+
+[[纠错接口][.FrontPage.InterfaceTestPage.TestScript.ReaderSuite.Correct]]
+
+*!
 !contents -R2 -g -p -f -h

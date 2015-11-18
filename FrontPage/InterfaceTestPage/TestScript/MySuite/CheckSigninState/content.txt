@@ -19,6 +19,7 @@
 
 数据准备，签到
 
+|comment|
 |ddt:   Signin                                                                                                        |
 |用例名称        |userName                |passWord|token|platformSource|update_sign_date   |flag|status code|data verfiy?|
 |签到，第一次签到，送积分|!-cailj_ddtest@126.com-!|ddtest  |     |DDDS-P        |#UpdateSingDate#2,2|1   |0          |通过          |
