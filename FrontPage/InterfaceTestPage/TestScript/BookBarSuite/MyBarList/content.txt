@@ -1,21 +1,19 @@
 !1 '''我的吧列表接口'''
 !*** 测试用例
 
-接口：action=myBarList!-
--!参数：
-
+接口：action=myBarList!--!
+参数：
  * token – 身份认证token（必填）
  * type – 类型(1-我的吧 2-加入的吧) （必填）
  * pageNo – 页码（必填）
 
-接口描述：获取我的吧列表信息，包括我建的吧和加入的吧，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359938!-
--!相关数据库表：bookbar -> bar
+接口描述：获取我的吧列表信息，包括我建的吧和加入的吧，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359938
+相关数据库表：bookbar -> bar
 
 | Comment |
 | 用例编号 | 前提条件 | 测试点 | 用例描述 | 预期结果 | 测试环境 |
 | | | 我的吧列表 | 输入正确的参数值,type=1 | 获取我的吧列表信息 | test,staging,online |
 | | | 加入的吧列表 | 输入正确的参数值,type=2 | 获取加入的吧列表信息 | test,staging,online |
-| | | type参数 | 参数值为3，其他参数值正确 | 参数非法 | test,staging,online |
 | | | type参数 | 参数值为负数，其他参数值正确 | 参数非法 | test,staging,online |
 | | | type参数 | 参数值为空，其他参数值正确 | 参数非法 | test,staging,online |
 | | | type参数 | 不传参数type,其他参数值正确 | 参数非法 | test,staging,online |

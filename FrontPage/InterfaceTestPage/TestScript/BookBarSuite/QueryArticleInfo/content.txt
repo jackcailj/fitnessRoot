@@ -58,22 +58,22 @@
 !* 测试数据2
 |queryArticleInfoTest|
 |#用例名称|action|mediaDigestId|期望|result|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,2|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,41|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,42|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,43|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,44|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,45|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,46|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,47|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,48|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,49|0|pass|
-|正常流程|queryArticleInfoV2|#GetArticle#1,0,50|0|pass|
-|被屏蔽的帖子|queryArticleInfoV2|#GetArticle#0,0,2|25028|pass|
-|被删除的帖子|queryArticleInfoV2|#GetArticle#1,1,2|25027|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,2,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,41,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,42,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,43,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,44,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,45,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,46,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,47,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,48,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,49,null|0|pass|
+|正常流程|queryArticleInfoV2|#GetArticle#1,0,50,null|0|pass|
+|被删除的帖子|queryArticleInfoV2|#GetArticle#1,1,2,null|25027|pass|
 |mediaDigestId参数值为aa|queryArticleInfoV2|aa|10002|pass|
 |mediaDigestId参数值为空|queryArticleInfoV2||10002|pass|
 |不传mediaDigestId参数|queryArticleInfoV2|REMOVE|10002|pass|
+#|被屏蔽的帖子|queryArticleInfoV2|#GetArticle#0,0,2,null|25028|pass|
 *!
 
 !4 备注：

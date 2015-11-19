@@ -32,7 +32,6 @@
 |crateDateLong为0 |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|0|REMOVE|0|pass|
 |crateDateLong为当前时间 |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|!today -xml|REMOVE|0|pass|
 |crateDateLong为空 |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new||REMOVE|0|pass|
-|pageSize为0|getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|REMOVE|0|0|pass|
 |pageSize为11|getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|REMOVE|11|0|pass|
 |pageSize为-1|getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||new|REMOVE|-1|10000|pass|
 |act为old |getMyBookFriendMoments|!-whytest@dd.con-!|111111|email||old|0|REMOVE|0|pass|

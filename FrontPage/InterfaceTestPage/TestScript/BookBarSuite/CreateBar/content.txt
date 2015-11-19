@@ -51,7 +51,15 @@
 *!
 !* 测试数据
 !4 建吧（需放在前边，用于为修改吧准备数据）
-!include .FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar.CreateBarOnly
+|createBarTest|
+|#用例名称|userName|passWord|loginType|action|barId|barName|barDesc|barImgUrl|actionType|token|期望|result|
+|创建吧|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|createbar1|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-300.jpg-!|1||0|pass|
+|建吧时barImgUrl参数值为空|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|introduction1||1||0|pass|
+|建吧时不传barImgUrl参数|!-whytest@dd.con-!|111111|email|createBar|REMOVE|Random|introduction1|REMOVE|1||0|pass|
+|创建吧失败|!-whytest@dd.con-!|111111|email|createBar|REMOVE|FromDB|createbar1|!-http://img61.ddimg.cn/upload_img/00421/pcsz/ncbc960-300.jpg-!|1||25010|pass|
+
+#!include .FrontPage.InterfaceTestPage.TestScript.BookBarSuite.CreateBar.CreateBarOnly
+
 !4 测试修改吧简介
 |createBarTest|
 |#用例名称|userName|passWord|loginType|action|barId|barName|barDesc|barImgUrl|actionType|token|期望|result|

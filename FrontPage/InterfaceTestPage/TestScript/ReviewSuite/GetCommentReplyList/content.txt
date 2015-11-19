@@ -41,7 +41,6 @@
 |getCommentReplyListTest|
 |#用例名称|action|targetId|targetSource|commentId|期望|result|
 |正常流程|getCommentReplyList|FromDB|1000|FromDB|0|pass|
-|正常流程|getCommentReplyList|FromDB|2000|FromDB|0|pass|
 |正常流程|getCommentReplyList|FromDB|3000|FromDB|0|pass|
 |正常流程|getCommentReplyList|FromDB|4000|FromDB|0|pass|
 |targetId为字母|getCommentReplyList|a|4000|0|10002|pass|
