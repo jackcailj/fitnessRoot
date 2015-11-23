@@ -1,15 +1,37 @@
-!* 测试用例
+!*> 测试用例
 接口：action=channelBookListUpdate
 参数：type 类型（频道0书单1）
 
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361263
 相关数据库[表]：
 |Comment|
-|用例编号|前提条件|测试点|测试内容|预期结果|运行环境|
-|Case01||type=0|频道更新||all|
-|Case02||type=1|书单更新||all|
-|Case03||type|type值为空|返回code值10002|all|
-|Case04||type|type值为无效值|返回code值10002|all|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|修改频道名称|频道名称修改成功|all|
+|Case02|修改频道描述|频道描述修改成功|all|
+|Case03|修改频道背景图片|频道背景图片修改成功|all|
+|Case04|修改书单名称|书单名称修改成功|all|
+|Case05|修改书单描述|书单描述修改成功|all|
+|Case06|修改书单背景图|书单背景图修改成功|all|
+|Case07|修改其它用户的频道信息||all|
+|Case08|修改其它用户的书单信息信息||all|
+|Case09|token为空||all|
+|Comment|测试点|预期结果|测试类型|
+|Case10|修改频道名称，2个字|频道名称修改成功|初次，手动|
+|Case11|修改频道名称，12个字|频道名称修改成功|初次，手动|
+|Case12|修改频道名称，1个字|频道名称修改成功|初次，手动|
+|Case13|修改频道名称，13个字|频道名称修改成功|初次，手动|
+|Case14|修改频道描述，2个字|频道描述修改成功|初次，手动|
+|Case15|修改频道描述，50个字|频道描述修改成功|初次，手动|
+|Case16|修改频道描述，1个字|频道描述修改成功|初次，手动|
+|Case17|修改频道描述，51个字|频道描述修改成功|初次，手动|
+|Case18|修改书单名称，2个字|书单名称修改成功|初次，手动|
+|Case19|修改书单名称，10个字|书单名称修改成功|初次，手动|
+|Case20|修改书单名称，1个字|书单名称修改成功|初次，手动|
+|Case21|修改书单名称，11个字|书单名称修改成功|初次，手动|
+|Case22|修改书单描述，2个字|书单描述修改成功|初次，手动|
+|Case23|修改书单描述，50个字|书单描述修改成功|初次，手动|
+|Case24|修改书单描述，1个字|书单描述修改成功|初次，手动|
+|Case25|修改书单描述，51个字|书单描述修改成功|初次，手动|
 *!
 !* 测试数据
 !*> Import
@@ -19,5 +41,13 @@
 *!
 |ddt: channel book list update|
 |#用例编号|userName|passWord|loginType|token|type|cbid|name|description|icon|status code|enviroment|data verify?|
-|Case01|!-z16@123.com-!|111111|email||0|178||1.企业频道  2.无书单 有文章  3.上线状态 4.单篇文章  多篇文章  攻略他了了||0|testing|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|#GetChannelId#Mine,1|#Modify#ChannelName|||0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|#GetChannelId#Mine,1||#Modify#ChannelDescription||0|all|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|#GetChannelId#Mine,1|||#Modify#ChannelIcon|0|all|通过|
+|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#UserBookListId,1|#Modify#BookListName|||0|all|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#UserBookListId,1||#Modify#BookListDescription||0|all|通过|
+|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#UserBookListId,1|||#Modify#BookListIcon|0|all|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetChannelId#TYPE,1|#Modify#ChannelName|||0|all|通过|
+|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#BookListId|||#Modify#BookListIcon|0|all|通过|
+|Case09|||||1|#GetBookListId#BookListId||#Modify#BookListIcon||0|all|通过|
 *!

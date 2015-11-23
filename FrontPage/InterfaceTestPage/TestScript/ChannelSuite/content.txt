@@ -4,36 +4,33 @@
  *[[频道批量订阅][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSubs]]
 *!
 !* 频道列表
- *[[频道列表接口(column)(数据准备)(未完成：后台操作，删除, wiki上的加法问题)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
+ *[[频道列表接口(column)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
  *[[获取UserBaseInfo(IUcenterApi)(dubbo)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IUcenterApi]]
 *!
 !* 频道和书单信息 
- *[[频道详情接口(channel)(3~7待完善,我的频道包月权限返回1，我的频道isSub=1)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails]] 
- *[[书单基本信息接口(bookList)(带验证)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookList]]
- *[[频道(书单)基本信息更新接口(channelBookListUpdate)(带验证)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.channelBookListUpdate]] 
+ *[[频道详情接口(channel)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails]] 
+ *[[书单基本信息接口(bookList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookList]]
+ *[[频道(书单)基本信息更新接口(channelBookListUpdate)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.channelBookListUpdate]] 
+ *[[关联标签(relateTag)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.relateTag]]
 *!
 !* 频道订阅
- *[[频道订阅接口(channelSub)(完善：先获取一次订阅数)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub]]  
- *[[获取我的频道列表接口(myChannelList)(数据准备)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.MyChannelList]]
-*!   
-!* 频道包月
- * 测试数据  
-    * 账号：refuel08@dangdang.com 主帐户余额充足 
-    * 账号：refuel03@dangdang.com 主帐户余额为0
-    * 有包月过期频道(自动续费，不自动续费)数据    
+ *[[频道订阅接口(channelSub)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub]]  
+ *[[获取我的频道列表接口(myChannelList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.MyChannelList]]
+*!
+!* 频道包月 
  *[[获取频道包月策略信息(IChannelApi)(dubbo)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IChannelApi]]  
  *[[购买频道包月权限(buyMonthlyAuthority)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BuyMonthlyAuthority]] 
- *[[包月频道列表(getMonthlyChannelList)(带验证)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getMonthlyChannelList]]   
+ *[[包月频道列表(getMonthlyChannelList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getMonthlyChannelList]]   
  *[[自动包月/取消自动包月(changeAutoBuyMonthlyState)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.changeAutoBuyMonthlyState]]
 *!
 !* 书单书列表 
- *[[书单书列表接口(bookListDetail)(数据准备)(代码需完善)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookListDetail]]
+ *[[书单书列表接口(bookListDetail)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookListDetail]]
  *[[书单加书减书接口(bookListBookUpdate)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.bookListBookUpdate]]  
  *[[获取图书包月频道信息(IMediaApi)(dubbo)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IMediaApi]]
 *! 
 !* 文章&攻略
- *[[文章列表接口(channelArticle)(数据准备)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelArticle]] 
- *[[文章详情页接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getDigestDetail]] 
+ *[[文章列表接口(channelArticle)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelArticle]] 
+ *[[文章推荐接口(recommendarticle)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.recommendarticle]] 
  *[[获取频道或者书单默认背景图地址列表接口(getBackgroundImgList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.GetBackgroundImgList]]  
  *[[攻略信息保存接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.SaveChannelStrategy]] 
  *[[用户删除攻略(文章)接口(deleteDigest)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.deleteDigest]]

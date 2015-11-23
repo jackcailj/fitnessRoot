@@ -6,9 +6,10 @@
  * digital[channel]
  * ucenter[user_device]
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|Case01|已包月|获取用户频道包月信息|调用接口|正常返回结果，与数据库数据相一致|testing|
-|Case02|未包月|获取用户频道包月信息|调用接口|正常返回|testing|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|已包月频道的电子书|返回频道id|testing|
+|Case02|已包月频道的纸书|返回null|testing|
+|Case03|未包月频道的电子书|返回null|testing|
 *!
 !* 测试数据
 !*> Import
@@ -17,30 +18,19 @@
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|myChannelList|
-|$token=|set token|
-|$channelId=|set channel id|$token|
-|$mediaId=|set media id|$channelId|
-|check|getWithToken|$token|and media|$mediaId|and channelid|$channelId|
+|scenario|iMediaApiDubbo|userName||passWord||loginType||token||channelType||mediaType||setParameters||expected|
+|setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token}|
+|$channelId=|getMonthlyChannelId|@channelType|
+|$mediaId=|getMonthlyMediaId|@mediaType|
+|$result=|getChannelId|$channelId|and media id|$mediaId|
+|setExpectedResult|@expected|
+|ensure|verify|$result|
 
-|myChannelList|
-|#用例编号|action|userName|passWord|loginType|token|custId|createDate|statusCode|
-
-*!
-!* Case01 用户频道已包月
 |script|i media api dubbo|
-|note|获取有频道包月的用户token|
-|$token=||
-|note|获取用户已包月的频道Id|
-|$boughtMonthlyChannelID=||
-|getWithToken|$token|and media|$mediaId|and channelid|$channelId|
-|check|verify channelId|null|true|
 *!
-!* Case02 用户频道未包月
-|script|i media api dubbo|
-|note|获取用户未包月的频道Id|
-|$boughtMonthlyChannelID=||
-|getWithToken|$token|and media|$mediaId|and channelid|$channelId|
-|check|verify channelId|null|true|
-*!
+|iMediaApiDubbo|
+|#用例编号|userName|passWord|loginType|token|channelType|mediaType|expected|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|1|$channelId|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|2|null|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||2|1|null|
 *!

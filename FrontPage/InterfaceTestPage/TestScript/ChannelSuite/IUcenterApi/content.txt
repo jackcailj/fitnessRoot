@@ -1,25 +1,23 @@
 !*> 测试用例
 接口：IUcenterApi
 接口描述：（开发：代鹏）
-dubbo，引入ucenter 1.0.1-SNAPSHOT版本jar包
+ * dubbo，引入ucenter 1.0.1-SNAPSHOT版本jar包
 IUcenterApi类
  * UserBaseInfo对象：
     * 频道道长认证 0:无认证 1:已认证
 	 * private int channelOwner;
-
-
-相关数据库表[表]：库digital
+相关数据库表[表]：
+ * digital[channel_owner]
 
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
 |Case01|认证通过的企业账户|返回channel_owner字段值1|testing|
 |Case02|认证不通过的企业账户|返回channel_owner字段值0|testing|
 |Case03|等待审批的企业账户|返回channel_owner字段值0|testing|
-|Case04|未申请过认证的企业账户|返回channel_owner字段值0|testing|
-|Case05|认证通过的个人账户|返回channel_owner字段值1|testing|
-|Case06|认证不通过的个人账户|返回channel_owner字段值0|testing|
-|Case07|等待审批的个人账户|返回channel_owner字段值0|testing|
-|Case08|未申请过认证的个人账户|返回channel_owner字段值0|testing|
+|Case04|认证通过的个人账户|返回channel_owner字段值1|testing|
+|Case05|认证不通过的个人账户|返回channel_owner字段值0|testing|
+|Case06|等待审批的个人账户|返回channel_owner字段值0|testing|
+|Case07|未申请过认证的个人账户|返回channel_owner字段值0|testing|
 *!
 !* 测试数据
 !*> Import
@@ -28,14 +26,23 @@ IUcenterApi类
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|iUcenterApiDubbo|custId||expectValue|
-|getUserBaseInfo|@custId|
+|scenario|iUcenterApiDubbo|type||status||expectValue|
+|$custId=|getCustIdWithType|@type|and status|@status|
+|getUserBaseInfo|$custId|
 |ensure|verifyResult|@expectValue|
 
 |script|i ucenter api dubbo|
-
 *!
 |iUcenterApiDubbo|
-|#用例编号|custId|expectValue|
-|Case01|50244453|0|
+|#用例编号|type|status|expectValue|
+|Case01|2|2|1|
+|Case02|2|1|0|
+|Case03|2|0|0|
+|Case04|1|2|1|
+|Case05|1|1|0|
+|Case06|1|0|0|
+|Case07|0|-1|0|
+ * type：2企业账户 1个人账户 0此参数忽略  
+ * status：0等待审核 1审核不通过 2审核通过 -1未申请过认证
+ * expectValue：审核通过的返回1  不通过0
 *!

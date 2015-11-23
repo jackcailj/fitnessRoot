@@ -1,23 +1,43 @@
-!* 测试用例
+!*> 测试用例
 接口：action=bookListBookUpdate
-参数：type 类型（频道0书单1）
 
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361688
 相关数据库[表]：
 |Comment|
-|用例编号|前提条件|测试点|测试内容|预期结果|运行环境|
-|Case01||type=0|频道更新||all|
-|Case02||type=1|书单更新||all|
-|Case03||type|type值为空|返回code值10002|all|
-|Case04||type|type值为无效值|返回code值10002|all|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|用户书单，添加原创，出版物电子书|添加成功|all|
+|Case02|用户书单，重复添加电子书|10002|all|
+|Case03|用户书单，添加下架的电子书||all|
+|Case04|用户书单，添加纸书|添加成功|all|
+|Case05|用户书单，重复添加纸书|10002|all|
+|Case06|用户书单，添加下架的纸书||all|
+|Case07|用户书单，删除电子书|删除成功|all|
+|Case08|用户书单，删除纸书|删除成功|all|
+|Case09|非用户书单，添加电子书|10003|all|
+|Case10|非用户书单，删除电子书|10003|all|
+|Case11|type值为空|返回code值10002|all|
+|Case12|type值为无效值|返回code值10002|all|
 *!
-!* 测试数据
+!* 测试数
 !*> Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.channel|
 *!
 |ddt: book list book update|
-|#用例编号|userName|passWord|loginType|token|bId|relateBooks|type|status code|enviroment|data verify?|
-|Case01|!-refuel09@dangdang.com-!|111111|email||196|2,1900089576,1900089576|1|10002|testing|通过|
+|#用例编号|userName|passWord|loginType|token|bId|type|relateBooks|status code|enviroment|data verify?|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId=#GetBookListId#UserBookListId|1|Ebook|0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Userebook|10002|all|通过|
+|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Paperbook|0|all|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Userpaperbook|10002|all|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|0|Userebook|0|all|通过|
+|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|0|Userpaperbook|0|all|通过|
+|Case09|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#BookListId|1|Ebook|10003|all|通过|
+|Case10|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#BookListId|0|Userebook|10003|all|通过|
+|Case11|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId||Ebook|10002|all|通过|
+|Case12|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|6|Ebook|10002|all|通过|
+
+|Comment|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Ebookshelf0|0|all|通过|
+|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Paperbookshelf0|0|all|通过|
 *!

@@ -10,23 +10,24 @@
  * account[master_account]
  * authority[media_monthly_authority]
 |Comment|
-|用例编号|是否支持包月|是否已购买|是否过期|是否自动续费|预期结果|运行环境|
-|Case01|否|-|-|-|99999，频道不支持包月|testing|
-|Case02|是|否|-|-|包月成功,包月到期时间，主帐户余额正确|testing|
-|Case03|是|是|否|-|同上|testing|
-|Case04|是|是|是|是|同上|testing|
-|Case05|是|是|是|否|同上|testing|
+|用例编号|是否支持包月|是否已购买|是否过期|是否自动续费|频道状态|预期结果|运行环境|测试类型|
+|Case01|否|-|-|-|上线|99999，频道不支持包月|testing|auto|
+|Case02|是|否|-|-|上线|包月成功,包月到期时间，主帐户余额正确|testing|auto|
+|Case03|是|是|否|-|上线|同上|testing|auto|
+|Case04|是|是|是|-|上线|同上|testing|初次，手动|
+|Case05|是|是|是|是|上线|自动续费需要跑后台任务|-|初次，手动|
+|Case06|是|是|是|-|下线|不支持续费|-|初次，手动|
+|Case07|是|是|否|-|下线|客户端支持看此频道，但不支持续费|-|初次，手动|
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
-|Case06|频道支持包月且下线||all|
-|Case07|未过期且已下线||all|
 |Case08|99999，账户余额不足|包月失败|all|
 |Case09|10002，参数非法|订阅成功|all|
 |Case10|99999，没有此频道|包月失败|all|
 |Case11|channelMonthlyStrategyId为空|10002，参数非法|all|
 |Case12|channelMonthlyStrategyId为无效值|99999，没有相关的包月策略|all|
-|Case13|isAutomaticallyRenew为空||testing|
-|Case14|isAutomaticallyRenew为无效值||testing|
+
+
+
 *!
 !* 测试数据
 !*> Import
@@ -34,24 +35,20 @@
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-note：自动续费需要跑后台任务，自动化未实现，需手动验证   
-
 |ddt: buy monthly authority|
 |#用例编号|userName|passWord|loginType|token|cId|channelMonthlyStrategyId|isAutomaticallyRenew |statusCode|enviroment|data verify?|
-|Case01|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,0|0|0|99999|all|通过|
-|Case02|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|0|0|testing|通过|
-|Case03|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#NoOverdueIfAutoRenew,0|auto|0|0|testing|通过|
-|Case08|!-refuel03@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|0|99999|all|通过|
-|Case09|!-refuel08@dangdang.com-!|111111|email|||0|0|10002|all|通过|
-|Case10|!-refuel08@dangdang.com-!|111111|email||99999|0|0|99999|all|通过|
-|Case11|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1||0|10002|all|通过|
-|Case12|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|9999|0|99999|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,0|0|0|99999|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,1|auto|0|0|testing|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#NoOverdueIfAutoRenew,0|auto|0|0|testing|通过|
+|Case08|!-z1@123.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|0|99999|all|通过|
+|Case09|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|||0|0|10002|all|通过|
+|Case10|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||99999|0|0|99999|all|通过|
+|Case11|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,1||0|10002|all|通过|
+|Case12|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,1|9999|0|99999|all|通过|
 
 |Comment|
-|Case04|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#OverdueIfAutoRenew,1|auto|1|0|testing|通过|
-|Case05|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#OverdueIfAutoRenew,0|auto|0|0|testing|通过|
-|Case06|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#Offline,0|auto|0|99999|testing|通过|
-|Case07|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#Offline,1|auto|0|99999|testing|通过|
-|Case13|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|||testing|通过|
-|Case14|!-refuel08@dangdang.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|10||testing|通过|
+|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,1|auto|1|0|testing|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,0|auto|0|0|testing|通过|
+|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Offline,0|auto|0|99999|testing|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Offline,1|auto|0|99999|testing|通过|
 *!

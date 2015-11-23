@@ -24,18 +24,15 @@
   * card_remark 卡片摘要
   * pic1_path 图片地址
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|Case01||获取文章列表|调用接口|验证返回的关键字段值是否与数据库一致|test,staging,online|
-|Case02||未发布的文集不返回|调用接口|未发布的文集不返回|test|
-|Case03||未审核通过的文集不返回|调用接口|未审核通过的文集不返回|test|
-|Case04||参数clId|cId值为空||test|
-|Case05||参数cId|chId值为无效值||test|
-|Case06||参数time|time为空||test|
-|Case07||参数time|time为无效值||test|
-|Case08||参数channelType|channelType为空||test|
-|Case09||参数channelType|channelType为无效值||test|
-|Case10||参数token|token为空|返回正常|test|
-|Case11||参数token|token为无效值||test|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|获取企业频道的文集|返回字段与数据库一致|all|
+|Case02|获取个人频道的文集|返回字段与数据库一致|all|
+|用例编号|测试点|预期结果|测试类型|
+|Case03|文集中包括文章和攻略|正常返回|初次，手动|
+|Case04|文集中包括单图文章和多图文章|正常返回|初次，手动|
+|Case05|文集中包括未发布的文章|未发布的文章不返回|初次，手动|
+|Case06|文集中包括审批不通过的文章|审批不通过的文章不返回|初次，手动|
+
 *!
 !* 测试数据
 !*> Import
@@ -43,15 +40,8 @@
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!*> 定义scenario 
-|scenario|channelArticle|action||userName||passWord||loginType||token||bookListId||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-|ensure|tearDown|
-*!
-|channelArticle|
-|script|channel article|
-|#用例编号|action|userName|passWord|loginTyp|token|bookListId|start|end|channelType|token|statusCode|
-||channelArticle|14|0|9|all||0|
+|ddt: channel article|
+|#用例编号|userName|passWord|loginTyp|token|cId|time|status code|enviroment|data verify?|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#TYPE,1||0|all|通过|
+|Case02|||||#GetChannelId#TYPE,2||0|all|通过|
 *!

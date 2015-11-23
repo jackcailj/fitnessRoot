@@ -1,14 +1,15 @@
 !*> 测试用例
 接口：action=bookList
 接口描述：书单基本信息，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359575
-相关数据库表：media_bookList
+相关数据库[表]：digital[media_bookList]
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|Case01||获取书单基本信息|调用接口|返回结果与数据库数据相一致|all|
-|Case02||参数bookListId|bookListId值为空|10002|all|
-|Case03||参数bookListId|bookListId值为无效值|10002|all|
-|Case06||参数token|token为空|正常返回|all|
-|Case07||参数token|token为无效值|正常返回|all|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|随机获取书单id|正常返回，字段值与数据库一致|all|
+|Case02|获取我的书单id|正常返回，isMine=1|all|
+|Case03|获取我已包月书单id（在有效期内）|hasBoughtMonthly=1|testing|
+|Case04|bookListId值为空|27001|all|
+|Case05|bookListId值为无效值|200|all|
+|Case06|token为无效值|正常返回|all|
 *!
 !* 测试数据
 !*> Import
@@ -16,12 +17,14 @@
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-|script|book list|
-|note|随机获取bookListId|
-|$bookListId=|getOneBookList|
-
 |ddt: book list|
 |#用例编号|userName|passWord|loginType|token|bookListId|status code|enviroment|data verify?|
-|Case01|!-z16@123.com-!|111111|email||196|0|testing|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#UserBookListId|0|all|通过|
+|Case02|||||#GetBookListId#BookListId|0|all|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#MyMonthlyBookListId|0|all|通过|
+|Case04||||||27001|all|通过|
+|Case05|||||9999|200|all|通过|
+|Case06||||aaaa|#GetBookListId#BookListId|0|all|通过|
+
 *!
 

@@ -1,35 +1,42 @@
 !*> 测试用例
 接口：action=channel
-接口描述：无书单或无文章或无攻略的频道都可以在客户端显示，验证点是否订阅，是否包月，频道订阅总数，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
+ * 功能点：
+  * 道长加V
+  * 订阅数
+  * 是否支持包月
+  * 是否包月
+  * 是否订阅 
  * json返回结果中：
   * isSub 是否订阅 0：未订阅 1：已订阅
   * hasBoughtMonthly 1:有包月权限 0：没有包月权限
   * isAllowMonthly 1:允许包月 0：不允许包月
   * monthlyType 付款类型 0：金铃铛 1：金铃铛+银铃铛
   * subNumber 频道订阅总数
+ * 无书单或无文章或无攻略的频道都可以在客户端显示
 相关数据库[表]：
 digital [channel, media_booklist] * shelf_status 0:下线，1：上线
 ucenter[login_type]
 base_comment[tag_info,tag_relation]
- 
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|Case01||频道类型|获取企业频道详情|返回结果与数据库数据相一致|all|
-|Case02||频道类型|获取个人频道详情|返回结果与数据库数据相一致|all|
-|Case03||频道内容|频道无文章无书单无攻略|返回结果与数据库数据相一致|all|
-|Case04||频道内容|频道无文章|返回结果与数据库数据相一致|all|
-|Case05||频道内容|频道无书单|返回结果与数据库数据相一致|all|
-|Case06|频道有包月权限|包月权限|频道可进行包月|返回结果与数据库数据相一致|all|
-|Case07|频道没有包月权限|包月权限|频道不可进行包月|返回结果与数据库数据相一致|all|
-|Case08|用户已包月|||返回结果与数据库数据相一致|all|
-|Case09|用户未包月|||返回结果与数据库数据相一致|all|
-|Case10|用户已订阅频道|订阅|调用channel接口|返回结果与数据库数据相一致|all|
-|Case11|用户未订阅频道|订阅|调用channel接口|返返回结果与数据库数据相一致|all|
-|Case12||我的频道|调用channel接口|返回的字段isSub=0|all|
-|Case13||参数cId|cId值为空|10002|all|
-|Case14||参数cId|cId值为无效值|10002|all|
-|Case15||参数token|token值为无效值|10002|all|
-
+|用例编号|测试点|预期结果|运行环境|
+|Case01|获取企业频道详情|返回结果与数据库数据相一致|all|
+|Case02|获取个人频道详情|返回结果与数据库数据相一致|all|
+|Case03|频道有包月权限|返回结果与数据库数据相一致|all|
+|Case04|频道没有包月权限|返回结果与数据库数据相一致|all|
+|Case05|用户已包月|返回结果与数据库数据相一致|all|
+|Case06|用户未包月|返回结果与数据库数据相一致|all|
+|Case07|用户已订阅频道|返回结果与数据库数据相一致|all|
+|Case08|用户未订阅频道|返回结果与数据库数据相一致|all|
+|Case09|我自己的频道|返回的字段isSub=0|all|
+|Case10|cId值为空|10002|all|
+|Case11|cId值为无效值|10002|all|
+|Case12|token值为无效值|10002|all|
+|Comment|相关测试|
+|用例编号|测试点|预期结果|测试类型|
+|Case13|频道无文章无书单无攻略|接口正常返回|初次，手动|
+|Case14|频道无文章|接口正常返回|初次，手动|
+|Case15|频道无书单|接口正常返回|初次，手动|
 *!
 !* 测试数据
 !*> Import
@@ -37,17 +44,21 @@ base_comment[tag_info,tag_relation]
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!define userName {!-z16@123.com-!}
-!define passWord {111111}
-!define loginType {email}
 
 |ddt: Channel|
-|#用例名称|userName|passWord|loginType|token|cId|status code|enviroment|data verify?|
-|Case01|||||#GetChannelId#TYPE,1|0|all|通过|
+|#用例名称|userName|passWord|loginType|token|cId|status code|enviroment|data verify?|   
+|Case01|||||$cId=#GetChannelId#TYPE,1|0|all|通过|
 |Case02|||||#GetChannelId#TYPE,2|0|all|通过|
+|Case03|||||#GetChannelId#IfAllowMonthly,1|0|all|通过|
+|Case04|||||#GetChannelId#IfAllowMonthly,0|0|all|通过|
+|Case05||||#GetToken#UserMonthly|auto|0|all|通过|
+|Case06||||#GetToken#UserNoMonthly|auto|0|all|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfSub,1|0|all|通过|
+|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfSub,0|0|all|通过|
+|Case09|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Mine,1|0|all|通过|
 |Case10||||||10002|all|通过|
 |Case11|||||cId|10002|all|通过|
-|Case12||||aaaa|cId|10002|all|通过|
+|Case12||||aaaa|$cId|0|all|通过|
 
 *!
 

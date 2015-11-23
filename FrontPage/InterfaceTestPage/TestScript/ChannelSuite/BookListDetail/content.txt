@@ -4,24 +4,20 @@
  * json返回结果中
    * mediaType，1：原创的书 2：出版物电子书  3：纸书
 相关数据库表：
+ * 库digital
  * media_booklist_detail
  * media
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|Case01||获取书列表|书单书列表中包含原创的书，调用接口|返回结果与数据库数据相一致,字段mediaType=1|test,staging,online|
-|Case02||获取书列表|书单书列表中包含出版物电子书，调用接口|返回结果与数据库数据相一致,字段mediaType=2|test,staging,online|
-|Case03||获取书列表|书单书列表中包含纸书，调用接口|返回结果与数据库数据相一致,字段mediaType=3|test,staging,online|
-|Case04||参数bookListId|bookListId值为空|返回27001|test,staging,online|
-|Case05||参数bookListId|bookListId值为无效值|返回空|test,staging,online|
-|Case06||参数start|start值为空|返回11101|test,staging,online|
-|Case07||参数start|start值为无效值（*,字母，中文）|返回11101|test,staging,online|
-|Case08||参数end|end值为空|返回11101|test,staging,online|
-|Case09||参数end|end值为无效值（&,字母，中文）|返回11101|test,staging,online|
-|Case10||参数start和end|start值大于end值|200|test,staging,online|
-|Case11||参数channelType|channelType为空|正常返回|test,staging,online|
-|Case12||参数channelType|channelType为无效值|正常返回|test,staging,online|
-|Case13||参数token|token值为空|正常返回|test,staging,online|
-|Case14||参数token|token值为无效值|正常返回|test,staging,online|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|正常流程|返回字段与数据库数据相一致|all|
+|Case02|bookListId值为空|返回27001|all|
+|Case03|start值为空|返回11101|all|
+|Case04|start值为无效值|返回11101|all|
+|Case05|end值为空|返回11101|all|
+|Case06|end值为无效值|返回11101|all|
+|用例编号|测试点|预期结果|测试类型|
+|Case10|获取的书单书列表包含原创，出版物电子书，纸书|正常返回|初次，手动|
+|Case11|书单中有下线的书|下线的书不返回|初次，手动|
 *!
 !* 测试数据
 !*> Import
@@ -29,49 +25,12 @@
 |Import|
 |com.dangdang.readerV5.channel|
 *!
-!*> 定义scenario 
-|scenario|bookListDetail|action||userName||passWord||loginType||token||bookListId||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,bookListId:@bookListId,start:@start,end:@end,channelType:@channelType,token:@token}|
-|ensure|do get|@statusCode|
-|ensure|tearDown|
-*!
-!* bookListDetailCase01 包含原创的书
-|script|book list detail|
-|$bookListId=|getBookListIdWithType|1|
-|setParameters|!{action:bookListDetail,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,bookListId:$bookListId,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* bookListDetailCase02 包含出版物电子书
-|script|book list detail|
-|$bookListId=|getBookListIdWithType|2|
-|setParameters|!{action:bookListDetail,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,bookListId:$bookListId,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* bookListDetailCase03 包含纸书
-|script|book list detail|
-|$bookListId=|getBookListIdWithType|3|
-|setParameters|!{action:bookListDetail,userName:!-z16@123.com-!,passWord:111111,loginType:email,token: ,bookListId:$bookListId,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* bookListDetailCase04 ~ bookListDetailCase14
-|script|book list detail|
-|$bookListId=|getBookListIdWithType|1|
-
 |ddt: book list detail|
-|#用例编号|action|userName|passWord|loginType|token|bookListId|start|end|status code|enviroment|data verify?|
-|Case04|bookListDetail|!-z16@123.com-!|111111|emial|||0|9|27001||通过|
-|Case05|bookListDetail|!-z16@123.com-!|111111|emial||982345|0|9|0||通过|
-|Case06|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId||9|11101||通过|
-|Case07|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|a|9|11101||通过|
-|Case08|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0||11101||通过|
-|Case09|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|@|11101||通过|
-|Case10|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|9|1|200||通过|
-|Case11|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9|0||通过|
-|Case12|bookListDetail|!-z16@123.com-!|111111|emial||$bookListId|0|9|0||通过|
-|Case13|bookListDetail|||||$bookListId|0|9|0||通过|
-|Case14|bookListDetail||||112233|$bookListId|0|9|0||通过|
-*!
+|#用例编号|userName|passWord|loginType|token|bookListId|start|end|status code|enviroment|data verify?|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bookListId=#GetBookListId#BookListId|0|9|0||通过|
+|Case02||||||0|9|27001||通过|    
+|Case03|||||$bookListId||9|11101||通过|
+|Case04|||||$bookListId|a|9|11101||通过|
+|Case05|||||$bookListId|0||11101||通过|
+|Case06|||||$bookListId|0|@|11101||通过|
 *!

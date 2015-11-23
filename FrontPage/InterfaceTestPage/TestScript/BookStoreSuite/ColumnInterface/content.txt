@@ -27,96 +27,31 @@
 |Case17||删除栏目下数据|调用接口|能正常返回数据|testing|
 |Case18||删除栏目|调用接口|返回10002|testing|
 *!
-!*> 测试数据
-!include .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface.ColumnInterfaceOnline
+!* 测试数据
 !*> Import
 !define TEST_SYSTEM {slim}
+!define columnType {all_rec_xssf}
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-!*> 定义scenario 
-|scenario|column|action||columnType||start||end||isFull||statusCode||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,isFull:@isFull}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-*!
-!* columnCase02 栏目下书籍为空
-|script|Column|
-|note|后台创建一个新栏目，type=0书籍 type=1频道|
-|$columnType=|create with name|书籍栏目|and code|column_test|and type|0|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|11003|
-*!
-!* columnCase03 模拟后台在某栏目下添加书
-|script|Column|
-|note|栏目下添加10本书，type=0普通书籍栏目 type=1借阅 type=2限免|
-|insertWithColumncode|$columnType|and size|10|and type|0|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase04 模拟后台设置排序值
-|script|Column|
-|note|排序|
-|$saleId=|setSortWithColumncode|$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase05 模拟后台设置状态值
-|script|Column|
-|note|设置为强制有效|
-|$saleId=|setEffectiveWithColumncode|$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
+|ddt:Column|
+|#模块名称|action|columnType|start|end|isFull|status code|enviroment|data verify?|
+|推荐->今日热点|column|all_rec_jrrm|0|4|1|0|online|通过|
+|推荐->新书首发|column|all_rec_xssf|0|4|1|0|online|通过|
+|推荐->当当独家|column|all_rec_dddj|0|4|1|0|online|通过|
+|推荐->人气纸书|column|all_rec_rqzs|0|4|1|0|online|通过|
+|推荐->当当精排|column|all_rec_ddjp|0|8|1|0|online|通过|
+|Case09|column||0|9|1|10002|all|通过|
+|Case10|column|*|0|9|1|10002|all|通过|
+|Case11|column|${columnType}||9|1|10002|all|通过|
+|Case12|column|${columnType}|2000|2001|1|11002|all|通过|
+|Case13|column|${columnType}|@|9|1|10002|all|通过|
+|Case14|column|${columnType}|0||1|10002|all|通过|
+|Case15|column|${columnType}|0|z|1|10002|all|通过|
+|Case16|column|${columnType}|9|1|1|10002|all|通过|
+|Case17|column|${columnType}|0|9||10002|all|通过|
+|Case18|column|${columnType}|0|9|5|10002|all|通过|
 
-|script|Column|
-|note|设置为强制无效|
-|$saleId=|setInvalidWithColumncode|$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase06 模拟后台设置有效期
-|script|Column|
-|note|设置有效期|
-|$saleId=|setEffectiveWithColumncode|$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase07 模拟后台下架书
-|script|Column|
-|note|下架书|
-|$saleId=|setShelfStatusWithColumncode|$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase08 模拟后台上架书
-|script|Column|
-|note|上架书|
-|$saleId=|setShelfStatusWithSaleid|$saleId|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase19 模拟后台删除栏目下书
-|script|Column|
-|note|删除书|
-|$saleId=|delColumnDataWithColumncode|$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase20 模拟后台删除栏目
-|script|Column|
-|note|删除栏目|
-|delColumnWithColumncode|$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,isFull:1}|
-|ensure|do get|10002|
-*!
 *!
 !contents
 

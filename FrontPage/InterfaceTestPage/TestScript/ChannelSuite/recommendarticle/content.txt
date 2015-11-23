@@ -1,0 +1,36 @@
+!*> 测试用例
+接口：action=recommendarticle
+
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361442
+ * 频道中的文章
+ * 抢鲜读/翻篇儿
+ * 攻略
+相关数据库[表]：
+ * digital[media_digest]
+ * base_comment[comment_target_count]
+|Comment|
+|用例编号|前提条件|测试点|测试内容|预期结果|运行环境|
+|Case01||type=1|获取频道默认背景图地址|按创建时间的先后顺序返回type=1的url|all|
+|Case02||type=0|获取书单默认背景图地址|按创建时间的先后顺序返回type=0的url|all|
+|Case03||type|type值为空|返回code值10002|all|
+|Case04||type|type值为无效值|返回code值10002|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.personal_center|
+*!
+| ddt:Recommendarticle |
+| #用例名称 | id | start | end | status code | data verfiy? |    
+| 频道文章 | #GetDigestId#DigestId,3| 0|30|0 | 通过 |   
+| 攻略文章 | #GetDigestId#StrategyBefore30,30| 0|30|0 | 通过 |
+
+|Comment|
+| 获取推荐文章 | 737 |0 |5|0 | 通过 |
+| 获取推荐文章 | 2696 | ||0 | 通过 |
+| 获取推荐文章，id不正确 | 0 ||| 10006 | 通过 |
+| 获取推荐文章，不传id， | #NotPass# ||| 10002 | 通过 |
+*!
+
+!contents -R2 -g -p -f -h

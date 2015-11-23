@@ -1,7 +1,7 @@
 !*> 测试用例
 接口：action=getMonthlyChannelList
 接口描述：
- * 下线的频道可以在列表中显示，客户端也可以进入频道，直到权限过期
+ * 未过包月期的下线频道可以在列表中显示，客户端也可以进入频道，直到权限过期
  * ios(android)上包月的频道可以在android(ios)上显示 (ios上频道包月还未实现)
  * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361238
 相关数据库[表]：
@@ -9,13 +9,15 @@
  * authority[media_monthly_authority]
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
-|Case01|没有包月的频道|返回空列表|all|
-|Case02|有包月的频道|按创建时间的先后顺序返回|all|
-|Case03|包月频道列表中有包月到期的频道|包月到期的频道不返回|all|
-|Case04|包月频道列表中有下线的频道|下线的频道也可以返回|all|
-|Case05|pageSize=4|返回4条数据|all|
-|Case06|token为空|10003|all|
-|Case07|token为无效值|10003|all
+|Case01|正常流程|按创建时间的先后顺序返回|all|
+|Case02|包月频道列表中有包月到期的频道|包月到期的频道也返回|all|
+|Case03|pageSize=4|返回4条数据|all|
+|Case04|token为空|10003|all|
+|Case05|token为无效值|10003|all|
+|用例编号|测试点|预期结果|测试类型|
+|Case06|没有包月的频道|返回空列表|初次，手动|
+|Case07|包月频道列表中有未到期已下线的频道|未到期已下线的频道可以返回|初次，手动|
+|Case08|包月频道列表中有已到期已下线的频道|已到期已下线的频道不返回|初次，手动|
 *!
 !* 测试数据
 !*> Import
@@ -25,12 +27,10 @@
 *!
 |ddt:get monthly channel list|
 |#用例编号|token|lastModifiedDate|pageSize|status code|enviroment|data verify?|
-|Case01|#GetToken#UserNoMonthly|||0|all|通过|
-|Case02|$token=#GetToken#UserMonthly|||0|all|通过|
-|Case03|#GetToken#UserMonthlyOverdue|||0|all|通过|
-|Case04|#GetToken#MonthlyChannelOffline|||0|all|通过|
-|Case05|$token||4|0|all|通过|
-|Case06||||10003|all|通过|
-|Case07|aaaaa|||10003|all|通过|
+|Case01|$token=#GetToken#UserMonthly|||0|all|通过|
+|Case02|#GetToken#UserMonthlyOverdue|||0|all|通过|
+|Case03|$token||4|0|all|通过|
+|Case04||||10003|all|通过|
+|Case05|aaaaa|||10003|all|通过|
 
 *!

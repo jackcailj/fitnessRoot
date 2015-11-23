@@ -6,13 +6,12 @@
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
 |Case01||订阅|正常订阅流程|订阅成功,频道订阅总数与数据库中数量一致|all|
 |Case02||取消订阅|正常取消订阅流程|取消订阅成功，频道订阅总数与数据库中数量一致|all|
-|Case03||订阅|先取消订阅再订阅|订阅成功，频道订阅总数与数据库中数量一致|all|
-|Case04||参数token|token值为空|10003|all|
-|Case05||参数token|token值为无效值|10003|all|
-|Case06||参数cId|cId值为空|200|all|
-|Case07||参数cId|cId值为无效值|200|all|
-|Case08||参数op|op为空|10002|all|
-|Case09||参数op|op为无效值|200|all|
+|Case03||参数token|token值为空|10003|all|
+|Case04||参数token|token值为无效值|10003|all|
+|Case05||参数cId|cId值为空|200|all|
+|Case06||参数cId|cId值为无效值|200|all|
+|Case07||参数op|op为空|10002|all|
+|Case08||参数op|op为无效值|200|all|
 *!
 !* 测试数据
 !*> Import
@@ -21,27 +20,15 @@
 |com.dangdang.common.functional.login|
 |com.dangdang.readerV5.channel|
 *!
-!define userName {!-z16@123.com-!}
-!define passWord {111111}
-!define loginType {email}
-|script|ddLogin|
-|setParameters|!{action:ddLogin,userName:${userName},passWord:${passWord},loginClient:0,code: ,loginType:${loginType},pdfkey: ,key:12312312321312}|
-|do work|
-|$custId=|get custId|
-
-|script|channel sub|
-|$cId=|getNotUserChannel|$custId|
-
 |ddt: channel sub|
 |#用例编号|userName|passWord|loginType|token|cId|op|statusCode|enviroment|data verify?|
-|Case01|${userName}|${passWord}|${loginType}||$cId|1|0|all|通过|
-|Case02|${userName}|${passWord}|${loginType}||$cId|0|0|all|通过|
-|Case03|${userName}|${passWord}|${loginType}||$cId|1|0|all|通过|
-|Case04|||||$cId|1|10003|all|通过|
-|Case05||||aaaaaaa|$cId|1|10003|all|通过|
-|Case06|${userName}|${passWord}|${loginType}|||1|10002|all|通过|
-|Case07|${userName}|${passWord}|${loginType}||cId|1|200|all|通过|
-|Case08|${userName}|${passWord}|${loginType}||$cId||10002|all|通过|
-|Case09|${userName}|${passWord}|${loginType}||$cId|3|10002|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfSub,0|1|0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId=#GetChannelId#IfSub,1|0|0|all|通过|
+|Case03|||||$cId|1|10003|all|通过|
+|Case04||||aaaaaaa|$cId|1|10003|all|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|||1|10002|all|通过|
+|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||cId|1|200|all|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId||10002|all|通过|
+|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId|3|10002|all|通过|
 *!
 !contents
