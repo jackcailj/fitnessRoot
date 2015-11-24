@@ -1,0 +1,19 @@
+!***> 配置信息
+ * [[PC_Testing环境配置信息][.FrontPage.PcDdreader.PcTestingConfig]]
+ * [[PC_Staging环境配置信息][.FrontPage.PcDdreader.PcStagingConfig]]
+ * [[PC_Online环境配置信息][.FrontPage.PcDdreader.PcOnlineConfig]]
+*!
+!3 运行环境配置
+ * 执行脚本前在下面文件中进行参数配置
+ * [[suiteSetUp][.FrontPage.PcDdreader.suiteSetUp]]
+ * [[setUp][.FrontPage.PcDdreader.SetUp]]
+
+!3 脚本
+ * [[PC_Script][.FrontPage.PcDdreader.PcScript]]
+
+
+
+
+
+
+!contents

@@ -1,0 +1,8 @@
+!*> '''PC Staging环境配置信息'''
+|Import|
+|com.dangdang.config|
+
+|Config|
+|environment|testData|base url|login url|temp url|
+|staging|readerV5|!--!|!--!|
+*!

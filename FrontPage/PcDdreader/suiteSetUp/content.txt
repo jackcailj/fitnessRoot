@@ -1,0 +1,6 @@
+!define TEST_SYSTEM {slim}
+!include .FrontPage.InterfaceTestPage.ClassPath
+!include .FrontPage.PcDdreader.PcTestingConfig
+#!include .FrontPage.PcDdreader.PcStagingConfig
+#!include .FrontPage.PcDdreader.PcOnlineConfig
+

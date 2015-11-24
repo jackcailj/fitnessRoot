@@ -1,0 +1,9 @@
+!*> '''PC Online环境配置信息'''
+|Import|
+|com.dangdang.config|
+
+|Config| 
+|environment|testData|base url|login url|   
+|online|readerV5|!--!|!--!|
+*!
+
