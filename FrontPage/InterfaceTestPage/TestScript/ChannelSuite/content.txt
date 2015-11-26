@@ -1,8 +1,4 @@
 !1 '''频道'''
-!*> '''辅助工具'''
- *[[只适用测试环境][]]
- *[[频道批量订阅][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSubs]]
-*!
 !* 频道列表
  *[[频道列表接口(column)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
  *[[获取UserBaseInfo(IUcenterApi)(dubbo)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IUcenterApi]]

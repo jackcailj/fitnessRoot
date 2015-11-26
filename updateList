@@ -1,3 +1,5 @@
+FitNesseRoot/FitNesse/ComponentsAndLicenses/content.txt
+FitNesseRoot/FitNesse/ComponentsAndLicenses/properties.xml
 FitNesseRoot/FitNesse/FullReferenceGuide/content.txt
 FitNesseRoot/FitNesse/FullReferenceGuide/properties.xml
 FitNesseRoot/FitNesse/ReleaseNotes/content.txt
@@ -472,6 +474,8 @@ FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestComparators/conten
 FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestComparators/properties.xml
 FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestCustomComparators/content.txt
 FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestCustomComparators/properties.xml
+FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestCustomConverter/content.txt
+FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestCustomConverter/properties.xml
 FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestExceptionCount/content.txt
 FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestExceptionCount/properties.xml
 FitNesseRoot/FitNesse/SuiteAcceptanceTests/SuiteSlimTests/TestExceptionIsDisplayed/content.txt
@@ -1206,6 +1210,8 @@ FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/GracefulNames/conten
 FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/GracefulNames/properties.xml
 FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/ImportTable/content.txt
 FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/ImportTable/properties.xml
+FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/InteractionAwareFixture/content.txt
+FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/InteractionAwareFixture/properties.xml
 FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/LibraryTable/content.txt
 FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/LibraryTable/properties.xml
 FitNesseRoot/FitNesse/UserGuide/WritingAcceptanceTests/SliM/OrderedQueryTable/content.txt

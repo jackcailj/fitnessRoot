@@ -3,4 +3,5 @@
 !include .FrontPage.PcDdreader.PcTestingConfig
 #!include .FrontPage.PcDdreader.PcStagingConfig
 #!include .FrontPage.PcDdreader.PcOnlineConfig
+!include .FrontPage.PcDdreader.PcCommparam
 

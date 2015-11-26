@@ -24,15 +24,15 @@
 *!
 |ddt:change auto buy monthly state|
 |#用例编号|userName|passWord|loginType|token|cId|isAutomaticallyRenew|status code|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId=#GetChannelId#NoOverdueIfAutoRenew,0|1|0|all|通过|
-|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#NoOverdueIfAutoRenew,1|0|0|all|通过|
-|Case05|||||$cId|0|10002|all|通过|
-|Case06||||aaaa|$cId|0|10003|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId=#GetChannelId#NoOverdueIfAutoRenew,0|1|0|testing|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#NoOverdueIfAutoRenew,1|0|0|testing|通过|
+|Case05|||||$cId|0|10002|testing|通过|
+|Case06||||aaaa|$cId|0|10003|testing|通过|
 |Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|||0|10002|all|通过|
 |Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||9999|0|99999|all|通过|
 
 |Comment|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,0|1|0|all|通过|
-|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,1|0|0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,0|1|0|testing|通过|
+|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,1|0|0|testing|通过|
 
 *!

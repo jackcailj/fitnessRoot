@@ -5,7 +5,7 @@
 !see .FrontPage.PcDdreader.PcScript.PcPurchaseSuite
 *!
 !*> '''频道'''
-!see .FrontPage.PcDdreader.PcScript.PcPurchaseSuite
+!see .FrontPage.PcDdreader.PcScript.PcChannelSuite
 *!
 !*> '''书吧''' 
 !see .FrontPage.PcDdreader.PcScript.PcBookBarSuite
