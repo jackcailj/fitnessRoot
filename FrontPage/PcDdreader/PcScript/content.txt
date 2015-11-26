@@ -4,7 +4,13 @@
 !*> '''购买流程'''
 !see .FrontPage.PcDdreader.PcScript.PcPurchaseSuite
 *!
+!*> '''频道'''
+!see .FrontPage.PcDdreader.PcScript.PcPurchaseSuite
+*!
 !*> '''书吧''' 
 !see .FrontPage.PcDdreader.PcScript.PcBookBarSuite
 *!
 
+
+
+!contents

@@ -1,2 +1,7 @@
-!1 Test suite X
+ *[[相关频道接口][.FrontPage.PcDdreader.PcScript.PcPurchaseSuite.PcChannelrcmd]]
+
+
+
+
+
 !contents -R2 -g -p -f -h
