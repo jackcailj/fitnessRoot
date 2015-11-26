@@ -1,0 +1,21 @@
+!* 测试用例
+接口：action=getNRandomChannel
+
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4362152#
+相关数据库[表]：
+|Comment|
+|用例编号|测试点|测试内容|预期结果|运行环境|
+|Case01|type=1|获取频道默认背景图地址|按创建时间的先后顺序返回type=1的url|all|
+
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt:get n random channel|
+|#用例编号|columnType|start|num|isFull|status code|enviroment|data verify?|
+|Case01|all_rec_pdzbtj|0|5|1|0|all|通过|
+
+*!

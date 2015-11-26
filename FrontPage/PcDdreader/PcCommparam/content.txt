@@ -1,0 +1,17 @@
+!*> '''PC公共参数'''
+!define deviceSerialNo {html5}
+!define macAddr {html5}
+!define channelType {html5}
+!define permanentId {}
+!define returnType {json}
+!define channelId {106}
+!define clientVersionNo {5.0.0}
+!define platformSource {DDDS-P}
+!define fromPlatform {106}
+!define deviceType {iphone}
+!define token {}
+
+
+|script      |Config                                                                                                                                                                                                                                                                                                            |
+|setCommParam|!{deviceSerialNo:${deviceSerialNo},macAddr:${macAddr},channelType:${channelType},permanentId:${permanentId},returnType:${returnType},channelId:${channelId},clientVersionNo:${clientVersionNo},platformSource:${platformSource},fromPlatform:${fromPlatform},deviceType:${deviceType},token:${token}}|
+*!
