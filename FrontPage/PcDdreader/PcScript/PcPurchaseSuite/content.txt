@@ -1,4 +1,13 @@
- *[[相关频道接口][.FrontPage.PcDdreader.PcScript.PcPurchaseSuite.PcChannelrcmd]]
+
+
+
+!*** 支付
+
+1、[[微信扫码支付][.FrontPage.PcDdreader.PcScript.PcPurchaseSuite.WxPayForPC]]
+
+2、[[支付宝扫码支付][.FrontPage.PcDdreader.PcScript.PcPurchaseSuite.AliPayForPC]]
+
+*!
 
 
 
