@@ -1,0 +1,29 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+----
+!3 二、接口描述：
+微信扫码支付接口
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | order_main，order_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.purchase |
+
+| ddt:alipay for PC |
+| case | userName | passWord | token | orderId | totalPrice | platformSource | status code | data verify? |
+| 支付宝支付，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | RA150326152957000395 | 100 | DDDS-P | 0 | 通过 |
+| 支付宝支付，订单金额不正确，应支付失败 | !-cailj_ddtest@126.com-! | ddtest | | RA150326152957000395 | 50 | DDDS-P | 10002 | 通过 |
+| 支付宝支付，订单号不正确，应支付失败 | !-cailj_ddtest@126.com-! | ddtest | | 1232131 | 50 | DDDS-P | 10002 | 通过 |
+| 支付宝支付，orderId不传，应失败 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 50 | DDDS-P | 10002 | 通过 |
+| 支付宝支付，totalPrice不传，应失败 | !-cailj_ddtest@126.com-! | ddtest | | RA150326152957000395 | #NotPass# | DDDS-P | 10002 | 通过 |
+| 支付宝支付，totalPrice为非数字 | !-cailj_ddtest@126.com-! | ddtest | | RA150326152957000395 | adb | DDDS-P | 200 | 通过 |
+| 支付宝支付，totalPrice为负数 | !-cailj_ddtest@126.com-! | ddtest | | RA150326152957000395 | -100 | DDDS-P | 10002 | 通过 |
+| 支付宝支付，未登录用户，应失败 | | | | RA150326152957000395 | 100 | DDDS-P | 10002 | 通过 |
+| 支付宝支付，token不正确 | | | 123 | RA150326152957000395 | 100 | DDDS-P | 10003 | 通过 |
+
+!contents -R2 -g -p -f -h

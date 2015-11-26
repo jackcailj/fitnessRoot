@@ -1,4 +1,16 @@
 
 
 
+!*** 支付
+
+1、[[微信扫码支付][.FrontPage.PcDdreader.PcScript.PcPurchaseSuite.WxPayForPC]]
+
+2、[[支付宝扫码支付][.FrontPage.PcDdreader.PcScript.PcPurchaseSuite.AliPayForPC]]
+
+*!
+
+
+
+
+
 !contents -R2 -g -p -f -h
