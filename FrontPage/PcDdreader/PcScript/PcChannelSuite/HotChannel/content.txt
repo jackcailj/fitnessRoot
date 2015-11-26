@@ -1,0 +1,26 @@
+!* 测试用例
+接口：action=hotChannel
+接口描述：
+ * 返回上线频道
+ * 按订阅数倒序排列
+ * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4362166
+相关数据库[表]：
+ * digital[channel]
+ * base_comment[tag_relation]
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|正常流程|返回上线的频道，按订阅数倒序排序|all|
+
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt:hot channel|
+|#用例编号|start|end|status code|enviroment|data verify?|
+|Case01|0|5|0|all|通过|
+
+
+*!
