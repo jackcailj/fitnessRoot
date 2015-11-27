@@ -1,0 +1,65 @@
+!1 '''富文本发帖，修改帖子接口'''
+!*** 测试用例
+
+接口：action=publishRtfArticle 
+参数：
+ * token – 身份认证token（必填）
+ * barId吧ID – （必填）
+ * mediaDigestId – 文章ID（修改帖子时必填）
+ * title – 主题（非必填）
+ * content – 内容（必填）
+ * cardType – 卡片类型（0:全文字 1:文字加图片 2:全图）（必填）（新加的参数）
+ * actionType – 操作类型（1-发帖；2-修改帖子；）（必填）
+ * deviceType - 设备类型（android, ipad, iphone, pc_web, h5）(必填)
+
+接口描述：在吧内发帖，修改帖子，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359671 
+相关数据库表：bookbar -> article   digital-> media_digest
+*!
+!*** Import
+
+!define TEST_SYSTEM {slim}
+| import |
+| com.dangdang.readerV5.bookbar.pc|
+
+*!
+!***> 定义scenario
+| scenario | publishRtfArticleTest | userName | | passWord | | loginType | | token | | action | | barId | | mediaDigestId | | title | | content | | deviceType | | cardType | | actionType | | 期望 | | result | | setParameters |
+| setParams | !{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,barId:@barId,mediaDigestId:@mediaDigestId,title:@title,content:@content,deviceType:@deviceType,cardType:@cardType,actionType:@actionType,期望:@期望} |
+| dataVerified| @期望 |
+| check | verified result | @result |
+| show | tear down |
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+| script | publish rtf article |
+
+*!
+!*** 测试数据
+| publishRtfArticleTest |
+| #用例名称 | userName | passWord | loginType | token | action | barId | mediaDigestId | title | content | cardType | actionType | 期望 | result |
+| 帖子正常流程 | !-whytest@dd.con-! |111111| email | | publishRtfArticle |FromDB|| 帖子 |<p>帖子测试，哈哈</p>| 0 | 1 | 0 | pass |
+| title值为空 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| |<p>帖子测试aa</p>| 0 | 1 | 0 | pass |
+| 不传参数title | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| REMOVE |</p>帖子测试bb</p>| 0 | 1 | 0 | pass |
+| 帖子正常流程 | !-whytest@dd.con-! |111111| email | | publishRtfArticle |FromDB| | 帖子 |</p>帖子测试，哈哈</p>| 0 | 1 | 25046 | pass |
+| content值为空 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 | | 0 | 1 | 10002 | pass |
+| content值为文字加图片 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p>树<img src="http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg" width="100%"/></p>| 1 | 1 | 0 | pass |
+| content值为图片 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p><img src="http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg" width="100%"/></p>| 1 | 1 | 0 | pass |
+| content不是html格式| !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |不是html格式| 0 | 1 | 0 | pass |
+| 不传参数content | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 | REMOVE |0 | 1 | 10000 | pass |
+| 敏感词 | !-whytest@dd.con-! |111111| email | | publishRtfArticle |FromDB| | 帖子 |<p>最.火.網.络</p>| 1 | 1 | 25039| pass |
+| 修改帖子正常流程 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|$id=#GetArticle#1,0,2,null| 帖子 |<p>修改帖子1</p> | 0 | 2 | 0 | pass |
+| mediaDigestId值为被删除的帖子对应的id | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle | FromDB| #GetArticle#1,1,2,null| 帖子 |<p>修改帖子3</p> |0 | 2 | 10002 | pass |
+| mediaDigestId值为字母 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle | FromDB| bb | 帖子 |<p>修改帖子4</p> | 0 | 2 | 10002 | pass |
+| mediaDigestId值为空 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle | FromDB| | 帖子 |<p>修改帖子</p>| 0 | 2 | 10002 | pass |
+| 不传参数mediaDigestId | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle | FromDB| REMOVE | 帖子 |<p>修改帖子</p>| 0 | 2 | 10002 | pass |
+| barId值为字母 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle | aa |$id| 帖子 |<p>修改帖子</p>| 0 | 2 | 10002 | pass |
+| barId值为空 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle | |FromDB| 帖子 |<p>修改帖子4</p>|0 | 2 | 10002 | pass |
+| 不传参数barId | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle | REMOVE |$id| 帖子 |<p>修改帖子4</p>| 0 | 2 | 10002 | pass |
+| title值多余20个字 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB||<p>帖子帖子帖子帖子帖子帖子帖子帖子帖子帖子帖子</p>| 帖子测试 | 0 | 1 | 25034 | pass |
+| actionType值为字母 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|$id| 帖子 | <p>帖子测试ff</p> |0 | a | 25032 | pass |
+| actionType值为3 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p>帖子测试hh</p> |0 | 3 | 25032 | pass |
+| actionType值为空 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p>帖子测试</p>| 0 | | 10002 | pass |
+| 不传参数actionType | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p>帖子测试</p> |0 | REMOVE | 10002 | pass |
+| cardType值为3 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p>帖子测试hh</p> |3 | 1 | 25033 | pass |
+| cardType值为空 | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p>帖子测试</p>|  | 1| 10002 | pass |
+| 不传参数cardType | !-whytest@dd.con-! | 111111 | email | | publishRtfArticle |FromDB|| 帖子 |<p>帖子测试</p> |REMOVE | 1 | 10002 | pass |
+*!

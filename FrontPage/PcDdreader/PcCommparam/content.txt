@@ -8,10 +8,9 @@
 !define clientVersionNo {5.0.0}
 !define platformSource {DDDS-P}
 !define fromPlatform {106}
-!define deviceType {iphone}
-!define token {}
+!define deviceType {pc_web}
 
 
 |script      |Config                                                                                                                                                                                                                                                                                                            |
-|setCommParam|!{deviceSerialNo:${deviceSerialNo},macAddr:${macAddr},channelType:${channelType},permanentId:${permanentId},returnType:${returnType},channelId:${channelId},clientVersionNo:${clientVersionNo},platformSource:${platformSource},fromPlatform:${fromPlatform},deviceType:${deviceType},token:${token}}|
+|setCommParam|!{deviceSerialNo:${deviceSerialNo},macAddr:${macAddr},channelType:${channelType},permanentId:${permanentId},returnType:${returnType},channelId:${channelId},clientVersionNo:${clientVersionNo},platformSource:${platformSource},fromPlatform:${fromPlatform},deviceType:${deviceType}}|
 *!

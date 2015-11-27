@@ -1,0 +1,37 @@
+!1 '''首页热吧查询接口'''
+
+!* 测试用例
+接口：action=queryHotBar
+参数：
+  *type – （类型:1 推荐吧 2 推荐贴 3 首页热吧 方便扩展 必填项 type=3）
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4362037#
+相关数据库表：bookbar -> recommend，bar，bar_memeber，article
+
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar.pc|
+*!
+!*> 定义scenario 
+| scenario |queryHotBarTest|action||type||期望||result|
+| setParams|!{action:@action,type:@type,期望:@期望}|
+|dataVerified|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|query hot bar|
+*!
+!* 测试数据
+|queryHotBarTest|
+|#用例名称|action|type|期望|result|
+|正常流程|queryHotBar|3|0|pass|
+|正常流程|queryHotBar|1|0|pass|
+|正常流程|queryHotBar|2|0|pass|
+|type为空|queryHotBar||10002|pass|
+|不传type|queryHotBar|REMOVE|10002|pass|
+*!
+!4 备注：
+逻辑：热门书吧，显示在书城首页；（规则：前两天吧加入人数+该吧下的帖子数总和最多的前50条，随机显示5条）
+类型1,2用于扩展，返回barlist为空

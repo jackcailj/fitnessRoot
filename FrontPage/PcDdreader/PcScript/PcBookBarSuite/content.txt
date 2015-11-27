@@ -1,2 +1,7 @@
-!1 Test suite X
-!contents -R2 -g -p -f -h
+!1 '''PC书城--书吧'''
+
+ *[[首页热吧查询][.FrontPage.PcDdreader.PcScript.PcBookBarSuite.QueryHotBar]]
+ *[[推荐吧查询][.FrontPage.PcDdreader.PcScript.PcBookBarSuite.QueryRecommendBar]]
+ *[[富文本发帖、修改帖子][.FrontPage.PcDdreader.PcScript.PcBookBarSuite.PublishRtfArticle]]
+ *[[获取书吧关联一本书籍][.FrontPage.PcDdreader.PcScript.PcBookBarSuite.QueryBarOneBook]]
+# !contents -R2 -g -p -f -h

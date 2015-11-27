@@ -1,0 +1,38 @@
+!1 '''推荐吧查询接口'''
+
+!* 测试用例
+接口：action=queryRecommendBar
+参数：
+ *token – 身份认证token
+ *barId吧ID – （该吧对应的推荐吧,为以后扩展选填项）
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4362032#
+相关数据库表：bookbar -> recommend，bar，bar_memeber，article
+
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar.pc|
+*!
+!*> 定义scenario 
+| scenario |queryRecommendBarTest|action||userName||passWord||loginType||token||barId||期望||result||setParams|
+| setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,barId:@barId,期望:@期望}|
+|dataVerified|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|query recommend bar|
+*!
+!* 测试数据
+|queryRecommendBarTest|
+|#用例名称|action|userName|passWord|loginType|token|barId|期望|result|
+|正常流程|queryRecommendBar|!-whytest@dd.con-!|111111|email|||0|pass|
+|正常流程|queryRecommendBar|!-whytest@dd.con-!|111111|email||6|0|pass|
+|token为空|queryRecommendBar||||||0|pass|
+|不传token|queryRecommendBar||||REMOVE||0|pass|
+|不传barId|queryRecommendBar|!-whytest@dd.con-!|111111|email||REMOVE|0|pass|
+*!
+
+!4 备注：
+逻辑：推荐吧（规则：前两天吧加入人数+该吧下的帖子数总和最多的前1000条，随机显示8条）
