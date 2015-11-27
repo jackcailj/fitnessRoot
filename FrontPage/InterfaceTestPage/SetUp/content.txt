@@ -5,3 +5,8 @@
 
 |script|variable store|
 |clearGlobalVar|
+
+!define userName_ghy {!-z16@123.com-!}
+!define passWord_ghy {111111}
+!define loginType_ghy {email}
+

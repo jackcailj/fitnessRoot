@@ -1,2 +1,14 @@
-!1 Test suite X
-!contents -R2 -g -p -f -h
+!4 '''PC书城''' 
+ 
+ *[[获取某本书(出版物电子书)对应的分类的畅销榜的前10个随机取5本][.FrontPage.PcDdreader.PcScript.PcBookStoreSuite.GetMediaCategorySaleTopn]]
+ 
+ *[[栏目加评论数、评星(column)][.FrontPage.PcDdreader.PcScript.PcBookStoreSuite.ColumnInterface]]
+ 
+ *[[买了又买(getBuyAlsoBuy)][.FrontPage.PcDdreader.PcScript.PcBookStoreSuite.GetBuyAlsoBuy]]
+ 
+ *[[看了又看(getViewAlsoView)][.FrontPage.PcDdreader.PcScript.PcBookStoreSuite.GetViewAlsoView]]
+ 
+ *[[猜你喜欢(getGuessulike)][.FrontPage.PcDdreader.PcScript.PcBookStoreSuite.GetGuessulike]]
+ 
+ 
+!contents

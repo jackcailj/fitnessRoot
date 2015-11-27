@@ -48,10 +48,12 @@ base_comment[tag_info,tag_relation]
 |ddt: Channel|
 |#用例名称|userName|passWord|loginType|token|cId|status code|enviroment|data verify?|   
 |Case01|||||$cId=#GetChannelId#TYPE,1|0|all|通过|
+
+|Comment|
 |Case02|||||#GetChannelId#TYPE,2|0|all|通过|
 |Case03|||||#GetChannelId#IfAllowMonthly,1|0|all|通过|
 |Case04|||||#GetChannelId#IfAllowMonthly,0|0|all|通过|
-|Case05||||#GetToken#UserMonthly|auto|0|all|通过|
+|Case05||||#GetToken#UserMonthly|auto|0|testing|通过|
 |Case06||||#GetToken#UserNoMonthly|auto|0|all|通过|
 |Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfSub,1|0|all|通过|
 |Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfSub,0|0|all|通过|

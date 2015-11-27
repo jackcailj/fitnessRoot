@@ -1,11 +1,8 @@
 !1 '''书城'''
-!***> '''辅助工具'''
-*[[只适用测试环境][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.InitBookStore]]
-*!
 !*** '''栏目.块'''
  *[[栏目接口(column)][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnInterface]]
  *[[栏目组接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.ColumnGroup]]
- *[[热门标签模块接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest]]
+ *[[块接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest]]
 *!
 !*** '''专题'''
  *[[专题列表接口][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.SpecialTopicHistory]]
@@ -33,4 +30,5 @@
 !*** 童书
  *[[童书榜单][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.Tops]]
 *!
+
 !contents

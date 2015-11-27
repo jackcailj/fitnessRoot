@@ -1,5 +1,4 @@
 !***> 配置信息
-
  * [[类路径][.FrontPage.InterfaceTestPage.ClassPath]]
  * [[测试环境配置信息][.FrontPage.InterfaceTestPage.TestingConfig]]
  * [[Staging环境配置信息][.FrontPage.InterfaceTestPage.StagingConfig]]
@@ -7,17 +6,18 @@
  * [[Android公共参数][.FrontPage.InterfaceTestPage.AndroidCommparam]]
  * [[iPhone公共参数][.FrontPage.InterfaceTestPage.IphoneCommparam]]
  * [[iPad公共参数][.FrontPage.InterfaceTestPage.IpadCommparam]]
-
 *!
-!1 运行环境配置
+!3 运行环境配置
  * 执行脚本前在下面文件中进行参数配置
  * [[suiteSetUp][.FrontPage.InterfaceTestPage.SuiteSetUp]]
  * [[setUp][.FrontPage.InterfaceTestPage.SetUp]]
 
-!1 脚本
+!3 脚本
  * [[Script][.FrontPage.InterfaceTestPage.TestScript]]
 
  * [[脚本规范][.FrontPage.InterfaceTestPage.ScriptSpec]]
  * [[解析类说明][.FrontPage.InterfaceTestPage.ParseIntro]]
-
+ 
+ 
+ 
 !contents

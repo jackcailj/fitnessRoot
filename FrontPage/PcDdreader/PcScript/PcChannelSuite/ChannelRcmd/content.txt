@@ -1,4 +1,4 @@
-!* 测试用例
+!*> 测试用例
 接口：action=channelrcmd
 接口描述：
  * 返回上线的频道
@@ -6,7 +6,7 @@
  * 去重
  * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4362105#
 相关数据库[表]：
- * digital[channel]
+ * digital[channel,media_channel_recommend,media_channel_recommend_temp]
  * base_comment[tag_relation]
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
@@ -22,7 +22,7 @@
 *!
 |ddt:Channelrcmd|
 |#用例编号|userName|passWord|loginType|token|cId|start|end|status code|enviroment|data verify?|  
-|Case01|||||18|0|8|0|all|通过|
+|Case01|||||32|0|8|0|all|通过|
 
 |Comment|
 |Case01|||||#GetChannelId#IfHaveTag,1|0|8|0|all|通过|

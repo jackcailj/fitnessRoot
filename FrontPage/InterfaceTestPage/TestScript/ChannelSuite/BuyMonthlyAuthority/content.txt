@@ -52,3 +52,5 @@
 |Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Offline,0|auto|0|99999|testing|通过|
 |Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Offline,1|auto|0|99999|testing|通过|
 *!
+
+!contents

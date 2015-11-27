@@ -39,6 +39,8 @@
 |getViewAlsoView|
 |#用例编号|action|userName|passWord|loginType|token|mediaId|start|end|returnFields|statusCode|
 |getViewAlsoViewCase01|getViewAlsoView|||||1900431380|0|9|mediaId,saleId,coverPic|0|
+
+|Comment|
 |getViewAlsoViewCase03|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9|mediaId,saleId,coverPic,title|0|
 |getViewAlsoViewCase04|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9|mediaId,saleId,coverPic,title|0|
 |getViewAlsoViewCase05|getViewAlsoView|!-z16@123.com-!|111111|email||1900431380|0|9||0|

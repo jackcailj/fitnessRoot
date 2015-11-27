@@ -5,8 +5,8 @@
  * media_block
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|codeCase01||获取块数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
-|codeCase02||获取块数据|code为空，调用接口|返回10002|test，staging，online|
+|Case01||获取块数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
+|Case02||获取块数据|code为空，调用接口|返回10002|test，staging，online|
 |codeCase03||获取块数据|code为无效值，调用接口|返回新增的数据|test，staging，online|
 *!
 !* Import
@@ -14,20 +14,13 @@
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-!*> 定义scenario 
-|scenario|block|action||code||statusCode||setParameters|
-|setParameters|!{action:@action,code:@code}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
 
-|script|Block|
-*!
 !* 测试数据
-|block|
-|#模块名称|action|code|statusCode|
-|推荐|block|rec_ads_head|0|
-|推荐|block|rec_ads_1|0|
-|推荐|block|rec_ads_2|0|
+|ddt:block|
+|#模块名称|code|status code|enviroment|data verify?|
+|推荐|rec_ads_head|0|
+|推荐|rec_ads_1|0|
+|推荐|rec_ads_2|0|
 |推荐|block|rec_ads_3|0|
 |推荐|block|rec_ads_4|0|
 |推荐|block|rec_ads_5|0|
@@ -43,6 +36,6 @@
 |原创|block|ori_ads_3|0|
 |原创|block|ori_ads_4|0|
 |原创|block|ori_ads_5|0|
-|codeCase02|block||10002|
-|codeCase03|block|jjljl|11102|
+|Case02|block||10002|
+|Case03|block|jjljl|11102|
 *!

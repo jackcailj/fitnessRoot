@@ -1,0 +1,23 @@
+!* 测试用例
+接口：action=getMediaCategorySaleTopn
+
+接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4362145 
+相关数据库[表]：digital [channel_bg_img]
+|Comment||测试内容|预期结果|运行环境|
+|Case01|获取频道默认背景图地址|按创建时间的先后顺序返回type=1的url|all|
+|Case02|获取书单默认背景图地址|按创建时间的先后顺序返回type=0的url|all|
+|Case03|type值为空|返回code值10002|all|
+|Case04|分类下没有销售数据|返回code值10002|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.bookstore|
+*!
+|ddt:get media category sale topn|
+|#用例编号|mediaId|mediaType|status code|enviroment|data verify?|
+|Case01|1900906736|2|0|all|通过|
+
+
+*!

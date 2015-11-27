@@ -1,0 +1,1 @@
+!include .FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.GetViewAlsoView

@@ -1,1 +1,11 @@
-!contents -R2 -g -p -f -h
+!4 '''PC频道'''
+
+ * [[热门频道][.FrontPage.PcDdreader.PcScript.PcChannelSuite.HotChannel]]
+ 
+ * [[相关频道][.FrontPage.PcDdreader.PcScript.PcChannelSuite.ChannelRcmd]]
+ 
+ * [[获取指定频道栏目下n个随机频道][.FrontPage.PcDdreader.PcScript.PcChannelSuite.GetNrandomChannel]]
+ 
+ * [[频道详情][.FrontPage.PcDdreader.PcScript.PcChannelSuite.ChannelDetails]]
+
+!contents

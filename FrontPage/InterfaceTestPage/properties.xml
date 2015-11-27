@@ -7,7 +7,7 @@
 <Refactor/>
 <Search/>
 <Static/>
-<Suites>接口自动化测试</Suites>
+<Suites>客户端接口测试</Suites>
 <Versions/>
 <WhereUsed/>
 </properties>

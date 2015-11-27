@@ -21,10 +21,11 @@
 |#用例编号|userName|passWord|loginType|token|bookListId|status code|enviroment|data verify?|
 |Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#UserBookListId|0|all|通过|
 |Case02|||||#GetBookListId#BookListId|0|all|通过|
-|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#MyMonthlyBookListId|0|all|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#MyMonthlyBookListId|0|testing|通过|
 |Case04||||||27001|all|通过|
 |Case05|||||9999|200|all|通过|
 |Case06||||aaaa|#GetBookListId#BookListId|0|all|通过|
 
 *!
 
+!contents
