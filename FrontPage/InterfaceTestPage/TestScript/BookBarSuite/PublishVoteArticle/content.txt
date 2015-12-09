@@ -1,0 +1,67 @@
+!1 '''发布投票贴接口'''
+
+!* 测试用例
+接口：action：publishVoteArticle
+参数：
+param
+{
+    "barId": 8989,
+    "content": "贴子内容",
+    "isAnonymous": 1, --是否匿名
+    "items": [
+        {
+            "articleItemsId": 20, --客户端不传
+            "imageUrl": "http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg",
+            "itemDesc": "选项描述1",
+            "title": "选项标题1" --目前可为空
+        },
+        {
+            "articleItemsId": 21,
+            "imageUrl": "http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg",
+            "itemDesc": "选项描述2",
+            "title": "选项标题2"
+        }
+    ],
+    "maxSelectionCount": 1, --单选/n多选/－1可以全选
+    "title": "贴子标题",
+    "type": 31, --31:图片投票贴；32--文字投票贴；
+    "validateMilliSeconds": 86400000 --有效期毫秒数
+}
+token、deviceType等其他公共参数
+接口详情： http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=5865701#
+相关数据表： bookbar ->  article_items, user_article_items
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.bookbar|
+*!
+!*> 定义scenario 
+| scenario |publishVoteArticleTest|action||userName||passWord||loginType||token||param||期望||result||setParameters|
+|setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,param:@param,期望:@期望}|
+|dataVerified|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|publish vote article|
+*!
+!* 测试数据
+|publishVoteArticleTest|
+|#用例名称|action|userName|passWord|loginType|token|param|期望|result|
+|正常流程|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":1,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|0|pass|
+|barId为空|publishVoteArticle|!-{"content":"贴子内容","isAnonymous":1,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|10002|pass|
+|content为空|publishVoteArticle|!-{"barId":8989,"content":"","isAnonymous":1,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|10002|pass|
+|非匿名发帖|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|10002|pass|
+|imageUrl为空|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|10002|pass|
+|itemDesc其中一个为空|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|0|pass|
+|itemDesc两个为空|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|0|pass|
+|选项标题一个为空|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":""},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|0|pass|
+|选项标题两个为空|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":""},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":""}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|0|pass|
+|maxSelectionCount为0|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":0,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|0|pass|
+|主标题为空|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"","type":31,"validateMilliSeconds":86400000}-!|0|pass|
+|validateMilliSeconds为空|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"},{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述2","title":"选项标题2"}],"maxSelectionCount":1,"title":"帖子标题","type":31,"validateMilliSeconds":}-!|10002|pass|
+|一个选项|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":0,"items":[{"imageUrl":"http://img61.ddimg.cn/imgtestdir/digital/bar/94/71/511ab5a886b545b7be7b425a3ec2cc86.jpg","itemDesc":"选项描述1","title":"选项标题1"}],"maxSelectionCount":1,"title":"贴子标题","type":31,"validateMilliSeconds":86400000}-!|10002|pass|
+|11个选项|publishVoteArticle|!-{"barId":8989,"content":"贴子内容","isAnonymous":1,"items":[{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述2","title":"选项标题2"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"},{"itemDesc":"选项描述1","title":"选项标题1"}],"maxSelectionCount":1,"title":"贴子标题","type":32,"validateMilliSeconds":86400000}-!|10002|pass|
+*!
+!4 备注：

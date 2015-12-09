@@ -27,7 +27,9 @@
 3、[[充值接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ConsumerDeposit]]
 
 *!
-
+!*** 原创
+1、[[获取原创批量购买信息接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetBatchBuyInfo]]
+*!
 
 
 
