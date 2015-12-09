@@ -27,7 +27,7 @@ digital库media表 ，doc_type=‘Ebook’为出版物，否则为原创小说
 数据准备：准备借阅书籍
 
 | ddt:add authorize ebook |
-| #用例名称 | userName | passWord | token | mediaId | status code  | data verfiy? |
+| #用例名称 | userName | passWord | token | mediaId | status code | data verfiy? |
 | 获取订单详情，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | $jieYueBookId=#GetCanBorrowBookId#EBOOK,VALID,1 | 0 | 通过 |
 
 | ddt:download media whole |

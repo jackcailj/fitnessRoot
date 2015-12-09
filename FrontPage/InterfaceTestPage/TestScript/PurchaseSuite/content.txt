@@ -25,7 +25,7 @@
 2、[[获取充值金额][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetDepositShowView]]
 
 3、[[充值接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ConsumerDeposit]]
-
+*!
 
 !*** 批量购买
 *[[获取原创批量购买信息接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetBatchBuyInfo]]
