@@ -26,13 +26,12 @@
 
 3、[[充值接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.ConsumerDeposit]]
 
+
+!*** 批量购买
+*[[获取原创批量购买信息接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetBatchBuyInfo]]
+*[[获取原创批量购买需要购买的章节数][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetNeedBuyChapterCount]]
+
 *!
-!*** 原创
-1、[[获取原创批量购买信息接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.GetBatchBuyInfo]]
-*!
-
-
-
 !*** '''纸质书购物车'''
 
 *[[添加购物车][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.AppendCart]]
