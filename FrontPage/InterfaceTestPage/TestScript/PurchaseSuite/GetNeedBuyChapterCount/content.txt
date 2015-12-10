@@ -18,8 +18,8 @@
 
 | ddt:get need buy chapter count |
 | 用例名称 | userName | passWord | token | chapterId | mediaChannelId | status code | data verify? |
-| 获取原创批量购买需要购买的章节数,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 4240058 | | 0 | 通过 |
-| 获取原创批量购买需要购买的章节数,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 4240450 | | 12005 | 通过 |
+| 获取原创批量购买需要购买的章节数,正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetChapterId#FU_FEI | | 0 | 通过 |
+| 获取原创批量购买需要购买的章节数,章节id为最后一个Id，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetChapterId#FU_FEI_LAST | | 200 | 通过 |
 | 获取原创批量购买需要购买的章节数，chapterId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1212312312321 | | 12002 | 通过 |
 | 获取原创批量购买需要购买的章节数，chapterId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | 10002 | 通过 |
 | 获取原创批量购买需要购买的章节数，token不正确 | | | 23123 | 4240067 | | 10003 | 通过 |
