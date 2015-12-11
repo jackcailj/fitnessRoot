@@ -19,5 +19,7 @@
  *[[分享书吧接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.ShareToBar]]
  *[[推荐文章][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.Recommendarticle]]
  *[[发布投票贴][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.PublishVoteArticle]]
+ *[[投票接口][.FrontPage.InterfaceTestPage.TestScript.BookBarSuite.Vote]]
+
 
 # !contents -R2 -g -p -f -h
