@@ -26,6 +26,8 @@
 *! 
 !* 文章&攻略
  *[[文章列表接口(channelArticle)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelArticle]] 
+ *[[文章详情接口(getDigestDetail)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelGetDigestDetail]] 
+ *[[文章打赏接口(reward)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelReward]] 
  *[[文章推荐接口(recommendarticle)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.recommendarticle]] 
  *[[获取频道或者书单默认背景图地址列表接口(getBackgroundImgList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.GetBackgroundImgList]]  
  *[[攻略信息保存接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.SaveChannelStrategy]] 

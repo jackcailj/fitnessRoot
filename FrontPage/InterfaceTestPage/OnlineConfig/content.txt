@@ -2,7 +2,8 @@
 |Import|
 |com.dangdang.config|
 
-|Config|
-|environment|testData|base url|login url|
-|online|readerV5|!-http://k.dangdang.com/media/api2.go-!|!-http://k.dangdang.com/media/api2.go-!|
+|Config| 
+|environment|testData|base url|login url|   
+|online|readerV5|!-http://e.dangdang.com/media/api2.go-!|!-http://e.dangdang.com/media/api2.go-!|
 *!
+

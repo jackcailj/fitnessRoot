@@ -1,13 +1,13 @@
 !*> 测试用例
 接口：action=block
 接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933635
-相关表：
- * media_block
+相关数据库[表]：
+ * digital[media_block]
 |Comment|
-|用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|Case01||获取块数据|调用接口|返回的数据与数据库数据一致|test，staging，online|
-|Case02||获取块数据|code为空，调用接口|返回10002|test，staging，online|
-|codeCase03||获取块数据|code为无效值，调用接口|返回新增的数据|test，staging，online|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|正常流程|返回的数据与数据库数据一致|all|
+|Case02|code为空|返回10002|all|
+|Case03|code为无效值|返回新增的数据|all|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
@@ -16,26 +16,28 @@
 *!
 
 !* 测试数据
-|ddt:block|
+|ddt:Block|
 |#模块名称|code|status code|enviroment|data verify?|
-|推荐|rec_ads_head|0|
-|推荐|rec_ads_1|0|
-|推荐|rec_ads_2|0|
-|推荐|block|rec_ads_3|0|
-|推荐|block|rec_ads_4|0|
-|推荐|block|rec_ads_5|0|
-|出版|block|pub_ads_head|0|
-|出版|block|pub_ads_1|0|
-|出版|block|pub_ads_2|0|
-|出版|block|pub_ads_3|0|
-|出版|block|pub_ads_4|0|
-|出版|block|pub_ads_6|0|
-|原创|block|ori_ads_head|0|
-|原创|block|ori_ads_1|0|
-|原创|block|ori_ads_2|0|
-|原创|block|ori_ads_3|0|
-|原创|block|ori_ads_4|0|
-|原创|block|ori_ads_5|0|
-|Case02|block||10002|
-|Case03|block|jjljl|11102|
+|推荐|rec_ads_head|0|online|通过|
+|推荐|rec_ads_1|0|online|通过|
+|推荐|rec_ads_2|0|online|通过|
+|推荐|rec_ads_3|0|online|通过|
+|推荐|rec_hot_news|0|online|通过|
+|推荐|rec_ads_4|0|online|通过|
+|推荐|rec_ads_5|0|online|通过|
+|推荐|rec_ads_6|0|online|通过|
+|出版|pub_ads_head|0|online|通过|
+|出版|pub_ads_1|0|online|通过|
+|出版|pub_ads_2|0|online|通过|
+|出版|pub_ads_3|0|online|通过|
+|出版|pub_ads_4|0|online|通过|
+|出版|pub_ads_6|0|online|通过|
+|原创|ori_ads_head|0|online|通过|
+|原创|ori_ads_1|0|online|通过|
+|原创|ori_ads_2|0|online|通过|
+|原创|ori_ads_3|0|online|通过|
+|原创|ori_ads_4|0|online|通过|
+|原创|ori_ads_5|0|online|通过|
+|Case02||10002||通过|
+|Case03|jjljl|11102||通过|
 *!

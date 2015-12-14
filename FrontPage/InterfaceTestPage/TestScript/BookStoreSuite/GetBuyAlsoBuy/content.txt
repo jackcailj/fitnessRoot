@@ -5,9 +5,9 @@
   
 |Comment|
 |用例编号|是否登录|是否有购买记录|参数returnFields|预期结果|运行环境|
-|Case01|否|是|返回的热销榜的数据|空|staging，online|
-|Case02|是|否|mediaId,saleId|staging，online|
-|Case03|是|是|mediaId,saleId,authorPenname|获取的数据与用户有关系|staging,online|
+|Case01|否|-||返回的热销榜的数据|online|
+|Case02|是|否|mediaId,saleId||online|
+|Case03|是|是|mediaId,saleId,authorPenname|获取的数据与用户有关系|online|
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
 |Case04|token为无效值|返回10002|test|

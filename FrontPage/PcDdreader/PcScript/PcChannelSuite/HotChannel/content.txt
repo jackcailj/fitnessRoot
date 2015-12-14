@@ -10,6 +10,11 @@
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
 |Case01|正常流程|返回上线的频道，按订阅数倒序排序|all|
+|Case02|start=5,end=10|正常返回|all|
+|Case03|start为空|10002|all|
+|Case04|start为无效值|10002|all|
+|Case05|end为空|10002|all|
+|Case06|end为无效值|10002|all|
 
 *!
 !* 测试数据
@@ -21,6 +26,11 @@
 |ddt:hot channel|
 |#用例编号|start|end|status code|enviroment|data verify?|
 |Case01|0|5|0|all|通过|
+|Case02|5|10|0|all|通过|
+|Case03||5|10002|all|通过|
+|Case04|s|5|10002|all|通过|
+|Case05|1||10002|all|通过|
+|Case06|1|e|10002|all|通过|
 
 
 *!

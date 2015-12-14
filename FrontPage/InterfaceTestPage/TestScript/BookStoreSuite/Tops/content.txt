@@ -32,7 +32,7 @@
 | com.dangdang.readerV5.bookstore |
 
 | ddt:Tops |
-| case | page | pageSize | type | path | status code | data verfiy? |
+| #case | page | pageSize | type | path | status code | data verfiy? |
 | 获取0-2岁、最近7天童书榜单 | 1 | 10 | bk_recent7_ts | 1 | 0 | 通过 |
 | 获取3-6岁、最近7天童书榜单 | 1 | 10 | bk_recent7_ts | 2 | 0 | 通过 |
 | 获取7-10岁、最近7天童书榜单 | 1 | 10 | bk_recent7_ts | 3 | 0 | 通过 |

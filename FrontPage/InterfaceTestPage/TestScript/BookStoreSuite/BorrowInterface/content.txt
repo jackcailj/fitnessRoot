@@ -33,66 +33,12 @@
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-!*> 定义scenario 
-|scenario|borrow|action||columnType||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,columnType:@columnType,start:@start,end:@end,channelType:@channelType}|
-|ensure|do get|@statusCode|
-*!
 !* 测试数据
+|ddt: Borrow|
+|#用例编号|columnType|start|end|channelType|status code|enviroment|data verify?|
+|Case01|rec_borrow_free|0|9|1|10002||通过|
 
-!* borrowCase02 借阅栏目下书籍为空
-|script|Borrow|
-|note|后台创建一个新借阅栏目，type=0书籍 type=1频道|
-|$columnType=|create with name|借阅|and code|borrow_test|and type|0|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|11003|
-*!
-!* borrowCase03 模拟后台在某借阅栏目下添加书
-|script|Borrow|
-|note|借阅栏目下添加10本书，type=0普通书籍栏目 type=1借阅 type=2限免|
-|insertWithColumncode|all_$columnType|and size|10|and type|1|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* borrowCase04 模拟后台设置排序值
-|script|Borrow|
-|note|排序|
-|$saleId=|setSortWithColumncode|all_$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* borrowCase05 模拟后台设置有效期
-|script|Borrow|
-|note|设置有效期|
-|$saleId=|setEffectiveWithColumncode|all_$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* borrowCase06 模拟后台下架书
-|script|Borrow|
-|note|下架书|
-|$saleId=|setShelfStatusWithColumncode|all_$columnType|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* borrowCase07 模拟后台上架书
-|script|Borrow|
-|note|上架书|
-|$saleId=|setShelfStatusWithSaleid|$saleId|
-|setParameters|!{action:column,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase08 ~ columnCase17
-|script|Borrow|
-
-|borrow|
-|#用例编号|action|columnType|start|end|channelType|statusCode|
-|borrowCase08|borrow||0|9|1|10002|
+|Comment|
 |borrowCase09|borrow|aaaaaa|0|9|1|10002|
 |borrowCase09|borrow|*|0|9|1|10002|
 |borrowCase09|borrow|栏目类型|0|9|1|10002|
@@ -111,19 +57,5 @@
 |borrowCase17|borrow|$columnType|0|9|哈哈|10002|
 |borrowCase17|borrow|$columnType|0|9|assf|10002|
 *!
-!* borrowCase18 模拟后台删除栏目下书
-|script|Borrow|
-|note|删除书|
-|$saleId=|delColumnDataWithColumncode|all_$columnType|
-|setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|0|
-|ensure|verify result|
-*!
-!* columnCase19 模拟后台删除栏目
-|script|Borrow|
-|note|删除栏目|
-|delColumnWithColumncode|all_$columnType|
-|setParameters|!{action:borrow,columnType:$columnType,start:0,end:9,channelType:all}|
-|ensure|do get|10002|
-*!
+
 *!

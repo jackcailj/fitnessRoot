@@ -4,30 +4,31 @@
  * 包月1个月按30天计算
  * 包月扣除主帐户金额，android用户扣除android主帐户金额，ios用户扣除ios主帐户金额
  * 自动续费功能需要跑后台任务（本用例中未实现）
- * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360843
+ * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4360843
 相关数据库[表]：
  * digital[channel, channel_monthly_strategy]
  * account[master_account]
  * authority[media_monthly_authority]
 |Comment|
-|用例编号|是否支持包月|是否已购买|是否过期|是否自动续费|频道状态|预期结果|运行环境|测试类型|
-|Case01|否|-|-|-|上线|99999，频道不支持包月|testing|auto|
-|Case02|是|否|-|-|上线|包月成功,包月到期时间，主帐户余额正确|testing|auto|
-|Case03|是|是|否|-|上线|同上|testing|auto|
-|Case04|是|是|是|-|上线|同上|testing|初次，手动|
-|Case05|是|是|是|是|上线|自动续费需要跑后台任务|-|初次，手动|
-|Case06|是|是|是|-|下线|不支持续费|-|初次，手动|
-|Case07|是|是|否|-|下线|客户端支持看此频道，但不支持续费|-|初次，手动|
+|用例编号|是否支持包月|是否已购买|是否过期|是否自动续费|频道状态|是否达到包月上线|预期结果|运行环境|测试类型|
+|Case01|否|-|-|-|上线|否|99999，频道不支持包月|testing|auto|
+|Case02|是|否|-|-|上线|否|包月成功,包月到期时间，主帐户余额正确|testing|auto|
+|Case03|是|是|否|-|上线|否|同上|testing|auto|
+|Case04|是|是|是|-|上线|否|同上|testing|初次，手动|
+|Case05|是|是|是|是|上线|否|自动续费需要跑后台任务|-|初次，手动|
+|Case06|是|是|是|-|下线|否|返回"message":"27007:该频道已下架呦"|-|初次，手动|
+|Case07|是|是|否|-|下线|否|返回"message":"27007:该频道已下架呦"，但客户端支持看此频道|-|初次，手动|
+|Case07|是|-|-|-|上线|是|返回"message":"27007:该频道已下架呦"，但客户端支持看此频道|-|初次，手动|
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
-|Case08|99999，账户余额不足|包月失败|all|
-|Case09|10002，参数非法|订阅成功|all|
-|Case10|99999，没有此频道|包月失败|all|
+|Case08|账户余额不足|返回99999|all|
+|Case09|参数非法|返回10002|all|
+|Case10|没有此频道|返回99999|all|
 |Case11|channelMonthlyStrategyId为空|10002，参数非法|all|
 |Case12|channelMonthlyStrategyId为无效值|99999，没有相关的包月策略|all|
-
-
-
+|Case10|购买资费为0的频道|包月成功|初次，手动|
+|Case11|购买超过包月次数上限的频道|返回"27006:购买次数已到上限"|初次，手动|
+|Case12|传不支持该设备的策略id|返回"27004:该频道不支持包月"|初次，手动|
 *!
 !* 测试数据
 !*> Import
@@ -37,6 +38,18 @@
 *!
 |ddt: buy monthly authority|
 |#用例编号|userName|passWord|loginType|token|cId|channelMonthlyStrategyId|isAutomaticallyRenew |statusCode|enviroment|data verify?|
+|staging |13718316064|zh@0714|${loginType_ghy}||2339|174|0|0|all|通过|
+
+|Comment|
+|资费为0|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||31|254|0|0|testing|通过|
+|下架频道|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||70|93|0|99999|testing|通过|
+|支持iOs设备的策略id|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||31|256|0|0|testing|通过|
+| |${userName_ghy}|${passWord_ghy}|${loginType_ghy}||74|99|0|0|testing|通过|
+
+
+|Comment|
+
+|Comment|
 |Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,0|0|0|99999|all|通过|
 |Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,1|auto|0|0|testing|通过|
 |Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#NoOverdueIfAutoRenew,0|auto|0|0|testing|通过|

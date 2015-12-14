@@ -1,6 +1,6 @@
 !*> 测试用例
 接口：action=channel
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359439
+接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4359439
  * 功能点：
   * 道长加V
   * 订阅数
@@ -46,10 +46,13 @@ base_comment[tag_info,tag_relation]
 *!
 
 |ddt: Channel|
-|#用例名称|userName|passWord|loginType|token|cId|status code|enviroment|data verify?|   
+|#用例名称|userName|passWord|loginType|token|cId|status code|enviroment|data verify?| 
 |Case01|||||$cId=#GetChannelId#TYPE,1|0|all|通过|
+|Case02|||||#GetChannelId#TYPE,2|0|all|通过|
+|Case03|||||#GetChannelId#IfAllowMonthly,1|0|all|通过|
 
 |Comment|
+|Case01|||||$cId=#GetChannelId#TYPE,1|0|all|通过|
 |Case02|||||#GetChannelId#TYPE,2|0|all|通过|
 |Case03|||||#GetChannelId#IfAllowMonthly,1|0|all|通过|
 |Case04|||||#GetChannelId#IfAllowMonthly,0|0|all|通过|

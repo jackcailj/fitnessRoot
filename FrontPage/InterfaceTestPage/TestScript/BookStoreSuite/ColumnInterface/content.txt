@@ -4,28 +4,26 @@
 相关数据库表：库digital
  * 表media_column
  * 表media_column_content
- * 表media_sale
+ * 表media_sale (type=0表示单本, type=1表示多本)
  * 表media
 |Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|运行环境|
-|Case01||获取当当读书->书籍栏目下数据|调用接口|返回的数据与数据库数据一致|all|
-|Case02||栏目下书籍为空|调用接口|返回11003|testing|
-|Case03||排序|【后台】设置排序值，调用接口|返回结果排序正确|testing|
-|Case04||排序|【后台】更改状态后，调用接口|返回结果排序正确|testing|
-|Case05||有效期|【后台】设置有效期后，调用接口|过了有效期的书不返回|testing|
-|Case06||栏目下有下架的书|书下架后，调用接口|下架的书不返回|testing|
-|Case07||参数columnType|columnType值为空|返回10002|all|
-|Case08||参数columnType|columnType值为无效值|返回10002|all|
-|Case09||参数start|start值为空|返回10002|all|
-|Case10||参数start|start值大于列表总数时|返回空数据|all|
-|Case11||参数start|start值为无效值|返回10002|all|
-|Case12||参数end|end值为空|返回10002|all|
-|Case13||参数end|end值为无效值|返回10002|all|
-|Case14||参数start和end|start值大于end值|返回10002|all|
-|Case15||参数isFull|isFull值为空|返回10002|all|
-|Case16||参数isFull|isFull为无效值|返回10002|all|
-|Case17||删除栏目下数据|调用接口|能正常返回数据|testing|
-|Case18||删除栏目|调用接口|返回10002|testing|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|正常流程|返回的数据与数据库数据一致|all|
+|Case02|columnType值为空|返回10002|all|
+|Case03|columnType值为无效值|返回10002|all|
+|Case04|start值为空|返回10002|all|
+|Case05|start值为无效值|返回10002|all|
+|Case06|end值为空|返回10002|all|
+|Case07|end值为无效值|返回10002|all|
+|Case08|start值大于end值|返回10002|all|
+|用例编号|测试点|预期结果|测试类型|
+|Case09|后台栏目列表为空|接口正常返回，列表为空|初次，手动|
+|Case10|后台栏目列表中书都已下架|接口正常返回，列表为空|初次，手动|
+|Case11|后台栏目改变排序值|按同状态（强制有效或正常显示）排序值倒序返回|初次，手动|
+|Case12|后台栏目设置有效期|未到或过期的书不返回|初次，手动|
+|Case13|后台栏目设置状态|强制有效地排序>正常显示，强制无效的不返回|初次，手动|
+|Case14|后台栏目中有下架的书|下架的书不返回|初次，手动|
+|Case15|后台栏目中删除某本书|删除的书不返回|初次，手动|
 *!
 !* 测试数据
 !*> Import
@@ -36,25 +34,44 @@
 *!
 |ddt:Column|
 |#模块名称|action|columnType|start|end|isFull|status code|enviroment|data verify?|
-|推荐->新书首发|column|all_rec_xssf|0|4|1|0|all|通过|
+|推荐->今日热点|column|all_rec_jrrm|0|4|1|0|all|通过|
 
 |Comment|
+|推荐->新书首发|column|all_rec_xssf|0|4|1|0|all|通过|
 |推荐->今日热点|column|all_rec_jrrm|0|4|1|0|online|通过|
-|推荐->新书首发|column|all_rec_xssf|0|4|1|0|online|通过|
+|推荐->限时特价|column|all_rec_xstj|0|4|1|0|online|通过|
 |推荐->当当独家|column|all_rec_dddj|0|4|1|0|online|通过|
 |推荐->人气纸书|column|all_rec_rqzs|0|4|1|0|online|通过|
 |推荐->当当精排|column|all_rec_ddjp|0|8|1|0|online|通过|
-|Case09|column||0|9|1|10002|all|通过|
-|Case10|column|*|0|9|1|10002|all|通过|
-|Case11|column|${columnType}||9|1|10002|all|通过|
-|Case12|column|${columnType}|2000|2001|1|11002|all|通过|
-|Case13|column|${columnType}|@|9|1|10002|all|通过|
-|Case14|column|${columnType}|0||1|10002|all|通过|
-|Case15|column|${columnType}|0|z|1|10002|all|通过|
-|Case16|column|${columnType}|9|1|1|10002|all|通过|
-|Case17|column|${columnType}|0|9||10002|all|通过|
-|Case18|column|${columnType}|0|9|5|10002|all|通过|
-
+|出版->好书1元抢|column|all_pub_hsyyq|0|2|1|0|online|通过|
+|出版->纸书•重磅推荐|column|all_pub_zszbtj|0|2|1|0|online|通过|
+|出版->传统文学|column|all_pub_wzxs|0|2|1|0|online|通过|
+|出版->青春文学|column|all_pub_qcwx|0|2|1|0|online|通过|
+|出版->经管职场|column|all_pub_jgzc|0|2|1|0|online|通过|
+|出版->成功励志|column|all_pub_cglz|0|2|1|0|online|通过|
+|出版->历史人文|column|all_pub_lswx|0|2|1|0|online|通过|
+|出版->生活两性|column|all_pub_lxsh|0|2|1|0|online|通过|
+|原创->男生.重磅推荐|column|all_ori_nszbrx|0|2|1|0|online|通过|
+|原创->女生.重磅推荐|column|all_ori_nvszbtj|0|2|1|0|online|通过|
+|原创->男生.限时免费|column|all_pub_nsxsmf|0|2|1|0|online|通过|
+|原创->男生.潜力红文|column|all_pub_nstjyh|0|2|1|0|online|通过|
+|原创->女生.潜力红文|column|all_pub_nvstjyh|0|2|1|0|online|通过|
+|原创->完结.超人气全本|column|all_ori_wjcrqqb|0|2|1|0|online|通过|
+|原创->榜单.热门推荐|column|all_ori_rmjrtj|0|2|1|0|online|通过|
+|童书->主编推荐|column|all_children_lanmu1|0|2|1|0|online|通过|
+|童书->最新上架|column|all_children_lanmu2|0|2|1|0|online|通过|
+|童书->独家定制|column|all_children_lanmu3|0|2|1|0|online|通过|
+|童书->重点关注|column|all_all_children_lanmu4|0|2|1|0|online|通过|
+|童书->热搜图书|column|all_all_children_lanmu5|0|2|1|0|online|通过|
+|童书->热评图书|column|all_all_children_lanmu6|0|2|1|0|online|通过|
+|童书->畅销套装|column|all_all_children_lanmu7|0|2|1|0|online|通过|
+|Case02|column||0|9|1|10002|all|通过|
+|Case03|column|*|0|9|1|10002|all|通过|
+|Case04|column|${columnType}||9|1|10002|all|通过|
+|Case05|column|${columnType}|@|9|1|10002|all|通过|
+|Case06|column|${columnType}|0||1|10002|all|通过|
+|Case07|column|${columnType}|0|z|1|10002|all|通过|
+|Case08|column|${columnType}|9|1|1|10002|all|通过|
 *!
 !contents
 

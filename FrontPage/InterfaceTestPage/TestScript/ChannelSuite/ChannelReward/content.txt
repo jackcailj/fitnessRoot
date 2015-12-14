@@ -1,0 +1,46 @@
+!*> 测试用例
+接口：action=reward
+接口描述：
+ * 文章类型：
+   * 翻篇儿 抢先读默认都支持打赏
+   * 频道、攻略为可选择是否支持打赏（可在频道后台设置）
+   * 帖子不支持打赏
+ * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=3934154
+相关数据库[表]：digital 
+ * media_digest 字段is_support_reward 是否支持打赏 1：支持，0：不支持
+ * media_ebook_cons_record  字段ext_id1记录文章id  字段ext_id2记录频道id
+ * media_consumer_consume
+ *  media_consumer_consume_detail
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|打赏翻篇儿|打赏成功，扣款正确|testing|
+|Case02|打赏抢先读|打赏成功，扣款正确|testing|
+|Case03|打赏频道文章|打赏成功，扣款正确|testing|
+|Case04|打赏攻略 |打赏成功，扣款正确|testing|
+|Case05|打赏不支持打赏的频道文章（或攻略）|返回15806|all|
+|Case06|打赏原创电子书|打赏成功，扣款正确|all|
+|Case07|打赏出版物电子书|打赏成功，扣款正确回|all|
+|Case08|打赏的用户余额不够|返回15801|testing|
+|Case09|打赏的文章id不存在|返回15803|all|
+|Case10|打赏的帖子|返回|all|
+|Case11|cons为空|返回10002|all|
+|Case12|cons为无效值|返回10002|all|
+|Case13|digestId为空|返回10002|all|
+|Case14|digestId为无效值|返回10002|all|
+|Case15|channelType为空|返回10002|all|
+|Case16|channelType为无效值|返回10002|all|
+|Case17|token为空|返回10002|all|
+|Case18|token为无效值|返回10002|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt:Reward|
+|#用例编号|userName|passWord|loginType|token|cons|channelType|saleId|digestId|status code|enviroment|data verify?|
+|Case01|!-z16@123.com-!|${passWord_ghy}|${loginType_ghy}||49|WZ||14853|0|testing|通过|
+
+
+*!

@@ -2,17 +2,17 @@
 !define returnType {json}
 !define deviceType {Android}
 !define channelId {30000}
-!define clientVersionNo {5.0.0}
+!define clientVersionNo {5.3.0}
 !define serverVersionNo {1.2.1}
-!define activityId {0}
 !define permanentId {20150110021451227105983711475801861}
 !define deviceSerialNo {863151026834264}
 #macAddr {18:dc:56:36:67:9c}在下面的script中直接赋值
+!define macAddr {18:dc:56:36:67:9c}
 !define resolution {1280*720}
-!define clientOs {5.0.0}
+!define clientOs {4.2.2}
 !define platformSource {DDDS-P}
 
 
 |script      |Config                                                                                                                                                                                                                                                                                                            |
-|setCommParam|!{returnType:${returnType},deviceType:${deviceType},channelId:${channelId},clientVersionNo:${clientVersionNo},serverVersionNo:${serverVersionNo},activityId:${activityId},permanentId:${permanentId},deviceSerialNo:${deviceSerialNo},macAddr:!-18:dc:56:36:67:9c-!,resolution:${resolution},clientOs:${clientOs},platformSource:${platformSource}}|
+|setCommParam|!{returnType:${returnType},deviceType:${deviceType},channelId:${channelId},clientVersionNo:${clientVersionNo},serverVersionNo:${serverVersionNo},permanentId:${permanentId},deviceSerialNo:${deviceSerialNo},macAddr:!-18:dc:56:36:67:9c-!,resolution:${resolution},clientOs:${clientOs},platformSource:${platformSource}}|
 *!

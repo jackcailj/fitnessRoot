@@ -47,6 +47,8 @@
 |getGuessulikeCase09|getGuessulike|!-z16@123.com-!|111111|email||开始|10|mediaId,saleId|14602|
 |getGuessulikeCase10|getGuessulike|!-z16@123.com-!|111111|email||0||mediaId,saleId|14003|
 |getGuessulikeCase12|getGuessulike|!-z16@123.com-!|111111|email||0|&|mediaId,saleId|14603|
+
+|Comment|
 |getGuessulikeCase13|getGuessulike|!-z16@123.com-!|111111|email||9|1|mediaId,saleId|14603|
 |getGuessulikeCase14|getGuessulike||||11111aaaaa|0|9|mediaId,saleId,coverPic|0|
 *!

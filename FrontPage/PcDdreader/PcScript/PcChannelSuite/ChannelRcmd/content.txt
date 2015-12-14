@@ -7,12 +7,21 @@
  * 详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4362105#
 相关数据库[表]：
  * digital[channel,media_channel_recommend,media_channel_recommend_temp]
- * base_comment[tag_relation]
+ * base_comment[tag_relation] 
+清除缓存：
+ * 10.255.223.208 6379
+ * select 6
+ * flushAll
 |Comment|
 |用例编号|测试点|预期结果|运行环境|
 |Case01|cId为非用户有标签的频道|返回上线频道，且按同标签下的订阅数倒序返回，去重|all|
-|Case02|cId为用户的频道|返回上线频道，且按同标签下的订阅数倒序返回，去重|all|
-|Case03|cId为无标签频道|返回热门频道|all|
+|Case02|cId为无标签频道|返回热门频道|all|
+|Case03|cId为空|返回10002|all|
+|Case04|cId为无效值|返回热门频道|all|
+|Case05|start为空|返回10002|all|
+|Case06|start为无效值|返回10002|all|
+|Case07|end为空|返回10002|all|
+|Case08|end为无效值|返回10002|all|
 *!
 !* 测试数据
 !*> Import
@@ -22,12 +31,14 @@
 *!
 |ddt:Channelrcmd|
 |#用例编号|userName|passWord|loginType|token|cId|start|end|status code|enviroment|data verify?|  
-|Case01|||||32|0|8|0|all|通过|
-
-|Comment|
 |Case01|||||#GetChannelId#IfHaveTag,1|0|8|0|all|通过|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Mine,0|0|8|0|all|通过|
-|Case03|||||#GetChannelId#IfHaveTag,0|0|8|0|all|通过|
+|Case02|||||#GetChannelId#IfHaveTag,0|0|8|0|all|通过|
+|Case03||||||0|8|10002|all|通过|
+|Case04|||||999999|0|8|0|all|通过|
+|Case05|||||$cId=#GetChannelId#IfHaveTag,1||8|10002|all|通过|
+|Case06|||||$cId=#GetChannelId#IfHaveTag,1|s|8|10002|all|通过|
+|Case07|||||$cId=#GetChannelId#IfHaveTag,1|0||10002|all|通过|
+|Case08|||||$cId=#GetChannelId#IfHaveTag,1|0|e|10002|all|通过|
 
 
 *!

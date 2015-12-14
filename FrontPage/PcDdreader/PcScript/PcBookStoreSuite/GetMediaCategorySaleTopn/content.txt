@@ -17,7 +17,9 @@
 *!
 |ddt:get media category sale topn|
 |#用例编号|mediaId|mediaType|status code|enviroment|data verify?|
-|Case01|1900906736|2|0|all|通过|
+|Case01|1900906820|2|0|all|通过|
 
+|Comment|
+|Case01|1900906818|2|0|all|通过|
 
 *!
