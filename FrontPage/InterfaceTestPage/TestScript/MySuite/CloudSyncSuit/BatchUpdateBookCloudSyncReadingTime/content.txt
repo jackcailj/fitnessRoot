@@ -1,0 +1,24 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4362335
+
+----
+!3 二、接口描述：
+批量同步阅读时长
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| base_comment | cloud_reading_progress |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.personal_center.cloud_sync_read |
+
+| ddt:batch update book cloud sync reading time |
+| #用例名称 | userName | passWord | token | readingTimes | status code | data verfiy? |
+| 同步阅读进度，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | [{"productId":1900907163,"readingTime":1001},{"productId":1900906950,"readingTime":9999}] | 0 | 通过 |
+| 同步阅读进度,progressInfo不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |
+
+!contents -R2 -g -p -f -h

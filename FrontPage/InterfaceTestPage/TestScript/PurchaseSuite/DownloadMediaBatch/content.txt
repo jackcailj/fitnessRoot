@@ -1,0 +1,43 @@
+!1 '''原创批量下载接口'''
+
+!* 测试用例
+ 接口 action： downloadMediaBatch
+  * startChapterId  起始章节id
+  * endChapterId 结束章节id
+  * token	Token
+  * autoBuy	String	1（自动购买） 0（非自动购买）如果不传默认不自动购买
+  * mediaChannelId 频道id，如果从频道跳转需要传进来
+  * fromPaltform  宪斌购买接口要求的参数，如果购买，必传
+                  ds_android(当当读书安卓平台)，ds_ios(当当读书ios平台)，
+                  yc_android(当读小说安卓平台)，yc_ios(当读小说ios平台),
+  * platformSource  公共参数，平台来源，如果购买，必传
+  * deviceType 设备类型，如果购买，必传
+  * channelId 公共参数，渠道id，如果购买，必传
+接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=3934551
+相关数据库表：digital -> media, media_chapter
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.purchase|
+*!
+!*> 定义scenario 
+| scenario |downloadMediaBatchTest|action||userName||passWord||loginType||token||startChapterId||endChapterId||autoBuy||mediaChannelId||期望||result|
+| setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,startChapterId:@startChapterId,endChapterId:@endChapterId,mediaChannelId:@mediaChannelId,autoBuy:@autoBuy,期望:@期望}|
+|dataVerified|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|download media batch|
+*!
+!* 测试数据
+|downloadMediaBatchTest|
+|#用例名称|action|userName|passWord|loginType|token|startChapterId|endChapterId|autoBuy|mediaChannelId|期望|result|
+|正常流程|downloadMediaBatch|!-whytest@dd.con-!|111111|email||FREE|FREE|1|2|0|pass|
+|余额充足，下载成功|downloadMediaBatch|!-whytest@dd.con-!|111111|email||FU_FEI,Pass|FU_FEI,Pass|1|2|0|pass|
+|余额不足，下载失败|downloadMediaBatch|!-whytest@dd.con-!|111111|email||FU_FEI,Fail|FU_FEI,Fail|1|2|12007|pass|
+|（start，end）值一致|downloadMediaBatch|!-whytest@dd.con-!|111111|email||0|0|1|2|10002|pass|
+|token为空|downloadMediaBatch|||||FREE|FREE|1|2|0|pass|
+!4 备注：
+*!
