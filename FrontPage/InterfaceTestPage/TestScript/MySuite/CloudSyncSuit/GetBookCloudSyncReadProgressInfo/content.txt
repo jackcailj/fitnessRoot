@@ -20,8 +20,8 @@
 | #用例名称 | userName | passWord | token | productId | status code | data verfiy? |
 | 获得阅读进度、时长，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | $productId=#GetBuyProductId#BUY,1 | 0 | 通过 |
 | 获得阅读进度、时长，productId不存在 | !-cailj_ddtest@126.com-! | ddtest | | 1231 | 0 | 通过 |
-| 获得阅读进度、时长,productId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | -1003 | 通过 |
-| 获得阅读进度、时长，token不正确 | | | 123 | $productId | 1 | 通过 |
-| 获得阅读进度、时长，token不传 | | | #NotPass# | $productId | -1003 | 通过 |
+| 获得阅读进度、时长,productId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |
+| 获得阅读进度、时长，token不正确 | | | 123 | $productId | 10003 | 通过 |
+| 获得阅读进度、时长，token不传 | | | #NotPass# | $productId | 10002 | 通过 |
 
 !contents -R2 -g -p -f -h

@@ -7,3 +7,4 @@
 *6、[[获得笔记分类列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetPersonalBookNoteInfoList]] 
 *7、[[个人获得笔记总数][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetPersonalBookNoteInfoNo]] 
 *8、[[获得阅历信息接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.GetExperienceInfoList]]
+*9、[[批量同步阅读时长][.FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit.BatchUpdateBookCloudSyncReadingTime]]
