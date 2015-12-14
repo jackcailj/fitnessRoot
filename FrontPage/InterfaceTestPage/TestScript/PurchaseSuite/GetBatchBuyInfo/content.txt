@@ -28,9 +28,10 @@
 !* 测试数据
 |getBatchBuyInfoTest|
 |#用例名称|action|userName|passWord|loginType|token|chapterId|mediaChannelId|chapterCount|期望|result|
-|正常流程|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||FromDB|1|5|0|pass|
-|正常流程|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||FromDB|1|0|10002|pass|
-|chapterCount为0|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||FromDB|1|0|10002|pass|
-|token为空|getBatchBuyInfo|||||FromDB|1|0|10002|pass|
+|正常流程|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||$id=#GetChapterId#FU_FEI|1|5|0|pass|
+|正常流程|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||#GetChapterId#FU_FEI_LAST|1|10|200|pass|
+|chapterCount为0|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||id|1|0|10002|pass|
+|chapterCount为0|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||id|1|0|10002|pass|
+|token为空|getBatchBuyInfo|||||id|1|0|10002|pass|
 !4 备注：
 *!
