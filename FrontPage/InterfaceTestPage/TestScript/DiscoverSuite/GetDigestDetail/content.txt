@@ -43,9 +43,6 @@ channel_sub_user （用户订阅频道信息， type： 1 订阅，0 取消订�
 !* 测试数据
 |getDigestDetailTest|
 |#用例名称|userName|passWord|loginType|token|action|digestId|ddChannelId|期望|result|
-|从频道入口|!-whytest@dd.con-!|111111|email||getDigestDetail|14851|17|0|pass|
-
-|Comment|
 |从翻篇入口|!-whytest@dd.con-!|111111|email||getDigestDetail|DigestDB|REMOVE|0|pass|
 |从频道入口|!-whytest@dd.con-!|111111|email||getDigestDetail|ChannelDB|ChannelDB|0|pass|
 |参数digestId值为字母|!-whytest@dd.con-!|111111|email||getDigestDetail|aabb|REMOVE|200|pass|
