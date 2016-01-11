@@ -1,0 +1,45 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=6390261
+
+----
+!3 二、接口描述：
+当用户中奖的奖品是电子书时,点击领取电子书时获得该本电子书的权限接口
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| bookbar | cust_day_vote_info |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.ZuoJiaPingXuan |
+
+| ddt:get e book |
+| #用例名称 | userName | passWord | token | voteInfoId | sign | timestamp | code | productId | status code | data verfiy? |
+| 领取电子书，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | 124 | | #GetTimeStamp# | 1 | 1960249616 | 0 | 通过 |
+
+| comment |
+| 领取电子书，token不正确 | | | 123 | 28 | | #GetTimeStamp# | 1 | 1960249544 | 10003 | 通过 |
+| 领取电子书，token不传 | | | #NotPass# | 28 | | #GetTimeStamp# | 1 | 1960249544 | 10002 | 通过 |
+| 领取电子书，voteInfoId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | #GetTimeStamp# | 1 | 1960249544 | 10002 | 通过 |
+| 领取电子书，voteInfoId为非数字 | !-cailj_ddtest@126.com-! | ddtest | | ww | | #GetTimeStamp# | 1 | 1960249544 | 10002 | 通过 |
+| 领取电子书，sign不传 | !-cailj_ddtest@126.com-! | ddtest | | 28 | #NotPass# | #GetTimeStamp# | 1 | 1960249544 | 10002 | 通过 |
+| 领取电子书，sign不正确 | !-cailj_ddtest@126.com-! | ddtest | | 28 | 12321312 | #GetTimeStamp# | 1 | 1960249544 | 34102 | 通过 |
+| 领取电子书，timestamp不传 | !-cailj_ddtest@126.com-! | ddtest | | 28 | | #NotPass# | 1 | 1960249544 | 10002 | 通过 |
+
+| comment | 以下用例返回code为0，但是没有领取成功 |
+| 领取电子书，code不传 | !-cailj_ddtest@126.com-! | ddtest | | 28 | | #GetTimeStamp# | #NotPass# | 1960249544 | 10002 | 通过 |
+| 领取电子书，code不正确 | !-cailj_ddtest@126.com-! | ddtest | | 28 | | #GetTimeStamp# | 8 | 1960249544 | 10002 | 通过 |
+| 领取电子书，code为非数字 | !-cailj_ddtest@126.com-! | ddtest | | 28 | | #GetTimeStamp# | ad | 1960249544 | 10002 | 通过 |
+
+| comment | 由于采用了校验位(sign）,以下用例出现概率很小 |
+| 领取电子书，productId不传 | !-cailj_ddtest@126.com-! | ddtest | | 28 | | #GetTimeStamp# | 1 | #NotPass# | 10002 | 通过 |
+| 领取电子书，productId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 28 | | #GetTimeStamp# | 1 | 123123 | 10002 | 通过 |
+| 领取电子书，领取别人的奖品，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 29 | | #GetTimeStamp# | 1 | 1960249501 | 10002 | 通过 |
+
+| comment |
+| 领取电子书，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 28 | | #GetTimeStamp# | 1 | 1960249544 | 0 | 通过 |
+
+!contents -R2 -g -p -f -h

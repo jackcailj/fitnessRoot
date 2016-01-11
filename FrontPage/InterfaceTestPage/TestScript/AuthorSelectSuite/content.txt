@@ -1,0 +1,11 @@
+*[[投票,用户中奖为电子书，点击领取电子书接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.GetEBook]]
+ *[[投票,中奖中户滚屏加载接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.WinLotteryUsers]]
+ *[[投票,添加中奖人电话信息接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.AddLotteryUserAddress]]
+ *[[投票,查询作者相关信息接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.QueryAuthorAndProduct]]
+ *[[投票,抽奖接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.AuditionLottery]]
+ *[[海选阶段投票接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.AuditionVote]]
+ *[[投票阶段投票接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.Vote]]
+ *[[获得榜单列表接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.QueryAuditionArticles]]
+ *[[投票历史接口][.FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite.QueryUserArticleItems]]
+
+!contents -R2 -g -p -f -h

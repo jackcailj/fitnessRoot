@@ -1,0 +1,27 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=6390532
+
+----
+!3 二、接口描述：
+查询作者更多相关信息
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.ZuoJiaPingXuan |
+
+| ddt:query author and product |
+| #用例名称 | userName | passWord | token | authorId | flag | status code | data verfiy? |
+| 查询作者更多信息 | !-cailj_ddtest@126.com-! | ddtest | | $authorId=#GetAuditionAuthorId# | | 0 | 通过 |
+| 查询作者更多信息,authorId不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1112212121212 | no_author | 0 | 通过 |
+| 查询作者更多信息,authorId为非数字 | !-cailj_ddtest@126.com-! | ddtest | | ab | | 10002 | 通过 |
+| 查询作者更多信息,authorId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | 10002 | 通过 |
+| 查询作者更多信息,token不正确 | | | 12321 | $authorId | | 0 | 通过 |
+| 查询作者更多信息,token不传 | | | #NotPass# | $authorId | | 0 | 通过 |
+
+!contents -R2 -g -p -f -h

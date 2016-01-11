@@ -1,0 +1,27 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=6390792
+
+----
+!3 二、接口描述：
+投票历史接口
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| bookbar | user_article_items |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.ZuoJiaPingXuan |
+
+| ddt:query user article items |
+| #用例名称 | userName | passWord | token | pageNo | status code | data verfiy? |
+| 投票历史接口，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | 0 | 0 | 通过 |
+| 投票历史接口，token不传 | | | #NotPass# | 1 | 10002 | 通过 |
+| 投票历史接口，token不正确 | | | 123 | 1 | 10003 | 通过 |
+| 投票历史接口，pageNo为非数字 | !-cailj_ddtest1@126.com-! | ddtest | | a | 10002 | 通过 |
+| 投票历史接口，pageNo不传 | !-cailj_ddtest1@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |
+
+!contents -R2 -g -p -f -h
