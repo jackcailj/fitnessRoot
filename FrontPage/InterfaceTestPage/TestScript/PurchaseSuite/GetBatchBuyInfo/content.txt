@@ -1,37 +1,46 @@
 !1 '''获取原创批量购买信息接口'''
+!*** 测试用例
 
-!* 测试用例
 接口：action：getBatchBuyInfo
-  * chapterId  章节id
-  * token  Token
-  * mediaChannelId	频道id，如果从频道过来需要带入
-  * chapterCount  想要购买的章节数
-  * deviceType 	设备类型
+
+ * chapterId  章节id
+ * token  Token
+ * mediaChannelId        频道id，如果从频道过来需要带入
+ * chapterCount  想要购买的章节数
+ * deviceType         设备类型
+
 接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=5865886
 相关数据库表：digital -> media, media_chapter
+
 *!
-!* Import
+!*** Import
+
 !define TEST_SYSTEM {slim}
-|import|
-|com.dangdang.readerV5.purchase|
+| import |
+| com.dangdang.readerV5.purchase |
+
 *!
-!*> 定义scenario 
-| scenario |getBatchBuyInfoTest|action||userName||passWord||loginType||token||chapterId||mediaChannelId||chapterCount||期望||result||setParameters|
-| setParams|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,chapterId:@chapterId,mediaChannelId:@mediaChannelId,chapterCount:@chapterCount,期望:@期望}|
-|dataVerified|@期望|
-|check|verified result |@result|
-|show|tear down|
+!***> 定义scenario
+
+| scenario | getBatchBuyInfoTest | action | | userName | | passWord | | loginType | | token | | chapterId | | mediaChannelId | | chapterCount | | 期望 | | result | | setParameters |
+| setParams | !{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,chapterId:@chapterId,mediaChannelId:@mediaChannelId,chapterCount:@chapterCount,期望:@期望} |
+| dataVerified | @期望 |
+| check | verified result | @result |
+| show | tear down |
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|get batch buy info|
+| script | get batch buy info |
+
 *!
-!* 测试数据
-|getBatchBuyInfoTest|
-|#用例名称|action|userName|passWord|loginType|token|chapterId|mediaChannelId|chapterCount|期望|result|
-|正常流程|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||$id=#GetChapterId#FU_FEI|1|5|0|pass|
-|正常流程|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||#GetChapterId#FU_FEI_LAST|1|10|200|pass|
-|chapterCount为0|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||id|1|0|10002|pass|
-|chapterCount为0|getBatchBuyInfo|!-whytest@dd.con-!|111111|email||id|1|0|10002|pass|
-|token为空|getBatchBuyInfo|||||id|1|0|10002|pass|
+!*** 测试数据
+
+| getBatchBuyInfoTest |
+| #用例名称 | action | userName | passWord | loginType | token | chapterId | mediaChannelId | chapterCount | 期望 | result |
+| 正常流程 | getBatchBuyInfo | !-whytest@dd.con-! | 111111 | email | | $id=#GetChapterId#FU_FEI | 1 | 5 | 0 | pass |
+| 正常流程 | getBatchBuyInfo | !-whytest@dd.con-! | 111111 | email | | #GetChapterId#FU_FEI_LAST | 1 | 10 | 12005 | pass |
+| chapterCount为0 | getBatchBuyInfo | !-whytest@dd.con-! | 111111 | email | | id | 1 | 0 | 10002 | pass |
+| chapterCount为0 | getBatchBuyInfo | !-whytest@dd.con-! | 111111 | email | | id | 1 | 0 | 10002 | pass |
+| token为空 | getBatchBuyInfo | | | | | id | 1 | 0 | 10002 | pass |
+
 !4 备注：
 *!

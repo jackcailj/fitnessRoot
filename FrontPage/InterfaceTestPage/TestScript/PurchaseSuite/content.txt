@@ -6,6 +6,10 @@
 
 3、[[虚拟币购买接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.PurchaseEbookVirtualPayment]]
 
+4、[[电子书消费接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.BuyMedia]]
+
+5、[[下载电子书接口][.FrontPage.InterfaceTestPage.TestScript.PurchaseSuite.DownloadMedia]]
+
 *!
 !*** 电子书购物车
 

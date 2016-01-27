@@ -1,0 +1,22 @@
+!define TEST_SYSTEM {slim}
+!4 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078102
+
+----
+!4 二、接口描述：
+获取文章详情接口
+
+----
+!4 三、测试用例:
+| Import |
+| com.dangdang.readerV5.homepage |
+
+| ddt:home page detail |
+| 用例名称 | userName | passWord | token | time | pageSize | status code | data verfiy? |
+| 获取首页文章信息 | !-cailj_ddtest1@126.com-! | ddtest | | | 10 | 0 | 通过 |
+| 获取首页文章信息，pageSize为非数字 | !-cailj_ddtest1@126.com-! | ddtest | | | a | 200 | 通过 |
+| 获取首页文章信息，pageSize不传 | !-cailj_ddtest1@126.com-! | ddtest | | | #NotPass# | 10002 | 通过 |
+
+| comment |
+| 获取首页文章信息,未登录，获取运营推荐数据 | | | | 1435993960000 | 10 | 0 | 通过 |
+| 获取首页文章信息,登录状态 | !-cailj_ddtest@126.com-! | ddtest | | | 10 | 0 | 通过 |

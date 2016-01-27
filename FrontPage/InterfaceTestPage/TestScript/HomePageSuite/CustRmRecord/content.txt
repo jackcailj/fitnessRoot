@@ -1,0 +1,22 @@
+!define TEST_SYSTEM {slim}
+一、接口wiki地址：
+
+http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078166
+
+----
+二、接口描述：
+
+删除首页文章
+
+按账号、设备号记录
+
+----
+三、测试用例:
+
+| Import |
+| com.dangdang.readerV5.homepage |
+
+| ddt:cust rm record |
+| 用例名称 | userName | passWord | token | dataIdType | dataId | feature | status | status code | data verfiy? |
+| 删除首页文章 ，订阅频道文章 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 15205 | homepage | 1 | 0 | 通过 |
+| 删除首页文章，运营推荐文章 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 15690 | homepage | 1 | 0 | 通过 |

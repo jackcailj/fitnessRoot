@@ -1,0 +1,4 @@
+
+*1、[[获取文章信息接口][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.HomePageDetail]]
+
+*2、[[删除首页文章接口][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.CustRmRecord]]

@@ -12,38 +12,35 @@
 
 4、签到送积分情况
 
-|comment                                                                                                          |
-|'''连续签到天数'''|'''第1天'''|'''第2天'''|'''第3天'''|'''第4天'''|'''第5天'''|'''第6天'''|'''第7天'''|'''第8天'''|'''第9天'''|'''…第n天'''|
-|'''签到积分'''  |+5       |+8       |+10      |+15      |+20      |+30      |+40      |+40      |+40      |+40       |
+| comment |
+| '''连续签到天数''' | '''第1天''' | '''第2天''' | '''第3天''' | '''第4天''' | '''第5天''' | '''第6天''' | '''第7天''' | '''第8天''' | '''第9天''' | '''…第n天''' |
+| '''签到积分''' | +5 | +8 | +10 | +15 | +20 | +30 | +40 | +40 | +40 | +40 |
 
 !3 三、涉及数据库
-|Comment                                       |
-|数据库    |表                                     |
-|digital|signin_main,signin_detail,signin_prize|
+| Comment |
+| 数据库 | 表 |
+| digital | signin_main,signin_detail,signin_prize |
 
 ----
 !3 四、测试用例:
-|Import                               |
-|com.dangdang.readerV5.personal_center|
+| Import |
+| com.dangdang.readerV5.personal_center |
 
 #UpdateSingDate#说明：第一个参数为firstdate和当前时间差，第二个参数为最后签到时间和当前时间差
 
-|ddt:   Signin                                                                                                        |
-|用例名称        |userName                |passWord|token|platformSource|update_sign_date   |flag|status code|data verfiy?|
-|签到，第一次签到，送积分|!-cailj_ddtest@126.com-!|ddtest  |     |DDDS-P        |#UpdateSingDate#2,2|1   |0          |通过          |
-
-|comment                                                                                          |
-|签到，第一次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#2,2|1|0    |通过|
-|签到，一天第二次签到，不送积分  |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|                   |1|30001|通过|
-|签到，第二次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#1  |2|0    |通过|
-|签到，第三次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#2  |3|0    |通过|
-|签到，第四次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#3  |4|0    |通过|
-|签到，第五次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#4  |5|0    |通过|
-|签到，第六次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#5  |6|0    |通过|
-|签到，第七次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#6  |7|0    |通过|
-|签到，第八次签到，送积分     |!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#7  |8|0    |通过|
-|签到，有中断情况，相当于第一次签到|!-cailj_ddtest@126.com-!|ddtest|         |DDDS-P|#UpdateSingDate#8,2|1|0    |通过|
-|签到，token不传       |                        |      |#NotPass#|DDDS-P|                   |1|10002|通过|
-|签到，token不正确      |                        |      |123      |DDDS-P|                   |1|10003|通过|
+| ddt:   Signin |
+| 用例名称 | userName | passWord | token | platformSource | update_sign_date | flag | status code | data verfiy? |
+| 签到，第一次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#2,2 | 1 | 0 | 通过 |
+| 签到，一天第二次签到，不送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | | 1 | 30001 | 通过 |
+| 签到，第二次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#1 | 2 | 0 | 通过 |
+| 签到，第三次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#2 | 3 | 0 | 通过 |
+| 签到，第四次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#3 | 4 | 0 | 通过 |
+| 签到，第五次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#4 | 5 | 0 | 通过 |
+| 签到，第六次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#5 | 6 | 0 | 通过 |
+| 签到，第七次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#6 | 7 | 0 | 通过 |
+| 签到，第八次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#7 | 8 | 0 | 通过 |
+| 签到，有中断情况，相当于第一次签到 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#8,2 | 1 | 0 | 通过 |
+| 签到，token不传 | | | #NotPass# | DDDS-P | | 1 | 10002 | 通过 |
+| 签到，token不正确 | | | 123 | DDDS-P | | 1 | 10003 | 通过 |
 
 !contents -R2 -g -p -f -h

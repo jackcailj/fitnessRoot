@@ -86,6 +86,9 @@
 *43、[[我发布的帖子文章列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetPublishArticleAndPost]]
 
 *44、[[个人中心我的书友圈][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetMyBookFriendMoments]]
+
+*45、[[检测是否有非借阅非包月权限][.FrontPage.InterfaceTestPage.TestScript.MySuite.CheckAuthority]]
+
 *!
 ----
 !***> 书架
@@ -134,6 +137,9 @@
 !***> 云同步相关相关
 
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit
+*!
+!*** 阅历相关
+!include .FrontPage.InterfaceTestPage.TestScript.MySuite.ExperienceDataSuit
 *!
 ----
 !contents -R2 -g -p -f -h

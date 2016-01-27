@@ -1,0 +1,37 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=6390399
+
+----
+!3 二、接口描述：
+增加用户阅历数据
+
+actionTypeCode:1.阅读图书 2.读完书籍 3.分享图书 4.分享笔记划线 5.划线 6.笔记  7.发帖   8.购买  9.借阅 10:分享专题,11:分享频道,12:分享攻略,13:分享文章,14:分享书单,15:分享吧,16:分享贴子,17:发布攻略,18:发布文章,19:创建频道,20:创建吧,21:申请吧主,22:订阅频道,23:加入吧,24:参与投票活动,25:赠书行为
+
+''experienceInfo:''
+
+''[{"sourceId":"111","sourceName":"名称","channel":"QQ好友","shareType":1,"essayType":3,"remark":"备注信息"}]''
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| base_comment | cloud_experience_info |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.personal_center |
+
+| ddt:share give experience |
+| #用例名称 | userName | passWord | token | actionTypeCode | experienceInfo | status code | data verfiy? |
+| 分享图书增加阅历经验，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | FXYBS | {"productId":1900906940,"bookName":"卡耐基最实用的说服术与社交技巧","channel":"书吧","saleId":1900906940} | 0 | 通过 |
+| 分享吧增加阅历经验，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | FXYGB | {"productId":1111112324,"bookName":"新的自测数据","channel":"QQ"} | 0 | 通过 |
+| 分享频道增加阅历经验，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | FXYPD | {"productId":1111112324,"bookName":"新的自测数据","channel":"QQ"} | 0 | 通过 |
+| 分享帖子增加阅历经验，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | FXYPTZ | [{"sourceId":"14822","sourceName":"大家看下《学生必备中国少年儿童百科全书：文化·艺术》这本书真心不错，还有好多美图！","channel":"书吧","shareType":1,"essayType":3,"remark":"备注信息"}] | 0 | 通过 |
+| 分享攻略增加阅历经验，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | FXYBS | {"productId":13608,"bookName":"分享一篇攻略给大家","comment":"分享一篇攻略给大家"} | 0 | 通过 |
+| 分享文章增加阅历经验，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | FXYPWZ | {"productId":13624,"bookName":"今天的雪太大了","channel":"书友IM"} | 0 | 通过 |
+| 分享书单增加阅历经验，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | FXYPSD | {"productId":202,"bookName":"我是一个深井冰的书单","channel":"微信朋友圈"} | 0 | 通过 |
+| 分享专题增加阅历经验，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | FXYPSD | {"productId":26,"bookName":"风雨江湖任我行","channel":"微信朋友圈","url":"http://10.255.223.117/media/h5/ddreader50/special-page.html?stId=26&pageform=recommendPage"} | 0 | 通过 |
+| 分享笔记划线增加阅历经验，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | FXYBS | {"status":1,"lineationContent":"，许多店铺却在澈烈的社会竞争中苦苦支撑，经营者们大吐苦水，感叹竞争澈烈，生意太难做。对子新手来说，无论是选","productId":1900906868,"saleId":1900906868,"bookName":"店铺资金与成本管理"} | 0 | 通过 |
+
+!contents -R2 -g -p -f -h
