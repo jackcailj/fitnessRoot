@@ -1,9 +1,16 @@
 !***> '''CLASSPATH'''
 
-!path ddframework/bin
-!path ddreader/bin
-!path db_meta/bin
-!path ddreader/lib/*.jar
-!path ddframework/lib/*.jar
+#!path ddframework/target/classes
+
+#!path ddreader/target/classes
+
+#!path db_meta/target/classes
+
+!pomFile  ddreader/pom.xml
+!pomFile ddframework/pom.xml
+!pomfile db_meta/pom.xml
+#!path ddreader/lib/*.jar
+
+#!path ddframework/lib/*.jar
 
 *!

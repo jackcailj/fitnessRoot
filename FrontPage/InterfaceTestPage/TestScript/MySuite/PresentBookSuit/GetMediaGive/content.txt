@@ -27,10 +27,10 @@
 | Import |
 | com.dangdang.readerV5.present_book |
 
-生成赠书红包
+生成赠书红包,赠送的书籍为cailj_ddtest6@126.com用户没有的书籍
 
 | script | give media give |
-| setParameters | !{userName:!-cailj_ddtest@126.com-!,passWord:ddtest,advice:分享一下,mediaIds:$sendMeidaId=#GetBuyProductId#BUY;1,期望:0} |
+| setParameters | !{userName:!-cailj_ddtest@126.com-!,passWord:ddtest,advice:分享一下,mediaIds:$sendMeidaId=#GetBuyProductId#BUY;1;cailj_ddtest6@126.com\ddtest,期望:0} |
 | do work and verify |
 | check | getDataVerifyResult | true |
 | $packetId= | getMediaPacketId |

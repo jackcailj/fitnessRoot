@@ -19,14 +19,18 @@
 
 数据准备，签到
 
+
 | ddt:   Signin |
 | 用例名称 | userName | passWord | token | platformSource | update_sign_date | flag | status code | data verfiy? |
-| 签到，第一次签到，送积分 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#2,2 | 1 | 0 | 通过 |
+| 签到，第一次签到，送积分 | !-cailj_ddtest2@126.com-! | ddtest | | DDDS-P | | | 0 | 通过 |
+
+| comment |
+| 签到，第一次签到，送积分 | !-cailj_ddtest2@126.com-! | ddtest | | DDDS-P | #UpdateSingDate#2,2 | 1 | 0 | 通过 |
 
 | ddt: check signin state |
 | 用例名称 | userName | passWord | token | status code | flag | data verify? |
 | 检查用户是否签到，未签到，正常流程 | !-cailj_ddtest1@126.com-! | ddtest | | 0 | false | 通过 |
-| 检查用户是否签到，已签到，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | 0 | true | 通过 |
+| 检查用户是否签到，已签到，正常流程 | !-cailj_ddtest2@126.com-! | ddtest | | 0 | true | 通过 |
 | 检查用户是否签到，token不传 | | | #NotPass# | 10002 | | 通过 |
 | 检查用户是否签到，token不正确 | | | 123 | 10003 | | 通过 |
 

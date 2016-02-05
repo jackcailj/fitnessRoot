@@ -1,53 +1,63 @@
 !1 '''吧成员列表接口'''
+!*** 测试用例
 
-!* 测试用例
-接口：action=queryBarMember
-参数：
+接口：action=queryBarMember!-
+-!参数：
+
  * barId – 吧ID
  * pageNo – 页码（必填）
-接口描述：获取该吧某页的成员列表，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359665
-相关数据库表：bookbar -> bar, bar_member， emst -> user_device(查找用户的nick_name)
-|Comment|
-|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
-|||正常流程|输入正确的参数值|获取某页吧成员列表|test,staging,online|
-|||barId参数|不传barId参数，其他参数值正确|参数非法|test,staging,online|
-|||barId参数值|输入barId值为空，其他参数值正确|参数非法|test,staging,online|
-|||barId参数值|barId值为字母bb ，其他参数值正确|未知错误|test,staging,online|
-|||pageNo参数|pageNo参数值为空，其他参数值正确|参数非法|test,staging,online|
-|||pageNo参数|不传pageNo参数，其他参数值正确|参数非法|test,staging,online|
-|||pageNo参数|pageNo参数值为负数，其他参数值正确|参数非法|test,staging,online|
+
+接口描述：获取该吧某页的成员列表，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359665!-
+-!相关数据库表：bookbar -> bar, bar_member， emst -> user_device(查找用户的nick_name)
+
+| Comment |
+| 用例编号 | 前提条件 | 测试点 | 用例描述 | 预期结果 | 测试环境 |
+| | | 正常流程 | 输入正确的参数值 | 获取某页吧成员列表 | test,staging,online |
+| | | barId参数 | 不传barId参数，其他参数值正确 | 参数非法 | test,staging,online |
+| | | barId参数值 | 输入barId值为空，其他参数值正确 | 参数非法 | test,staging,online |
+| | | barId参数值 | barId值为字母bb ，其他参数值正确 | 未知错误 | test,staging,online |
+| | | pageNo参数 | pageNo参数值为空，其他参数值正确 | 参数非法 | test,staging,online |
+| | | pageNo参数 | 不传pageNo参数，其他参数值正确 | 参数非法 | test,staging,online |
+| | | pageNo参数 | pageNo参数值为负数，其他参数值正确 | 参数非法 | test,staging,online |
+
 *!
-!* Import
+!*** Import
+
 !define TEST_SYSTEM {slim}
-|import|
-|com.dangdang.readerV5.bookbar|
+| import |
+| com.dangdang.readerV5.bookbar |
+
 *!
-!*> 定义scenario 
-| scenario |queryBarListTest|action||barId||pageNo||期望||result||setParameters|
-|setParams|!{action:@action,barId:@barId,pageNo:@pageNo,期望:@期望}|
-|dataVerified|@期望|
-|check|verified result |@result|
-|show|tear down|
+!***> 定义scenario
+
+| scenario | queryBarListTest | action | | barId | | pageNo | | 期望 | | result | | setParameters |
+| setParams | !{action:@action,barId:@barId,pageNo:@pageNo,期望:@期望} |
+| dataVerified | @期望 |
+| check | verified result | @result |
+| show | tear down |
 
 !4 创建script实例，后面调用scenario都是针对这个实例
-|script|query bar member|
-*!
-!* 测试数据
-|queryBarListTest|
-|#用例名称|action|barId|pageNo|期望|result|
-|正常流程|queryBarMemberV2|$barId=#GetBarIdOrObjectId#APPROVED,barId|0|0|pass|
-|barId参数值为字母|queryBarMemberV2|bb|0|10002|pass|
-|barId参数值空|queryBarMemberV2||0|10002|pass|
-|不传barId参数值|queryBarMemberV2|REMOVE|0|10002|pass|
-|不传pageNo参数|queryBarMemberV2|$barId|REMOVE|10002|pass|
-|pageNo参数值为空|queryBarMemberV2|$barId||10002|pass|
-|pageNo参数值为负数|queryBarMemberV2|$barId|-1|0|pass|
-|pageNo参数值为1|queryBarMemberV2|$barId|1|0|pass|
-|pageNo参数值为a|queryBarMemberV2|$barId|a|10002|pass|
-*!
+| script | query bar member |
 
+*!
+!*** 测试数据
+
+| queryBarListTest |
+| #用例名称 | action | barId | pageNo | 期望 | result |
+| 正常流程 | queryBarMemberV2 | $barId=#GetBarIdOrObjectId#APPROVED,barId | 0 | 0 | pass |
+| barId参数值为字母 | queryBarMemberV2 | bb | 0 | 10002 | pass |
+| barId参数值空 | queryBarMemberV2 | | 0 | 10002 | pass |
+| 不传barId参数值 | queryBarMemberV2 | REMOVE | 0 | 10002 | pass |
+| 不传pageNo参数 | queryBarMemberV2 | $barId | REMOVE | 10002 | pass |
+| pageNo参数值为空 | queryBarMemberV2 | $barId | | 10002 | pass |
+| pageNo参数值为负数 | queryBarMemberV2 | $barId | -1 | 0 | pass |
+| pageNo参数值为1 | queryBarMemberV2 | $barId | 1 | 0 | pass |
+| pageNo参数值为2 | queryBarMemberV2 | $barId | 2 | 0 | pass |
+| pageNo参数值为a | queryBarMemberV2 | $barId | a | 10002 | pass |
+
+*!
 !4 备注：
-pageNo为负数，0,1时，获取到的成员列表都是第一页的成员信息。
-吧成员列表，一页默认显示1000个成员
-bug: http://10.255.223.220/zentao/bug-view-14553.html
-  /media/api2.go?action=queryBarMember&barId=8&pageNo=0 
+pageNo为负数，0,1时，获取到的成员列表都是第一页的成员信息。!-
+-!吧成员列表，一页默认显示1000个成员!-
+-!bug: http://10.255.223.220/zentao/bug-view-14553.html!-
+-!  /media/api2.go?action=queryBarMember&barId=8&pageNo=0
