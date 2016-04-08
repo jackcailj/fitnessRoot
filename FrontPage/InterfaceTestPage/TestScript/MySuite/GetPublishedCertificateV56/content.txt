@@ -1,0 +1,25 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4360397
+
+----
+!3 二、接口描述：
+获取出版物证书接口
+
+refAction:用户行为参数（可以为空或者不传）但如果是登录用户点击“试读”引发的下载，那么必须传refAction=browse!-
+-!增加包月权限控制，包月过期不允许下载。
+
+!3 三、涉及数据库
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.personal_center |
+
+| ddt:get published certificate |
+| #用例名称 | userName | passWord | token | mediaId | key | isFull | refAction | mediaChannelId | status code | data verfiy? |
+| 获取有包月权限的书籍，应成功 | !-cailj_ddtest@126.com-! | ddtest | | $validMonthlyChannelId=#GetUserMonthlyMediaId#IfAlreadyMonthly,VALID,1,mediaChannelId | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | | 0 | 通过 |
+| 获取包月过期的书籍，应失败 | !-cailj_ddtest@126.com-! | ddtest | | #GetUserMonthlyChannelId#NoOverdueIfAutoRenew | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | | 0 | 通过 |
+| mediaChannelId为有效的包月id，mediaId包月过期并且不属于mediaChannelId，应失败 | !-cailj_ddtest@126.com-! | ddtest | | $validMonthlyChannelId | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | | 0 | 通过 |
+| mediaChannelId不正确，mediaId有包月权限，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 123232321321312 | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | | 0 | 通过 |
+| mediaChannelId不正确，mediaId包月权限过期，应失败 | !-cailj_ddtest@126.com-! | ddtest | | 123213123122 | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | | 0 | 通过 |
+| mediaChannelId下架，应失败 | !-cailj_ddtest@126.com-! | ddtest | | #GetBuyProductId#BUY,1 | MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIJmES+jLfd54XNtju0wqJ4izofemTchm6x1PkpJCtR/FYEXYS2oxba32tjHcyhp0nl96ooe9TzA7WSeT4B6vNcCAwEAAQ== | 1 | | | 0 | 通过 |

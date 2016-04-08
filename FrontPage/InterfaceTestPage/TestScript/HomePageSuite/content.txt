@@ -1,4 +1,20 @@
-
 *1、[[获取文章信息接口][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.HomePageDetail]]
 
 *2、[[删除首页文章接口][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.CustRmRecord]]
+
+*3、[[获取更新文章数量接口][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.HomePageRemind]]
+
+!*** 5.6新接口
+
+*4、[[关注列表][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.GetAttentionList]]
+
+*5、[[精彩书评][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.QueryBookReview]]
+
+*6、[[查询他创建的频道信息][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.GetMyChannelInfo]]
+
+*7、[[他正在看接口][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.GetCurrentReadingBookInfo]]
+
+*7、[[首页接口][.FrontPage.InterfaceTestPage.TestScript.HomePageSuite.PageLayoutDetail]]
+
+*!
+!contents -R2 -g -p -f -h

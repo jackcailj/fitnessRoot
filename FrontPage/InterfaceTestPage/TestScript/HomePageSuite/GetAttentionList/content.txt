@@ -1,0 +1,41 @@
+!define TEST_SYSTEM {slim}
+!4 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078582
+
+----
+!4 二、接口描述：
+获取关注列表
+
+关注的用户发的文章、帖子、攻略以及用户订阅的频道文章
+
+按照时间倒序排序
+
+----
+!4 三、测试用例:
+| Import |
+| com.dangdang.readerV5.homepage |
+
+测试数据准备：用户需要关注频道、书吧、攻略
+
+| ddt:get attention list |
+| 用例名称 | userName | passWord | token | act | createDateLong | pageSize | status code | data verfiy? |
+| 获取关注列表，没有更新 | !-cailj_ddtest@126.com-! | ddtest | | new | #GetCurDateLong# | 10 | 0 | 通过 |
+| 获取关注列表 | !-cailj_ddtest@126.com-! | ddtest | | new | | 10 | 0 | 通过 |
+| 获取关注列表,下拉更新 | !-cailj_ddtest@126.com-! | ddtest | | old | 1456996928000 | 10 | 0 | 通过 |
+| 获取关注列表，没有更新 | !-cailj_ddtest@126.com-! | ddtest | | new | #GetCurDateLong# | 10 | 0 | 通过 |
+| 获取关注列表，token不传 | | | #NotPass# | new | | 10 | 10002 | 通过 |
+| 获取关注列表，token不正确 | | | 123213 | new | | 10 | 10003 | 通过 |
+| 获取关注列表，act不为new和old | !-cailj_ddtest@126.com-! | ddtest | | sss | | 10 | 28009 | 通过 |
+| 获取关注列表，act不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | 10 | 10002 | 通过 |
+| 获取关注列表，pageSize为负数 | !-cailj_ddtest@126.com-! | ddtest | | new | | -10 | 10000 | 通过 |
+| 获取关注列表，pageSize为非数字 | !-cailj_ddtest@126.com-! | ddtest | | new | | aa | 200 | 通过 |
+| 获取关注列表，pageSize不传 | !-cailj_ddtest@126.com-! | ddtest | | new | | #NotPass# | 0 | 通过 |
+
+
+
+|comment|
+|帖子、文章删除，关注列表不显示|
+|频道下架，文章不显示|
+
+
+

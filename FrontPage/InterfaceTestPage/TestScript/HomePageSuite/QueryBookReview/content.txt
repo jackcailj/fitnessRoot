@@ -1,0 +1,33 @@
+!define TEST_SYSTEM {slim}
+一、接口wiki地址：
+
+http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078588
+
+----
+二、接口描述：
+
+精彩书评接口
+
+后台配置书评内容，显示书籍图片，标题、评论内容
+
+----
+三、测试用例:
+
+| Import |
+| com.dangdang.readerV5.homepage |
+
+
+
+注：测试时，需后台配置顺序，看顺序是否正确。
+
+| ddt:query book review |
+| 用例名称 | userName | passWord | token | status code | data verfiy? |
+| 获取精彩书评列表 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 通过 |
+| 获取精彩书评列表，token为空 | | | | 0 | 通过 |
+
+
+|comment|
+|将帖子设置为隐藏，不显示|通过|
+|调整帖子顺序，验证返回顺序是否正确|通过|
+|删除的帖子不显示|通过|
+|帖子过期不显示|通过|

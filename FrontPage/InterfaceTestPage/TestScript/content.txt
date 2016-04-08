@@ -46,6 +46,13 @@
 
 !see .FrontPage.InterfaceTestPage.TestScript.TagSuite
 *!
+
+!***> '''读书计划&读书活动'''
+
+!see .FrontPage.InterfaceTestPage.TestScript.ReadPlanSuite
+*!
+
+
 !***> '''作家海选'''
 
 !see .FrontPage.InterfaceTestPage.TestScript.AuthorSelectSuite

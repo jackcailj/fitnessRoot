@@ -1,0 +1,23 @@
+!define TEST_SYSTEM {slim}
+一、接口wiki地址：
+
+http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078602
+
+----
+二、接口描述：
+
+他正在看接口，最近读的一本书，不能为导入的书
+
+----
+三、测试用例:
+
+| Import |
+| com.dangdang.readerV5.homepage |
+
+| ddt:get current reading book info |
+| 用例名称 | userName | passWord | token | userPubId | status code | data verfiy? |
+| 获取用户正在看的一本书,token为空，验证不登录情况 | | | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |
+| 获取用户正在看的一本书 | !-cailj_ddtest@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |
+| 用户没有读书，应返回空 | !-cailj_ddtest@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest6@126.com,ddtest | 0 | 通过 |
+| 获取用户正在看的一本书,userPubId为空 | !-cailj_ddtest@126.com-! | ddtest | | | 10002 | 通过 |
+| 获取用户正在看的一本书,userPubId不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |

@@ -109,6 +109,10 @@
 
 *8、[[获取他人书架接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadBookList]]
 
+*9、[[获取包月下载书籍列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetUserChannelBookList]]
+
+*10、[[还书接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.ReturnChannelBook]]
+
 *!
 ----
 !***> 签到
@@ -139,6 +143,7 @@
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit
 *!
 !*** 阅历相关
+
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.ExperienceDataSuit
 *!
 ----

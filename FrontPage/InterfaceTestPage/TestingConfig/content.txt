@@ -4,11 +4,11 @@
 | com.dangdang.config |
 
 | Config |
-| environment | base url | login url | mobile url | run level |
-| testing | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.131/mobile/api2.do-! |all |
+| environment | base url | login url | mobile url | redis | run level |
+| testing | !-http://10.255.223.120/media/api2.go-! | !-http://10.255.223.120/media/api2.go-! | !-http://10.255.223.131/mobile/api2.do-! | 10.255.223.121 | all |
 
 | comment |
-| testing | !-http://10.255.223.212/media/api2.go-! | !-http://10.255.223.212/media/api2.go-! | !-http://10.255.223.212/mobile/api2.do-! |all |
-| testing | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.131/mobile/api2.do-! |all |
+| testing | !-http://10.255.223.212/media/api2.go-! | !-http://10.255.223.212/media/api2.go-! | !-http://10.255.223.212/mobile/api2.do-! | all |
+| testing | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.117/media/api2.go-! | !-http://10.255.223.131/mobile/api2.do-! | all |
 
 *!

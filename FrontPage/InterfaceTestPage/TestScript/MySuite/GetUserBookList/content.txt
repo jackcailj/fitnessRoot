@@ -25,6 +25,9 @@
 | #用例名称 | userName | passWord | token | lastRequestTime | lastMediaAuthorityId | pageSize | status code | data verfiy? |
 | 获取云书架列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | | | | 0 | 通过 |
 | 获取云书架列表，书架为空 | !-cailj_ddtest11@126.com-! | ddtest | | | | | 0 | 通过 |
+| 获取云书架列表，lastRequestTime为当前时间，书架为空 | !-cailj_ddtest@126.com-! | ddtest | | #GetCurDateLong# | | | 0 | 通过 |
+| 获取云书架列表，lastMediaAuthorityId不传，应成功 | !-cailj_ddtest@126.com-! | ddtest | | | #NotPass# | | 0 | 通过 |
+| 获取云书架列表，lastRequestTime不传，应成功 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | | 0 | 通过 |
 | 获取云书架列表，token不正确 | | | 1234 | | | | 10003 | 通过 |
 | 获取云书架列表，token不传 | | | #NotPass# | | | | 10002 | 通过 |
 
