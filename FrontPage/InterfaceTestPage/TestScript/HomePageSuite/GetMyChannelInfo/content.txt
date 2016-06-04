@@ -1,0 +1,30 @@
+!define TEST_SYSTEM {slim}
+一、接口wiki地址：
+
+http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078592
+
+----
+二、接口描述：
+
+获取他创建的频道信息
+
+显示他发布的文章、攻略、帖子信息
+
+----
+三、测试用例:
+
+| Import |
+| com.dangdang.readerV5.homepage |
+
+| ddt:get my channel info |
+| 用例名称 | userName | passWord | token | userPubId | status code | data verfiy? |
+| 获取他人的频道信息,token不传，应获取成功 | | | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |
+| 获取他人的频道信息 | !-cailj_ddtest1@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |
+| 获取他人的频道信息,频道信息为空 | !-cailj_ddtest1@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest6@126.com,ddtest | 0 | 通过 |
+| 获取他人的频道信息,token不传，应获取成功 | | | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |
+| 获取他人的频道信息,userPubId为空 | !-cailj_ddtest1@126.com-! | ddtest | | | 10002 | 通过 |
+| 获取他人的频道信息,userPubId不传 | !-cailj_ddtest1@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |
+
+| comment | 以下用例通过调整频道的状态测试 |
+| 获取他人的频道信息,频道未审核通过，应不返回 | !-cailj_ddtest1@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |
+| 获取他人的频道信息,频道下线，应不返回 | !-cailj_ddtest1@126.com-! | ddtest | | #GetPubIdByName#cailj_ddtest@126.com,ddtest | 0 | 通过 |

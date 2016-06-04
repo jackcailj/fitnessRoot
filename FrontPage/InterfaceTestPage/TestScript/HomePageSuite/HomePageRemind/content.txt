@@ -1,0 +1,28 @@
+!define TEST_SYSTEM {slim}
+一、接口wiki地址：
+
+http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078315
+
+----
+二、接口描述：
+
+获取文章更新数量
+
+根据客户端上次获取文章列表最后的时间，获取更新文章数量
+
+----
+三、测试用例:
+
+| Import |
+| com.dangdang.readerV5.homepage |
+
+| ddt:home page remind |
+| 用例名称 | userName | passWord | token | time | status code | data verfiy? |
+| 获取文章更新数量，time为0 | !-cailj_ddtest@126.com-! | ddtest | | 1448519612000 | 0 | 通过 |
+| 获取文章更新数量，time为空 | !-cailj_ddtest@126.com-! | ddtest | | | 0 | 通过 |
+| 获取文章更新数量，有一篇文章更新 | !-cailj_ddtest@126.com-! | ddtest | | 1453344806000 | 0 | 通过 |
+| 获取文章更新数量，没有文章更新 | | | | #GetCurDateLong# | 0 | 通过 |
+| 获取文章更新数量，time不传 | | | | #NotPass# | 0 | 通过 |
+
+| comment |
+| 频道下线，文章不显示 | | | | #NotPass# | 0 | 通过 |

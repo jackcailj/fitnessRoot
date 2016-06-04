@@ -109,6 +109,10 @@
 
 *8、[[获取他人书架接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.DownloadBookList]]
 
+*9、[[获取包月下载书籍列表][.FrontPage.InterfaceTestPage.TestScript.MySuite.GetUserChannelBookList]]
+
+*10、[[还书接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.ReturnChannelBook]]
+
 *!
 ----
 !***> 签到
@@ -124,7 +128,11 @@
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemSuit
 *!
 ----
+!***> 活动推广
 
+!include .FrontPage.InterfaceTestPage.TestScript.MySuite.ActivitysSuit
+*!
+----
 !***> 赠书相关
 
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit
@@ -134,13 +142,9 @@
 
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit
 *!
-!***> 阅历相关
+!*** 阅历相关
+
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.ExperienceDataSuit
 *!
 ----
-
-!***> 设置
- * [[升级接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.UpdateTest]]
-*!
-
 !contents -R2 -g -p -f -h

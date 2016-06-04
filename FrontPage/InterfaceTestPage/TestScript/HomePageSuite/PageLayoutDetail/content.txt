@@ -1,0 +1,58 @@
+!define TEST_SYSTEM {slim}
+一、接口wiki地址：
+
+http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078602
+
+----
+二、接口描述：
+
+首页接口，模块顺序可以调整
+
+涉及到数据库
+
+通过栏目配置项：书单、达人频道、标签、书吧涉及表：digital  media_column\media_column_content
+标签数据库:digital media_tag_link
+频道数据库：digital channel
+书吧：bookbar库 bar_module、bar_module_content、bar
+
+首页模块顺序调整：media_layout、media_layout_detail
+
+----
+三、测试用例:
+
+| Import |
+| com.dangdang.readerV5.homepage |
+
+| ddt:page layout detail |
+| 用例名称 | token | layoutCode | status code | data verfiy? |
+| 获取首页数据 | | HMPG | 0 | 通过 |
+| 获取首页数据,layoutCode不正确 | | LLLDD | 0 | 通过 |
+| 获取首页数据,layoutCode不传 | | #NotPass# | 10002 | 通过 |
+| 获取首页数据,layoutCode为空 | | | 10002 | 通过 |
+
+
+|comment|
+|调整首页模块顺序|通过|
+|调整书吧为下架状态，不显示|通过|
+|调整书吧为隐藏状态，不显示|通过|
+|调整书吧为过期状态，不显示|通过|
+|调整精彩书评为隐藏状态，不显示|通过|
+|调整精彩书评为删除状态，不显示|通过|
+|调整精彩书评为过期，不显示|通过|
+|调整大人频道为下架状态，不显示|通过|
+|调整达人频道为顺序，返回顺序正确|通过|
+|设置达人频道为强制有效，返回顺序正确|通过|
+|调整达人频道状态为栏目不显示，验证不返回|通过|
+|调整达人频道状态为过期，验证不返回|通过|
+|调整大人攻略为下架状态，不显示|通过|
+|调整达人攻略为顺序，返回顺序正确|通过|
+|设置达人攻略为强制有效，返回顺序正确|通过|
+|调整达人攻略状态为栏目不显示，验证不返回|通过|
+|调整达人攻略状态为过期，验证不返回|通过|
+|调整标签为下架状态，不显示|通过|
+|调整标签为顺序，返回顺序正确|通过|
+|设置标签为强制有效，返回顺序正确|通过|
+|调整标签状态为栏目不显示，验证不返回|通过|
+|调整标签状态为过期，验证不返回|通过|
+
+

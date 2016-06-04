@@ -1,0 +1,26 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078472
+
+----
+!3 二、接口描述：
+包月书籍过期后，还书接口
+
+!3 三、涉及数据库
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.personal_center |
+
+| ddt:return channel book |
+| #用例名称 | userName | passWord | token | product_id | cId | status code | data verfiy? |
+| 包月到期书籍还书 | !-cailj_ddtest@126.com-! | ddtest | | $productId=#GetMonthlyProductId#EXPIRE | | 0 | 通过 |
+| 包月书籍未到期还书 | !-cailj_ddtest@126.com-! | ddtest | | #GetMonthlyProductId#EXPIRE | | 0 | 通过 |
+| 归还别人的包月书籍 | !-cailj_ddtest@126.com-! | ddtest | | #GetMonthlyProductId#EXPIRE | | 10002 | 通过 |
+| product_id和channelMonthlyStrategyId不匹配 | !-cailj_ddtest@126.com-! | ddtest | | | | 10002 | 通过 |
+| 还书，token不正确 | | | 12321 | $productId | | 10003 | 通过 |
+| 还书，token不传 | | | #NotPass# | $productId | | 10002 | 通过 |
+| 还书，product_id不传 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | | 10002 | 通过 |
+| 还书，product_id不正确 | !-cailj_ddtest@126.com-! | ddtest | | 1111111 | | 10002 | 通过 |
+| 还书，channelMonthlyStrategyId不传 | !-cailj_ddtest@126.com-! | ddtest | | $productId | #NotPass# | 10002 | 通过 |
+| 还书，channelMonthlyStrategyId不正确 | !-cailj_ddtest@126.com-! | ddtest | | $productId | 11232312313123 | 10002 | 通过 |

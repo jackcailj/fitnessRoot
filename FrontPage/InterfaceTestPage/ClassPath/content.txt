@@ -6,9 +6,12 @@
 
 #!path db_meta/target/classes
 
+
 !pomFile  ddreader/pom.xml
+
 #!pomFile ddframework/pom.xml
 #!pomfile db_meta/pom.xml
+
 #!path ddreader/lib/*.jar
 
 #!path ddframework/lib/*.jar
