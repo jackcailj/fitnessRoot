@@ -1,19 +1,62 @@
+!*> 测试用例
+接口：action=searchMedia
+
+接口描述： 5.6版本搜索（''兼容以前的搜索''）
+ *无线和pc端  只搜索电子书
+ *无线和pc端  只搜索纸书
+ *无线和pc端  搜索大包月书籍（''电子书''） ''注意：包月池子的变化''
+ *按书的分类搜索
+ *排序规则：
+  *销量 价格 出版日期  好评度（电子书不支持）
+  *降序 升序
+ *是否高亮显示（''目前只有pc端支持''）
+ *兼容以前版本　电子书和纸书一块搜索
+ *详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=5865520#
+
+相关数据库：
+*!
 !define TEST_SYSTEM {slim}
-!3 一、接口wiki地址：
-接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360733
+|Import|
+|com.dangdang.readerV5.search|
 
-----
-!3 二、接口描述：
-搜索接口
+|ddt:search media|
+|#用例名称|stype|isMonthly|deviceType|keyword|cat_path|rankType|ascOrDesc|enable_f|enable_hl|start|end|status code|data verfiy?|
+|搜索大包月池子中删除的电子书，搜不到|media|1|Android|婚姻是女人一生最大的投资||||1|1|0|10|0|通过|
 
-!3 三、涉及数据库
-----
-!3 四、测试用例:
-| Import |
-| com.dangdang.readerV5.search |
 
-| ddt:search media |
-| #用例名称 | keyword | start | end | status code | data verfiy? |
+
+|Comment|
+|搜索电子书|media||Android|一||||1||0|10|0|通过|
+|搜索电子书|media||iphone|一||||1||0|10|0|通过|
+|搜索电子书|media||ipad|一||||1||0|10|0|通过|
+|搜索电子书|media||pc|一||||1|1|0|10|0|通过|
+|搜索大包月电子书|media|1|Android|一||||1||0|10|0|通过|
+|搜索大包月电子书|media|1|iphone|一||||1||0|10|0|通过|
+|搜索大包月电子书|media|1|ipad|一||||1||0|10|0|通过|
+|搜索大包月电子书|media|1|pc|一||||1|1|0|10|0|通过|
+|搜索纸书|paper||Android|一||||1||0|10|0|通过|
+|搜索纸书|paper||iphone|一||||1||0|10|0|通过|
+|搜索纸书|paper||ipad|一||||1||0|10|0|通过|
+|搜索纸书|paper||pc|一||||1|1|0|10|0|通过|
+|精确搜索电子书，书名|media||Android|成败一张嘴||||1||0|10|0|通过|
+|精确搜索电子书，作者|media||iphone|苏钧||||1||0|10|0|通过|
+|精确搜索电子书，出版社|media||pc|企业管理出版社||||1|1|0|10|0|通过|
+|精确搜索大包月电子书，书名|media|1|iphone|婚姻是女人一生最大的投资||||1||0|10|0|通过|
+|精确搜索大包月电子书，作者|media|1|pc|贾志刚||||1||0|10|0|通过|
+|精确搜索大包月电子书，出版社|media|1|Android|新世界出版社||||1|1|0|10|0|通过|
+|精确搜索纸书，书名|paper||pc|剑桥雅思考试全真试题集1-9套装||||1||0|10|0|通过|
+|精确搜索纸书，作者|paper||Android|窦桂梅||||1||0|10|0|通过|
+|精确搜索纸书，出版社|paper|iphone||江苏文艺出版社 ||||1|1|0|10|0|通过|
+|搜索大包月电子书，下架书不返回|media|1|Android|贾志刚||||1|1|0|10|0|通过|
+|搜索大包月池子中新添加的电子书，可以搜到|media|1|Android|贾志刚||||1|1|0|10|0|通过|
+|搜索大包月池子中删除的电子书，搜不到|media|1|Android|婚姻是女人一生最大的投资||||1|1|0|10|0|通过|
+
+
+
+
+
+
+|Comment|
 | 搜索 ，正常流程 | 天龙八部 | 0 | 10 | 0 | 通过 |
 | 搜索 ，正常流程 | 故事会 | 0 | 10 | 0 | 通过 |
 | 搜索，keyWord为空 | | 0 | 10 | 10002 | 通过 |

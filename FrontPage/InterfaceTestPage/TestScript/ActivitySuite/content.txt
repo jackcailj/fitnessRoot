@@ -1,0 +1,20 @@
+!*** '''满减活动'''
+ * [[批量获取单品的促销信息][.]]
+
+*!
+!* '''拉新活动'''
+ *[[拉新弹框文字接口(getPyramidSaleInfoByPubIdNum)][.FrontPage.InterfaceTestPage.TestScript.ActivitySuite.GetPyramidSaleInfoByPubIdNum]] 
+ *[[个人中心活动推广接口(getActivityByActivitycode)][.FrontPage.InterfaceTestPage.TestScript.ActivitySuite.GetActivityByActivitycode]]  
+ *[[预领取用户领取奖品接口(getPyramidSalePrizeForAdvance)][.FrontPage.InterfaceTestPage.TestScript.ActivitySuite.GetPyramidSalePrizeForAdvance]]  
+ *[[拉新块文字说明接口(block)][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest]] 
+ *[[领取奖品块文字说明接口(block)][.FrontPage.InterfaceTestPage.TestScript.BookStoreSuite.BlockTest]]
+ *[[根据token获得pubId接口(getPubIdNumByToken)][.FrontPage.InterfaceTestPage.TestScript.ActivitySuite.GetPubIdNumByToken]]
+*!
+!* '''活动推广'''
+ *[[活动推广接口(getActivitys)][.FrontPage.InterfaceTestPage.TestScript.ActivitySuite.GetActivitys]]
+ *[[活动领取银铃铛(userAttendActivityReward)][.FrontPage.InterfaceTestPage.TestScript.ActivitySuite.userAttendActivityReward]]
+ *[[领取奖品接口(userAttendActivityRewardV2)][.FrontPage.InterfaceTestPage.TestScript.ActivitySuite.UserAttendActivityRewardV2]]  
+*!
+
+
+!contents

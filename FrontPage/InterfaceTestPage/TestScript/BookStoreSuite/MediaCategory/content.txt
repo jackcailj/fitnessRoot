@@ -1,43 +1,36 @@
 !*> 测试用例
 接口：action=mediaCategory
-接口描述：详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=3933766
-相关表：
+接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=3933766
+相关表：数据库：digital
  * media_column
  * media_column_content
  * media_statistics
+ * media_catetory
 |Comment|
 |用例编号|前提条件|测试点|步骤|预期结果|运行环境|
-|mediaCategoryCase01||参数level|level=4|返回的数据与数据库数据一致|test，staging，online|
-|mediaCategoryCase02||参数level|level值为空|返回10002|test，staging，online|
-|mediaCategoryCase03||参数level|level为无效值(字符，字母，中文)|返回10002|test，staging，online|
-|mediaCategoryCase04||参数data|data=0默认不请求分类下数据|返回结果正确|test，staging，online|
-|mediaCategoryCase05||参数data|data=1请求分类下数据|返回结果正确|test，staging，online|
-|mediaCategoryCase06||参数data|data为空|正常返回|test，staging，online|
-|mediaCategoryCase07||参数data|data为无效值|返回新增的数据|test|
-|mediaCategoryCase08||参数channelType|channelType值为空|返回10002在|test|
-|mediaCategoryCase09||参数channelType|channelType值为无效值|返回10002|test|
-|mediaCategoryCase10||参数start|start值为空|返回10002|test|
-|mediaCategoryCase11||参数start|start值大于列表总数时|返回空数据|test|
-|mediaCategoryCase12||参数start|start值为无效值（*,字母，中文）|返回10002|test|
-|mediaCategoryCase13||参数end|end值为空|返回10002|test|
-|mediaCategoryCase14||参数end|end值为无效值（&,字母，中文）|返回10002|test|
-|mediaCategoryCase15||参数start和end|start值大于end值|返回10002|test|
+|case01||参数level|level=4|返回的数据与数据库数据一致|test，staging，online|
+|case02||参数level|level值为空|返回10002|test，staging，online|
+|case03||参数level|level为无效值(字符，字母，中文)|返回10002|test，staging，online|
+|case04||参数data|data=0默认不请求分类下数据|返回结果正确|test，staging，online|
+|case05||参数data|data=1请求分类下数据|返回结果正确|test，staging，online|
+|case06||参数data|data为空|正常返回|test，staging，online|
+|case07||参数data|data为无效值|返回新增的数据|test|
+|case08||参数channelType|channelType值为空|返回10002在|test|
+|case09||参数channelType|channelType值为无效值|返回10002|test|
+|case10||参数start|start值为空|返回10002|test|
+|case11||参数start|start值大于列表总数时|返回空数据|test|
+|case12||参数start|start值为无效值（*,字母，中文）|返回10002|test|
+|case13||参数end|end值为空|返回10002|test|
+|case14||参数end|end值为无效值（&,字母，中文）|返回10002|test|
+|case15||参数start和end|start值大于end值|返回10002|test|
 *!
 !* Import
 !define TEST_SYSTEM {slim}
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-!*> 定义scenario 
-|scenario|mediaCategory|action||level||data||start||end||channelType||statusCode||setParameters|
-|setParameters|!{action:@action,level:@level,data:@data,start:@start,end:@end,channelType:@channelType}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-*!
 !* 测试数据
-|script|media category|
-
-|mediaCategory|
-|#用例编号|action|channelType|start|end|level|data|statusCode|
-|mediaCategoryCase01|mediaCategory|ddds|0|4|4|0|0|
+|ddt:media category|
+|#用例编号|channelType|start|end|level|data|status code|enviroment|data verify?|
+|case01|ddds|0|4|4|0|0|all|通过|
 *!

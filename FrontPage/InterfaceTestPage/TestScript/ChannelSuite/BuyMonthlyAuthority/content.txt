@@ -3,12 +3,18 @@
 接口描述：
  * 包月1个月按30天计算
  * 包月扣除主帐户金额，android用户扣除android主帐户金额，ios用户扣除ios主帐户金额
- * 自动续费功能需要跑后台任务（本用例中未实现）
  * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4360843
+ * 自动续费功能需要跑后台任务（本用例中未实现）
+ 
+ 5.6版本功能修改：
+ * 增加参数isAutomaticallyRenew 是否续订，0否 1是
+ * 新用户（权限表中没有书的用户）购买VIP频道时根据渠道号打折
+ 
 相关数据库[表]：
  * digital[channel, channel_monthly_strategy]
  * account[master_account]
  * authority[media_monthly_authority]
+ * digital[media_channel_discount] VIP频道打折表
 |Comment|
 |用例编号|是否支持包月|是否已购买|是否过期|是否自动续费|频道状态|是否达到包月上线|预期结果|运行环境|测试类型|
 |Case01|否|-|-|-|上线|否|99999，频道不支持包月|testing|auto|
@@ -38,32 +44,20 @@
 *!
 |ddt: buy monthly authority|
 |#用例编号|userName|passWord|loginType|token|cId|channelMonthlyStrategyId|isAutomaticallyRenew |statusCode|enviroment|data verify?|
-|staging |13718316064|zh@0714|${loginType_ghy}||2339|174|0|0|all|通过|
-
-|Comment|
-|资费为0|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||31|254|0|0|testing|通过|
-|下架频道|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||70|93|0|99999|testing|通过|
-|支持iOs设备的策略id|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||31|256|0|0|testing|通过|
-| |${userName_ghy}|${passWord_ghy}|${loginType_ghy}||74|99|0|0|testing|通过|
-
-
-|Comment|
-
-|Comment|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,0|0|0|99999|all|通过|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,1|auto|0|0|testing|通过|
-|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#NoOverdueIfAutoRenew,0|auto|0|0|testing|通过|
-|Case08|!-z1@123.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|0|99999|all|通过|
-|Case09|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|||0|0|10002|all|通过|
-|Case10|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||99999|0|0|99999|all|通过|
-|Case11|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,1||0|10002|all|通过|
-|Case12|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfAllowMonthly,1|9999|0|99999|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetChannelId#IfAllowMonthly,0|0|0|99999|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetChannelId#IfAllowMonthly,1|auto|0|0|testing|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetChannelId#NoOverdueIfAutoRenew,0|auto|0|0|testing|通过|
+|Case09|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}||0|0|10002|all|通过|
+|Case10|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|99999|0|0|99999|all|通过|
+|Case11|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetChannelId#IfAllowMonthly,1||0|10002|all|通过|
+|Case12|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetChannelId#IfAllowMonthly,1|9999|0|99999|all|通过|
 
 |Comment|
 |Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,1|auto|1|0|testing|通过|
 |Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#OverdueIfAutoRenew,0|auto|0|0|testing|通过|
 |Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Offline,0|auto|0|99999|testing|通过|
 |Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#Offline,1|auto|0|99999|testing|通过|
+|Case08|!-z1@123.com-!|111111|email||#GetChannelId#IfAllowMonthly,1|auto|0|99999|all|通过|
 *!
 
 !contents

@@ -34,9 +34,7 @@
 *!
 |ddt:Column|
 |#模块名称|action|columnType|start|end|isFull|status code|enviroment|data verify?|
-|推荐->今日热点|column|all_rec_jrrm|0|4|1|0|all|通过|
-
-|Comment|
+|出版->传统文学|column|all_pub_wzxs|0|2|1|0|all|通过|
 |推荐->新书首发|column|all_rec_xssf|0|4|1|0|all|通过|
 |推荐->今日热点|column|all_rec_jrrm|0|4|1|0|online|通过|
 |推荐->限时特价|column|all_rec_xstj|0|4|1|0|online|通过|

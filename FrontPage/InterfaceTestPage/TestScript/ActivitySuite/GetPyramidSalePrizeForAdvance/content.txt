@@ -1,0 +1,24 @@
+!* 测试用例
+接口：action=getAdvancePrizes
+
+接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079022
+相关数据库[表]：digital [channel_bg_img]
+|Comment|
+|用例编号|测试点|测试内容|预期结果|运行环境|
+|Case01|type=1|获取频道默认背景图地址|按创建时间的先后顺序返回type=1的url|all|
+
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt:get background img list|
+|#用例编号|type|status code|enviroment|data verify?|
+|Case01|1|0|all|通过|
+|Case02|0|0|all|通过|
+|Case03||10002|all|通过|
+|Case03|6|10002|all|通过|
+
+*!

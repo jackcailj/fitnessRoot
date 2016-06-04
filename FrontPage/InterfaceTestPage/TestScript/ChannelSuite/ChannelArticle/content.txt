@@ -42,6 +42,6 @@
 *!
 |ddt: channel article|
 |#用例编号|userName|passWord|loginTyp|token|cId|time|status code|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#TYPE,1||0|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetChannelId#TYPE,1||0|all|通过|
 |Case02|||||#GetChannelId#TYPE,2||0|all|通过|
 *!

@@ -26,9 +26,9 @@
 *!
 |ddt:delete digest|
 |#用例编号|userName|passWord|loginType|token|digestId|status code|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetDigestId#UserDigestId,5|0|all|通过|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetDigestId#UserDigestId,3|0|testing|通过|
-|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||99999|22001|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetDigestId#UserDigestId,5|0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetDigestId#UserDigestId,3|0|testing|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|99999|22001|all|通过|
 
 
 

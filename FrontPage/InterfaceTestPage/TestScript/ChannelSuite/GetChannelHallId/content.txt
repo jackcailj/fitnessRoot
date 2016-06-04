@@ -1,0 +1,20 @@
+!* 测试用例
+接口：action=getChannelHallId
+接口描述：
+ * 返回VIP频道id
+ * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4361647
+相关数据库[表]：digital [channel, media_booklist, media_booklist_detail]
+|Comment|
+|用例编号|测试内容|预期结果|运行环境|
+|Case01|调用接口后返回VIP频道的id|正常返回，验证频道对应的书单书数量不为空|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt:get channel hall id|
+|#用例编号|status code|enviroment|data verify?|
+|Case01|0|all|通过|
+*!

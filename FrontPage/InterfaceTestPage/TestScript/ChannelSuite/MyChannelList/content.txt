@@ -32,11 +32,11 @@
 *!
 |ddt:my channel list|
 |#用例编号|userName|passWord|loginType|token|subId|pageSize|status code|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|20|0|all|通过|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0||0|all|通过|
-|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|10|0|all|通过|
-|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|||20|0|all|通过|
-|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||4543534|20|0|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|0|20|0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|0||0|all|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|0|10|0|all|通过|
+|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}||20|0|all|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|4543534|20|0|all|通过|
 |Case06||||||20|10002|all|通过|
 |Case07||||aaaa||20|10003|all|通过|
 *!

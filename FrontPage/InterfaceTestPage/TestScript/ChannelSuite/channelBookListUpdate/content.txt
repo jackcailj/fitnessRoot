@@ -41,13 +41,13 @@
 *!
 |ddt: channel book list update|
 |#用例编号|userName|passWord|loginType|token|type|cbid|name|description|icon|status code|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|#GetChannelId#Mine,1|#Modify#ChannelName|||0|all|通过|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|#GetChannelId#Mine,1||#Modify#ChannelDescription||0|all|通过|
-|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|#GetChannelId#Mine,1|||#Modify#ChannelIcon|0|all|通过|
-|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#UserBookListId,1|#Modify#BookListName|||0|all|通过|
-|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#UserBookListId,1||#Modify#BookListDescription||0|all|通过|
-|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#UserBookListId,1|||#Modify#BookListIcon|0|all|通过|
-|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetChannelId#TYPE,1|#Modify#ChannelName|||0|all|通过|
-|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|#GetBookListId#BookListId|||#Modify#BookListIcon|0|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|0|#GetChannelId#Mine,1|#Modify#ChannelName|||0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|0|#GetChannelId#Mine,1||#Modify#ChannelDescription||0|all|通过|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|0|#GetChannelId#Mine,1|||#Modify#ChannelIcon|0|all|通过|
+|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|1|#GetBookListId#UserBookListId,1|#Modify#BookListName|||0|all|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|1|#GetBookListId#UserBookListId,1||#Modify#BookListDescription||0|all|通过|
+|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|1|#GetBookListId#UserBookListId,1|||#Modify#BookListIcon|0|all|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|1|#GetChannelId#TYPE,1|#Modify#ChannelName|||0|all|通过|
+|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|1|#GetBookListId#BookListId|||#Modify#BookListIcon|0|all|通过|
 |Case09|||||1|#GetBookListId#BookListId||#Modify#BookListIcon||0|all|通过|
 *!

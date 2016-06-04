@@ -26,16 +26,16 @@
 *!
 |ddt: book list book update|
 |#用例编号|userName|passWord|loginType|token|bId|type|relateBooks|status code|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId=#GetBookListId#UserBookListId|1|Ebook|0|all|通过|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Userebook|10002|all|通过|
-|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Paperbook|0|all|通过|
-|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Userpaperbook|10002|all|通过|
-|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|0|Userebook|0|all|通过|
-|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|0|Userpaperbook|0|all|通过|
-|Case09|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#BookListId|1|Ebook|10003|all|通过|
-|Case10|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetBookListId#BookListId|0|Userebook|10003|all|通过|
-|Case11|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId||Ebook|10002|all|通过|
-|Case12|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|6|Ebook|10002|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId=#GetBookListId#UserBookListId|1|Ebook|0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId|1|Userebook|10002|all|通过|
+|Case04|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId|1|Paperbook|0|all|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId|1|Userpaperbook|10002|all|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId|0|Userebook|0|all|通过|
+|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId|0|Userpaperbook|0|all|通过|
+|Case09|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetBookListId#BookListId|1|Ebook|10003|all|通过|
+|Case10|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetBookListId#BookListId|0|Userebook|10003|all|通过|
+|Case11|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId||Ebook|10002|all|通过|
+|Case12|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bId|6|Ebook|10002|all|通过|
 
 |Comment|
 |Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bId|1|Ebookshelf0|0|all|通过|

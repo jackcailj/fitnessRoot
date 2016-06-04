@@ -124,11 +124,7 @@
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.GetIntegralItemSuit
 *!
 ----
-!***> 活动推广
 
-!include .FrontPage.InterfaceTestPage.TestScript.MySuite.ActivitysSuit
-*!
-----
 !***> 赠书相关
 
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.PresentBookSuit
@@ -138,8 +134,13 @@
 
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.CloudSyncSuit
 *!
-!*** 阅历相关
+!***> 阅历相关
 !include .FrontPage.InterfaceTestPage.TestScript.MySuite.ExperienceDataSuit
 *!
 ----
+
+!***> 设置
+ * [[升级接口][.FrontPage.InterfaceTestPage.TestScript.MySuite.UpdateTest]]
+*!
+
 !contents -R2 -g -p -f -h

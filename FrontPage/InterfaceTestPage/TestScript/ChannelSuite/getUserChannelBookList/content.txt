@@ -29,7 +29,7 @@
 *!
 |ddt:get User channel book list|
 |#用例编号|userName|passWord|loginType|token|deviceType|productIds|pageSize|lastId|status code|enviroment|data verify?|
-|Case01|${userName}|111111|email||Android||10||0|all|通过|
+|Case01|${userName}|111111|email|${token_ghy}|Android||10||0|all|通过|
 
 
 *!

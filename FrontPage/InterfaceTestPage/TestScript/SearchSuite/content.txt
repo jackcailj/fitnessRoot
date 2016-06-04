@@ -1,5 +1,4 @@
 !*** 搜索相关接口
-
 [[根据关键字查询联想结果][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchAssociate]]
 
 [[根据关键字搜索接口][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.Search]]
@@ -13,6 +12,5 @@
 [[文章搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchDigest]]
 
 [[收藏搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchStore ]]
-
 *!
 !contents -R2 -g -p -f -h

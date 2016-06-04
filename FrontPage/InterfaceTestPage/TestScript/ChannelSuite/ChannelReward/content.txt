@@ -40,7 +40,7 @@
 *!
 |ddt:Reward|
 |#用例编号|userName|passWord|loginType|token|cons|channelType|saleId|digestId|status code|enviroment|data verify?|
-|Case01|!-z16@123.com-!|${passWord_ghy}|${loginType_ghy}||49|WZ||14853|0|testing|通过|
+|Case01|!-z16@123.com-!|${passWord_ghy}|${loginType_ghy}|${token_ghy}|49|WZ||14853|0|testing|通过|
 
 
 *!

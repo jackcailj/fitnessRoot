@@ -32,7 +32,7 @@
 !* 
 |ddt:save channel strategy|
 |#用例编号|userName|passWord|loginType|token|productArray|title|content|author|description|status code|enviroment|data verify?|
-|Case01|${userName}|${passWord}|${loginType}|||||||0|all|通过|
+|Case01|${userName}|${passWord}|${loginType}|${token_ghy}||||||0|all|通过|
 
 
 *!
