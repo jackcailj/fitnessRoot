@@ -1,0 +1,41 @@
+!1 '''个人中心活动领取银铃铛'''
+
+!* 测试用例
+接口：action=userAttendActivityReward
+参数：
+ * token 必填
+ * attachAccountActivityId  弹框活动id（必填）
+ * deviceType	设备类型 （必填）
+接口描述：领取活动银铃铛，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4361093
+相关数据库表：account -> attach_account_activity， attach_account,
+|Comment|
+|用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
+|||正常流程|输入正确参数值|获取活动信息|test|
+|||attachAccountActivityId值为空|输入值为空，其他参数值正确|参数非法|test|
+|||deviceType值为空|输入值为空，其他参数值正确|参数非法|test|
+|||token值为空|输入值为空，其他参数值正确|参数非法|test|
+*!
+!* Import
+!define TEST_SYSTEM {slim}
+|import|
+|com.dangdang.readerV5.personal_center|
+*!
+!*> 定义scenario 
+| scenario |activityRewardTest|userName||passWord||loginType||token||action||attachAccountActivityId||deviceType||期望||result||setParameters|
+| setParams|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,action:@action,attachAccountActivityId:@attachAccountActivityId,deviceType:@deviceType,期望:@期望}|
+|dataVerified|@期望|
+|check|verified result |@result|
+|show|tear down|
+
+!4 创建script实例，后面调用scenario都是针对这个实例
+|script|user attend activity reward|
+*!
+!* 测试数据
+|activityRewardTest|
+|#用例名称|userName|passWord|loginType|token|action|attachAccountActivityId|deviceType|期望|result|
+|正常流程 |!-z11@123.com-!|111111|email||userAttendActivityReward|FromDB|Android|0|pass|
+|正常流程 |!-z11@123.com-!|111111|email||userAttendActivityReward|FromDB|iphone|0|pass|
+|attachAccountActivityId为空|!-z11@123.com-!|111111|email||userAttendActivityReward||iphone|10002|pass|
+|deviceType为空|!-z11@123.com-!|111111|email||userAttendActivityReward|33||10002|pass|
+|token为空|||||userAttendActivityReward|33|Android|10002|pass|
+*!

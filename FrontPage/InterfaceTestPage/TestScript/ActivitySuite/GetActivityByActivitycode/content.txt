@@ -1,0 +1,33 @@
+!* 测试用例
+接口：action=getActivityByActivitycode
+参数：
+ * channelId 渠道号，为扩展以后活动添加渠道（5.7版本非必填）
+ * deviceType 设备类型（必填）
+ * activityCode 活动code值（必填）
+接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079011
+相关数据库[表]：account库
+ * attach_account_activity 活动列表表
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|获取Android拉新活动|返回活动信息|all|
+|Case02|获取ios拉新活动|返回活动信息|all|
+|Case03|activityCode参数为空|返回code值10002|all|
+|Case04|activityCode参数为无效值|返回code值31007|all|
+|Case05|deviceType参数为空|返回code值10002|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.activity|
+*!
+|ddt:get activity by activitycode|
+|#用例编号|activityCode|channelId|deviceType|status code|enviroment|data verify?|
+|Case01|laxin_1002_android||Android|0|all|通过|
+|Case02|laxin_1002_ios||iphone|0|all|通过|
+|Case03|||Android|10002|all|通过|
+|Case04|adfdd||Android|31007|all|通过|
+|Case05|laxin_1002_android||null|31007|all|通过|
+
+
+*!

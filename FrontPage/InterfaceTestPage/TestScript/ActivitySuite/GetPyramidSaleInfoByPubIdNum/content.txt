@@ -1,0 +1,31 @@
+!* 测试用例
+接口：action=getPyramidSaleInfoByPubIdNum
+接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078923
+相关数据库[表]：
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|pubIdNum为有效值|返回content信息|all|
+|Case02|pubIdNum为无效值|返回code值200|all|
+|Case03|pubIdNum为空|返回code值10002|all|
+|Case04|token为无效值|返回code值10002|all|
+|Case05|token为空|返回code值10002|all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.activity|
+*!
+|script|get pub id num by token|
+|setParam|13718316064|
+|doWork|
+|$pubIdNum=|getPubIdNum|
+
+|ddt:get pyramid sale info by pub id num|
+|#用例编号|userName|token|pubIdNum|status code|enviroment|data verify?|
+|Case01|${userName_ghy}||$pubIdNum|0|all|通过|
+|Case02|!-z16@123.com-!||djfksjkj|200|all|通过|
+|Case03|!-z16@123.com-!|||10002|all|通过|
+|Case04||jkjskjjkj|$pubIdNum|0|all|通过|
+|Case05|||$pubIdNum|0|all|通过|
+*!

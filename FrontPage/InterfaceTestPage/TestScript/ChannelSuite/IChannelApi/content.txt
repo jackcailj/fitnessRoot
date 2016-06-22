@@ -1,6 +1,8 @@
 !*> 测试用例
 接口：IChannelApi
-接口描述：dubbo，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360707
+接口描述：dubbo，
+ * 判断频道是否支持包月
+ * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4360707
 相关数据库表：库digital
  * channel_monthly_strategy 频道策略表
  * channel_monthly_typedict 频道包月类型字典表

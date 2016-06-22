@@ -1,0 +1,25 @@
+!* 测试用例
+接口：action=getPubIdNumByToken
+接口描述：详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079129
+|Comment|
+|用例编号|测试点|预期结果|运行环境|
+|Case01|有效的token|返回用户token对应的pubId|all|
+|Case02|失效的token||all|
+|Case03|token为无效值||all|
+|Case04|token为空||all|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.activity|
+*!
+|ddt:get pub id num by token|
+|#用例编号|userName|passWord|loginType|token|status code|enviroment|data verify?|
+|Case01|${userName_ghy}|111111|email||0|all|通过|
+|Case02||||92f3ef08de99233ac32794f9b5e1243b|10003|all|通过|
+|Case03||||1223232|10003|all|通过|
+|Case04|||||10002|all|通过|
+
+
+*!

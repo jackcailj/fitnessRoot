@@ -2,11 +2,12 @@
 <properties>
 <Edit>true</Edit>
 <Files>true</Files>
-<Help>测试环境初始化书城数据</Help>
+<Help>包月馆频道id获取</Help>
 <Properties>true</Properties>
 <RecentChanges>true</RecentChanges>
 <Refactor>true</Refactor>
 <Search>true</Search>
+<Suites>test, online</Suites>
 <Test>true</Test>
 <Versions>true</Versions>
 <WhereUsed>true</WhereUsed>

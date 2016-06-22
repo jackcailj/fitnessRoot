@@ -1,6 +1,8 @@
 !*> 测试用例
 接口：IMediaApi
-接口描述：dubbo，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360714
+接口描述：dubbo，
+ * 判断书单中的书是否已经包月
+ * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4360714
 相关数据库[表]：
  * authority[media_monthly_authority]
  * digital[channel]
@@ -18,7 +20,7 @@
 |com.dangdang.readerV5.channel|
 *!
 !*> 定义scenario 
-|scenario|iMediaApiDubbo|userName||passWord||loginType||token||channelType||mediaType||setParameters||expected|
+|scenario|Dubbo|userName||passWord||loginType||token||channelType||mediaType||setParameters||expected|
 |setParameters|!{userName:@userName,passWord:@passWord,loginType:@loginType,token:@token}|
 |$channelId=|getMonthlyChannelId|@channelType|
 |$mediaId=|getMonthlyMediaId|@mediaType|
@@ -28,9 +30,9 @@
 
 |script|i media api dubbo|
 *!
-|iMediaApiDubbo|
+|Dubbo|
 |#用例编号|userName|passWord|loginType|token|channelType|mediaType|expected|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|1|$channelId|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||1|2|null|
-|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||2|1|null|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|1|1|$channelId|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|1|2|null|
+|Case03|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|2|1|null|
 *!

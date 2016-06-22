@@ -22,13 +22,14 @@
 *!
 |ddt: channel sub|
 |#用例编号|userName|passWord|loginType|token|cId|op|statusCode|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||#GetChannelId#IfSub,0|1|0|all|通过|
-|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId=#GetChannelId#IfSub,1|0|0|all|通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|#GetChannelId#IfSub,0|1|0|all|通过|
+|Case02|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$cId=#GetChannelId#IfSub,1|0|0|all|通过|
 |Case03|||||$cId|1|10003|all|通过|
 |Case04||||aaaaaaa|$cId|1|10003|all|通过|
-|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|||1|10002|all|通过|
-|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||cId|1|200|all|通过|
-|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId||10002|all|通过|
-|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$cId|3|10002|all|通过|
+|Case05|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}||1|10002|all|通过|
+|Case06|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|cId|1|200|all|通过|
+|Case07|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$cId||10002|all|通过|
+|Case08|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$cId|3|10002|all|通过|
+
 *!
 !contents

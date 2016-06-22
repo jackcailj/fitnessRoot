@@ -1,4 +1,8 @@
-!1 '''频道'''
+!* VIP频道
+ *[[包月馆频道id获取(getChannelHallId)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.GetChannelHallId]]
+ *[[频道大包月下载作品信息(getUserChannelBookList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.getUserChannelBookList]]
+ 
+*!
 !* 频道列表
  *[[频道列表接口(column)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelColumn]]
  *[[获取UserBaseInfo(IUcenterApi)(dubbo)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.IUcenterApi]]
@@ -7,7 +11,7 @@
  *[[频道详情接口(channel)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelDetails]] 
  *[[书单基本信息接口(bookList)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.BookList]]
  *[[频道(书单)基本信息更新接口(channelBookListUpdate)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.channelBookListUpdate]] 
- *[[关联标签(relateTag)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.relateTag]]
+ # *[[关联标签(relateTag)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.relateTag]]
 *!
 !* 频道订阅
  *[[频道订阅接口(channelSub)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.ChannelSub]]  
@@ -33,6 +37,7 @@
  *[[攻略信息保存接口][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.SaveChannelStrategy]] 
  *[[用户删除攻略(文章)接口(deleteDigest)][.FrontPage.InterfaceTestPage.TestScript.ChannelSuite.deleteDigest]]
 *!
+
  
 
 

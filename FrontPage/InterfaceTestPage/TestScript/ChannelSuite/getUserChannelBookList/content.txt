@@ -1,0 +1,35 @@
+!* 测试用例
+接口：action=getUserChannelBookList
+接口描述：
+ * 5.6及以后版本，普通包月和大包月的书都返回，过期的包月书也返回，有下载10本限制
+ * 5.6以前版本，普通包月无下载限制
+ * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078457
+相关数据库[表]：
+|Comment|
+|包月权限|书架上书的状态|
+|普通包月|未下载|
+|VIP|已下载|
+|普通包月和VIP|已还书|
+||已购买|
+||已过期|
+|用例编号|测试点|测试内容|预期结果|运行环境|
+|Case01||无普通包月和VIP权限|返回空|all|
+|Case02|||返回成功|all|
+|Case03|||返回成功|all|
+|Case03|||返回成功|all|
+|Case03|||返回成功|all|
+|Case04|||返回code值10002|all|
+*!
+!* 测试数据
+!*> Import
+!define userName {!-z3@123.com-!}
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.channel|
+*!
+|ddt:get User channel book list|
+|#用例编号|userName|passWord|loginType|token|deviceType|productIds|pageSize|lastId|status code|enviroment|data verify?|
+|Case01|${userName}|111111|email|${token_ghy}|Android||10||0|all|通过|
+
+
+*!

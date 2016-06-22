@@ -1,6 +1,6 @@
 !define TEST_SYSTEM {slim}
 !3 一、接口wiki地址：
-接口描述及接口返回code见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4359423
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4359423
 
 ----
 !3 二、接口描述：
@@ -9,7 +9,7 @@
 !3 三、涉及数据库
 |Comment               |
 |数据库    |表             |
-|digital|media_activity|
+|digital|media_activity_info|
 
 ----
 !3 四、测试用例:

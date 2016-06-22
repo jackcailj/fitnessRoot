@@ -38,17 +38,22 @@
 *!
 !* Import
 !define TEST_SYSTEM {slim}
+!define userName {!-z20@123.com-!}
 |Import|
 |com.dangdang.readerV5.bookstore|
 *!
-!*> 定义scenario 
-|scenario|getMedia|action||userName||passWord||loginType||token||saleId||mediaChannelId||refAction||statusCode||setParameters|
-|setParameters|!{action:@action,userName:@userName,passWord:@passWord,loginType:@loginType,token:@token,saleId:@saleId,start:@start,mediaChannelId:@mediaChannelId,refAction:@refAction}|
-|ensure|do get|@statusCode|
-|ensure|verify result|
-*!
 !* 测试数据
-|script|get media|
+|ddt:get media|
+|#用例编号|userName|passWord|loginType|token|saleId|mediaId|mediaChannelId|deviceType|refAction|status code|enviroment|data verify?|
+|#用例编号|${userName}|111111|email||saleId|mediaId|17|Android|browse|0|testing|通过|
+
+
+
+*!
+
+
+
+!*> 测试数据
 
 |getMedia|
 |#用例编号|action|userName|passWord|loginType|token|saleId|mediaChannelId|refAction|statusCode|

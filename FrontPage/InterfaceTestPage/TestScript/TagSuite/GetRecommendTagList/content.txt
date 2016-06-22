@@ -2,8 +2,15 @@
 
 !* 测试用例
 接口：action=getRecommendTagList
-接口描述：返回标签列表新，详见http://10.255.223.6/wiki/pages/viewpage.action?pageId=4360895
-相关数据库表：base_comment -> tag_info
+接口描述：返回标签列表新，详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4360895#
+相关数据库：
+|Comment|
+|数据库|base_comment|
+|表|tag_info|
+|关键字段|tag_type|类型（1：官方标签；2：自定义标签）|
+||is_recommend|是否推荐（0：不推荐；1：推荐）|
+||is_show|是否显示（0：不显示；1：显示）|
+
 |Comment|
 |用例编号|前提条件|测试点|用例描述|预期结果|测试环境|
 |||正常流程|获取标签列表正常请求|获取成功|test,staging,online|

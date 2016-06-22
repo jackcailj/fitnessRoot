@@ -1,0 +1,53 @@
+!* 测试用例
+接口：action=userAttendActivityRewardV2
+
+接口描述：详见
+ * http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078905
+ * http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=4361314
+相关数据库[表]：
+ 241 account库
+ * attach_account_activity 活动列表表
+ * attach_account_activity_items
+ * attach_account_activity_items_book
+ * attach_account_activity_items_gift
+ * attach_account_activity_items_vip vip活动表
+ * attach_account_activity_ref_items
+ * attach_account_activity_take_record 历史记录表
+ 241 digital库
+ * user_relation 用户上下级关系表
+ * user_rebate_log 用户提成日志表
+ 243 bi库
+ * bi_user_account   配置时间段内没有的cust_id为新用户
+ * bi_mongo_user_null_temp  两个表中在配置时间段内没有的device_serial_no为新设备
+|Comment|
+|用例编号|新老设备|新老用户|预期结果|运行环境|
+|Case01|新设备|新用户|接口返回领取奖品信息，绑定主从用户关系，历史记录表中新增新老用户奖品数据|testing|
+|Case02|老设备|新用户|预绑定，返回code值100045，历史记录表中新增新用户奖品数据|testing|
+|Case03|新设备|老用户|返回code值100046|all|
+|Case04|老设备|老用户|返回code值100045|all|
+|Comment|
+|用例编号|测试点|预期结果|运行环境|执行方式|
+|Case05|新设备，新用户重复领取|返回code值100034|testing|自动|
+|Case06|拉新活动已结束|返回code值100031|testing|手动|
+|Case07|拉新活动未开始|返回code值100030|testing|手动|
+|Case08|拉新活动已失效|返回code值100029|testing|手动|
+|Case09|拉新活动不存在|返回code值100028|testing|手动|
+|Case10|活动code与设备类型不匹配|返回code值100032|all|自动|
+|Case11|参数pubIdNum为非数字参数||all|自动|
+|Case12|参数pubIdNum为空||all|自动|
+|Case13|参数deviceSerialNo为空||all|自动|
+|Case14|参数token为无效值||all|自动|
+|Case15|参数token为空||all|自动|
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.cms|
+|com.dangdang.readerV5.activity|
+*!
+
+|script|register|
+|setUserName|!-guohy89@123.com-!|
+|doWork|
+*!

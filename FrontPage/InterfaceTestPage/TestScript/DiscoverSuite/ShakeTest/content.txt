@@ -1,0 +1,12 @@
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.discovery|
+*!
+
+|ddt:Shake|
+|#用例编号|userName|passWord|loginType|token|statusCode|enviroment|data verify?|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||0|all|通过|
+
+*!

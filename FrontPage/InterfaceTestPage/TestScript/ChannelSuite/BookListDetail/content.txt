@@ -27,7 +27,7 @@
 *!
 |ddt: book list detail|
 |#用例编号|userName|passWord|loginType|token|bookListId|start|end|status code|enviroment|data verify?|
-|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}||$bookListId=#GetBookListId#BookListId|0|9|0||通过|
+|Case01|${userName_ghy}|${passWord_ghy}|${loginType_ghy}|${token_ghy}|$bookListId=#GetBookListId#BookListId|0|9|0||通过|
 |Case02||||||0|9|27001||通过|    
 |Case03|||||$bookListId||9|11101||通过|
 |Case04|||||$bookListId|a|9|11101||通过|

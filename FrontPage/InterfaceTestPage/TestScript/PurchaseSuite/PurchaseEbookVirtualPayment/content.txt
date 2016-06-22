@@ -18,6 +18,9 @@
 
 | ddt:purchase ebook virtual payment |
 | testcase | userName | passWord | token | productArray | isAppendBorrow | dayNum | fromPlatform | timestamp | sign | flag | status code | data verify? |
+| 购买书籍Id不存在 | !-z10@123.com-! | 111111 | | [{"productId":"123456","saleId":"1234545"},{"productId":"123456","saleId":"131345"}] | | | 103 | | | |0|通过|
+
+|Comment|
 | 购买书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | | | 0 | 通过 |
 | 购买书籍，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnBuyProductAndSaleId#EBOOK,VALID,1 | | | 103 | | | | 0 | 通过 |
 | 重复购买书籍 | !-cailj_ddtest@126.com-! | ddtest | | #GetBuyProductAndSaleId#1 | | | 103 | | | free | 0 | 通过 |

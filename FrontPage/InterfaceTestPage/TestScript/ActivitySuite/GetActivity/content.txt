@@ -1,0 +1,28 @@
+!* 测试用例
+接口：action=getActivityByActivitycode
+接口描述：
+ * cms后台，运营管理->活动推广管理
+ * 详见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079011
+相关数据库[表]：库account
+ * attach_account_activity
+ * attach_account_activity_items_book
+ * attach_account_activity_items_gift
+ * attach_account_activity_items_vip
+ * attach_account_activity_ref_items
+|Comment|
+|用例编号|测试点|测试内容|预期结果|运行环境|
+|Case01|type=1|获取频道默认背景图地址|按创建时间的先后顺序返回type=1的url|all|
+
+*!
+!* 测试数据
+!*> Import
+!define TEST_SYSTEM {slim}
+|Import|
+|com.dangdang.readerV5.activity|
+*!
+|ddt:get activity by activitycode|
+|#用例编号|type|status code|enviroment|data verify?|
+|Case01|1|0|all|通过|
+
+
+*!
