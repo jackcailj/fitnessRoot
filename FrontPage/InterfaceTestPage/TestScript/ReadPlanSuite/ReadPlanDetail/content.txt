@@ -1,0 +1,33 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078680
+
+----
+!3 二、接口描述：
+读书计划详情页
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan，plan_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   read plan detail |
+| 用例名称 | 验证点 | userName | passWord | token | planId | pageDate | status code | data verfiy? |
+| 获取计划详情（参与中) | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $joinPlanId=#GetJoinedReadPlanId#FREE,VALID,INPROGRESS | | 0 | 通过 |
+| 获取计划详情（参与中)，时间为明天，查看未来进度 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $joinPlanId | #GetDateLong#ADD,1 | 0 | 通过 |
+| 获取计划详情（参与中)，时间为昨天，查看历史进度 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $joinPlanId | #GetDateLong#SUB,1 | 10002 | 通过 |
+| 获取计划详情（参与中)，未加入的计划 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetUnJoinReadPlanId# | | 0 | 通过 |
+| 获取计划详情（计划结束) | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetJoinedReadPlanId#ALL,VALID,FINISHED | | 0 | 通过 |
+| 获取计划详情（计划未开始) | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetJoinedReadPlanId#ALL,VALID,NOTSTART | | 0 | 通过 |
+| 获取计划详情，token不传，应失败 | 错误码正确 | | | #NotPass# | $joinPlanId | | 10002 | 通过 |
+| 获取计划详情，token为空，应成功 | 错误码正确 | | | | $joinPlanId | | 10002 | 通过 |
+| 获取计划详情，pageDate为非数字 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | $joinPlanId | ssssss | 10000 | 通过 |
+
+备注：
+
+!contents -R2 -g -p -f -h

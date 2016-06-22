@@ -1,0 +1,43 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078716
+
+----
+!3 二、接口描述：
+设置计划开始时间
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   update process begin time |
+| 用例名称 | 验证点 | userName | passWord | token | ppId | timeType | beginTime | status code | data verfiy? | 耗时? |
+| 修改自己创建的计划，设置开始时间为当前时间 | 设置时间正确 | !-cailj_ddtest@126.com-! | ddtest | | 461 | 2 | #GetDateLong#ADD,1 | 0 | 通过 | |
+
+| comment |
+| 修改自己创建的计划，开始时间为明天 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | 48 | 2 | #GetDateLong#ADD,1 | 0 | 通过 | |
+| 别人创建的计划，设置开始时间 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | 11 | 2 | #GetDateLong#CUR | 700020 | 通过 | |
+| 修改自己创建的计划，ppId不存在 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | 11111 | 2 | #GetDateLong#CUR | 700019 | 通过 | |
+| 修改计划，token不传，应失败 | 错误码正确 | | | #NotPass# | 48 | 2 | #GetDateLong#CUR | 10002 | 通过 | |
+| 修改计划，token为空，应失败 | 错误码正确 | | | | 48 | 2 | #GetDateLong#CUR | 10002 | 通过 | |
+| 修改计划，ppId不传，应失败 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 2 | #GetDateLong#CUR | 10002 | 通过 | |
+| 修改计划，ppId未非数字，应失败 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | asddd | 2 | #GetDateLong#CUR | 10002 | 通过 | |
+| 修改计划，beginTime不传 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | 48 | 2 | #NotPass# | 10002 | 通过 | |
+| 修改计划，beginTime不正确 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | 48 | 2 | adddd | 10002 | 通过 | |
+| 修改自己创建的计划，开始时间为昨天 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | | #GetDateLong#SUB,1 | 700018 | 通过 |
+| 修改自己创建的计划，重复设置开始时间 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | | #GetDateLong#SUB,1 | 700023 | 通过 |
+
+| comment | 已购买计划，下架后也应可以继续进行 |
+| 修改自己创建的下架计划，设置开始时间 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | 69 | #GetDateLong#CUR | 10002 | 通过 |
+
+备注：
+
+是否有注入风险？
+
+!contents -R2 -g -p -f -h

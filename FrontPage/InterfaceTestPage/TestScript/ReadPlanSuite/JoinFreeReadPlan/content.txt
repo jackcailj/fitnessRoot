@@ -1,0 +1,41 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078649
+
+----
+!3 二、接口描述：
+免费参与读书计划!-
+-!按状态分有：上架、下架!-
+-!按价格分有：免费，付费!-
+-!花费铃铛。-!按活动周期分：未开始、有效期内、结束
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan,plan_detail，plan_order,plan_order_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   join free read plan |
+| 用例名称 | userName | passWord | token | platformSource | planId | status code | data verfiy? | 耗时? |
+| 加入免费有效计划，应成功 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | 324 | 0 | 通过 | |
+
+| comment |
+| 加入免费有效计划，应成功 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | $planId=#GetUnJoinReadPlanId#FREE,VALID,INPROGRESS | 0 | 通过 | |
+| 加入免费已结束计划，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #GetUnJoinReadPlanId#FREE,VALID,FINISHED | 70101 | 通过 | |
+| 加入免费未开始计划，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #GetUnJoinReadPlanId#FREE,VALID,NOTSTART | 70101 | 通过 | |
+| 重复加入免费计划，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | $planId | 70100 | 通过 | |
+| 加入收费计划，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #GetUnJoinReadPlanId#NOTFREE,VALID,INPROGRESS | 70101 | 通过 | |
+| 加入免费计划，计划id不正确，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | 123123 | 70101 | 通过 | |
+| 加入免费计划，计划id不传，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #NotPass# | 10002 | 通过 | |
+| 加入免费计划，token不传，应失败 | | | #NotPass# | DDDS-P | 123 | 10002 | 通过 | |
+| 加入免费计划，token不正确，应失败 | | | 12222 | DDDS-P | 123 | 10003 | 通过 | |
+
+| comment |
+| 计划中有下架书籍，新加入，不显示下架数据 | 通过 |
+| 计划中有下架书籍，加入后，下架，可以下载 | 通过 |
+
+!contents -R2 -g -p -f -h

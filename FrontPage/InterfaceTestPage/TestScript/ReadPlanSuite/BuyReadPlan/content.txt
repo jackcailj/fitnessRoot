@@ -1,0 +1,40 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078651
+
+----
+!3 二、接口描述：
+购买读书计划!-
+-!按状态分有：上架、下架!-
+-!按价格分有：免费，付费!-
+-!花费铃铛。-!按活动周期分：未开始、有效期内、结束
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan,plan_detail，plan_order,plan_order_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   buy read plan |
+| 用例名称 | userName | passWord | token | platformSource | planId | fromPlatform | status code | data verfiy? | 耗时? |
+| 购买付费有效计划，铃铛充足，应购买成功 | !-cailj_ddtest2@126.com-! | ddtest | | DDDS-P | 268 | 103 | 0 | 通过 | |
+
+| comment |
+| 购买付费有效计划，铃铛充足，应购买成功 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | $planId=#GetUnJoinReadPlanId#NOTFREE,VALID,INPROGRESS | 103 | 0 | 通过 | |
+| 购买付费有效计划，铃铛不足，应购买失败 | !-cailj_ddtest11@126.com-! | ddtest | | DDDS-P | #GetUnJoinReadPlanId#NOTFREE,VALID,INPROGRESS | 103 | 27100 | 通过 | |
+| 购买付费有效计划，铃铛充足，重复购买计划，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | $planId | 103 | 70104 | 通过 | |
+| 购买已结束计划，铃铛充足，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #GetUnJoinReadPlanId#NOTFREE,VALID,FINISHED | 103 | 70102 | 通过 | |
+| 购买付费未发布计划，铃铛充足，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #GetUnJoinReadPlanId#NOTFREE,VALID,NOTSTART | 103 | 70102 | 通过 | |
+| 购买不存在计划id，铃铛充足，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | 123123 | 103 | 10001 | 通过 | |
+| 计划id不传，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #NotPass# | 103 | 10002 | 通过 | |
+| token不传，应失败 | | | #NotPass# | DDDS-P | $planId | 103 | 10002 | 通过 | |
+| token不正确，应失败 | | | 12222 | DDDS-P | $planId | 103 | 10003 | 通过 | |
+
+| comment |
+| 购买免费计划，铃铛充足，应失败 | !-cailj_ddtest@126.com-! | ddtest | | DDDS-P | #GetUnJoinReadPlanId#FREE,VALID,INPROGRESS | 103 | 200 | 通过 | |
+
+!contents -R2 -g -p -f -h

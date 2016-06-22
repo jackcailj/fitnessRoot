@@ -1,0 +1,40 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078712
+
+----
+!3 二、接口描述：
+创建计划接口，有用户自己创建
+
+1、计划有多个训练组成!-
+-!2、书籍不能超过5本
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan,plan_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   create plan |
+| 用例名称 | 验证点 | userName | passWord | token | mtIds | name | desc | status code | data verfiy? | script |
+| 创建计划，1个训练 | 创建成功，数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $trainingId=#GetTrainingIds#UNJOIN,1 | 我的计划 | 描述，我的读书计划 | 0 | 通过 | script:&createPlanId=#getPlanId# |
+| 创建计划，5个训练 | 创建成功，数据正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetTrainingIds#UNJOIN,5 | 我的读书计划 | 描述，我的读书计划 | 0 | 通过 | |
+| 创建计划，训练中包括已经购买的书籍 | 创建成功 | !-cailj_ddtest@126.com-! | ddtest | | #GetTrainingIds#JOINED,2 | 我的读书计划 | 描述，我的读书计划 | 700021 | 通过 | |
+| 创建计划，6个训练 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | #GetTrainingIds#UNJOIN,6 | 我的计划 | 描述，我的读书计划 | 700022 | 通过 | |
+| 创建计划，0个训练 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | | 我的读书计划 | 描述，我的读书计划 | 10002 | 通过 | |
+| 创建计划，训练id不存在 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | 12321321 | 我的读书计划 | 描述，我的读书计划 | 70005 | 通过 | |
+| 创建计划，mtIds不传 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 我的读书计划 | 描述，我的读书计划 | 10002 | 通过 | |
+| 创建计划，token不正确 | 创建失败 | | | 12321 | $trainingId | 我的读书计划 | 描述，我的读书计划 | 10003 | 通过 | |
+| 创建计划，token不传 | 创建失败 | | | #NotPass# | $trainingId | 我的读书计划 | 描述，我的读书计划 | 10002 | 通过 | |
+| 创建计划，name为空 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | $trainingId | | 描述，我的读书计划 | 10002 | 通过 | |
+| 创建计划，name不传 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | $trainingId | #NotPass# | 描述，我的读书计划 | 10002 | 通过 | |
+| 创建计划，desc不传 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | $trainingId | 我的读书计划 | #NotPass# | 10002 | 通过 | |
+| 创建计划，desc为空 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | $trainingId | 我的读书计划 | | 10002 | 通过 | |
+
+| comment | 未通过 |
+| 创建计划，训练为下架的训练 | 创建失败 | !-cailj_ddtest@126.com-! | ddtest | | 26 | 我的读书计划 | 描述，我的读书计划 | 0 | 通过 |
+!contents -R2 -g -p -f -h

@@ -7,23 +7,23 @@
 关注书友
 
 !3 三、涉及数据库
-|Comment            |
-|数据库    |表          |
-|ucenter|book_friend|
+| Comment |
+| 数据库 | 表 |
+| ucenter | book_friend |
 
 ----
 !3 四、测试用例:
-|Import                                          |
-|com.dangdang.readerV5.personal_center.bookfriend|
+| Import |
+| com.dangdang.readerV5.personal_center.bookfriend |
 
-|ddt:get my book friend list                                                                                              |
-|#用例名称                  |userName                |passWord|token    |act|createDateLong|pageSize |status code|data verfiy?|
-|获取书友列表，正常流程            |!-cailj_ddtest@126.com-!|ddtest  |         |new|              |         |0          |通过          |
-|获取书友列表，未登录用户           |                        |        |         |new|              |         |10002      |通过          |
-|获取书友列表，token不正确        |                        |        |12345    |new|              |         |10003      |通过          |
-|获取书友列表，token不传         |                        |        |#NotPass#|new|              |         |10002      |通过          |
-|获取书友列表，pageSize为非数字    |!-cailj_ddtest@126.com-!|ddtest  |         |new|              |a        |200        |通过          |
-|获取书友列表，pageSize不传，默认为10|!-cailj_ddtest@126.com-!|ddtest  |         |new|              |#NotPass#|0          |通过          |
+| ddt:get my book friend list |
+| #用例名称 | userName | passWord | token | act | createDateLong | pageSize | status code | data verfiy? |
+| 获取书友列表，正常流程 | !-cailj_ddtest@126.com-! | ddtest | | new | | | 0 | 通过 |
+| 获取书友列表，未登录用户 | | | | new | | | 10002 | 通过 |
+| 获取书友列表，token不正确 | | | 12345 | new | | | 10003 | 通过 |
+| 获取书友列表，token不传 | | | #NotPass# | new | | | 10002 | 通过 |
+| 获取书友列表，pageSize为非数字 | !-cailj_ddtest@126.com-! | ddtest | | new | | a | 200 | 通过 |
+| 获取书友列表，pageSize不传，默认为10 | !-cailj_ddtest@126.com-! | ddtest | | new | | #NotPass# | 0 | 通过 |
 
 下拉
 

@@ -1,0 +1,30 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078670
+
+----
+!3 二、接口描述：
+统计阅读进度
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   syn read progress |
+| 用例名称 | 验证点 | userName | passWord | token | mediaId | trainingId | totalFinishRate | todayFinishRate | daliyReadTime | chapter | chapterOffSet | chapterStart | chapterOffSetStart | readCoverage | trainingStatus | lastSynDate | status code | data verfiy? |
+| 统计阅读进度,totalFinishRate为1，训练结束，计划中只有这一个训练，计划结束 | 数据正确，顺序正确 | !-cailj_ddtest@126.com-! | ddtest | | 1900907569 | 75 | 1 | 0.15555 | 20000 | 20 | 20 | 50 | 20 | 10 | 1 | #GetDateLong#CUR | 0 | 通过 |
+
+| comment |
+| 统计阅读进度,totalFinishRate为1，训练结束，计划中有多本书，计划继续进行。 | 数据正确，顺序正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetMyJoinMediaIdAndTrainingId# | $trainingId | 1 | 0.10 | 180 | 20 | 10 | 10 | 10 | 10 | 1 | #GetDateLong#DATE,2016-4-20 18:20:19 | 0 | 通过 |
+| 统计阅读进度，token不传 | 数据正确，顺序正确 | | | #NotPass# | 1900906989 | 9 | 0.20 | 0.10 | 180 | 20 | 10 | 10 | 10 | 10 | 1 | #GetDateLong#DATE,2016-4-20 18:20:19 | 10002 | 通过 | post |
+| 统计阅读进度,token为空 | 数据正确，顺序正确 | | | | 1900906989 | 9 | 0.20 | 0.10 | 180 | 20 | 10 | 10 | 10 | 10 | 1 | #GetDateLong#DATE,2016-4-20 18:20:19 | 10002 | 通过 | post |
+
+备注：
+
+!contents -R2 -g -p -f -h

@@ -1,0 +1,34 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078825
+
+----
+!3 二、接口描述：
+获取参与计划中所有训练阅读进度
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+!4 排序问题:planStatus=0时，训练顺序不是按照计划规定的排序返回的。
+| ddt:   get user multi read progress |
+| 用例名称 | 验证点 | userName | passWord | token | planStatus | status code | data verfiy? |
+| 获取参与计划下所有训练阅读进度 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 0,1,2 | 0 | 通过 |
+| 获取参与计划下所有训练阅读进度,planStatus为0 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 0 | 0 | 通过 |
+| 获取参与计划下所有训练阅读进度,planStatus为1 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 0 | 通过 |
+| 获取参与计划下所有训练阅读进度,planStatus为2 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 2 | 0 | 通过 |
+| 获取参与计划下所有训练阅读进度,planStatus不正确 | 目前不报错，不返回数据 | !-cailj_ddtest@126.com-! | ddtest | | 10 | 0 | 通过 |
+| 获取参与计划下所有训练阅读进度,planStatus为非数字 | 目前不报错，不返回数据 | !-cailj_ddtest@126.com-! | ddtest | | ad | 10000 | 通过 |
+| 获取参与计划下所有训练阅读进度,planStatus不传，默认取所有状态数据 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 0 | 通过 |
+| 获取参与计划下所有训练阅读进度，token不传，应失败 | 错误码正确 | | | #NotPass# | | 10002 | 通过 |
+| 获取参与计划下所有训练阅读进度，token不正确，应失败 | 错误码正确 | | | 123 | | 10003 | 通过 |
+
+备注：
+
+!contents -R2 -g -p -f -h

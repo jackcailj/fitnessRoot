@@ -12,7 +12,11 @@
 
 [[文章搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchDigest]]
 
-[[收藏搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchStore ]]
+[[收藏搜索][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchStore]]
+
+[[收藏训练][.FrontPage.InterfaceTestPage.TestScript.SearchSuite.SearchTraining]]
 
 *!
 !contents -R2 -g -p -f -h
+
+

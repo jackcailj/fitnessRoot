@@ -1,0 +1,25 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079216
+
+----
+!3 二、接口描述：
+活动庆祝页
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_activitiy |
+
+| ddt: readplan activity celebrate |
+| 用例名称 | 验证点 | userName | passWord | token | pubCustId | planId | activityId | start | end | getRankOnly | pubCustId | status code | data verfiy? | 耗时? |
+| 计划完成庆祝页 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | | 212 | 101 | 0 | 9 | | | 0 | 通过 | |
+
+备注：
+
+!contents -R2 -g -p -f -h

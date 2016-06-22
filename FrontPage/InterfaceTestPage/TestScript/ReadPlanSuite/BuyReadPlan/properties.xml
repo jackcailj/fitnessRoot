@@ -2,12 +2,12 @@
 <properties>
 <Edit/>
 <Files/>
-<Help>登录接口</Help>
+<Help>购买计划接口</Help>
 <Properties/>
 <RecentChanges/>
 <Refactor/>
 <Search/>
-<Suites>test</Suites>
+<Suites>5.7, test</Suites>
 <Test/>
 <Versions/>
 <WhereUsed/>

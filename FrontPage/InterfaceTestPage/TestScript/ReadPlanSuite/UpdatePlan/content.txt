@@ -1,0 +1,51 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078714
+
+----
+!3 二、接口描述：
+可以修改计划的名称、描述和配图
+
+只能修改自己创建的计划
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+测试数据准备：
+
+1、测试数据中应包括有效和无效的标签
+
+| ddt:   create plan |
+| 用例名称 | 验证点 | userName | passWord | token | mtIds | name | desc | status code | data verfiy? | script |
+| 创建计划，1个训练 | 创建成功，数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $trainingId=#GetTrainingIds#UNJOIN,1 | 我的计划 | 描述，我的读书计划 | 0 | 通过 | script:&createPlanId=#getPlanId# |
+
+
+| ddt:   update plan |
+| 用例名称 | 验证点 | userName | passWord | token | planId | name | desc | imgUrl | status code | data verfiy? | method |
+| 修改计划，未登录，应失败，提示登录 | 错误码正确 | | | | &createPlanId | 修改测试计划3 | 修改测试描述3 | !-http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078825-! | 10002 | 通过 | |
+| 修改计划，token不传，应失败 | 错误码正确 | | | #NotPass# | &createPlanId | 修改测试计划4 | 修改测试描述4 | !-http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078825-! | 10002 | 通过 | |
+| 修改计划，planId不正确，应失败 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | 12323131 | sdd | dd | | 70008 | 通过 | |
+| 修改计划，planId不传，应失败 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 修改测试计划5 | 修改测试描述5 | | 10002 | 通过 | |
+| 修改计划，planId未非数字，应失败 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | adaf | 修改测试计划6 | 修改测试描述6 | | 70009 | 通过 | |
+| 修改计划，name超过字符限制，应失败 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | &createPlanId | 修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7修改测试计划7 | 修改测试描述6 | | 33001 | 通过 | |
+| 修改计划，name中包含特殊字符 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | &createPlanId | 10%￥×（×……%￥&× | 修改测试描述10 | | 0 | 通过 | post |
+| 修改计划，desc超过字符限制，应失败 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | &createPlanId | 修改测试计划8 | 修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6修改测试描述6 | | 33002 | 通过 | |
+| 修改计划，desc包含特殊字符，应失败 | 错误码正确，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | &createPlanId | 修改测试计划9 | 修改测试描述6××&&&……%……%%××（（ | | 0 | 通过 | post |
+| 修改别人创建的计划，应失败 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | #GetPlanId#other | 修改别人计划名称 | 修改别人计划描述 | !-http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078825-! | 70007 | 通过 | |
+
+| comment |
+| 修改自己创建的计划，修改名称、描述、图片 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 128 | 修改测试计划2 | 修改测试描述2 | !-http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078825-! | 0 | 通过 |
+| 修改别人创建的计划，应失败 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | 25 | 修改别人计划名称 | 修改别人计划描述 | !-http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078825-! | 70007 | 通过 |
+
+备注：
+
+是否有注入风险？
+
+!contents -R2 -g -p -f -h

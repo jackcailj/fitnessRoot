@@ -1,0 +1,32 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078859
+
+----
+!3 二、接口描述：
+获取轰动奖励和预计结束时间
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan_activity，plan_process |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_activitiy |
+
+| ddt: reading activity rewards |
+| 用例名称 | 验证点 | userName | passWord | token | planId | startTime | status code | data verfiy? | 耗时? |
+| 获取活动奖励和预计结束时间 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 179 | 2016-04-27 00:00:00 | 0 | 通过 | |
+| 获取活动奖励和预计结束时间，不登录 | 数据正确，排序正确 | | | | 179 | 2016-04-27 00:00:00 | 10002 | 通过 | |
+| 获取活动奖励和预计结束时间，planId不正确 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 889999 | 2016-04-27 00:00:00 | 0 | 通过 | |
+| 获取活动奖励和预计结束时间，planId不传 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | | | #NotPass# | 2016-04-27 00:00:00 | 10002 | 通过 | |
+| 获取活动奖励和预计结束时间，startTime不传 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | | | 179 | #NotPass# | 200 | 通过 | |
+| 获取活动奖励和预计结束时间，startTime格式不正确 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | | | 179 | dddddddd | 0 | 通过 | |
+
+备注：
+
+sql注入测试--完成未发现问题
+
+!contents -R2 -g -p -f -h

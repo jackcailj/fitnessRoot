@@ -2,13 +2,13 @@
 <properties>
 <Edit/>
 <Files/>
-<Help>登录接口</Help>
+<Help>读书计划、读书活动相关接口</Help>
 <Properties/>
 <RecentChanges/>
 <Refactor/>
 <Search/>
-<Suites>test</Suites>
-<Test/>
+<Suite/>
+<Suites>5.7</Suites>
 <Versions/>
 <WhereUsed/>
 </properties>

@@ -1,0 +1,27 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079133
+
+----
+!3 二、接口描述：
+我的活动列表
+
+获取已参加的所有活动列表（
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan_activity，plan_process |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_activitiy |
+
+| ddt: my activity list |
+| 用例名称 | 验证点 | userName | passWord | token | page | pageSize | status code | data verfiy? | 耗时? |
+| 获取我的活动列表 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 1 | 10 | 0 | 通过 | |
+
+备注：
+
+!contents -R2 -g -p -f -h

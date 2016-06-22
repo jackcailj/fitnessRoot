@@ -1,0 +1,39 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078682
+
+----
+!3 二、接口描述：
+读书计划详情页
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan，plan_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   read training news |
+| 用例名称 | 验证点 | userName | passWord | token | processId | trainingId | pageSize | lastModifyTime | status code | data verfiy? | 耗时? |
+| 训练动态列表 | 数据正确，用户信息、训练进度 | !-cailj_ddtest@126.com-! | ddtest | | $progressId=#GetMyJoinProgressAndTrainingId# | $trainingId | | | 0 | 通过 | |
+| 训练动态列表,获取空列表 | 数据正确，用户信息、训练进度 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | $trainingId | 10 | | 0 | 通过 | |
+| 训练动态列表，获取第二页数据 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | $trainingId | 1 | #GetDateLong#SUB,2 | 0 | 通过 | |
+| 训练动态列表，pageSize为空，默认为10 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | $trainingId | | | 0 | 通过 | |
+| 训练动态列表，trainingId不正确 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | 12321 | | | 0 | 通过 | |
+| 训练动态列表，trainingId不传 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | #NotPass# | | | 10002 | 通过 | |
+| 训练动态列表,lastModifyTime为非数字 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | | | aasss | 10002 | 通过 | |
+| 训练动态列表，token不传，应失败 | 错误码正确 | | | #NotPass# | $progressId | | | | 10002 | 通过 | |
+| 训练动态列表，token为空，应失败 | 错误码正确 | | | | $progressId | | | | 10002 | 通过 | |
+| 训练动态列表，获取未参加的训练的动态列表 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | | ssssss | | 10002 | 通过 | |
+| 训练动态列表，processId为空，应失败 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | | $trainingId | | | 10002 | 通过 | |
+| 训练动态列表，processId不传，应失败 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | $trainingId | | | 10002 | 通过 | |
+
+| comment | 目前这个情况允许，但没有什么影响，暂不报bug |
+| 训练动态列表，获取别人的训练信息，应不返回数据 | 数据正确，用户信息、训练进度 | !-cailj_ddtest@126.com-! | ddtest | | 28 | 4 | | | 0 | 通过 | |
+
+备注：
+
+!contents -R2 -g -p -f -h

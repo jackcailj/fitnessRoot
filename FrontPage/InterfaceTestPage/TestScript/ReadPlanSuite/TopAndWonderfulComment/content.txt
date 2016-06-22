@@ -1,0 +1,53 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079104
+
+----
+!3 二、接口描述：
+评论置顶加精!-
+-!每个活动有数量限制
+
+权限：只有贴主有权限置顶加精
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan_activity，plan_process |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_activitiy |
+
+| ddt: top and wonderful comment |
+| 用例名称 | 验证点 | userName | passWord | token | commentId | actionType | status code | data verfiy? | 耗时? |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12504 | top | 0 | 通过 | |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12505 | top | 0 | 通过 | |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12421 | top | 0 | 通过 | |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12498 | top | 100021 | 通过 | |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12416 | top | 100021 | 通过 | |
+
+| comment |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12416 | top | 0 | 通过 | |
+| 评论置顶加精，加精 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12416 | wonderful | 0 | 通过 | |
+| 评论置顶加精，取消置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12416 | cancelTop | 0 | 通过 | |
+| 评论置顶加精，取消加精 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12416 | cancelWonderful | 0 | 通过 | |
+| 不是贴主，评论置顶加精，置顶，应失败 | | !-cailj_ddtest@126.com-! | ddtest | | 12416 | top | 100020 | 通过 | |
+| 不是贴主，评论置顶加精，加精，应失败 | | !-cailj_ddtest@126.com-! | ddtest | | 12416 | wonderful | 100020 | 通过 | |
+| 不是贴主，评论置顶加精，取消置顶，应失败 | | !-cailj_ddtest@126.com-! | ddtest | | 12416 | cancelTop | 100020 | 通过 | |
+| 不是贴主，评论置顶加精，取消加精，应失败 | | !-cailj_ddtest@126.com-! | ddtest | | 12416 | cancelWonderful | 100020 | 通过 | |
+| 评论置顶加精，commentId不传 | | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | top | 10002 | 通过 | |
+| 评论置顶加精，commentId不正确 | | !-cailj_ddtest@126.com-! | ddtest | | 88999999 | top | 100019 | 通过 | |
+| 评论置顶加精，actionType不传 | | !-cailj_ddtest@126.com-! | ddtest | | 12416 | #NotPass# | 10002 | 通过 | |
+| 评论置顶加精，actionType不正确 | | !-z12@123.com-! | 111111 | | 12416 | sssdd | 25032 | 通过 | |
+| 评论置顶加精，自己为贴主，commentId不属于自己参与的活动评论 | | !-z12@123.com-! | 111111 | | 16247 | top | 100019 | 通过 | |
+
+| comment | 置顶次数限制，目前没限制 |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12504 | top | 0 | 通过 | |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12505 | top | 0 | 通过 | |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12421 | top | 0 | 通过 | |
+| 评论置顶加精，置顶 | 数据正确，排序正确 | !-z12@123.com-! | 111111 | | 12498 | top | 0 | 通过 | |
+
+备注：
+
+!contents -R2 -g -p -f -h

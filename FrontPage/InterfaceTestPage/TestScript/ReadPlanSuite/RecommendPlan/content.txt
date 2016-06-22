@@ -1,0 +1,47 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078708
+
+----
+!3 二、接口描述：
+推荐计划接口，由运营在后台配置!-
+-!和标签绑定。
+
+计划状态：上线、下架
+
+按价格分类：付费、免费
+
+标签状态：
+
+排序，按运营推荐顺序排列，若无，按照添加时间正序排列
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | media_column |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+测试数据准备：!-
+-!1、应包括上架下架数据，下架数据不返回!-
+-!2、应包括付费和免费计划。应都返回!-
+-!3、调整顺序，验证返回顺序正确。
+
+| ddt:   recommend plan |
+| 用例名称 | 验证点 | userName | passWord | token | tagId | status code | data verfiy? |
+| 获取推荐计划，有效标签 | 数据正确、排序正确 | !-cailj_ddtest@126.com-! | ddtest | | $tagId=#GetTagIds#PLAN,1 | 0 | 通过 |
+| 获取推荐计划，未登录状态 | 数据正确、排序正确 | | | | $tagId | 10002 | 通过 |
+| 获取推荐计划，无效标签，应失败 | 没有返回数据 | !-cailj_ddtest@126.com-! | ddtest | | #GetTagIds#MEDIA,1 | 0 | 通过 |
+| 获取推荐计划，tagId不正确，应失败 | 没有返回数据 | !-cailj_ddtest@126.com-! | ddtest | | 22222 | 0 | 通过 |
+| 获取推荐计划，tagId不传，应失败 | 没有返回数据 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 10002 | 通过 |
+| 获取推荐计划，token不正确 | 没有返回数据 | | | 12321 | $tagId | 10003 | 通过 |
+| 获取推荐计划，token不传 | 没有返回数据 | | | #NotPass# | $tagId | 10002 | 通过 |
+
+备注：
+
+性能测试：配置计划数据量较小，暂不考虑
+
+!contents -R2 -g -p -f -h

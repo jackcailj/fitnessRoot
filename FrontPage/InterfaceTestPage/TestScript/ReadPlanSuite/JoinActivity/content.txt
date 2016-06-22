@@ -1,0 +1,46 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078821
+
+----
+!3 二、接口描述：
+加入读书活动接口
+
+加入读书活动前提拥有读书计划的权限
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan_activity |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_activitiy |
+
+| ddt: join activity |
+| 用例名称 | 验证点 | userName | passWord | token | mediaDigestId | type | status code | data verfiy? | 耗时? |
+| 加入免费读书活动 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 16241 | 1 | 0 | 通过 | |
+
+| comment |
+| 加入免费读书活动 | 数据正确 | !-z9@123.com-! | 111111 | | 16241 | 1 | 0 | 通过 | |
+| 加入收费读书活动 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 16241 | 1 | 0 | 通过 | |
+| 参与者退出读书活动 | 数据正确 | !-cailj_ddtest@126.com-! | ddtest | | 16241 | 0 | 0 | 通过 | |
+| 创建者退出读书活动 | 退出失败 | !-cailj_ddtest@126.com-! | ddtest | | 16241 | 0 | 70202 | 通过 | |
+| 重复加入读书活动 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | 16241 | 1 | 70200 | 通过 | |
+| 加入读书活动，活动计划已经在参与的活动中 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | | 1 | 70200 | 通过 | |
+| 加入已结束的读书活动，应失败 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | 16244 | 1 | 70204 | 通过 | |
+| 退出已结束读书活动 | 退出失败 | !-cailj_ddtest@126.com-! | ddtest | | 16244 | 1 | 70204 | 通过 | |
+| 加入读书活动，mediaDigestId不正确，加入应失败 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | 1235789 | 1 | 0 | 通过 | |
+| 加入读书活动，mediaDigestId不传，加入应失败 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 1 | 10002 | 通过 | |
+| 加入读书活动，type不正确，加入应失败 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | 16241 | 3 | 70203 | 通过 | |
+| 加入读书活动，type不传，加入应失败 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | 16241 | #NotPass# | 10002 | 通过 | |
+| 加入读书活动，token不传，加入应失败 | 加入失败 | | | #NotPass# | 16241 | #NotPass# | 10002 | 通过 | |
+| 加入读书活动，token不正确，加入应失败 | 加入失败 | | | 2312 | 16241 | #NotPass# | 10002 | 通过 | |
+
+| comment | 此需求已经无效 |
+| 读书活动剩余时间小于1/3时，加入应失败 | 加入失败 | !-cailj_ddtest@126.com-! | ddtest | | 1900089319 | 1 | 10002 | 通过 | |
+
+备注：
+
+!contents -R2 -g -p -f -h

@@ -1,0 +1,57 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078710
+
+----
+!3 二、接口描述：
+推荐训练接口，由运营在后台配置!-
+-!和标签绑定。
+
+数据：总字数、完成时间、最大完成时间（完成时间*2）、书籍、每日阅读字数、价格
+
+排序，按运营推荐顺序排列，若无，按照添加时间正序排列
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan,plan_detail |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+测试数据准备：
+
+1、调整推荐顺序，验证返回是否正确!-
+-!2、训练上下架与书籍上下架一致
+
+| ddt:   recommend training |
+| 用例名称 | 验证点 | userName | passWord | token | tagId | pageNo | pageSize | status code | data verfiy? |
+| 获取推荐训练，有效标签 | 数据正确、排序正确 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId=#GetTagIds#TRAINING,1 | 0 | 9 | 0 | 通过 |
+
+
+|comment|
+| 获取推荐训练，未登录状态 | 数据正确、排序正确 | | | | $planTagId | | | 10002 | 通过 |
+| 获取推荐训练，获取第二页数据 | 数据正确、排序正确 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId | 2 | 2 | 0 | 通过 |
+| 获取推荐训练，无效抱歉 | 数据正确、排序正确 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId=#GetTagIds#CHANNEL,1 | 0 | 100 | 0 | 通过 |
+| 获取推荐训练，训练下架，应不返回 | 数据正确、排序正确 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId | 0 | 2 | 0 | 通过 |
+| 获取推荐训练，pageNo不传 | 数据正确、排序正确 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId | #NotPass# | 2 | 10002 | 通过 |
+| 获取推荐训练，pageSize不传 | 数据正确、排序正确 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId | 1 | #NotPass# | 10002 | 通过 |
+| 获取推荐训练，tagId不正确，应失败 | 没有返回数据 | !-cailj_ddtest@126.com-! | ddtest | | 12131231 | 0 | 2 | 0 | 通过 |
+| 获取推荐训练，tagId不传，应失败 | 没有返回数据 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 0 | 2 | 10002 | 通过 |
+| 获取推荐训练，token不正确 | 没有返回数据 | !-cailj_ddtest@126.com-! | ddtest | 12321 | $planTagId | 0 | 2 | 10003 | 通过 |
+| 获取推荐训练，token不传 | 没有返回数据 | !-cailj_ddtest@126.com-! | ddtest | #NotPass# | $planTagId | 0 | 2 | 10002 | 通过 |
+| 获取推荐训练，pageNo为非数字 | 没有返回数据，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId | a | 2 | 0 | 通过 |
+| 获取推荐训练，pageSize为非数字 | 没有返回数据，服务器正常 | !-cailj_ddtest@126.com-! | ddtest | | $planTagId | 1 | a | 0 | 通过 |
+
+| comment |
+| 标签中包括下架训练，不显示 | 通过 |
+
+备注：
+
+性能测试：配置训练数据量较小，暂不考虑
+
+恶意操作风险，如果数据量较大，pageSize设置为足够大返回所有数据，可能会影响服务器性能。
+
+!contents -R2 -g -p -f -h

@@ -1,0 +1,33 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7078684
+
+----
+!3 二、接口描述：
+读书计划详情页
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+| ddt:   read training top |
+| 用例名称 | 验证点 | userName | passWord | token | processId | trainingId | status code | data verfiy? | 耗时? |
+| 训练排名列表 | 数据正确，顺序正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId=#GetMyJoinProgressAndTrainingId# | $trainingId | 0 | 通过 | |
+
+
+|comment|
+| 训练排名列表，未参加trainingId，应失败 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | 4 | 0 | 通过 | |
+| 训练排名列表，trainingId不正确 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | $progressId | 12321 | 0 | 通过 | |
+| 训练排名列表，trainingId不传 | 错误码正确 | !-cailj_ddtest@126.com-! | ddtest | | | #NotPass# | 10002 | 通过 | |
+| 训练排名列表，token不传，应失败 | 错误码正确 | | | #NotPass# | $progressId | $trainingId | 10002 | 通过 | |
+| 训练排名列表，token为空，应成功 | 错误码正确 | | | | $progressId | $trainingId | 10002 | 通过 | |
+
+备注：
+
+!contents -R2 -g -p -f -h

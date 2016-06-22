@@ -1,0 +1,43 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079552
+
+----
+!3 二、接口描述：
+批量统计阅读进度
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_plan |
+
+lastSynDate为今天时才更新今日阅读进度，否则更新其他的数据
+
+readTime在数据库里为累加。
+
+totalFinishRate：值大于数据库中值时才更新
+
+todayFinishRate：当大于数据库中值时才更新
+
+plan_training_rank表中readTime、finishReadRate为todayFinishRate累加数据。
+
+| ddt:   syn read progress multi |
+| 用例名称 | 验证点 | userName | passWord | token | readProgressJson | status code | data verfiy? |
+| 批量上传阅读进度 | 数据正确，顺序正确 | !-clj3@126.com-! | 111111 | | [{"78":{"chapter":103,"chapterOffSet":410,"chapterOffSetStart":400,"chapterStart":103,"daliyReadTime":15000,"lastSynDate":1466155637000,"mediaId":"1900907573","readCoverage":"/4OAAAAAHgHAAAB/AAAAAAAAAAAAAAAAAABgHcAA44AAB+O4DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","todayFinishRate":0.32,"totalFinishRate":0.32,"trainingStatus":1}}] | 0 | 通过 |
+
+备注：!-
+-!没有阅读记录
+
+有阅读记录!-
+-!一天多次更新进度
+
+更新昨天的记录，
+
+其中一个值异常（totalFinishDate>1)
+
+!contents -R2 -g -p -f -h

@@ -70,6 +70,7 @@
 !* 测试数据
 |getCommentListTest|
 |#用例名称|action|targetId|targetSource|pageNum|commentId|期望|result|
+|正常流程|getCommentListV2|FromDB|3000|1|0|0|pass|
 |正常流程|getCommentListV2|FromDB|1000|1|0|0|pass|
 |正常流程|getCommentListV2|FromDB|2000|1|0|0|pass|
 |正常流程|getCommentListV2|FromDB|3000|1|0|0|pass|

@@ -1,0 +1,33 @@
+!define TEST_SYSTEM {slim}
+!3 一、接口wiki地址：
+接口描述及接口返回code见http://10.255.223.124:8080/confluence/pages/viewpage.action?pageId=7079032
+
+----
+!3 二、接口描述：
+获取活动推荐接口
+
+!3 三、涉及数据库
+| Comment |
+| 数据库 | 表 |
+| digital | plan_activity，plan_process |
+
+----
+!3 四、测试用例:
+| Import |
+| com.dangdang.readerV5.read_activitiy |
+
+| ddt: recommend activity list |
+| 用例名称 | 验证点 | userName | passWord | token | planId | index | pageSize | status code | flag | data verfiy? | 耗时? |
+| 获取推荐活动 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 179 | 2 | 2 | 0 | | 通过 | |
+| 获取推荐活动 ,planId不正确 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 12321321 | 1 | 2 | 0 | 返回值为null | 通过 | |
+| 获取推荐活动，planId不传 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | #NotPass# | 1 | 2 | 10002 | | 通过 | |
+| 获取推荐活动，index为非数字 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 179 | adb | 2 | 200 | | 通过 | |
+| 获取推荐活动，index不传 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 179 | #NotPass# | 2 | 10002 | | 通过 | |
+| 获取推荐活动，pageSize为非数字 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 179 | 1 | adb | 200 | | 通过 | |
+| 获取推荐活动，pageSize不传 | 数据正确，排序正确 | !-cailj_ddtest@126.com-! | ddtest | | 179 | 1 | #NotPass# | 10002 | | 通过 | |
+
+备注：
+
+sql注入测试--完成未发现问题--
+
+!contents -R2 -g -p -f -h
